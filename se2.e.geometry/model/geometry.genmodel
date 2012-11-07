@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/se2.e.geometry/src" modelPluginID="se2.e.geometry"
+    modelName="Geometry" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>geometry.ecore</foreignModel>
+  <genPackages prefix="Geometry" disposableProviderFactory="true" ecorePackage="geometry.ecore#/">
+    <genClasses ecoreClass="geometry.ecore#//Geometry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//Geometry/ID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference geometry.ecore#//Geometry/geoObjects"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="geometry.ecore#//GeometryObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//GeometryObject/label"/>
+    </genClasses>
+    <genClasses ecoreClass="geometry.ecore#//Track">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference geometry.ecore#//Track/startPosition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference geometry.ecore#//Track/endPosition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference geometry.ecore#//Track/intermediatePositions"/>
+    </genClasses>
+    <genClasses ecoreClass="geometry.ecore#//Position">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//Position/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//Position/y"/>
+    </genClasses>
+    <genClasses ecoreClass="geometry.ecore#//ClickablePosition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference geometry.ecore#//ClickablePosition/position"/>
+    </genClasses>
+    <genClasses ecoreClass="geometry.ecore#//trackPosition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference geometry.ecore#//trackPosition/position"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

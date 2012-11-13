@@ -7,7 +7,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/ext/j3dcore.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:platform:/resource/se2.e.3dengine/lib/ext/j3d-1_5_2-api-docs.zip!/j3d-1_5_2-api-docs"/>
+			<attribute name="javadoc_location" value="jar:platform:/resource/se2.e.3dengine/lib/ext/java3d-1_5_1-api-docs.zip!/java3d-1_5_1-api-docs"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/ext/j3dutils.jar"/>

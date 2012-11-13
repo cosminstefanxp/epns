@@ -1,7 +1,6 @@
 package se2.e.engine3d;
 
 import geometry.Geometry;
-import petrinet.Place;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 
 /**
@@ -23,14 +22,14 @@ public interface Engine3D {
 
 	/**
 	 * Starts an animation.
-	 *
+	 * 
 	 * @param token the token
-	 * @param animation the animation
+	 * @param place the place
 	 */
-	public void startAnimation(RuntimeToken token, Object animation);
+	public void startAnimation(RuntimeToken token, String placeLabel, Object animation);
 
 	/**
-	 * Sets the engine 3D listener. For now, there can only be one active 3D listener.
+	 * Sets the engine 3D listener.
 	 * 
 	 * @param listener the new Engine 3d listener
 	 */

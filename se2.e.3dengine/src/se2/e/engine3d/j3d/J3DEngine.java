@@ -33,7 +33,7 @@ import javax.vecmath.Point3f;
 import javax.vecmath.Vector3d;
 import javax.vecmath.Vector3f;
 
-import petrinet.Place;
+
 import se2.e.engine3d.Engine3D;
 import se2.e.engine3d.Engine3DListener;
 import se2.e.engine3d.GeometryAndAppearanceLoader;
@@ -176,13 +176,13 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 			if (!(obj instanceof Track))
 				continue;
 			Track track = (Track) obj;
-			TrackPosition firstPoint = track.getContains().get(0);
-			TrackPosition lastPoint = track.getContains().get(track.getContains().size() - 1);
+			TrackPosition firstPoint = track.getStartPosition();
+			TrackPosition lastPoint = track.getEndPosition();
 
 			// Show the tracks
 			LineArray lineArr = new LineArray(2, LineArray.COORDINATES);
-			lineArr.setCoordinate(0, new Point3d(firstPoint.getX(), firstPoint.getY(), DRAWING_PLANE_Z));
-			lineArr.setCoordinate(1, new Point3d(lastPoint.getX(), lastPoint.getY(), DRAWING_PLANE_Z));
+			lineArr.setCoordinate(0, new Point3d(firstPoint.getPosition().getX(), firstPoint.getPosition().getY(), DRAWING_PLANE_Z));
+			lineArr.setCoordinate(1, new Point3d(lastPoint.getPosition().getX(), lastPoint.getPosition().getY(), DRAWING_PLANE_Z));
 
 			// Add the line to the track group
 			Shape3D plShape = new Shape3D(lineArr);
@@ -226,11 +226,11 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 	 * @author cosmin
 	 */
 	@Override
-	public void startAnimation(RuntimeToken token, Place place) {
+	public void startAnimation(RuntimeToken token, String placeLabel, Object animationOnPlace) {
 		// TODO: Update all types of animations
 
 		// Get the associated geometry
-		GeometryObject geometryObj = loader.getGeometryObject(place.getGeometryLabel());
+		GeometryObject geometryObj = loader.getGeometryObject(placeLabel);
 		if (!(geometryObj instanceof Track)) {
 			log.severe("Starting animation for token " + token + " on place with wrong type of geometry: "
 					+ geometryObj);
@@ -265,12 +265,12 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 
 		/** Start the animation **/
 		// Get the track points and their coordinates
-		TrackPosition firstPoint = track.getContains().get(0);
-		TrackPosition lastPoint = track.getContains().get(track.getContains().size() - 1);
+		TrackPosition firstPoint = track.getStartPosition();
+		TrackPosition lastPoint = track.getEndPosition();
 
 		// Put the token representation at the beginning of the path
 		Transform3D initTransform = new Transform3D();
-		initTransform.setTranslation(new Vector3d(firstPoint.getX(), firstPoint.getY(), DRAWING_PLANE_Z));
+		initTransform.setTranslation(new Vector3d(firstPoint.getPosition().getX(), firstPoint.getPosition().getY(), DRAWING_PLANE_Z));
 		animation.transformGroup.setTransform(initTransform);
 
 		// Create a Behavior (Interpolator) node that moves the cube and add it to the scene
@@ -278,8 +278,8 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 		Alpha timing = new Alpha(1, 4000);
 		timing.setStartTime(new Date().getTime());
 		timing.setMode(Alpha.INCREASING_ENABLE);
-		Point3f startPoint = new Point3f(new Point3d(firstPoint.getX(), firstPoint.getY(), DRAWING_PLANE_Z));
-		Point3f endPoint = new Point3f(new Point3d(lastPoint.getX(), lastPoint.getY(), DRAWING_PLANE_Z));
+		Point3f startPoint = new Point3f(new Point3d(firstPoint.getPosition().getX(), firstPoint.getPosition().getY(), DRAWING_PLANE_Z));
+		Point3f endPoint = new Point3f(new Point3d(lastPoint.getPosition().getX(), lastPoint.getPosition().getY(), DRAWING_PLANE_Z));
 		PositionPathInterpolator nodePositionInterpolator = new PositionPathInterpolator(timing,
 				animation.transformGroup, yAxis, new float[] { 0, 1 }, new Point3f[] { startPoint, endPoint });
 		BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 100.0);

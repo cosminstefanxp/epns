@@ -1,6 +1,5 @@
 package se2.e.engine3d;
 
-import petrinet.Token;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 
 /**

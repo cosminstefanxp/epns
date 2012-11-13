@@ -32,7 +32,7 @@ public class GeometryAndAppearanceLoader {
 	public GeometryAndAppearanceLoader(Geometry geometry, Object appearance) {
 		// TODO: eventually fix appearance type
 		log.info("Loading geometry and appearance configurations...");
-		List<GeometryObject> geomObjs = geometry.getContains();
+		List<GeometryObject> geomObjs = geometry.getGeoObjects();
 		geometryObjects = new HashMap<String, GeometryObject>();
 		for (GeometryObject geomObj : geomObjs) {
 			geometryObjects.put(geomObj.getLabel(), geomObj);

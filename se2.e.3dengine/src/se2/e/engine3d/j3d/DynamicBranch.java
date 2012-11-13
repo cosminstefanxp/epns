@@ -67,5 +67,6 @@ public class DynamicBranch {
 		super();
 		this.transformGroup = transformGroup;
 		this.branchGroup = branchGroup;
+		this.behaviorNode = null;
 	}
 }

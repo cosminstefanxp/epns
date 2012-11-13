@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/se2.e.animations/src" modelPluginID="se2.e.animations"
+    modelName="Animations" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>Animations.ecore</foreignModel>
+  <genPackages prefix="Animations" disposableProviderFactory="true" ecorePackage="Animations.ecore#/">
+    <genClasses ecoreClass="Animations.ecore#//Animation"/>
+    <genClasses ecoreClass="Animations.ecore#//Sequence">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Animations.ecore#//Sequence/components"/>
+    </genClasses>
+    <genClasses ecoreClass="Animations.ecore#//Hide">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Animations.ecore#//Hide/simplePosition"/>
+    </genClasses>
+    <genClasses ecoreClass="Animations.ecore#//Show">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Animations.ecore#//Show/simplePosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Animations.ecore#//Show/shape"/>
+    </genClasses>
+    <genClasses ecoreClass="Animations.ecore#//Move">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Animations.ecore#//Move/speed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Animations.ecore#//Move/geoTrack"/>
+    </genClasses>
+    <genClasses ecoreClass="Animations.ecore#//Wait">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Animations.ecore#//Wait/time"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

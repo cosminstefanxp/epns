@@ -20,7 +20,7 @@ package geometry;
  * @model
  * @generated
  */
-public interface SimplePosition extends GeometryObject {
+public interface SimplePosition extends GeometryObject, Name {
 	/**
 	 * Returns the value of the '<em><b>Position</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

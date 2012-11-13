@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Track extends GeometryObject {
+public interface Track extends GeometryObject, Name {
 	/**
 	 * Returns the value of the '<em><b>Start Position</b></em>' reference.
 	 * <!-- begin-user-doc -->

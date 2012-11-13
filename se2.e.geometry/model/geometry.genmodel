@@ -9,7 +9,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference geometry.ecore#//Geometry/geoObjects"/>
     </genClasses>
     <genClasses image="false" ecoreClass="geometry.ecore#//GeometryObject">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//GeometryObject/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//GeometryObject/ID"/>
     </genClasses>
     <genClasses ecoreClass="geometry.ecore#//Track">
@@ -28,6 +27,9 @@
     </genClasses>
     <genClasses ecoreClass="geometry.ecore#//TrackPosition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference geometry.ecore#//TrackPosition/position"/>
+    </genClasses>
+    <genClasses ecoreClass="geometry.ecore#//Name">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//Name/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

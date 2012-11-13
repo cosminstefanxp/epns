@@ -11,19 +11,21 @@
         href="geometry.ecore#//Geometry/geoObjects"/>
     <ownedChild>
       <domainMetaElement
-          href="geometry.ecore#//ClickablePosition"/>
+          href="geometry.ecore#//SimplePosition"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="geometry.gmfgraph#ClickablePositionLabel"/>
+            href="geometry.gmfgraph#SimplePositionName"/>
         <features
-            href="geometry.ecore#//GeometryObject/label"/>
+            href="geometry.ecore#//Name/name"/>
+        <editableFeatures
+            href="geometry.ecore#//Name/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="geometry.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
-          href="geometry.gmfgraph#ClickablePosition"/>
+          href="geometry.gmfgraph#SimplePosition"/>
     </ownedChild>
   </nodes>
   <nodes>
@@ -31,14 +33,7 @@
         href="geometry.ecore#//Geometry/geoObjects"/>
     <ownedChild>
       <domainMetaElement
-          href="geometry.ecore#//trackPosition"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="geometry.gmfgraph#ClickablePositionLabel"/>
-        <features
-            href="geometry.ecore#//GeometryObject/label"/>
-      </labelMappings>
+          href="geometry.ecore#//TrackPosition"/>
       <tool
           xsi:type="gmftool:CreationTool"
           href="geometry.gmftool#//@palette/@tools.0/@tools.2"/>
@@ -49,6 +44,15 @@
   <links>
     <domainMetaElement
         href="geometry.ecore#//Track"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping">
+      <diagramLabel
+          href="geometry.gmfgraph#TrackName"/>
+      <features
+          href="geometry.ecore#//Name/name"/>
+      <editableFeatures
+          href="geometry.ecore#//Name/name"/>
+    </labelMappings>
     <containmentFeature
         href="geometry.ecore#//Geometry/geoObjects"/>
     <tool

@@ -12,24 +12,27 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name="TrackFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
         <children
             xsi:type="gmfgraph:Label"
-            name="TrackLabelFigure"
+            name="TrackNameFigure"
             text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="ClickablePositionFigure">
+        name="SimplePositionFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="ClickablePositionFigure">
+          name="SimplePositionFigure"
+          lineKind="LINE_DASH">
         <layout
             xsi:type="gmfgraph:FlowLayout"/>
         <children
             xsi:type="gmfgraph:Label"
-            name="ClickablePositionLabelFigure"
+            name="SimplePositionNameFigure"
             text="&lt;...>"/>
       </actualFigure>
       <accessors
@@ -38,21 +41,19 @@
     <descriptors
         name="TrackPositionFigure">
       <actualFigure
-          xsi:type="gmfgraph:Ellipse">
-        <preferredSize
+          xsi:type="gmfgraph:Rectangle"
+          name="TrackPositionFigure">
+        <foregroundColor
+            xsi:type="gmfgraph:RGBColor"/>
+        <maximumSize
             dx="10"
             dy="10"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="TrackPositionLabelFigure"/>
       </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
     </descriptors>
   </figures>
   <nodes
-      name="ClickablePosition"
-      figure="ClickablePositionFigure"/>
+      name="SimplePosition"
+      figure="SimplePositionFigure"/>
   <nodes
       name="TrackPosition"
       figure="TrackPositionFigure"/>
@@ -60,15 +61,11 @@
       name="Track"
       figure="TrackFigure"/>
   <labels
-      name="TrackLabel"
+      name="TrackName"
       figure="TrackFigure"
       accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels
-      name="ClickablePositionLabel"
-      figure="ClickablePositionFigure"
+      name="SimplePositionName"
+      figure="SimplePositionFigure"
       accessor="//@figures.0/@descriptors.1/@accessors.0"/>
-  <labels
-      name="TrackPositionLabel"
-      figure="TrackPositionFigure"
-      accessor="//@figures.0/@descriptors.2/@accessors.0"/>
 </gmfgraph:Canvas>

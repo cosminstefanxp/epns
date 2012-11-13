@@ -20,8 +20,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="ClickablePosition"
-          description="Create new ClickablePosition">
+          title="SimplePosition"
+          description="Create new SimplePosition">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

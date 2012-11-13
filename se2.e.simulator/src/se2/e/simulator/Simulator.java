@@ -60,7 +60,7 @@ public class Simulator implements Engine3DListener {
 		rpn.markToken( token);
 		List<TokenMovement> tokenMovements = rpn.fireTransitions();
 		for(TokenMovement tokenMovement : tokenMovements) {
-			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getPlace());
+			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getPlace(), tokenMovement.getAnimation());
 		}
 
 	}
@@ -73,8 +73,21 @@ public class Simulator implements Engine3DListener {
 		// fire transitions
 		List<TokenMovement> tokenMovements = rpn.fireTransitions();
 		for(TokenMovement tokenMovement : tokenMovements) {
-			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getPlace());
+			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getPlace(), tokenMovement.getAnimation());
 		}
 	}
 
+	public void onUserInteraction(String label) {
+		//drop token on the place with the label label
+		rpn.dropTokenOnPlace(label);
+		List<TokenMovement> tokenMovements = rpn.fireTransitions();
+		for(TokenMovement tokenMovement : tokenMovements) {
+			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getPlace(), tokenMovement.getAnimation());
+		}
+	}
+
+
+	public void onStopSimulation() {
+		
+	}
 }

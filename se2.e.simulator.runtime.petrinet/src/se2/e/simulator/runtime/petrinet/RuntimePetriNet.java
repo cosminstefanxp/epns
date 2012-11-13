@@ -169,12 +169,15 @@ public class RuntimePetriNet {
 			}
 			removedTokens.add(tokenExt);
 		}
+		int count = 0;
 		/* add tokens to postsets */
 		for (PlaceImpl place : selectedTransitionPostset) {
 			//TODO: for final version: iterate over removedTokens
-			RuntimeToken tokenExt = new RuntimeToken("cub rosu");
+			String geomLabel = removedTokens.get(count%removedTokens.size()).getLabel();
+			count++;
+			RuntimeToken tokenExt = new RuntimeToken(geomLabel);
 			tokensMap.get(place).add(tokenExt);
-			tokensMovement.add(new TokenMovement(tokenExt, place));
+			tokensMovement.add(new TokenMovement(tokenExt, place.getLabel(), place.getAnimation()));
 			System.out.println("Adaug token movement!!!");
 		}
 		return tokensMovement;
@@ -211,6 +214,24 @@ public class RuntimePetriNet {
 	 */
 	public void markToken(RuntimeToken token) {
 		(token).setFinished(true);
+	}
+	
+	/**
+	 * Drop token on place.
+	 *
+	 * @param placeLabel the place label
+	 */
+	public void dropTokenOnPlace(String placeLabel) {
+		//TODO:
+		RuntimeToken droppedToken = new RuntimeToken("none");
+		Place placeForLabel = null;
+		for(Place place : tokensMap.keys()) {
+			if(place.getLabel().equals(placeLabel)) {
+				placeForLabel = place;
+				break;
+			}		
+		}
+		tokensMap.get(place).add(droppedToken);
 	}
 
 }

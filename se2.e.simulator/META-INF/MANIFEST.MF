@@ -5,9 +5,6 @@ Bundle-SymbolicName: se2.e.simulator;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.resources,
- se2.e.petrinet;bundle-version="1.0.0",
- se2.e.petrinet.edit;bundle-version="1.0.0",
- se2.e.petrinet.editor;bundle-version="1.0.0",
  se2.e.3dengine;bundle-version="1.0.0",
  se2.e.simulator.runtime.petrinet;bundle-version="1.0.0",
  se2.e.geometry;bundle-version="1.0.0"

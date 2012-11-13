@@ -1,6 +1,5 @@
 package se2.e.simulator.runtime.petrinet;
 
-import petrinet.Token;
 
 /**
  * The Class RuntimeToken.
@@ -30,16 +29,6 @@ public class RuntimeToken {
 	 */
 	public void setLabel(String label) {
 		this.label = label;
-	}
-
-	/**
-	 * Instantiates a new runtime token.
-	 * 
-	 * @param token the token
-	 */
-	public RuntimeToken(Token token) {
-		this.finished = true;
-		this.label = token.getLabel();
 	}
 
 	/**

@@ -22,9 +22,23 @@ public interface Engine3DListener {
 	public void onAnimationFinished(RuntimeToken token);
 
 	/**
+	 * Method run when an user interaction with an input place has been detected.
+	 * 
+	 * @param label the label of the element the user interacted with
+	 */
+	public void onUserInteraction(String label);
+
+	/**
 	 * Method run when the simulation should start, usually as an effect of the user clicking on a Start button.
 	 * Expected behavior includes creating of dynamic objects (e.g. {@link Token} representations) and starting initial
 	 * animations.
 	 */
 	public void onStartSimulation();
+
+	/**
+	 * Method run when the simulation should stop, usually as an effect of the user clicking on a Stop button. Expected
+	 * behavior includes reseting any running simulation, so that a subsequent call to onStartSimulation() works as
+	 * expected.
+	 */
+	public void onStopSimulation();
 }

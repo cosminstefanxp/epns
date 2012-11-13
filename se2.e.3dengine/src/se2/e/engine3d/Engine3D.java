@@ -23,14 +23,14 @@ public interface Engine3D {
 
 	/**
 	 * Starts an animation.
-	 * 
+	 *
 	 * @param token the token
-	 * @param place the place
+	 * @param animation the animation
 	 */
-	public void startAnimation(RuntimeToken token, Place place);
+	public void startAnimation(RuntimeToken token, Object animation);
 
 	/**
-	 * Sets the engine 3D listener.
+	 * Sets the engine 3D listener. For now, there can only be one active 3D listener.
 	 * 
 	 * @param listener the new Engine 3d listener
 	 */

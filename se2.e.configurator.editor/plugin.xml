@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="configurator.presentation.ConfiguratorModelWizardID"
+            name="%_UI_ConfiguratorModelWizard_label"
+            class="configurator.presentation.ConfiguratorModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ConfiguratorModelFile.gif">
+         <description>%_UI_ConfiguratorModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="configurator.presentation.ConfiguratorEditorID"
+            name="%_UI_ConfiguratorEditor_label"
+            icon="icons/full/obj16/ConfiguratorModelFile.gif"
+            extensions="configurator"
+            class="configurator.presentation.ConfiguratorEditor"
+            contributorClass="configurator.presentation.ConfiguratorActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="geometry.presentation.GeometryModelWizardID"
+            name="%_UI_GeometryModelWizard_label"
+            class="geometry.presentation.GeometryModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/GeometryModelFile.gif">
+         <description>%_UI_GeometryModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="geometry.presentation.GeometryEditorID"
+            name="%_UI_GeometryEditor_label"
+            icon="icons/full/obj16/GeometryModelFile.gif"
+            extensions="geometry"
+            class="geometry.presentation.GeometryEditor"
+            contributorClass="geometry.presentation.GeometryActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="petrinet.presentation.PetrinetModelWizardID"
+            name="%_UI_PetrinetModelWizard_label"
+            class="petrinet.presentation.PetrinetModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/PetrinetModelFile.gif">
+         <description>%_UI_PetrinetModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="petrinet.presentation.PetrinetEditorID"
+            name="%_UI_PetrinetEditor_label"
+            icon="icons/full/obj16/PetrinetModelFile.gif"
+            extensions="petrinet"
+            class="petrinet.presentation.PetrinetEditor"
+            contributorClass="petrinet.presentation.PetrinetActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

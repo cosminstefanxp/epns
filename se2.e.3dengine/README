@@ -1,0 +1,11 @@
+How to make Java3D work:
+
+Ubuntu (reference Cosmin)
+------
+1. Unzip proper archive from http://download.java.net/media/java3d/builds/release/1.5.1/
+2. Copy the i386 folder in the archive to the path where the java is installed. My case: /usr/lib/jvm/java-1.6.0-openjdk-i386/lib
+
+Windows (reference Marius)
+------
+1. Used the installer from Oracle for Java3D 1.5.1: 
+	http://download.oracle.com/otnhttp://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-java-client-419417.html#java3d-1.5.1-oth-JPR-pub/java/java3d/1.5.1/java3d-1_5_1-windows-i586.exe 

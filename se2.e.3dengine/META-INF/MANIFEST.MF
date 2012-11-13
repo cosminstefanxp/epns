@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: 3dengine
+Bundle-SymbolicName: se2.e.3dengine
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: 3dengine.jar,
+ lib/ext/j3dcore.jar,
+ lib/ext/j3dutils.jar,
+ lib/ext/vecmath.jar
+Export-Package: se2.e.engine3d
+Require-Bundle: se2.e.petrinet;bundle-version="1.0.0",
+ se2.e.geometry;bundle-version="1.0.0",
+ se2.e.simulator.runtime.petrinet;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

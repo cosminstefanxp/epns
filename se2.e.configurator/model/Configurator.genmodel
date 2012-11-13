@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/se2.e.configurator/src" editDirectory="/se2.e.configurator.edit/src"
+    editorDirectory="/se2.e.configurator.editor/src" modelPluginID="se2.e.petrinet.configurator"
+    modelName="Configurator" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    copyrightFields="false" editPluginID="se2.e.configurator.edit" editorPluginID="se2.e.configurator.editor">
+  <foreignModel>Configurator.ecore</foreignModel>
+  <genPackages prefix="Configurator" disposableProviderFactory="true" ecorePackage="Configurator.ecore#/">
+    <genClasses ecoreClass="Configurator.ecore#//Configurator">
+      <genFeatures notify="false" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference Configurator.ecore#//Configurator/geometry"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Configurator.ecore#//Configurator/petriNet"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Geometry" resource="XMI" disposableProviderFactory="true" contentTypeIdentifier=""
+      ecorePackage="../../se2.e.geometry/model/Geometry.ecore#/">
+    <genClasses ecoreClass="../../se2.e.geometry/model/Geometry.ecore#//Position">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../se2.e.geometry/model/Geometry.ecore#//Position/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../se2.e.geometry/model/Geometry.ecore#//Position/y"/>
+    </genClasses>
+    <genClasses ecoreClass="../../se2.e.geometry/model/Geometry.ecore#//TrackPosition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../se2.e.geometry/model/Geometry.ecore#//TrackPosition/contains"/>
+    </genClasses>
+    <genClasses ecoreClass="../../se2.e.geometry/model/Geometry.ecore#//Track">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../se2.e.geometry/model/Geometry.ecore#//Track/contains"/>
+    </genClasses>
+    <genClasses ecoreClass="../../se2.e.geometry/model/Geometry.ecore#//GeometryObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../se2.e.geometry/model/Geometry.ecore#//GeometryObject/label"/>
+    </genClasses>
+    <genClasses ecoreClass="../../se2.e.geometry/model/Geometry.ecore#//Geometry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../se2.e.geometry/model/Geometry.ecore#//Geometry/contains"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Petrinet" ecorePackage="../../se2.e.petrinet/model/PetriNet.ecore#/">
+    <genClasses ecoreClass="../../se2.e.petrinet/model/PetriNet.ecore#//PetriNet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../se2.e.petrinet/model/PetriNet.ecore#//PetriNet/ID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../se2.e.petrinet/model/PetriNet.ecore#//PetriNet/PNitems"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../se2.e.petrinet/model/PetriNet.ecore#//Item">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../se2.e.petrinet/model/PetriNet.ecore#//Item/ID"/>
+    </genClasses>
+    <genClasses ecoreClass="../../se2.e.petrinet/model/PetriNet.ecore#//Token">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../se2.e.petrinet/model/PetriNet.ecore#//Token/label"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../se2.e.petrinet/model/PetriNet.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../se2.e.petrinet/model/PetriNet.ecore#//Node/Name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../se2.e.petrinet/model/PetriNet.ecore#//Node/sourceof"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../se2.e.petrinet/model/PetriNet.ecore#//Node/targetof"/>
+    </genClasses>
+    <genClasses ecoreClass="../../se2.e.petrinet/model/PetriNet.ecore#//Arc">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../se2.e.petrinet/model/PetriNet.ecore#//Arc/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../se2.e.petrinet/model/PetriNet.ecore#//Arc/target"/>
+    </genClasses>
+    <genClasses ecoreClass="../../se2.e.petrinet/model/PetriNet.ecore#//Transition"/>
+    <genClasses ecoreClass="../../se2.e.petrinet/model/PetriNet.ecore#//Place">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../se2.e.petrinet/model/PetriNet.ecore#//Place/Ptoken"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../se2.e.petrinet/model/PetriNet.ecore#//Place/geometryLabel"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

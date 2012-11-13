@@ -89,15 +89,15 @@ public class GeometryNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (GeometryVisualIDRegistry.getVisualID(view)) {
+		case TrackEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://geometry/1.0?Track", GeometryElementTypes.Track_4001); //$NON-NLS-1$
 		case TrackPositionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://geometry/1.0?TrackPosition", GeometryElementTypes.TrackPosition_2002); //$NON-NLS-1$
 		case GeometryEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://geometry/1.0?Geometry", GeometryElementTypes.Geometry_1000); //$NON-NLS-1$
-		case TrackEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://geometry/1.0?Track", GeometryElementTypes.Track_4001); //$NON-NLS-1$
 		case SimplePositionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://geometry/1.0?SimplePosition", GeometryElementTypes.SimplePosition_2001); //$NON-NLS-1$
@@ -153,12 +153,12 @@ public class GeometryNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (GeometryVisualIDRegistry.getVisualID(view)) {
+		case TrackEditPart.VISUAL_ID:
+			return getTrack_4001Text(view);
 		case TrackPositionEditPart.VISUAL_ID:
 			return getTrackPosition_2002Text(view);
 		case GeometryEditPart.VISUAL_ID:
 			return getGeometry_1000Text(view);
-		case TrackEditPart.VISUAL_ID:
-			return getTrack_4001Text(view);
 		case SimplePositionEditPart.VISUAL_ID:
 			return getSimplePosition_2001Text(view);
 		}

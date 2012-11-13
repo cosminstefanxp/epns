@@ -217,6 +217,35 @@ public class GeometryNavigatorContentProvider implements ICommonContentProvider 
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (GeometryVisualIDRegistry.getVisualID(view)) {
 
+		case TrackEditPart.VISUAL_ID: {
+			LinkedList<GeometryAbstractNavigatorItem> result = new LinkedList<GeometryAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			GeometryNavigatorGroup target = new GeometryNavigatorGroup(
+					Messages.NavigatorGroupName_Track_4001_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			GeometryNavigatorGroup source = new GeometryNavigatorGroup(
+					Messages.NavigatorGroupName_Track_4001_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					GeometryVisualIDRegistry
+							.getType(TrackPositionEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					GeometryVisualIDRegistry
+							.getType(TrackPositionEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
 		case TrackPositionEditPart.VISUAL_ID: {
 			LinkedList<GeometryAbstractNavigatorItem> result = new LinkedList<GeometryAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -266,35 +295,6 @@ public class GeometryNavigatorContentProvider implements ICommonContentProvider 
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			if (!links.isEmpty()) {
 				result.add(links);
-			}
-			return result.toArray();
-		}
-
-		case TrackEditPart.VISUAL_ID: {
-			LinkedList<GeometryAbstractNavigatorItem> result = new LinkedList<GeometryAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			GeometryNavigatorGroup target = new GeometryNavigatorGroup(
-					Messages.NavigatorGroupName_Track_4001_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			GeometryNavigatorGroup source = new GeometryNavigatorGroup(
-					Messages.NavigatorGroupName_Track_4001_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					GeometryVisualIDRegistry
-							.getType(TrackPositionEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					GeometryVisualIDRegistry
-							.getType(TrackPositionEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
 			}
 			return result.toArray();
 		}

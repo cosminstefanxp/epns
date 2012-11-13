@@ -76,7 +76,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_yegtIyjuEeK4Uo8Z-f0XdA"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_yegtJCjuEeK4Uo8Z-f0XdA"/>
     </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_yee38SjuEeK4Uo8Z-f0XdA" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_yee38SjuEeK4Uo8Z-f0XdA" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="8905185" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="geometry.ecore#//Position"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yee38ijuEeK4Uo8Z-f0XdA" x="320" y="350" width="153"/>
   </children>
@@ -144,7 +144,7 @@
       <styles xmi:type="notation:SortingStyle" xmi:id="_CwEQti18EeKSNOIY6xI3Tw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_CwEQty18EeKSNOIY6xI3Tw"/>
     </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_CwDpoS18EeKSNOIY6xI3Tw" fontColor="4210752" fontName="Ubuntu" fontHeight="10" fillColor="8047085" lineColor="8421504"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_CwDpoS18EeKSNOIY6xI3Tw" fontColor="4210752" fontName="Ubuntu" fontHeight="10" fillColor="8905185" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="geometry.ecore#//Name"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CwDpoi18EeKSNOIY6xI3Tw" x="465" y="245" width="128"/>
   </children>

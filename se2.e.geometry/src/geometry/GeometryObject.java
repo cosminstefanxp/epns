@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link geometry.GeometryObject#getLabel <em>Label</em>}</li>
+ *   <li>{@link geometry.GeometryObject#getID <em>ID</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,5 +47,31 @@ public interface GeometryObject extends EObject {
 	 * @generated
 	 */
 	void setLabel(String value);
+
+	/**
+	 * Returns the value of the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>ID</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>ID</em>' attribute.
+	 * @see #setID(int)
+	 * @see geometry.GeometryPackage#getGeometryObject_ID()
+	 * @model
+	 * @generated
+	 */
+	int getID();
+
+	/**
+	 * Sets the value of the '{@link geometry.GeometryObject#getID <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>ID</em>' attribute.
+	 * @see #getID()
+	 * @generated
+	 */
+	void setID(int value);
 
 } // GeometryObject

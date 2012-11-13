@@ -5,21 +5,21 @@ package geometry;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>track Position</b></em>'.
+ * A representation of the model object '<em><b>Track Position</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link geometry.trackPosition#getPosition <em>Position</em>}</li>
+ *   <li>{@link geometry.TrackPosition#getPosition <em>Position</em>}</li>
  * </ul>
  * </p>
  *
- * @see geometry.GeometryPackage#gettrackPosition()
+ * @see geometry.GeometryPackage#getTrackPosition()
  * @model
  * @generated
  */
-public interface trackPosition extends GeometryObject {
+public interface TrackPosition extends GeometryObject {
 	/**
 	 * Returns the value of the '<em><b>Position</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -30,14 +30,14 @@ public interface trackPosition extends GeometryObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Position</em>' containment reference.
 	 * @see #setPosition(Position)
-	 * @see geometry.GeometryPackage#gettrackPosition_Position()
+	 * @see geometry.GeometryPackage#getTrackPosition_Position()
 	 * @model containment="true"
 	 * @generated
 	 */
 	Position getPosition();
 
 	/**
-	 * Sets the value of the '{@link geometry.trackPosition#getPosition <em>Position</em>}' containment reference.
+	 * Sets the value of the '{@link geometry.TrackPosition#getPosition <em>Position</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Position</em>' containment reference.
@@ -46,4 +46,4 @@ public interface trackPosition extends GeometryObject {
 	 */
 	void setPosition(Position value);
 
-} // trackPosition
+} // TrackPosition

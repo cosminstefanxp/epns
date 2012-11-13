@@ -66,22 +66,13 @@ public interface GeometryPackage extends EPackage {
 	int GEOMETRY = 0;
 
 	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GEOMETRY__ID = 0;
-
-	/**
 	 * The feature id for the '<em><b>Geo Objects</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GEOMETRY__GEO_OBJECTS = 1;
+	int GEOMETRY__GEO_OBJECTS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Geometry</em>' class.
@@ -90,7 +81,7 @@ public interface GeometryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEOMETRY_FEATURE_COUNT = 2;
+	int GEOMETRY_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link geometry.impl.GeometryObjectImpl <em>Object</em>}' class.
@@ -112,13 +103,22 @@ public interface GeometryPackage extends EPackage {
 	int GEOMETRY_OBJECT__LABEL = 0;
 
 	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GEOMETRY_OBJECT__ID = 1;
+
+	/**
 	 * The number of structural features of the '<em>Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GEOMETRY_OBJECT_FEATURE_COUNT = 1;
+	int GEOMETRY_OBJECT_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link geometry.impl.TrackImpl <em>Track</em>}' class.
@@ -138,6 +138,15 @@ public interface GeometryPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRACK__LABEL = GEOMETRY_OBJECT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACK__ID = GEOMETRY_OBJECT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Start Position</b></em>' reference.
@@ -167,13 +176,22 @@ public interface GeometryPackage extends EPackage {
 	int TRACK__INTERMEDIATE_POSITIONS = GEOMETRY_OBJECT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Appearance Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACK__APPEARANCE_LABEL = GEOMETRY_OBJECT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Track</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACK_FEATURE_COUNT = GEOMETRY_OBJECT_FEATURE_COUNT + 3;
+	int TRACK_FEATURE_COUNT = GEOMETRY_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link geometry.impl.PositionImpl <em>Position</em>}' class.
@@ -213,14 +231,14 @@ public interface GeometryPackage extends EPackage {
 	int POSITION_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link geometry.impl.ClickablePositionImpl <em>Clickable Position</em>}' class.
+	 * The meta object id for the '{@link geometry.impl.SimplePositionImpl <em>Simple Position</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see geometry.impl.ClickablePositionImpl
-	 * @see geometry.impl.GeometryPackageImpl#getClickablePosition()
+	 * @see geometry.impl.SimplePositionImpl
+	 * @see geometry.impl.GeometryPackageImpl#getSimplePosition()
 	 * @generated
 	 */
-	int CLICKABLE_POSITION = 4;
+	int SIMPLE_POSITION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -229,7 +247,16 @@ public interface GeometryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLICKABLE_POSITION__LABEL = GEOMETRY_OBJECT__LABEL;
+	int SIMPLE_POSITION__LABEL = GEOMETRY_OBJECT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_POSITION__ID = GEOMETRY_OBJECT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -238,24 +265,32 @@ public interface GeometryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLICKABLE_POSITION__POSITION = GEOMETRY_OBJECT_FEATURE_COUNT + 0;
+	int SIMPLE_POSITION__POSITION = GEOMETRY_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Clickable Position</em>' class.
+	 * The feature id for the '<em><b>Appearance Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLICKABLE_POSITION_FEATURE_COUNT = GEOMETRY_OBJECT_FEATURE_COUNT + 1;
-
+	int SIMPLE_POSITION__APPEARANCE_LABEL = GEOMETRY_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link geometry.impl.trackPositionImpl <em>track Position</em>}' class.
+	 * The number of structural features of the '<em>Simple Position</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see geometry.impl.trackPositionImpl
-	 * @see geometry.impl.GeometryPackageImpl#gettrackPosition()
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_POSITION_FEATURE_COUNT = GEOMETRY_OBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link geometry.impl.TrackPositionImpl <em>Track Position</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see geometry.impl.TrackPositionImpl
+	 * @see geometry.impl.GeometryPackageImpl#getTrackPosition()
 	 * @generated
 	 */
 	int TRACK_POSITION = 5;
@@ -270,6 +305,15 @@ public interface GeometryPackage extends EPackage {
 	int TRACK_POSITION__LABEL = GEOMETRY_OBJECT__LABEL;
 
 	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACK_POSITION__ID = GEOMETRY_OBJECT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Position</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -279,7 +323,7 @@ public interface GeometryPackage extends EPackage {
 	int TRACK_POSITION__POSITION = GEOMETRY_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>track Position</em>' class.
+	 * The number of structural features of the '<em>Track Position</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -297,17 +341,6 @@ public interface GeometryPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGeometry();
-
-	/**
-	 * Returns the meta object for the attribute '{@link geometry.Geometry#getID <em>ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>ID</em>'.
-	 * @see geometry.Geometry#getID()
-	 * @see #getGeometry()
-	 * @generated
-	 */
-	EAttribute getGeometry_ID();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link geometry.Geometry#getGeoObjects <em>Geo Objects</em>}'.
@@ -340,6 +373,17 @@ public interface GeometryPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGeometryObject_Label();
+
+	/**
+	 * Returns the meta object for the attribute '{@link geometry.GeometryObject#getID <em>ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>ID</em>'.
+	 * @see geometry.GeometryObject#getID()
+	 * @see #getGeometryObject()
+	 * @generated
+	 */
+	EAttribute getGeometryObject_ID();
 
 	/**
 	 * Returns the meta object for class '{@link geometry.Track <em>Track</em>}'.
@@ -385,6 +429,17 @@ public interface GeometryPackage extends EPackage {
 	EReference getTrack_IntermediatePositions();
 
 	/**
+	 * Returns the meta object for the attribute '{@link geometry.Track#getAppearanceLabel <em>Appearance Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Appearance Label</em>'.
+	 * @see geometry.Track#getAppearanceLabel()
+	 * @see #getTrack()
+	 * @generated
+	 */
+	EAttribute getTrack_AppearanceLabel();
+
+	/**
 	 * Returns the meta object for class '{@link geometry.Position <em>Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -417,46 +472,57 @@ public interface GeometryPackage extends EPackage {
 	EAttribute getPosition_Y();
 
 	/**
-	 * Returns the meta object for class '{@link geometry.ClickablePosition <em>Clickable Position</em>}'.
+	 * Returns the meta object for class '{@link geometry.SimplePosition <em>Simple Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Clickable Position</em>'.
-	 * @see geometry.ClickablePosition
+	 * @return the meta object for class '<em>Simple Position</em>'.
+	 * @see geometry.SimplePosition
 	 * @generated
 	 */
-	EClass getClickablePosition();
+	EClass getSimplePosition();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link geometry.ClickablePosition#getPosition <em>Position</em>}'.
+	 * Returns the meta object for the containment reference '{@link geometry.SimplePosition#getPosition <em>Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Position</em>'.
-	 * @see geometry.ClickablePosition#getPosition()
-	 * @see #getClickablePosition()
+	 * @see geometry.SimplePosition#getPosition()
+	 * @see #getSimplePosition()
 	 * @generated
 	 */
-	EReference getClickablePosition_Position();
+	EReference getSimplePosition_Position();
 
 	/**
-	 * Returns the meta object for class '{@link geometry.trackPosition <em>track Position</em>}'.
+	 * Returns the meta object for the attribute '{@link geometry.SimplePosition#getAppearanceLabel <em>Appearance Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>track Position</em>'.
-	 * @see geometry.trackPosition
+	 * @return the meta object for the attribute '<em>Appearance Label</em>'.
+	 * @see geometry.SimplePosition#getAppearanceLabel()
+	 * @see #getSimplePosition()
 	 * @generated
 	 */
-	EClass gettrackPosition();
+	EAttribute getSimplePosition_AppearanceLabel();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link geometry.trackPosition#getPosition <em>Position</em>}'.
+	 * Returns the meta object for class '{@link geometry.TrackPosition <em>Track Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Track Position</em>'.
+	 * @see geometry.TrackPosition
+	 * @generated
+	 */
+	EClass getTrackPosition();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link geometry.TrackPosition#getPosition <em>Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Position</em>'.
-	 * @see geometry.trackPosition#getPosition()
-	 * @see #gettrackPosition()
+	 * @see geometry.TrackPosition#getPosition()
+	 * @see #getTrackPosition()
 	 * @generated
 	 */
-	EReference gettrackPosition_Position();
+	EReference getTrackPosition_Position();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -491,14 +557,6 @@ public interface GeometryPackage extends EPackage {
 		EClass GEOMETRY = eINSTANCE.getGeometry();
 
 		/**
-		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GEOMETRY__ID = eINSTANCE.getGeometry_ID();
-
-		/**
 		 * The meta object literal for the '<em><b>Geo Objects</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -523,6 +581,14 @@ public interface GeometryPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GEOMETRY_OBJECT__LABEL = eINSTANCE.getGeometryObject_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GEOMETRY_OBJECT__ID = eINSTANCE.getGeometryObject_ID();
 
 		/**
 		 * The meta object literal for the '{@link geometry.impl.TrackImpl <em>Track</em>}' class.
@@ -559,6 +625,14 @@ public interface GeometryPackage extends EPackage {
 		EReference TRACK__INTERMEDIATE_POSITIONS = eINSTANCE.getTrack_IntermediatePositions();
 
 		/**
+		 * The meta object literal for the '<em><b>Appearance Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRACK__APPEARANCE_LABEL = eINSTANCE.getTrack_AppearanceLabel();
+
+		/**
 		 * The meta object literal for the '{@link geometry.impl.PositionImpl <em>Position</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -585,14 +659,14 @@ public interface GeometryPackage extends EPackage {
 		EAttribute POSITION__Y = eINSTANCE.getPosition_Y();
 
 		/**
-		 * The meta object literal for the '{@link geometry.impl.ClickablePositionImpl <em>Clickable Position</em>}' class.
+		 * The meta object literal for the '{@link geometry.impl.SimplePositionImpl <em>Simple Position</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see geometry.impl.ClickablePositionImpl
-		 * @see geometry.impl.GeometryPackageImpl#getClickablePosition()
+		 * @see geometry.impl.SimplePositionImpl
+		 * @see geometry.impl.GeometryPackageImpl#getSimplePosition()
 		 * @generated
 		 */
-		EClass CLICKABLE_POSITION = eINSTANCE.getClickablePosition();
+		EClass SIMPLE_POSITION = eINSTANCE.getSimplePosition();
 
 		/**
 		 * The meta object literal for the '<em><b>Position</b></em>' containment reference feature.
@@ -600,17 +674,25 @@ public interface GeometryPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CLICKABLE_POSITION__POSITION = eINSTANCE.getClickablePosition_Position();
+		EReference SIMPLE_POSITION__POSITION = eINSTANCE.getSimplePosition_Position();
 
 		/**
-		 * The meta object literal for the '{@link geometry.impl.trackPositionImpl <em>track Position</em>}' class.
+		 * The meta object literal for the '<em><b>Appearance Label</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see geometry.impl.trackPositionImpl
-		 * @see geometry.impl.GeometryPackageImpl#gettrackPosition()
 		 * @generated
 		 */
-		EClass TRACK_POSITION = eINSTANCE.gettrackPosition();
+		EAttribute SIMPLE_POSITION__APPEARANCE_LABEL = eINSTANCE.getSimplePosition_AppearanceLabel();
+
+		/**
+		 * The meta object literal for the '{@link geometry.impl.TrackPositionImpl <em>Track Position</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see geometry.impl.TrackPositionImpl
+		 * @see geometry.impl.GeometryPackageImpl#getTrackPosition()
+		 * @generated
+		 */
+		EClass TRACK_POSITION = eINSTANCE.getTrackPosition();
 
 		/**
 		 * The meta object literal for the '<em><b>Position</b></em>' containment reference feature.
@@ -618,7 +700,7 @@ public interface GeometryPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRACK_POSITION__POSITION = eINSTANCE.gettrackPosition_Position();
+		EReference TRACK_POSITION__POSITION = eINSTANCE.getTrackPosition_Position();
 
 	}
 

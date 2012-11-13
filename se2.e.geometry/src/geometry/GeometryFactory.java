@@ -49,22 +49,22 @@ public interface GeometryFactory extends EFactory {
 	Position createPosition();
 
 	/**
-	 * Returns a new object of class '<em>Clickable Position</em>'.
+	 * Returns a new object of class '<em>Simple Position</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Clickable Position</em>'.
+	 * @return a new object of class '<em>Simple Position</em>'.
 	 * @generated
 	 */
-	ClickablePosition createClickablePosition();
+	SimplePosition createSimplePosition();
 
 	/**
-	 * Returns a new object of class '<em>track Position</em>'.
+	 * Returns a new object of class '<em>Track Position</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>track Position</em>'.
+	 * @return a new object of class '<em>Track Position</em>'.
 	 * @generated
 	 */
-	trackPosition createtrackPosition();
+	TrackPosition createTrackPosition();
 
 	/**
 	 * Returns the package supported by this factory.

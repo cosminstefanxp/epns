@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link extendedpetrinet.Place#getAnimations <em>Animations</em>}</li>
  *   <li>{@link extendedpetrinet.Place#getTokens <em>Tokens</em>}</li>
  *   <li>{@link extendedpetrinet.Place#getGeoLabel <em>Geo Label</em>}</li>
+ *   <li>{@link extendedpetrinet.Place#getTrackAppearance <em>Track Appearance</em>}</li>
  * </ul>
  * </p>
  *
@@ -117,5 +118,31 @@ public interface Place extends org.pnml.tools.epnk.pnmlcoremodel.Place {
 	 * @generated
 	 */
 	void setGeoLabel(GeometryLabel value);
+
+	/**
+	 * Returns the value of the '<em><b>Track Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Track Appearance</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Track Appearance</em>' containment reference.
+	 * @see #setTrackAppearance(Appearance)
+	 * @see extendedpetrinet.ExtendedpetrinetPackage#getPlace_TrackAppearance()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Appearance getTrackAppearance();
+
+	/**
+	 * Sets the value of the '{@link extendedpetrinet.Place#getTrackAppearance <em>Track Appearance</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Track Appearance</em>' containment reference.
+	 * @see #getTrackAppearance()
+	 * @generated
+	 */
+	void setTrackAppearance(Appearance value);
 
 } // Place

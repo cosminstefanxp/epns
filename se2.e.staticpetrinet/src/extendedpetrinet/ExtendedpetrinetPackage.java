@@ -288,13 +288,22 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	int PLACE__GEO_LABEL = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Track Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACE__TRACK_APPEARANCE = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Place</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLACE_FEATURE_COUNT = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 4;
+	int PLACE_FEATURE_COUNT = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link extendedpetrinet.impl.IdentityImpl <em>Identity</em>}' class.
@@ -770,6 +779,17 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	EReference getPlace_GeoLabel();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link extendedpetrinet.Place#getTrackAppearance <em>Track Appearance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Track Appearance</em>'.
+	 * @see extendedpetrinet.Place#getTrackAppearance()
+	 * @see #getPlace()
+	 * @generated
+	 */
+	EReference getPlace_TrackAppearance();
+
+	/**
 	 * Returns the meta object for class '{@link extendedpetrinet.Identity <em>Identity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1026,6 +1046,14 @@ public interface ExtendedpetrinetPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PLACE__GEO_LABEL = eINSTANCE.getPlace_GeoLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Track Appearance</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLACE__TRACK_APPEARANCE = eINSTANCE.getPlace_TrackAppearance();
 
 		/**
 		 * The meta object literal for the '{@link extendedpetrinet.impl.IdentityImpl <em>Identity</em>}' class.

@@ -256,6 +256,15 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPlace_TrackAppearance() {
+		return (EReference)placeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIdentity() {
 		return identityEClass;
 	}
@@ -425,6 +434,7 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 		createEReference(placeEClass, PLACE__ANIMATIONS);
 		createEReference(placeEClass, PLACE__TOKENS);
 		createEReference(placeEClass, PLACE__GEO_LABEL);
+		createEReference(placeEClass, PLACE__TRACK_APPEARANCE);
 
 		identityEClass = createEClass(IDENTITY);
 		createEAttribute(identityEClass, IDENTITY__TEXT);
@@ -504,6 +514,7 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 		initEReference(getPlace_Animations(), this.getAnimations(), null, "animations", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlace_Tokens(), this.getToken(), null, "tokens", null, 0, -1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlace_GeoLabel(), this.getGeometryLabel(), null, "geoLabel", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlace_TrackAppearance(), this.getAppearance(), null, "trackAppearance", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(identityEClass, Identity.class, "Identity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIdentity_Text(), ecorePackage.getEInt(), "text", null, 0, 1, Identity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

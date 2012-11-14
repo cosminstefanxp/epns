@@ -3,6 +3,7 @@
 package extendedpetrinet.impl;
 
 import extendedpetrinet.Animations;
+import extendedpetrinet.Appearance;
 import extendedpetrinet.ExtendedpetrinetPackage;
 import extendedpetrinet.GeometryLabel;
 import extendedpetrinet.InteractiveInput;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link extendedpetrinet.impl.PlaceImpl#getAnimations <em>Animations</em>}</li>
  *   <li>{@link extendedpetrinet.impl.PlaceImpl#getTokens <em>Tokens</em>}</li>
  *   <li>{@link extendedpetrinet.impl.PlaceImpl#getGeoLabel <em>Geo Label</em>}</li>
+ *   <li>{@link extendedpetrinet.impl.PlaceImpl#getTrackAppearance <em>Track Appearance</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +82,16 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * @ordered
 	 */
 	protected GeometryLabel geoLabel;
+
+	/**
+	 * The cached value of the '{@link #getTrackAppearance() <em>Track Appearance</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTrackAppearance()
+	 * @generated
+	 * @ordered
+	 */
+	protected Appearance trackAppearance;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -241,6 +253,49 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Appearance getTrackAppearance() {
+		return trackAppearance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTrackAppearance(Appearance newTrackAppearance, NotificationChain msgs) {
+		Appearance oldTrackAppearance = trackAppearance;
+		trackAppearance = newTrackAppearance;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.PLACE__TRACK_APPEARANCE, oldTrackAppearance, newTrackAppearance);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTrackAppearance(Appearance newTrackAppearance) {
+		if (newTrackAppearance != trackAppearance) {
+			NotificationChain msgs = null;
+			if (trackAppearance != null)
+				msgs = ((InternalEObject)trackAppearance).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.PLACE__TRACK_APPEARANCE, null, msgs);
+			if (newTrackAppearance != null)
+				msgs = ((InternalEObject)newTrackAppearance).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.PLACE__TRACK_APPEARANCE, null, msgs);
+			msgs = basicSetTrackAppearance(newTrackAppearance, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.PLACE__TRACK_APPEARANCE, newTrackAppearance, newTrackAppearance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -250,6 +305,8 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				return basicSetAnimations(null, msgs);
 			case ExtendedpetrinetPackage.PLACE__TOKENS:
 				return ((InternalEList<?>)getTokens()).basicRemove(otherEnd, msgs);
+			case ExtendedpetrinetPackage.PLACE__TRACK_APPEARANCE:
+				return basicSetTrackAppearance(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -271,6 +328,8 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
 				if (resolve) return getGeoLabel();
 				return basicGetGeoLabel();
+			case ExtendedpetrinetPackage.PLACE__TRACK_APPEARANCE:
+				return getTrackAppearance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -297,6 +356,9 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
 				setGeoLabel((GeometryLabel)newValue);
 				return;
+			case ExtendedpetrinetPackage.PLACE__TRACK_APPEARANCE:
+				setTrackAppearance((Appearance)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -321,6 +383,9 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
 				setGeoLabel((GeometryLabel)null);
 				return;
+			case ExtendedpetrinetPackage.PLACE__TRACK_APPEARANCE:
+				setTrackAppearance((Appearance)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -341,6 +406,8 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				return tokens != null && !tokens.isEmpty();
 			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
 				return geoLabel != null;
+			case ExtendedpetrinetPackage.PLACE__TRACK_APPEARANCE:
+				return trackAppearance != null;
 		}
 		return super.eIsSet(featureID);
 	}

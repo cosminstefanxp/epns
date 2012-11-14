@@ -6,7 +6,6 @@ import extendedpetrinet.Animations;
 import extendedpetrinet.ExtendedpetrinetPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -23,6 +22,10 @@ import animations.Animation;
  * An implementation of the model object '<em><b>Animations</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link extendedpetrinet.impl.AnimationsImpl#getStructure <em>Structure</em>}</li>
+ * </ul>
  * </p>
  *
  * @generated
@@ -30,7 +33,7 @@ import animations.Animation;
 public class AnimationsImpl extends StructuredLabelImpl implements Animations {
 	
 	/**
-	 * The cached value of the '{@link #getStructure() <em>Structure</em>}' containment reference.
+	 * The cached value of the '{@link #getStructure() <em>Structure</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getStructure()
@@ -64,6 +67,14 @@ public class AnimationsImpl extends StructuredLabelImpl implements Animations {
 	 * @generated
 	 */
 	public Animation getStructure() {
+		if (structure != null && structure.eIsProxy()) {
+			InternalEObject oldStructure = (InternalEObject)structure;
+			structure = (Animation)eResolveProxy(oldStructure);
+			if (structure != oldStructure) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtendedpetrinetPackage.ANIMATIONS__STRUCTURE, oldStructure, structure));
+			}
+		}
 		return structure;
 	}
 	
@@ -72,47 +83,20 @@ public class AnimationsImpl extends StructuredLabelImpl implements Animations {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStructure(Animation newStructure, NotificationChain msgs) {
-		Animation oldStructure = structure;
-		structure = newStructure;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.ANIMATIONS__STRUCTURE, oldStructure, newStructure);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Animation basicGetStructure() {
+		return structure;
 	}
 
-	/**
+				/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setStructure(Animation newStructure) {
-		if (newStructure != structure) {
-			NotificationChain msgs = null;
-			if (structure != null)
-				msgs = ((InternalEObject)structure).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.ANIMATIONS__STRUCTURE, null, msgs);
-			if (newStructure != null)
-				msgs = ((InternalEObject)newStructure).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.ANIMATIONS__STRUCTURE, null, msgs);
-			msgs = basicSetStructure(newStructure, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.ANIMATIONS__STRUCTURE, newStructure, newStructure));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ExtendedpetrinetPackage.ANIMATIONS__STRUCTURE:
-				return basicSetStructure(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		Animation oldStructure = structure;
+		structure = newStructure;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.ANIMATIONS__STRUCTURE, oldStructure, structure));
 	}
 
 	/**
@@ -124,7 +108,8 @@ public class AnimationsImpl extends StructuredLabelImpl implements Animations {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ExtendedpetrinetPackage.ANIMATIONS__STRUCTURE:
-				return getStructure();
+				if (resolve) return getStructure();
+				return basicGetStructure();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

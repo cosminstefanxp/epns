@@ -16,6 +16,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/animations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/tokens"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/geoLabel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/trackAppearance"/>
     </genClasses>
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//Identity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Identity/text"/>

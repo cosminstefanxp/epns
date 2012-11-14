@@ -94,22 +94,13 @@ public interface GeometryPackage extends EPackage {
 	int GEOMETRY_OBJECT = 1;
 
 	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GEOMETRY_OBJECT__ID = 0;
-
-	/**
 	 * The number of structural features of the '<em>Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GEOMETRY_OBJECT_FEATURE_COUNT = 1;
+	int GEOMETRY_OBJECT_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link se2.e.geometry.impl.TrackImpl <em>Track</em>}' class.
@@ -122,31 +113,13 @@ public interface GeometryPackage extends EPackage {
 	int TRACK = 2;
 
 	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACK__ID = GEOMETRY_OBJECT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACK__NAME = GEOMETRY_OBJECT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Start Position</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACK__START_POSITION = GEOMETRY_OBJECT_FEATURE_COUNT + 1;
+	int TRACK__START_POSITION = GEOMETRY_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>End Position</b></em>' reference.
@@ -155,7 +128,7 @@ public interface GeometryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRACK__END_POSITION = GEOMETRY_OBJECT_FEATURE_COUNT + 2;
+	int TRACK__END_POSITION = GEOMETRY_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Intermediate Positions</b></em>' containment reference list.
@@ -164,7 +137,7 @@ public interface GeometryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRACK__INTERMEDIATE_POSITIONS = GEOMETRY_OBJECT_FEATURE_COUNT + 3;
+	int TRACK__INTERMEDIATE_POSITIONS = GEOMETRY_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Appearance Label</b></em>' attribute.
@@ -173,7 +146,16 @@ public interface GeometryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRACK__APPEARANCE_LABEL = GEOMETRY_OBJECT_FEATURE_COUNT + 4;
+	int TRACK__APPEARANCE_LABEL = GEOMETRY_OBJECT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACK__LABEL = GEOMETRY_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Track</em>' class.
@@ -232,31 +214,13 @@ public interface GeometryPackage extends EPackage {
 	int SIMPLE_POSITION = 4;
 
 	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_POSITION__ID = GEOMETRY_OBJECT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_POSITION__NAME = GEOMETRY_OBJECT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Position</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_POSITION__POSITION = GEOMETRY_OBJECT_FEATURE_COUNT + 1;
+	int SIMPLE_POSITION__POSITION = GEOMETRY_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Appearance Label</b></em>' attribute.
@@ -265,7 +229,16 @@ public interface GeometryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_POSITION__APPEARANCE_LABEL = GEOMETRY_OBJECT_FEATURE_COUNT + 2;
+	int SIMPLE_POSITION__APPEARANCE_LABEL = GEOMETRY_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_POSITION__LABEL = GEOMETRY_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Simple Position</em>' class.
@@ -287,15 +260,6 @@ public interface GeometryPackage extends EPackage {
 	int TRACK_POSITION = 5;
 
 	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACK_POSITION__ID = GEOMETRY_OBJECT__ID;
-
-	/**
 	 * The feature id for the '<em><b>Position</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -312,34 +276,6 @@ public interface GeometryPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRACK_POSITION_FEATURE_COUNT = GEOMETRY_OBJECT_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link se2.e.geometry.impl.NameImpl <em>Name</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se2.e.geometry.impl.NameImpl
-	 * @see se2.e.geometry.impl.GeometryPackageImpl#getName_()
-	 * @generated
-	 */
-	int NAME = 6;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAME__NAME = 0;
-
-	/**
-	 * The number of structural features of the '<em>Name</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAME_FEATURE_COUNT = 1;
 
 
 	/**
@@ -372,17 +308,6 @@ public interface GeometryPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGeometryObject();
-
-	/**
-	 * Returns the meta object for the attribute '{@link se2.e.geometry.GeometryObject#getID <em>ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>ID</em>'.
-	 * @see se2.e.geometry.GeometryObject#getID()
-	 * @see #getGeometryObject()
-	 * @generated
-	 */
-	EAttribute getGeometryObject_ID();
 
 	/**
 	 * Returns the meta object for class '{@link se2.e.geometry.Track <em>Track</em>}'.
@@ -437,6 +362,17 @@ public interface GeometryPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTrack_AppearanceLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link se2.e.geometry.Track#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see se2.e.geometry.Track#getLabel()
+	 * @see #getTrack()
+	 * @generated
+	 */
+	EAttribute getTrack_Label();
 
 	/**
 	 * Returns the meta object for class '{@link se2.e.geometry.Position <em>Position</em>}'.
@@ -503,6 +439,17 @@ public interface GeometryPackage extends EPackage {
 	EAttribute getSimplePosition_AppearanceLabel();
 
 	/**
+	 * Returns the meta object for the attribute '{@link se2.e.geometry.SimplePosition#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see se2.e.geometry.SimplePosition#getLabel()
+	 * @see #getSimplePosition()
+	 * @generated
+	 */
+	EAttribute getSimplePosition_Label();
+
+	/**
 	 * Returns the meta object for class '{@link se2.e.geometry.TrackPosition <em>Track Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -522,27 +469,6 @@ public interface GeometryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTrackPosition_Position();
-
-	/**
-	 * Returns the meta object for class '{@link se2.e.geometry.Name <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Name</em>'.
-	 * @see se2.e.geometry.Name
-	 * @generated
-	 */
-	EClass getName_();
-
-	/**
-	 * Returns the meta object for the attribute '{@link se2.e.geometry.Name#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see se2.e.geometry.Name#getName()
-	 * @see #getName_()
-	 * @generated
-	 */
-	EAttribute getName_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -595,14 +521,6 @@ public interface GeometryPackage extends EPackage {
 		EClass GEOMETRY_OBJECT = eINSTANCE.getGeometryObject();
 
 		/**
-		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GEOMETRY_OBJECT__ID = eINSTANCE.getGeometryObject_ID();
-
-		/**
 		 * The meta object literal for the '{@link se2.e.geometry.impl.TrackImpl <em>Track</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -643,6 +561,14 @@ public interface GeometryPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRACK__APPEARANCE_LABEL = eINSTANCE.getTrack_AppearanceLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRACK__LABEL = eINSTANCE.getTrack_Label();
 
 		/**
 		 * The meta object literal for the '{@link se2.e.geometry.impl.PositionImpl <em>Position</em>}' class.
@@ -697,6 +623,14 @@ public interface GeometryPackage extends EPackage {
 		EAttribute SIMPLE_POSITION__APPEARANCE_LABEL = eINSTANCE.getSimplePosition_AppearanceLabel();
 
 		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SIMPLE_POSITION__LABEL = eINSTANCE.getSimplePosition_Label();
+
+		/**
 		 * The meta object literal for the '{@link se2.e.geometry.impl.TrackPositionImpl <em>Track Position</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -713,24 +647,6 @@ public interface GeometryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRACK_POSITION__POSITION = eINSTANCE.getTrackPosition_Position();
-
-		/**
-		 * The meta object literal for the '{@link se2.e.geometry.impl.NameImpl <em>Name</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se2.e.geometry.impl.NameImpl
-		 * @see se2.e.geometry.impl.GeometryPackageImpl#getName_()
-		 * @generated
-		 */
-		EClass NAME = eINSTANCE.getName_();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NAME__NAME = eINSTANCE.getName_Name();
 
 	}
 

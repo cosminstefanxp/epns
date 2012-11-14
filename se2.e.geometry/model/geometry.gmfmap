@@ -15,11 +15,11 @@
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="geometry.gmfgraph#SimplePositionName"/>
+            href="geometry.gmfgraph#SimplePositionLabel"/>
         <features
-            href="geometry.ecore#//Name/name"/>
+            href="geometry.ecore#//SimplePosition/label"/>
         <editableFeatures
-            href="geometry.ecore#//Name/name"/>
+            href="geometry.ecore#//SimplePosition/label"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
@@ -47,11 +47,11 @@
     <labelMappings
         xsi:type="gmfmap:FeatureLabelMapping">
       <diagramLabel
-          href="geometry.gmfgraph#TrackName"/>
+          href="geometry.gmfgraph#TrackLabel"/>
       <features
-          href="geometry.ecore#//Name/name"/>
+          href="geometry.ecore#//Track/label"/>
       <editableFeatures
-          href="geometry.ecore#//Name/name"/>
+          href="geometry.ecore#//Track/label"/>
     </labelMappings>
     <containmentFeature
         href="geometry.ecore#//Geometry/geoObjects"/>

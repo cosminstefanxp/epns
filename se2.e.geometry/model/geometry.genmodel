@@ -9,14 +9,13 @@
     <genClasses ecoreClass="geometry.ecore#//Geometry">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference geometry.ecore#//Geometry/geoObjects"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="geometry.ecore#//GeometryObject">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//GeometryObject/ID"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="geometry.ecore#//GeometryObject"/>
     <genClasses ecoreClass="geometry.ecore#//Track">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference geometry.ecore#//Track/startPosition"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference geometry.ecore#//Track/endPosition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference geometry.ecore#//Track/intermediatePositions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//Track/appearanceLabel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//Track/label"/>
     </genClasses>
     <genClasses ecoreClass="geometry.ecore#//Position">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//Position/x"/>
@@ -25,12 +24,10 @@
     <genClasses ecoreClass="geometry.ecore#//SimplePosition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference geometry.ecore#//SimplePosition/position"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//SimplePosition/appearanceLabel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//SimplePosition/label"/>
     </genClasses>
     <genClasses ecoreClass="geometry.ecore#//TrackPosition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference geometry.ecore#//TrackPosition/position"/>
-    </genClasses>
-    <genClasses ecoreClass="geometry.ecore#//Name">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute geometry.ecore#//Name/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

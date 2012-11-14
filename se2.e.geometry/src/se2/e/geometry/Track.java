@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link se2.e.geometry.Track#getEndPosition <em>End Position</em>}</li>
  *   <li>{@link se2.e.geometry.Track#getIntermediatePositions <em>Intermediate Positions</em>}</li>
  *   <li>{@link se2.e.geometry.Track#getAppearanceLabel <em>Appearance Label</em>}</li>
+ *   <li>{@link se2.e.geometry.Track#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Track extends GeometryObject, Name {
+public interface Track extends GeometryObject {
 	/**
 	 * Returns the value of the '<em><b>Start Position</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -117,5 +118,31 @@ public interface Track extends GeometryObject, Name {
 	 * @generated
 	 */
 	void setAppearanceLabel(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Label</em>' attribute.
+	 * @see #setLabel(String)
+	 * @see se2.e.geometry.GeometryPackage#getTrack_Label()
+	 * @model
+	 * @generated
+	 */
+	String getLabel();
+
+	/**
+	 * Sets the value of the '{@link se2.e.geometry.Track#getLabel <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Label</em>' attribute.
+	 * @see #getLabel()
+	 * @generated
+	 */
+	void setLabel(String value);
 
 } // Track

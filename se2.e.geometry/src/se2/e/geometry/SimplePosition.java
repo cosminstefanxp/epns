@@ -13,6 +13,7 @@ package se2.e.geometry;
  * <ul>
  *   <li>{@link se2.e.geometry.SimplePosition#getPosition <em>Position</em>}</li>
  *   <li>{@link se2.e.geometry.SimplePosition#getAppearanceLabel <em>Appearance Label</em>}</li>
+ *   <li>{@link se2.e.geometry.SimplePosition#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -20,7 +21,7 @@ package se2.e.geometry;
  * @model
  * @generated
  */
-public interface SimplePosition extends GeometryObject, Name {
+public interface SimplePosition extends GeometryObject {
 	/**
 	 * Returns the value of the '<em><b>Position</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -72,5 +73,31 @@ public interface SimplePosition extends GeometryObject, Name {
 	 * @generated
 	 */
 	void setAppearanceLabel(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Label</em>' attribute.
+	 * @see #setLabel(String)
+	 * @see se2.e.geometry.GeometryPackage#getSimplePosition_Label()
+	 * @model
+	 * @generated
+	 */
+	String getLabel();
+
+	/**
+	 * Sets the value of the '{@link se2.e.geometry.SimplePosition#getLabel <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Label</em>' attribute.
+	 * @see #getLabel()
+	 * @generated
+	 */
+	void setLabel(String value);
 
 } // SimplePosition

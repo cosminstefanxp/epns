@@ -3,7 +3,10 @@ package se2.e.engine3d.j3d.animations;
 import javax.media.j3d.WakeupCondition;
 import javax.media.j3d.WakeupOnElapsedFrames;
 
+import animations.Animation;
+
 import se2.e.engine3d.j3d.DynamicBranch;
+import se2.e.simulator.runtime.petrinet.RuntimeToken;
 
 /**
  * The Class RuntimeMoveAnimation.
@@ -19,8 +22,8 @@ public class RuntimeMoveAnimation extends RuntimeAnimation {
 	 * @param targetBranch the target branch
 	 * @param animation the animation
 	 */
-	public RuntimeMoveAnimation(DynamicBranch targetBranch, Object animation) {
-		super(targetBranch, animation);
+	public RuntimeMoveAnimation(DynamicBranch targetBranch, Animation animation, RuntimeToken token) {
+		super(targetBranch, animation, token);
 	}
 
 	@Override

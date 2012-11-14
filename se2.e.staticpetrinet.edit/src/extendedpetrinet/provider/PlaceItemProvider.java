@@ -103,6 +103,7 @@ public class PlaceItemProvider
 			childrenFeatures.add(ExtendedpetrinetPackage.Literals.PLACE__INTERACTIVE_INPUT);
 			childrenFeatures.add(ExtendedpetrinetPackage.Literals.PLACE__ANIMATIONS);
 			childrenFeatures.add(ExtendedpetrinetPackage.Literals.PLACE__TOKENS);
+			childrenFeatures.add(ExtendedpetrinetPackage.Literals.PLACE__TRACK_APPEARANCE);
 		}
 		return childrenFeatures;
 	}
@@ -160,6 +161,7 @@ public class PlaceItemProvider
 			case ExtendedpetrinetPackage.PLACE__INTERACTIVE_INPUT:
 			case ExtendedpetrinetPackage.PLACE__ANIMATIONS:
 			case ExtendedpetrinetPackage.PLACE__TOKENS:
+			case ExtendedpetrinetPackage.PLACE__TRACK_APPEARANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -191,6 +193,11 @@ public class PlaceItemProvider
 			(createChildParameter
 				(ExtendedpetrinetPackage.Literals.PLACE__TOKENS,
 				 ExtendedpetrinetFactory.eINSTANCE.createToken()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExtendedpetrinetPackage.Literals.PLACE__TRACK_APPEARANCE,
+				 ExtendedpetrinetFactory.eINSTANCE.createAppearance()));
 	}
 
 	/**

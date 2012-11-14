@@ -8,7 +8,7 @@ Bundle-Activator: geometry.presentation.GeometryEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: geometry.presentation
+Export-Package: se2.e.geometry.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  se2.e.geometry.edit;visibility:=reexport,

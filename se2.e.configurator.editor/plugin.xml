@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="se2.e.configurator.presentation.ConfiguratorModelWizardID"
+            name="%_UI_ConfiguratorModelWizard_label"
+            class="se2.e.configurator.presentation.ConfiguratorModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ConfiguratorModelFile.gif">
+         <description>%_UI_ConfiguratorModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="se2.e.configurator.presentation.ConfiguratorEditorID"
+            name="%_UI_ConfiguratorEditor_label"
+            icon="icons/full/obj16/ConfiguratorModelFile.gif"
+            extensions="configurator"
+            class="se2.e.configurator.presentation.ConfiguratorEditor"
+            contributorClass="se2.e.configurator.presentation.ConfiguratorActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

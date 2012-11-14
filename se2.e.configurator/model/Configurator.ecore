@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="configurator" nsURI="http://configurator/1.0" nsPrefix="configurator">
+  <eClassifiers xsi:type="ecore:EClass" name="Configurator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" lowerBound="1"
+        eType="ecore:EClass ../../se2.e.geometry/model/geometry.ecore#//Geometry"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appearance" lowerBound="1"
+        eType="ecore:EClass ../../se2.e.appearance/model/Appearance.ecore#//AppearanceModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="petrinet" lowerBound="1"
+        eType="ecore:EClass ../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//PetriNetDoc"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -12,7 +12,7 @@ public interface Animation {
 	AnimatedObject getTarget();
 	
 	/**
-	 * Get tick from when this animation was cretated.
+	 * Get the tick from when this animation was created.
 	 * 
 	 * @return the start tick.
 	 */

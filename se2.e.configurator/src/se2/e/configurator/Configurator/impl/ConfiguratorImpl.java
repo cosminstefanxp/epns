@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 import se2.e.configurator.Configurator.Configurator;
 import se2.e.configurator.Configurator.ConfiguratorPackage;
 
@@ -50,7 +51,7 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 	 * @generated
 	 * @ordered
 	 */
-	protected ExtendedPetriNet petrinet;
+	protected PetriNetDoc petrinet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,10 +115,10 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtendedPetriNet getPetrinet() {
+	public PetriNetDoc getPetrinet() {
 		if (petrinet != null && petrinet.eIsProxy()) {
 			InternalEObject oldPetrinet = (InternalEObject)petrinet;
-			petrinet = (ExtendedPetriNet)eResolveProxy(oldPetrinet);
+			petrinet = (PetriNetDoc)eResolveProxy(oldPetrinet);
 			if (petrinet != oldPetrinet) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ConfiguratorPackage.CONFIGURATOR__PETRINET, oldPetrinet, petrinet));
@@ -131,7 +132,7 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtendedPetriNet basicGetPetrinet() {
+	public PetriNetDoc basicGetPetrinet() {
 		return petrinet;
 	}
 
@@ -140,8 +141,8 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPetrinet(ExtendedPetriNet newPetrinet) {
-		ExtendedPetriNet oldPetrinet = petrinet;
+	public void setPetrinet(PetriNetDoc newPetrinet) {
+		PetriNetDoc oldPetrinet = petrinet;
 		petrinet = newPetrinet;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ConfiguratorPackage.CONFIGURATOR__PETRINET, oldPetrinet, petrinet));
@@ -177,7 +178,7 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 				setGeometry((Geometry)newValue);
 				return;
 			case ConfiguratorPackage.CONFIGURATOR__PETRINET:
-				setPetrinet((ExtendedPetriNet)newValue);
+				setPetrinet((PetriNetDoc)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -195,7 +196,7 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 				setGeometry((Geometry)null);
 				return;
 			case ConfiguratorPackage.CONFIGURATOR__PETRINET:
-				setPetrinet((ExtendedPetriNet)null);
+				setPetrinet((PetriNetDoc)null);
 				return;
 		}
 		super.eUnset(featureID);

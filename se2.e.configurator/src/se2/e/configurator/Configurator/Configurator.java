@@ -6,6 +6,7 @@ import extendedpetrinet.ExtendedPetriNet;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 import se2.e.geometry.Geometry;
 
 /**
@@ -61,12 +62,12 @@ public interface Configurator extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Petrinet</em>' reference.
-	 * @see #setPetrinet(ExtendedPetriNet)
+	 * @see #setPetrinet(PetriNetDoc)
 	 * @see se2.e.configurator.Configurator.ConfiguratorPackage#getConfigurator_Petrinet()
 	 * @model required="true"
 	 * @generated
 	 */
-	ExtendedPetriNet getPetrinet();
+	PetriNetDoc getPetrinet();
 
 	/**
 	 * Sets the value of the '{@link se2.e.configurator.Configurator.Configurator#getPetrinet <em>Petrinet</em>}' reference.
@@ -76,6 +77,6 @@ public interface Configurator extends EObject {
 	 * @see #getPetrinet()
 	 * @generated
 	 */
-	void setPetrinet(ExtendedPetriNet value);
+	void setPetrinet(PetriNetDoc value);
 
 } // Configurator

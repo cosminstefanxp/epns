@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.pnml.tools.epnk.pnmlcoremodel.PnmlcoremodelPackage;
 import se2.e.configurator.Configurator.Configurator;
 import se2.e.configurator.Configurator.ConfiguratorFactory;
 import se2.e.configurator.Configurator.ConfiguratorPackage;
@@ -180,7 +181,7 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 
 		// Obtain other dependent packages
 		GeometryPackage theGeometryPackage = (GeometryPackage)EPackage.Registry.INSTANCE.getEPackage(GeometryPackage.eNS_URI);
-		ExtendedpetrinetPackage theExtendedpetrinetPackage = (ExtendedpetrinetPackage)EPackage.Registry.INSTANCE.getEPackage(ExtendedpetrinetPackage.eNS_URI);
+		PnmlcoremodelPackage thePnmlcoremodelPackage = (PnmlcoremodelPackage)EPackage.Registry.INSTANCE.getEPackage(PnmlcoremodelPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -191,7 +192,7 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 		// Initialize classes and features; add operations and parameters
 		initEClass(configuratorEClass, Configurator.class, "Configurator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConfigurator_Geometry(), theGeometryPackage.getGeometry(), null, "geometry", null, 1, 1, Configurator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfigurator_Petrinet(), theExtendedpetrinetPackage.getExtendedPetriNet(), null, "petrinet", null, 1, 1, Configurator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfigurator_Petrinet(), thePnmlcoremodelPackage.getPetriNetDoc(), null, "petrinet", null, 1, 1, Configurator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

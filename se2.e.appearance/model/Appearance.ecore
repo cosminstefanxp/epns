@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="appearance" nsURI="http://appearance/1.0" nsPrefix="appearance">
+  <eClassifiers xsi:type="ecore:EClass" name="AppearanceInfo" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Shape" abstract="true" eSuperTypes="#//AppearanceInfo"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Surface" abstract="true" eSuperTypes="#//AppearanceInfo"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Model3D" eSuperTypes="#//Shape">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Shape3D" eSuperTypes="#//Shape">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Object3D"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Texture" eSuperTypes="#//Surface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SurfaceColor" eSuperTypes="#//Surface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cube"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Object3D">
+    <eLiterals name="Cube"/>
+    <eLiterals name="Sphere" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AppearanceModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appearanceInfos" upperBound="-1"
+        eType="#//AppearanceInfo" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

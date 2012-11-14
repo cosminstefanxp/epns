@@ -11,10 +11,10 @@ public class GeometryNodeFactory {
 
 	/** The loader. */
 	private GeometryAndAppearanceLoader loader;
-	
+
 	/**
 	 * Instantiates a new geometry node factory.
-	 *
+	 * 
 	 * @param loader the loader
 	 */
 	public GeometryNodeFactory(GeometryAndAppearanceLoader loader) {
@@ -23,10 +23,12 @@ public class GeometryNodeFactory {
 	}
 
 	/**
-	 * Gets the geometry node (could be, for example, a Transform Group) for a specific label (e.g. 'track1').
+	 * Gets the geometry node (could be, for example, a Transform Group) for a specific label (e.g. 'track1'). If the
+	 * label does not correspond to a static Geometry Element (e.g. Track), return null.
 	 * 
 	 * @param geometryLabel the geometry label
-	 * @return the node containing the representation for the geometry
+	 * @return the node containing the representation for the geometry, or null, if there is no geometry with the given
+	 * label or it's not a static GeometryObject (Track).
 	 */
 	public Node getGeometryNode(String geometryLabel) {
 		// TODO: Implement

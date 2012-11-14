@@ -38,7 +38,7 @@ public class GeometryAndAppearanceLoader {
 		for (GeometryObject geomObj : geomObjs) {
 			if(geomObj instanceof Track)
 			{
-				geometryObjects.put(((Track)geomObj).getName(), geomObj);
+				geometryObjects.put(((Track)geomObj).getLabel(), geomObj);
 				//TODO: Eventually maybe create a hashmap for each of the 2 types: Track/SimplePosition
 			}
 			//Fill in for all required geometry objects

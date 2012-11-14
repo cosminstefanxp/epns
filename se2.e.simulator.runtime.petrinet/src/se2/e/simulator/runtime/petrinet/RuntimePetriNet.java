@@ -55,6 +55,7 @@ public class RuntimePetriNet {
 	private void initializePresets(Transition selectedTransition) {
 		List<Place> places = new ArrayList<Place>();
 		for (org.pnml.tools.epnk.pnmlcoremodel.Arc arc : selectedTransition.getIn()) {
+			//TODO: see whether the petriNet is ok
 			Place place = (Place) arc.getSource();
 			places.add(place);
 		}
@@ -70,7 +71,7 @@ public class RuntimePetriNet {
 	private void initializePostsets(Transition selectedTransition) {
 		List<Place> places = new ArrayList<Place>();
 		for (org.pnml.tools.epnk.pnmlcoremodel.Arc arc : selectedTransition.getOut()) {
-			Arc my_arc = (Arc) arc;
+			//TODO: see whether the petriNet is ok
 			Place place = (Place) arc.getTarget();
 			places.add(place);
 		}

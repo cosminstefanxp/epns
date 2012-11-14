@@ -263,7 +263,13 @@
       </IconProvider>
    </extension>
 
-   
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="se2.e.geometry.diagram.providers.GeometryParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
       <metamodel nsURI="http://geometry/1.0">
@@ -489,14 +495,6 @@
    <extension point="org.eclipse.ui.handlers" id="menu-handlers">
       <?gmfgen generated="true"?>
    </extension>
-<extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
-      <?gmfgen generated="true"?>
-      <ParserProvider class="se2.e.geometry.diagram.providers.GeometryParserProvider">
-         <Priority name="Lowest"/>
-      </ParserProvider>
-   </extension>
-
-
 
    <!-- optionally, specify keybindings -->
 </plugin>

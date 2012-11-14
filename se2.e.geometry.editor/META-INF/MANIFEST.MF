@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: se2.e.geometry.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: geometry.presentation.GeometryEditorPlugin$Implementation
+Bundle-Activator: se2.e.geometry.presentation.GeometryEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

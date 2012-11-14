@@ -63,7 +63,7 @@ public class DynamicBranch {
 	 * @param transformGroup the transform group
 	 * @param branchGroup the branch group
 	 */
-	public DynamicBranch(TransformGroup transformGroup, BranchGroup branchGroup) {
+	public DynamicBranch(BranchGroup branchGroup, TransformGroup transformGroup) {
 		super();
 		this.transformGroup = transformGroup;
 		this.branchGroup = branchGroup;

@@ -37,15 +37,6 @@ public class DynamicBranchFactory {
 		return null;
 	}
 
-	/**
-	 * Gets the geometry branch for a specific label (e.g. 'track1').
-	 * 
-	 * @param geometryLabel the geometry label
-	 * @return the geometry branch
-	 */
-	public DynamicBranch getGeometryBranch(String geometryLabel) {
-		// TODO: Implement
-		return null;
-	}
+
 
 }

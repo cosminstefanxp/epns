@@ -80,7 +80,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 	private Logger log = Logger.getLogger("J3DEngine");
 
 	/** The running animations. */
-	private HashMap<RuntimeToken, RunningAnimation> runningAnimations;
+//	private HashMap<RuntimeToken, RunningAnimation> runningAnimations;
 
 	/**
 	 * Instantiates a new Java 3D engine.
@@ -152,7 +152,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 		universe.addBranchGraph(sceneRoot);
 
 		// Initialize other objects
-		runningAnimations = new HashMap<RuntimeToken, RunningAnimation>();
+//		runningAnimations = new HashMap<RuntimeToken, RunningAnimation>();
 
 		log.info("J3D Engine initialized...");
 	}
@@ -239,59 +239,59 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 		Track track = (Track) geometryObj;
 
 		// See if there is already an object representation for the token
-		RunningAnimation animation;
-		animation = runningAnimations.get(token);
-		if (animation == null) {
-
-			// Create a BranchGroup for this Move animation, which will contain the Token Representation, the
-			// interpolator for the animation and a behavior to clean up when the animation is finished
-			BranchGroup animationsRoot = new BranchGroup();
-			animationsRoot.setCapability(BranchGroup.ALLOW_DETACH);
-
-			// Create the TransformGroup node, which is writable to support animation
-			TransformGroup tokenRepresGroup = new TransformGroup();
-			tokenRepresGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-			animationsRoot.addChild(tokenRepresGroup);
-
-			// Create the token representation node (color cube) and add it to the group
-			// TODO: Eventually get info from Place
-			tokenRepresGroup.addChild(new ColorCube(0.2));
-
-			// Save the running animation for future use
-			animation = new RunningAnimation(track, tokenRepresGroup, animationsRoot, 0);
-			runningAnimations.put(token, animation);
-
-		}
-
-		/** Start the animation **/
-		// Get the track points and their coordinates
-		TrackPosition firstPoint = track.getStartPosition();
-		TrackPosition lastPoint = track.getEndPosition();
-
-		// Put the token representation at the beginning of the path
-		Transform3D initTransform = new Transform3D();
-		initTransform.setTranslation(new Vector3d(firstPoint.getPosition().getX(), firstPoint.getPosition().getY(), DRAWING_PLANE_Z));
-		animation.transformGroup.setTransform(initTransform);
-
-		// Create a Behavior (Interpolator) node that moves the cube and add it to the scene
-		Transform3D yAxis = new Transform3D();
-		Alpha timing = new Alpha(1, 4000);
-		timing.setStartTime(new Date().getTime());
-		timing.setMode(Alpha.INCREASING_ENABLE);
-		Point3f startPoint = new Point3f(new Point3d(firstPoint.getPosition().getX(), firstPoint.getPosition().getY(), DRAWING_PLANE_Z));
-		Point3f endPoint = new Point3f(new Point3d(lastPoint.getPosition().getX(), lastPoint.getPosition().getY(), DRAWING_PLANE_Z));
-		PositionPathInterpolator nodePositionInterpolator = new PositionPathInterpolator(timing,
-				animation.transformGroup, yAxis, new float[] { 0, 1 }, new Point3f[] { startPoint, endPoint });
-		BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 100.0);
-		nodePositionInterpolator.setSchedulingBounds(bounds);
-		animation.animationBranchGroup.addChild(nodePositionInterpolator);
-
-		// Create a behavior that handles the finish of the animation
-		FinishAnimationBehavior beh = new FinishAnimationBehavior(this, animation, token, 4000);
-		animation.animationBranchGroup.addChild(beh);
-
-		// Add the branch to the root
-		sceneRoot.addChild(animation.animationBranchGroup);
+//		RunningAnimation animation;
+//		animation = runningAnimations.get(token);
+//		if (animation == null) {
+//
+//			// Create a BranchGroup for this Move animation, which will contain the Token Representation, the
+//			// interpolator for the animation and a behavior to clean up when the animation is finished
+//			BranchGroup animationsRoot = new BranchGroup();
+//			animationsRoot.setCapability(BranchGroup.ALLOW_DETACH);
+//
+//			// Create the TransformGroup node, which is writable to support animation
+//			TransformGroup tokenRepresGroup = new TransformGroup();
+//			tokenRepresGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+//			animationsRoot.addChild(tokenRepresGroup);
+//
+//			// Create the token representation node (color cube) and add it to the group
+//			// TODO: Eventually get info from Place
+//			tokenRepresGroup.addChild(new ColorCube(0.2));
+//
+//			// Save the running animation for future use
+//			animation = new RunningAnimation(track, tokenRepresGroup, animationsRoot, 0);
+//			runningAnimations.put(token, animation);
+//
+//		}
+//
+//		/** Start the animation **/
+//		// Get the track points and their coordinates
+//		TrackPosition firstPoint = track.getStartPosition();
+//		TrackPosition lastPoint = track.getEndPosition();
+//
+//		// Put the token representation at the beginning of the path
+//		Transform3D initTransform = new Transform3D();
+//		initTransform.setTranslation(new Vector3d(firstPoint.getPosition().getX(), firstPoint.getPosition().getY(), DRAWING_PLANE_Z));
+//		animation.transformGroup.setTransform(initTransform);
+//
+//		// Create a Behavior (Interpolator) node that moves the cube and add it to the scene
+//		Transform3D yAxis = new Transform3D();
+//		Alpha timing = new Alpha(1, 4000);
+//		timing.setStartTime(new Date().getTime());
+//		timing.setMode(Alpha.INCREASING_ENABLE);
+//		Point3f startPoint = new Point3f(new Point3d(firstPoint.getPosition().getX(), firstPoint.getPosition().getY(), DRAWING_PLANE_Z));
+//		Point3f endPoint = new Point3f(new Point3d(lastPoint.getPosition().getX(), lastPoint.getPosition().getY(), DRAWING_PLANE_Z));
+//		PositionPathInterpolator nodePositionInterpolator = new PositionPathInterpolator(timing,
+//				animation.transformGroup, yAxis, new float[] { 0, 1 }, new Point3f[] { startPoint, endPoint });
+//		BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 100.0);
+//		nodePositionInterpolator.setSchedulingBounds(bounds);
+//		animation.animationBranchGroup.addChild(nodePositionInterpolator);
+//
+//		// Create a behavior that handles the finish of the animation
+//		FinishAnimationBehavior beh = new FinishAnimationBehavior(this, animation, token, 4000);
+//		animation.animationBranchGroup.addChild(beh);
+//
+//		// Add the branch to the root
+//		sceneRoot.addChild(animation.animationBranchGroup);
 	}
 
 	/*

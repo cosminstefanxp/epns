@@ -18,14 +18,14 @@
    <extension point="org.eclipse.ui.editors" id="gmf-editor">
       <?gmfgen generated="true"?>
       <editor
-         id="geometry.diagram.part.GeometryDiagramEditorID"
+         id="se2.e.geometry.diagram.part.GeometryDiagramEditorID"
          name="%editorName"
          icon="icons/obj16/GeometryDiagramFile.gif"
          extensions="geometry_diagram"
          default="true"
-         class="geometry.diagram.part.GeometryDiagramEditor"
-         matchingStrategy="geometry.diagram.part.GeometryMatchingStrategy"
-         contributorClass="geometry.diagram.part.GeometryDiagramActionBarContributor">
+         class="se2.e.geometry.diagram.part.GeometryDiagramEditor"
+         matchingStrategy="se2.e.geometry.diagram.part.GeometryMatchingStrategy"
+         contributorClass="se2.e.geometry.diagram.part.GeometryDiagramActionBarContributor">
       </editor>
    </extension>
    
@@ -33,7 +33,7 @@
       <?gmfgen generated="true"?>
       <context
          description="%context.description"
-         id="geometry.diagram.ui.diagramContext"
+         id="se2.e.geometry.diagram.ui.diagramContext"
          name="%context.name"
          parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
       </context>
@@ -45,8 +45,8 @@
   	     name="%newWizardName"
   	     icon="icons/obj16/GeometryDiagramFile.gif"
   	     category="org.eclipse.ui.Examples"
-  	     class="geometry.diagram.part.GeometryCreationWizard"
-  	     id="geometry.diagram.part.GeometryCreationWizardID">
+  	     class="se2.e.geometry.diagram.part.GeometryCreationWizard"
+  	     id="se2.e.geometry.diagram.part.GeometryCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
@@ -59,7 +59,7 @@
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
-               class="geometry.diagram.part.GeometryInitDiagramFileAction"
+               class="se2.e.geometry.diagram.part.GeometryInitDiagramFileAction"
                menubarPath="additions"
                enablesFor="1"
                id="se2.e.geometry.diagram.InitDiagramAction">
@@ -73,7 +73,7 @@
          class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
          id="GeometryPresentation">
          <Priority name="Lowest"/>
-         <ViewId id="geometry.diagram.part.GeometryDiagramEditorID">
+         <ViewId id="se2.e.geometry.diagram.part.GeometryDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="delete"/>
             </ElementType>
@@ -90,7 +90,7 @@
          class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
          id="GeometryPresentationIDE">
          <Priority name="Lowest"/>
-         <ViewId id="geometry.diagram.part.GeometryDiagramEditorID">
+         <ViewId id="se2.e.geometry.diagram.part.GeometryDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="bookmark"/>
             </ElementType>
@@ -100,7 +100,7 @@
             class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
             id="GeometryRender">
          <Priority name="Lowest"/>
-         <ViewId id="geometry.diagram.part.GeometryDiagramEditorID">
+         <ViewId id="se2.e.geometry.diagram.part.GeometryDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="cut"/>
                <GlobalActionId actionId="copy"/>
@@ -113,7 +113,7 @@
 
    <extension point="org.eclipse.core.runtime.preferences" id="prefs">
       <?gmfgen generated="true"?>
-      <initializer class="geometry.diagram.preferences.DiagramPreferenceInitializer"/>
+      <initializer class="se2.e.geometry.diagram.preferences.DiagramPreferenceInitializer"/>
    </extension>
 
    <extension point="org.eclipse.ui.preferencePages" id="prefpages">
@@ -121,31 +121,31 @@
       <page
             id="se2.e.geometry.diagram.general"
             name="%prefpage.se2.e.geometry.diagram.general"
-            class="geometry.diagram.preferences.DiagramGeneralPreferencePage">
+            class="se2.e.geometry.diagram.preferences.DiagramGeneralPreferencePage">
       </page>
       <page
             id="se2.e.geometry.diagram.appearance"
             name="%prefpage.se2.e.geometry.diagram.appearance"
             category="se2.e.geometry.diagram.general"
-            class="geometry.diagram.preferences.DiagramAppearancePreferencePage">
+            class="se2.e.geometry.diagram.preferences.DiagramAppearancePreferencePage">
       </page>
       <page
             id="se2.e.geometry.diagram.connections"
             name="%prefpage.se2.e.geometry.diagram.connections"
             category="se2.e.geometry.diagram.general"
-            class="geometry.diagram.preferences.DiagramConnectionsPreferencePage">
+            class="se2.e.geometry.diagram.preferences.DiagramConnectionsPreferencePage">
       </page>
       <page
             id="se2.e.geometry.diagram.printing"
             name="%prefpage.se2.e.geometry.diagram.printing"
             category="se2.e.geometry.diagram.general"
-            class="geometry.diagram.preferences.DiagramPrintingPreferencePage">
+            class="se2.e.geometry.diagram.preferences.DiagramPrintingPreferencePage">
       </page>
       <page
             id="se2.e.geometry.diagram.rulersAndGrid"
             name="%prefpage.se2.e.geometry.diagram.rulersAndGrid"
             category="se2.e.geometry.diagram.general"
-            class="geometry.diagram.preferences.DiagramRulersAndGridPreferencePage">
+            class="se2.e.geometry.diagram.preferences.DiagramRulersAndGridPreferencePage">
       </page>
    </extension>
 
@@ -153,7 +153,7 @@
       <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="se2.e.geometry.diagram"
-            labelProvider="geometry.diagram.sheet.GeometrySheetLabelProvider">
+            labelProvider="se2.e.geometry.diagram.sheet.GeometrySheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -204,17 +204,17 @@
          <propertySection
             id="property.section.domain" 
             tab="property.tab.domain"
-            class="geometry.diagram.sheet.GeometryPropertySection">
+            class="se2.e.geometry.diagram.sheet.GeometryPropertySection">
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
-            <input type="geometry.diagram.navigator.GeometryAbstractNavigatorItem"/>
+            <input type="se2.e.geometry.diagram.navigator.GeometryAbstractNavigatorItem"/>
          </propertySection>
       </propertySections>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
       <?gmfgen generated="true"?>
-      <viewProvider class="geometry.diagram.providers.GeometryViewProvider">
+      <viewProvider class="se2.e.geometry.diagram.providers.GeometryViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Geometry"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002"/>
@@ -224,7 +224,7 @@
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
-      <editpartProvider class="geometry.diagram.providers.GeometryEditPartProvider">
+      <editpartProvider class="se2.e.geometry.diagram.providers.GeometryEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
             <method name="getType()" value="Geometry"/>
@@ -247,18 +247,18 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="geometry.diagram.providers.GeometryModelingAssistantProvider">
+      <modelingAssistantProvider class="se2.e.geometry.diagram.providers.GeometryModelingAssistantProvider">
          <Priority name="Lowest"/>
-         <object class="geometry.diagram.edit.parts.GeometryEditPart" id="Geometry_1000"/>
-         <object class="geometry.diagram.edit.parts.SimplePositionEditPart" id="SimplePosition_2001"/>
-         <object class="geometry.diagram.edit.parts.TrackPositionEditPart" id="TrackPosition_2002"/>
+         <object class="se2.e.geometry.diagram.edit.parts.GeometryEditPart" id="Geometry_1000"/>
+         <object class="se2.e.geometry.diagram.edit.parts.SimplePositionEditPart" id="SimplePosition_2001"/>
+         <object class="se2.e.geometry.diagram.edit.parts.TrackPositionEditPart" id="TrackPosition_2002"/>
          <context elements="Geometry_1000,SimplePosition_2001,TrackPosition_2002,"/>
       </modelingAssistantProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
       <?gmfgen generated="true"?>
-      <IconProvider class="geometry.diagram.providers.GeometryIconProvider">
+      <IconProvider class="se2.e.geometry.diagram.providers.GeometryIconProvider">
          <Priority name="Low"/>
       </IconProvider>
    </extension>
@@ -272,7 +272,7 @@
                name="%metatype.name.Geometry_1000"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Geometry"
-               edithelper="geometry.diagram.edit.helpers.GeometryEditHelper">
+               edithelper="se2.e.geometry.diagram.edit.helpers.GeometryEditHelper">
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
@@ -282,7 +282,7 @@
                name="%metatype.name.SimplePosition_2001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="SimplePosition"
-               edithelper="geometry.diagram.edit.helpers.SimplePositionEditHelper">
+               edithelper="se2.e.geometry.diagram.edit.helpers.SimplePositionEditHelper">
             <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
@@ -292,7 +292,7 @@
                name="%metatype.name.TrackPosition_2002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="TrackPosition"
-               edithelper="geometry.diagram.edit.helpers.TrackPositionEditHelper">
+               edithelper="se2.e.geometry.diagram.edit.helpers.TrackPositionEditHelper">
             <param name="semanticHint" value="2002"/>
          </metamodelType>
       </metamodel>
@@ -302,7 +302,7 @@
                name="%metatype.name.Track_4001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Track"
-               edithelper="geometry.diagram.edit.helpers.TrackEditHelper">
+               edithelper="se2.e.geometry.diagram.edit.helpers.TrackEditHelper">
             <param name="semanticHint" value="4001"/>
          </metamodelType>
       </metamodel>
@@ -332,7 +332,7 @@
            type="org.eclipse.emf.common.ui.URIEditorInput"
            namespace="se2.e.geometry.diagram"
            properties="isURIEditorInput"
-           class="geometry.diagram.part.GeometryUriEditorInputTester">
+           class="se2.e.geometry.diagram.part.GeometryUriEditorInputTester">
        </propertyTester>
    </extension>
 
@@ -358,8 +358,8 @@
             id="se2.e.geometry.diagram.resourceContent" 
             name="%navigatorContentName" 
             priority="normal" 
-            contentProvider="geometry.diagram.navigator.GeometryNavigatorContentProvider" 
-            labelProvider="geometry.diagram.navigator.GeometryNavigatorLabelProvider"
+            contentProvider="se2.e.geometry.diagram.navigator.GeometryNavigatorContentProvider" 
+            labelProvider="se2.e.geometry.diagram.navigator.GeometryNavigatorLabelProvider"
             icon="icons/obj16/GeometryDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
@@ -368,24 +368,24 @@
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
         	      <test property="org.eclipse.core.resources.extension" value="geometry_diagram"/>
                </and>
-               <instanceof value="geometry.diagram.navigator.GeometryAbstractNavigatorItem"/>
+               <instanceof value="se2.e.geometry.diagram.navigator.GeometryAbstractNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
             <or>
-         	   <instanceof value="geometry.diagram.navigator.GeometryAbstractNavigatorItem"/>
+         	   <instanceof value="se2.e.geometry.diagram.navigator.GeometryAbstractNavigatorItem"/>
             </or>
          </possibleChildren>
          <commonSorter 
                id="se2.e.geometry.diagram.navigatorSorter" 
-               class="geometry.diagram.navigator.GeometryNavigatorSorter">
+               class="se2.e.geometry.diagram.navigator.GeometryNavigatorSorter">
             <parentExpression>
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
         	         <test property="org.eclipse.core.resources.extension" value="geometry_diagram"/>
                   </and>
-                  <instanceof value="geometry.diagram.navigator.GeometryAbstractNavigatorItem"/>
+                  <instanceof value="se2.e.geometry.diagram.navigator.GeometryAbstractNavigatorItem"/>
                </or>
             </parentExpression>
          </commonSorter>
@@ -394,8 +394,8 @@
             id="se2.e.geometry.diagram.domainResourceContent" 
             name="%domainNavigatorContentName" 
             priority="normal" 
-            contentProvider="geometry.diagram.navigator.GeometryDomainNavigatorContentProvider" 
-            labelProvider="geometry.diagram.navigator.GeometryDomainNavigatorLabelProvider"
+            contentProvider="se2.e.geometry.diagram.navigator.GeometryDomainNavigatorContentProvider" 
+            labelProvider="se2.e.geometry.diagram.navigator.GeometryDomainNavigatorLabelProvider"
             icon="icons/obj16/GeometryDiagramFile.gif"
             activeByDefault="true">
          <triggerPoints>
@@ -404,19 +404,19 @@
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
         	      <test property="org.eclipse.core.resources.extension" value="geometry"/>
                </and>
-               <instanceof value="geometry.diagram.navigator.GeometryDomainNavigatorItem"/>
+               <instanceof value="se2.e.geometry.diagram.navigator.GeometryDomainNavigatorItem"/>
             </or>
          </triggerPoints>
          <possibleChildren>
-            <instanceof value="geometry.diagram.navigator.GeometryDomainNavigatorItem"/>
+            <instanceof value="se2.e.geometry.diagram.navigator.GeometryDomainNavigatorItem"/>
          </possibleChildren>
       </navigatorContent>
       <actionProvider
             id="se2.e.geometry.diagram.navigatorActionProvider"
-            class="geometry.diagram.navigator.GeometryNavigatorActionProvider">
+            class="se2.e.geometry.diagram.navigator.GeometryNavigatorActionProvider">
          <enablement>
             <or>
-               <instanceof value="geometry.diagram.navigator.GeometryAbstractNavigatorItem"/>
+               <instanceof value="se2.e.geometry.diagram.navigator.GeometryAbstractNavigatorItem"/>
             </or>
          </enablement>
       </actionProvider>
@@ -426,7 +426,7 @@
       <?gmfgen generated="true"?>
       <linkHelper
             id="se2.e.geometry.diagram.navigatorLinkHelper"
-            class="geometry.diagram.navigator.GeometryNavigatorLinkHelper">
+            class="se2.e.geometry.diagram.navigator.GeometryNavigatorLinkHelper">
          <editorInputEnablement>
             <and>
                <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
@@ -434,7 +434,7 @@
             </and>
          </editorInputEnablement>
          <selectionEnablement>
-            <instanceof value="geometry.diagram.navigator.GeometryAbstractNavigatorItem"/>
+            <instanceof value="se2.e.geometry.diagram.navigator.GeometryAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
    </extension>
@@ -442,17 +442,17 @@
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
-         defaultHandler="geometry.diagram.part.GeometryDiagramUpdateCommand"
+         defaultHandler="se2.e.geometry.diagram.part.GeometryDiagramUpdateCommand"
          description="%update.diagram.description"
-         id="geometry.diagram.updateDiagram"
+         id="se2.e.geometry.diagram.updateDiagram"
          name="%update.diagram.name"/>
    </extension>
    
    <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
       <?gmfgen generated="true"?>
       <key 
-         commandId="geometry.diagram.updateDiagram"
-         contextId="geometry.diagram.ui.diagramContext"
+         commandId="se2.e.geometry.diagram.updateDiagram"
+         contextId="se2.e.geometry.diagram.ui.diagramContext"
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="F5"/>
    </extension>
@@ -467,9 +467,9 @@
          <command commandId="se2.e.geometry.diagram.LoadResourceAction">
             <visibleWhen>
                <and>
-                  <with variable="activePartId"><equals value="geometry.diagram.part.GeometryDiagramEditorID"/></with>
+                  <with variable="activePartId"><equals value="se2.e.geometry.diagram.part.GeometryDiagramEditorID"/></with>
                   <with variable="selection"><iterate ifEmpty="false"> 
-                     <instanceof value="geometry.diagram.edit.parts.GeometryEditPart"/>
+                     <instanceof value="se2.e.geometry.diagram.edit.parts.GeometryEditPart"/>
                   </iterate></with>
                </and>
             </visibleWhen>
@@ -479,11 +479,11 @@
 
    <extension point="org.eclipse.ui.commands" id="menu-commands">
       <?gmfgen generated="true"?>
-      <category id="geometry.diagram.part.GeometryDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <category id="se2.e.geometry.diagram.part.GeometryDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
       <command id="se2.e.geometry.diagram.LoadResourceAction"
          name="Load Resource"
-         categoryId="geometry.diagram.part.GeometryDiagramEditorID"
-         defaultHandler="geometry.diagram.part.LoadResourceAction"/>
+         categoryId="se2.e.geometry.diagram.part.GeometryDiagramEditorID"
+         defaultHandler="se2.e.geometry.diagram.part.LoadResourceAction"/>
    </extension>
 
    <extension point="org.eclipse.ui.handlers" id="menu-handlers">
@@ -491,7 +491,7 @@
    </extension>
 <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
       <?gmfgen generated="true"?>
-      <ParserProvider class="geometry.diagram.providers.GeometryParserProvider">
+      <ParserProvider class="se2.e.geometry.diagram.providers.GeometryParserProvider">
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>

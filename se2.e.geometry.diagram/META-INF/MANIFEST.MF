@@ -4,12 +4,12 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: se2.e.geometry.diagram; singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: geometry.diagram.part.GeometryDiagramEditorPlugin
+Bundle-Activator: se2.e.geometry.diagram.part.GeometryDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: geometry.diagram.edit.parts,
- geometry.diagram.part,
- geometry.diagram.providers
+Export-Package: se2.e.geometry.diagram.edit.parts,
+ se2.e.geometry.diagram.part,
+ se2.e.geometry.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.core.expressions,

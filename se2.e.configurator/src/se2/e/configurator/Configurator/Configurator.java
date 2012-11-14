@@ -4,9 +4,9 @@ package se2.e.configurator.Configurator;
 
 import extendedpetrinet.ExtendedPetriNet;
 
-import geometry.Geometry;
-
 import org.eclipse.emf.ecore.EObject;
+
+import se2.e.geometry.Geometry;
 
 /**
  * <!-- begin-user-doc -->

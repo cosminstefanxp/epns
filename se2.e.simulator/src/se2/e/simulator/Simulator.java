@@ -1,10 +1,11 @@
 package se2.e.simulator;
 
-import geometry.Geometry;
+import se2.e.geometry.Geometry;
 
 import java.util.List;
 
-import petrinet.PetriNet;
+import extendedpetrinet.ExtendedPetriNet;
+
 import se2.e.engine3d.Engine3D;
 import se2.e.engine3d.Engine3DFactory;
 import se2.e.engine3d.Engine3DListener;
@@ -19,7 +20,7 @@ import se2.e.simulator.runtime.petrinet.TokenMovement;
 public class Simulator implements Engine3DListener {
 
 	/** The selected petri. */
-	private PetriNet selectedPetri;
+	private ExtendedPetriNet selectedPetri;
 	
 	/** The geometry. */
 	private Geometry geometry;
@@ -36,7 +37,7 @@ public class Simulator implements Engine3DListener {
 	 * @param geometry the geometry
 	 * @param selectedPetri the selected petri
 	 */
-	public Simulator(Geometry geometry, PetriNet selectedPetri) {
+	public Simulator(Geometry geometry, ExtendedPetriNet selectedPetri) {
 		rpn = new RuntimePetriNet(selectedPetri);
 		this.selectedPetri = selectedPetri;
 		this.geometry = geometry;

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:geometry="http://geometry/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_0Idm4C5nEeKPAN8nm2QphA" type="Geometry" name="example.geometry_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_15zosC5nEeKPAN8nm2QphA" type="2002">
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_15zosS5nEeKPAN8nm2QphA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_15zosi5nEeKPAN8nm2QphA" fontName="Ubuntu"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_15zosy5nEeKPAN8nm2QphA"/>
+    <element xmi:type="geometry:TrackPosition" href="default.geometry#//@geoObjects.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_15zotC5nEeKPAN8nm2QphA" x="145" y="70"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_2OGdsC5nEeKPAN8nm2QphA" type="2002">
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_2OGdsS5nEeKPAN8nm2QphA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2OGdsi5nEeKPAN8nm2QphA" fontName="Ubuntu"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_2OGdsy5nEeKPAN8nm2QphA"/>
+    <element xmi:type="geometry:TrackPosition" href="default.geometry#//@geoObjects.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2OGdtC5nEeKPAN8nm2QphA" x="460" y="65"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_2iy7UC5nEeKPAN8nm2QphA" type="2002">
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_2iy7US5nEeKPAN8nm2QphA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2iy7Ui5nEeKPAN8nm2QphA" fontName="Ubuntu"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_2iy7Uy5nEeKPAN8nm2QphA"/>
+    <element xmi:type="geometry:TrackPosition" href="default.geometry#//@geoObjects.2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iy7VC5nEeKPAN8nm2QphA" x="280" y="255"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_23L28C5nEeKPAN8nm2QphA" type="2002">
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_23L28S5nEeKPAN8nm2QphA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_23L28i5nEeKPAN8nm2QphA" fontName="Ubuntu"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_23L28y5nEeKPAN8nm2QphA"/>
+    <element xmi:type="geometry:TrackPosition" href="default.geometry#//@geoObjects.3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_23L29C5nEeKPAN8nm2QphA" x="615" y="260"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_9WO-AC5nEeKPAN8nm2QphA" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_9WPlEC5nEeKPAN8nm2QphA" type="5001"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_9WO-AS5nEeKPAN8nm2QphA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_9WO-Ai5nEeKPAN8nm2QphA" fontName="Ubuntu"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_9WO-Ay5nEeKPAN8nm2QphA"/>
+    <element xmi:type="geometry:SimplePosition" href="default.geometry#//@geoObjects.9"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9WO-BC5nEeKPAN8nm2QphA" x="245" y="115" width="76" height="30"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_0Idm4S5nEeKPAN8nm2QphA"/>
+  <element xmi:type="geometry:Geometry" href="default.geometry#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_3ZHfUC5nEeKPAN8nm2QphA" type="4001" source="_15zosC5nEeKPAN8nm2QphA" target="_2OGdsC5nEeKPAN8nm2QphA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_3ZIGYC5nEeKPAN8nm2QphA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_3ZIGYS5nEeKPAN8nm2QphA" x="21" y="-10"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_3ZHfUS5nEeKPAN8nm2QphA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_3ZHfUi5nEeKPAN8nm2QphA" fontName="Ubuntu"/>
+    <element xmi:type="geometry:Track" href="default.geometry#//@geoObjects.4"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3ZHfUy5nEeKPAN8nm2QphA" points="[2, -4, -331, -1]$[335, -9, 2, -6]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3ZMX0C5nEeKPAN8nm2QphA" id="(0.8333333333333334,0.75)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_4wTUsC5nEeKPAN8nm2QphA" type="4001" source="_2OGdsC5nEeKPAN8nm2QphA" target="_2iy7UC5nEeKPAN8nm2QphA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_4wT7wC5nEeKPAN8nm2QphA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_4wT7wS5nEeKPAN8nm2QphA" x="-2" y="17"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_4wTUsS5nEeKPAN8nm2QphA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_4wTUsi5nEeKPAN8nm2QphA" fontName="Ubuntu"/>
+    <element xmi:type="geometry:Track" href="default.geometry#//@geoObjects.5"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4wTUsy5nEeKPAN8nm2QphA" points="[-6, 6, 172, -180]$[-177, 184, 1, -2]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_4wYNMC5nEeKPAN8nm2QphA" id="(0.6666666666666666,0.16666666666666666)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_5iaHEC5nEeKPAN8nm2QphA" type="4001" source="_2iy7UC5nEeKPAN8nm2QphA" target="_15zosC5nEeKPAN8nm2QphA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_5iauIC5nEeKPAN8nm2QphA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_5iauIS5nEeKPAN8nm2QphA" x="8" y="-18"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_5iaHES5nEeKPAN8nm2QphA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_5iaHEi5nEeKPAN8nm2QphA" fontName="Ubuntu"/>
+    <element xmi:type="geometry:Track" href="default.geometry#//@geoObjects.6"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5iaHEy5nEeKPAN8nm2QphA" points="[-5, -6, 144, 187]$[-145, -187, 4, 6]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_6QAz8C5nEeKPAN8nm2QphA" type="4001" source="_2OGdsC5nEeKPAN8nm2QphA" target="_23L28C5nEeKPAN8nm2QphA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_6QBbAC5nEeKPAN8nm2QphA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_6QBbAS5nEeKPAN8nm2QphA" x="2" y="-20"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_6QAz8S5nEeKPAN8nm2QphA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_6QAz8i5nEeKPAN8nm2QphA" fontName="Ubuntu"/>
+    <element xmi:type="geometry:Track" href="default.geometry#//@geoObjects.7"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6QAz8y5nEeKPAN8nm2QphA" points="[4, 4, -177, -191]$[181, 189, 0, -6]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6QEeUC5nEeKPAN8nm2QphA" id="(0.6666666666666666,0.08333333333333333)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_655ecC5nEeKPAN8nm2QphA" type="4001" source="_23L28C5nEeKPAN8nm2QphA" target="_2iy7UC5nEeKPAN8nm2QphA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_656FgC5nEeKPAN8nm2QphA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_656skC5nEeKPAN8nm2QphA" x="1" y="-14"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_655ecS5nEeKPAN8nm2QphA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_655eci5nEeKPAN8nm2QphA" fontName="Ubuntu"/>
+    <element xmi:type="geometry:Track" href="default.geometry#//@geoObjects.8"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_655ecy5nEeKPAN8nm2QphA" points="[-6, 1, 359, 0]$[-366, 1, -1, 0]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_65-W8C5nEeKPAN8nm2QphA" id="(0.08333333333333333,0.6666666666666666)"/>
+  </edges>
+</notation:Diagram>

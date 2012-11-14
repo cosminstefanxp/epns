@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<geometry:Geometry xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:geometry="http://geometry/1.0">
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="145.0" y="70.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="460.0" y="65.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="280.0" y="255.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="615.0" y="260.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.0" endPosition="//@geoObjects.1" label="L1"/>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.1" endPosition="//@geoObjects.2" label="L2"/>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.2" endPosition="//@geoObjects.0" label="L3"/>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.1" endPosition="//@geoObjects.3" label="L4"/>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.3" endPosition="//@geoObjects.2" label="L5"/>
+  <geoObjects xsi:type="geometry:SimplePosition" label="Signal"/>
+</geometry:Geometry>

@@ -6,12 +6,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import org.pnml.tools.epnk.pnmlcoremodel.Page;
-import org.pnml.tools.epnk.pnmlcoremodel.PetriNet;
+import org.eclipse.emf.ecore.EObject;
+import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 import org.pnml.tools.epnk.pnmlcoremodel.Transition;
 
-
-import extendedpetrinet.Arc;
 import extendedpetrinet.Place;
 import extendedpetrinet.Token;
 
@@ -40,7 +38,6 @@ public class RuntimePetriNet {
 		List<Token> tempTokens = place.getTokens();
 		List<RuntimeToken> tempTokensExt = new ArrayList<RuntimeToken>();
 		for (Token token : tempTokens) {
-			//TODO:
 			tempTokensExt.add(new RuntimeToken(token.getAppearance().getText()));
 		}
 		tokensMap.put(place, tempTokensExt);
@@ -101,17 +98,16 @@ public class RuntimePetriNet {
 	 * @param selectedPetri the selected petri
 	 * @author Ruxandra, Marius
 	 */
-	public RuntimePetriNet(PetriNet selectedPetri) {
+	public RuntimePetriNet(PetriNetDoc selectedPetri) {
 		/* create an internal structure so that it will be easy to fire transitions */
 		transitions = new ArrayList<Transition>();
 		tokensMap = new HashMap<Place, List<RuntimeToken>>();
 		preset = new HashMap<Transition, List<Place>>();
 		postset = new HashMap<Transition, List<Place>>();
-		Iterator<Page> iter = selectedPetri.getPage().iterator();
+		
+		Iterator<EObject> iter = selectedPetri.getNet().get(0).eContents().iterator();
 		while (iter.hasNext()) {
-			//maybe page... maybe... 
-			Page item = iter.next();
-
+			EObject item = iter.next();
 			if (item instanceof Transition) {
 				/* add transition to list */
 				transitions.add((Transition) item);
@@ -177,7 +173,7 @@ public class RuntimePetriNet {
 		int count = 0;
 		/* add tokens to postsets */
 		for (Place place : selectedTransitionPostset) {
-			//TODO: for final version: iterate over removedTokens
+			//TODO: check
 			String geomLabel = removedTokens.get(count%removedTokens.size()).getLabel();
 			count++;
 			RuntimeToken tokenExt = new RuntimeToken(geomLabel);
@@ -227,7 +223,6 @@ public class RuntimePetriNet {
 	 * @param placeLabel the place label
 	 */
 	public void dropTokenOnPlace(String placeLabel) {
-		//TODO:
 		RuntimeToken droppedToken = new RuntimeToken("none");
 		Place placeForLabel = null;
 		for(Place place : tokensMap.keySet()) {

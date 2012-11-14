@@ -4,6 +4,8 @@ import se2.e.geometry.Geometry;
 
 import java.util.List;
 
+import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
+
 
 import extendedpetrinet.ExtendedPetriNet;
 
@@ -21,7 +23,7 @@ import se2.e.simulator.runtime.petrinet.TokenMovement;
 public class Simulator implements Engine3DListener {
 
 	/** The selected petri. */
-	private ExtendedPetriNet selectedPetri;
+	private PetriNetDoc selectedPetri;
 	
 	/** The geometry. */
 	private Geometry geometry;
@@ -38,7 +40,7 @@ public class Simulator implements Engine3DListener {
 	 * @param geometry the geometry
 	 * @param selectedPetri the selected petri
 	 */
-	public Simulator(Geometry geometry, ExtendedPetriNet selectedPetri) {
+	public Simulator(Geometry geometry, PetriNetDoc selectedPetri) {
 		rpn = new RuntimePetriNet(selectedPetri);
 		this.selectedPetri = selectedPetri;
 		this.geometry = geometry;

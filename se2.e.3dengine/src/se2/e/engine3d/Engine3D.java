@@ -1,6 +1,6 @@
 package se2.e.engine3d;
 
-import geometry.Geometry;
+import se2.e.geometry.Geometry;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 
 /**

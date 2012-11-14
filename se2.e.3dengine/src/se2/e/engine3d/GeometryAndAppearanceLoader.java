@@ -1,8 +1,8 @@
 package se2.e.engine3d;
 
-import geometry.Geometry;
-import geometry.GeometryObject;
-import geometry.Track;
+import se2.e.geometry.Geometry;
+import se2.e.geometry.GeometryObject;
+import se2.e.geometry.Track;
 
 import java.util.HashMap;
 import java.util.List;

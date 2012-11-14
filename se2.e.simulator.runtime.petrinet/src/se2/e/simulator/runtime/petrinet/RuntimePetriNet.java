@@ -6,14 +6,15 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import petrinet.Arc;
-import petrinet.Item;
-import petrinet.PetriNet;
-import petrinet.Place;
-import petrinet.Token;
-import petrinet.impl.PetriNetImpl;
-import petrinet.impl.PlaceImpl;
-import petrinet.impl.TransitionImpl;
+import org.pnml.tools.epnk.pnmlcoremodel.Page;
+import org.pnml.tools.epnk.pnmlcoremodel.PetriNet;
+import org.pnml.tools.epnk.pnmlcoremodel.Transition;
+
+
+import extendedpetrinet.Arc;
+import extendedpetrinet.Place;
+import extendedpetrinet.Token;
+
 
 /**
  * The Class RuntimePetriNet.
@@ -21,13 +22,13 @@ import petrinet.impl.TransitionImpl;
 public class RuntimePetriNet {
 
 	/** The transitions. */
-	List<TransitionImpl> transitions;
+	List<Transition> transitions;
 	/** The tokens map. */
-	HashMap<PlaceImpl, List<RuntimeToken>> tokensMap;
+	HashMap<Place, List<RuntimeToken>> tokensMap;
 	/** The preset. */
-	HashMap<TransitionImpl, List<PlaceImpl>> preset;
+	HashMap<Transition, List<Place>> preset;
 	/** The postset. */
-	HashMap<TransitionImpl, List<PlaceImpl>> postset;
+	HashMap<Transition, List<Place>> postset;
 
 	/**
 	 * Initialize tokens in place list.
@@ -35,11 +36,12 @@ public class RuntimePetriNet {
 	 * @param place the place
 	 * @author Ruxandra, Marius
 	 */
-	private void initializeTokensInPlaceList(PlaceImpl place) {
-		List<Token> tempTokens = place.getPtoken();
+	private void initializeTokensInPlaceList(Place place) {
+		List<Token> tempTokens = place.getTokens();
 		List<RuntimeToken> tempTokensExt = new ArrayList<RuntimeToken>();
 		for (Token token : tempTokens) {
-			tempTokensExt.add(new RuntimeToken(token));
+			//TODO:
+			tempTokensExt.add(new RuntimeToken(token.getAppearance().getText()));
 		}
 		tokensMap.put(place, tempTokensExt);
 	}
@@ -50,10 +52,10 @@ public class RuntimePetriNet {
 	 * @param selectedTransition the selected transition
 	 * @author Ruxandra, Marius
 	 */
-	private void initializePresets(TransitionImpl selectedTransition) {
-		List<PlaceImpl> places = new ArrayList<PlaceImpl>();
-		for (Arc arc : selectedTransition.getTargetof()) {
-			PlaceImpl place = (PlaceImpl) arc.getSource();
+	private void initializePresets(Transition selectedTransition) {
+		List<Place> places = new ArrayList<Place>();
+		for (org.pnml.tools.epnk.pnmlcoremodel.Arc arc : selectedTransition.getIn()) {
+			Place place = (Place) arc.getSource();
 			places.add(place);
 		}
 		preset.put(selectedTransition, places);
@@ -65,10 +67,11 @@ public class RuntimePetriNet {
 	 * @param selectedTransition the selected transition
 	 * @author Ruxandra, Marius
 	 */
-	private void initializePostsets(TransitionImpl selectedTransition) {
-		List<PlaceImpl> places = new ArrayList<PlaceImpl>();
-		for (Arc arc : selectedTransition.getSourceof()) {
-			PlaceImpl place = (PlaceImpl) arc.getTarget();
+	private void initializePostsets(Transition selectedTransition) {
+		List<Place> places = new ArrayList<Place>();
+		for (org.pnml.tools.epnk.pnmlcoremodel.Arc arc : selectedTransition.getOut()) {
+			Arc my_arc = (Arc) arc;
+			Place place = (Place) arc.getTarget();
 			places.add(place);
 		}
 		postset.put(selectedTransition, places);
@@ -79,9 +82,9 @@ public class RuntimePetriNet {
 	 * @author Ruxandra, Marius
 	 */
 	public void printPetri() {
-		for (TransitionImpl transition : transitions) {
+		for (Transition transition : transitions) {
 			System.out.println(transition.getName() + " :");
-			for (PlaceImpl place : preset.get(transition)) {
+			for (Place place : preset.get(transition)) {
 				System.out.println("\t" + place.getName());
 				for (RuntimeToken token : tokensMap.get(place)) {
 					System.out.println("\t\t" + token.isFinished());
@@ -99,25 +102,26 @@ public class RuntimePetriNet {
 	 */
 	public RuntimePetriNet(PetriNet selectedPetri) {
 		/* create an internal structure so that it will be easy to fire transitions */
-		transitions = new ArrayList<TransitionImpl>();
-		tokensMap = new HashMap<PlaceImpl, List<RuntimeToken>>();
-		preset = new HashMap<TransitionImpl, List<PlaceImpl>>();
-		postset = new HashMap<TransitionImpl, List<PlaceImpl>>();
-		Iterator<Item> iter = selectedPetri.getPNitems().iterator();
+		transitions = new ArrayList<Transition>();
+		tokensMap = new HashMap<Place, List<RuntimeToken>>();
+		preset = new HashMap<Transition, List<Place>>();
+		postset = new HashMap<Transition, List<Place>>();
+		Iterator<Page> iter = selectedPetri.getPage().iterator();
 		while (iter.hasNext()) {
-			Item item = iter.next();
+			//maybe page... maybe... 
+			Page item = iter.next();
 
-			if (item instanceof TransitionImpl) {
+			if (item instanceof Transition) {
 				/* add transition to list */
-				transitions.add((TransitionImpl) item);
+				transitions.add((Transition) item);
 				/* create preset for each transition */
-				this.initializePresets((TransitionImpl) item);
+				this.initializePresets((Transition) item);
 				/* create postset for each transition */
-				this.initializePostsets((TransitionImpl) item);
+				this.initializePostsets((Transition) item);
 			}
-			if (item instanceof PlaceImpl) {
+			if (item instanceof Place) {
 				/* create a place->tokens hashmap */
-				PlaceImpl place = (PlaceImpl) item;
+				Place place = (Place) item;
 				this.initializeTokensInPlaceList(place);
 			}
 		}
@@ -131,12 +135,12 @@ public class RuntimePetriNet {
 	 * @return the list of {@link Token}s that have been moved and their destination {@link Place}.
 	 * @author Ruxandra, Marius
 	 */
-	public List<TokenMovement> fireTransition(TransitionImpl selectedTransition) {
+	public List<TokenMovement> fireTransition(Transition selectedTransition) {
 
-		List<PlaceImpl> selectedTransitionPreset = preset.get(selectedTransition);
-		List<PlaceImpl> selectedTransitionPostset = postset.get(selectedTransition);
+		List<Place> selectedTransitionPreset = preset.get(selectedTransition);
+		List<Place> selectedTransitionPostset = postset.get(selectedTransition);
 		/* check that every preset has a token */
-		for (PlaceImpl place : selectedTransitionPreset) {
+		for (Place place : selectedTransitionPreset) {
 			/* check all tokens to see if there is at least one marked */
 			boolean atLeastOneMarked = false;
 			for (RuntimeToken token : tokensMap.get(place)) {
@@ -157,7 +161,7 @@ public class RuntimePetriNet {
 		List<RuntimeToken> removedTokens = new ArrayList<RuntimeToken>();
 
 		/* consume tokens from the presets */
-		for (PlaceImpl place : selectedTransitionPreset) {
+		for (Place place : selectedTransitionPreset) {
 			RuntimeToken tokenExt = null;
 			for (RuntimeToken token : tokensMap.get(place)) {
 				if (token.isFinished()) {
@@ -171,13 +175,13 @@ public class RuntimePetriNet {
 		}
 		int count = 0;
 		/* add tokens to postsets */
-		for (PlaceImpl place : selectedTransitionPostset) {
+		for (Place place : selectedTransitionPostset) {
 			//TODO: for final version: iterate over removedTokens
 			String geomLabel = removedTokens.get(count%removedTokens.size()).getLabel();
 			count++;
 			RuntimeToken tokenExt = new RuntimeToken(geomLabel);
 			tokensMap.get(place).add(tokenExt);
-			tokensMovement.add(new TokenMovement(tokenExt, place.getLabel(), place.getAnimation()));
+			tokensMovement.add(new TokenMovement(tokenExt, place.getGeoLabel().getText(), place.getAnimations()));
 			System.out.println("Adaug token movement!!!");
 		}
 		return tokensMovement;
@@ -192,7 +196,7 @@ public class RuntimePetriNet {
 	public List<TokenMovement> fireTransitions() {
 		System.out.println("Should be firing transitions");
 		List<TokenMovement> tokensMovements = new ArrayList<TokenMovement>();
-		for (TransitionImpl transition : transitions) {
+		for (Transition transition : transitions) {
 			System.out.println("Selected transition: " + transition.getName());
 			while (true) {
 				/* tokenMovement = pair between the token and the place it's moving to */
@@ -225,13 +229,13 @@ public class RuntimePetriNet {
 		//TODO:
 		RuntimeToken droppedToken = new RuntimeToken("none");
 		Place placeForLabel = null;
-		for(Place place : tokensMap.keys()) {
-			if(place.getLabel().equals(placeLabel)) {
+		for(Place place : tokensMap.keySet()) {
+			if(place.getGeoLabel().equals(placeLabel)) {
 				placeForLabel = place;
 				break;
 			}		
 		}
-		tokensMap.get(place).add(droppedToken);
+		tokensMap.get(placeForLabel).add(droppedToken);
 	}
 
 }

@@ -1,7 +1,0 @@
-# Tracing options for the se2.e.geometry.diagram plug-in
-
-# Common issues
-se2.e.geometry.diagram/debug=false
-
-# Visual IDs
-se2.e.geometry.diagram/debug/visualID=false

@@ -2,6 +2,7 @@ package se2.e.engine3d;
 
 import geometry.Geometry;
 import geometry.GeometryObject;
+import geometry.Track;
 
 import java.util.HashMap;
 import java.util.List;
@@ -35,7 +36,12 @@ public class GeometryAndAppearanceLoader {
 		List<GeometryObject> geomObjs = geometry.getGeoObjects();
 		geometryObjects = new HashMap<String, GeometryObject>();
 		for (GeometryObject geomObj : geomObjs) {
-			geometryObjects.put(geomObj.getLabel(), geomObj);
+			if(geomObj instanceof Track)
+			{
+				geometryObjects.put(((Track)geomObj).getName(), geomObj);
+				//TODO: Eventually maybe create a hashmap for each of the 2 types: Track/SimplePosition
+			}
+			//Fill in for all required geometry objects
 		}
 		log.info("Loaded geometry: " + geometryObjects);
 		// TODO: change class of appearance - do same thing

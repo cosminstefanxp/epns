@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pnml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net type="Extended PetriNet">
-    <page>
+  <net type="Extended PetriNet" id="ExtendedPetriNetExample">
+    <page id="PetriNetExample">
       <toolspecific tool="org.pnml.tools.epnk.diagraminfo" version="0.9.2">
-        <diagram visible="true" type="PNMLCoreModel" element="//@net.0/@page.0" name="Page null" measurementUnit="Pixel">
+        <diagram visible="true" type="PNMLCoreModel" element="PetriNetExample" name="Page null" measurementUnit="Pixel">
           <children xsi:type="notation:Shape" visible="true" type="2001" element="P1" fontColor="0" fontName="Sans" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="11579568" lineWidth="-1" roundedBendpointsRadius="0">
             <layoutConstraint xsi:type="notation:Bounds" x="55" y="130" width="-1" height="-1"/>
           </children>
@@ -93,6 +93,11 @@
           <fill color="#ffffff"/>
         </graphics>
         <interactiveInput/>
+        <tokens>
+          <appearance>
+            <text>S1</text>
+          </appearance>
+        </tokens>
       </place>
       <place id="P3" geoLabel="L3">
         <graphics>
@@ -111,11 +116,6 @@
           <fill color="#ffffff"/>
         </graphics>
         <interactiveInput/>
-        <tokens>
-          <appearance>
-            <text>S1</text>
-          </appearance>
-        </tokens>
       </place>
       <place id="P5" geoLabel="L5">
         <graphics>
@@ -125,11 +125,6 @@
           <fill color="#ffffff"/>
         </graphics>
         <interactiveInput/>
-        <tokens ID="1">
-          <appearance>
-            <text>S2</text>
-          </appearance>
-        </tokens>
       </place>
       <transition id="T1">
         <graphics>
@@ -169,6 +164,7 @@
           <position x="73.0" y="130.0"/>
           <position x="157.0" y="149.0"/>
         </graphics>
+        <ignoreAnimation/>
       </arc>
       <arc id="A11" source="T1" target="P2">
         <graphics>
@@ -176,6 +172,7 @@
           <position x="179.0" y="139.0"/>
           <position x="265.0" y="169.0"/>
         </graphics>
+        <ignoreAnimation/>
       </arc>
       <arc id="A12" source="T1" target="P3">
         <graphics>
@@ -183,6 +180,7 @@
           <position x="168.0" y="125.0"/>
           <position x="256.0" y="100.0"/>
         </graphics>
+        <ignoreAnimation/>
       </arc>
       <arc id="A13" source="P2" target="T2">
         <graphics>
@@ -190,6 +188,7 @@
           <position x="293.0" y="184.0"/>
           <position x="434.0" y="182.0"/>
         </graphics>
+        <ignoreAnimation/>
       </arc>
       <arc id="A14" source="P3" target="T3">
         <graphics>
@@ -197,6 +196,7 @@
           <position x="293.0" y="75.0"/>
           <position x="416.0" y="97.0"/>
         </graphics>
+        <ignoreAnimation/>
       </arc>
       <arc id="A15" source="T2" target="P5">
         <graphics>
@@ -204,6 +204,7 @@
           <position x="434.0" y="187.0"/>
           <position x="572.0" y="170.0"/>
         </graphics>
+        <ignoreAnimation/>
       </arc>
       <arc id="A16" source="T3" target="P4">
         <graphics>
@@ -211,6 +212,7 @@
           <position x="434.0" y="74.0"/>
           <position x="560.0" y="59.0"/>
         </graphics>
+        <ignoreAnimation/>
       </arc>
       <arc id="A17" source="P5" target="T4">
         <graphics>
@@ -218,6 +220,7 @@
           <position x="582.0" y="181.0"/>
           <position x="674.0" y="159.0"/>
         </graphics>
+        <ignoreAnimation/>
       </arc>
       <arc id="A18" source="P4" target="T4">
         <graphics>
@@ -225,6 +228,7 @@
           <position x="581.0" y="88.0"/>
           <position x="649.0" y="127.0"/>
         </graphics>
+        <ignoreAnimation/>
       </arc>
       <arc id="A19" source="T4" target="P1">
         <graphics>
@@ -236,6 +240,7 @@
           <position x="184.0" y="39.0"/>
           <position x="70.0" y="117.0"/>
         </graphics>
+        <ignoreAnimation/>
       </arc>
     </page>
   </net>

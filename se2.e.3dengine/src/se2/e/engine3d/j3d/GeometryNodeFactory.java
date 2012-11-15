@@ -89,9 +89,16 @@ public class GeometryNodeFactory {
 		la.setLineWidth(5.0f);
 		Appearance app = new Appearance();
 		app.setLineAttributes(la);
+		//set line color
 		ColoringAttributes ca = new ColoringAttributes();
 		ca.setColor(new Color3f(1.0f, 0, 0));
 		app.setColoringAttributes(ca);
+		//set line texture
+		Texture tex = new TextureLoader("graphics/textures/earth.png", engine).getTexture();
+		app.setTexture(tex);
+		TextureAttributes texAttr = new TextureAttributes();
+		texAttr.setTextureMode(TextureAttributes.MODULATE);
+		app.setTextureAttributes(texAttr);
 		
 		g.addChild(new Shape3D(lineArr, app));
 		return g;

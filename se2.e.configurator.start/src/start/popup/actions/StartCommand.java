@@ -15,7 +15,7 @@ public class StartCommand extends CompoundCommand {
 	public StartCommand(EditingDomain domain, Configurator selectedConfig) {
 		
 		super(0);
-		Simulator s = new Simulator(selectedConfig.getGeometry(), selectedConfig.getPetrinet());
+		Simulator s = new Simulator(selectedConfig.getGeometry(), selectedConfig.getPetrinet(), selectedConfig.getAppearance());
 		s.startSimulation();
 		System.out.println("Simulation running");
 	}

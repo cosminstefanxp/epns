@@ -14,6 +14,9 @@ import org.pnml.tools.epnk.pnmlcoremodel.PetriNet;
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 import org.pnml.tools.epnk.pnmlcoremodel.Transition;
 
+import animations.Move;
+import animations.impl.AnimationsFactoryImpl;
+
 import extendedpetrinet.Arc;
 import extendedpetrinet.Place;
 import extendedpetrinet.Token;
@@ -191,7 +194,10 @@ public class RuntimePetriNet {
 			RuntimeToken tokenExt = new RuntimeToken(geomLabel);
 			tokensMap.get(place).add(tokenExt);
 			//TODO: modify to use the place's animation!!!!!!!!
-			tokensMovement.add(new TokenMovement(tokenExt, place.getGeoLabel(), place.getAnimations().getStructure()));
+			Move move = AnimationsFactoryImpl.init().createMove();
+			move.setGeoTrack(place.getGeoLabel());
+			move.setSpeed(3.0);
+			tokensMovement.add(new TokenMovement(tokenExt, place.getGeoLabel(), move));
 		}
 		return tokensMovement;
 	}

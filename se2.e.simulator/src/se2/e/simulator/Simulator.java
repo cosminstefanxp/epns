@@ -60,6 +60,12 @@ public class Simulator implements Engine3DListener {
 		engine = Engine3DFactory.getEngine();
 		engine.init(this.geometry, this.appearance);
 		engine.setEngine3DListener(this);
+		
+		/* TO BE REMOVED Test for input place without 3d engine */
+		//rpn.dropTokenOnPlace("Signal");
+		//List<TokenMovement> tokenMovements = rpn.fireTransitions();
+	
+		
 	}
 
 	/* (non-Javadoc)

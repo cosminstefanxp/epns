@@ -59,7 +59,6 @@ public class RuntimePetriNet {
 	private void initializePresets(Transition selectedTransition) {
 		List<Place> places = new ArrayList<Place>();
 		for (org.pnml.tools.epnk.pnmlcoremodel.Arc arc : selectedTransition.getIn()) {
-			//TODO: see whether the petriNet is ok
 			Place place = (Place) arc.getSource();
 			places.add(place);
 		}
@@ -75,7 +74,6 @@ public class RuntimePetriNet {
 	private void initializePostsets(Transition selectedTransition) {
 		List<Place> places = new ArrayList<Place>();
 		for (org.pnml.tools.epnk.pnmlcoremodel.Arc arc : selectedTransition.getOut()) {
-			//TODO: see whether the petriNet is ok
 			Place place = (Place) arc.getTarget();
 			places.add(place);
 		}
@@ -92,7 +90,7 @@ public class RuntimePetriNet {
 			for (Place place : preset.get(transition)) {
 				System.out.println("\t" + place.getId());
 				for (RuntimeToken token : tokensMap.get(place)) {
-					System.out.println("\t\t" + token.isFinished());
+					System.out.println("\t\t" + token.isFinished() + " " + token.getLabel());
 				}
 			}
 			System.out.println();
@@ -128,6 +126,7 @@ public class RuntimePetriNet {
 			if (item instanceof Place) {
 				/* create a place->tokens hashmap */
 				Place place = (Place) item;
+				System.out.println(place.getId());
 				this.initializeTokensInPlaceList(place);
 			}
 		}
@@ -182,10 +181,13 @@ public class RuntimePetriNet {
 		int count = 0;
 		/* add tokens to postsets */
 		for (Place place : selectedTransitionPostset) {
-			//TODO: check
-			
 			String geomLabel = removedTokens.get(count%removedTokens.size()).getLabel();
 			count++;
+			//TODO: replace this when we put identities on the Arcs!!!!!
+			if(geomLabel.equals("null")) {
+				geomLabel = removedTokens.get(count%removedTokens.size()).getLabel();
+				count++;
+			}
 			RuntimeToken tokenExt = new RuntimeToken(geomLabel);
 			tokensMap.get(place).add(tokenExt);
 			//TODO: modify to use the place's animation!!!!!!!!
@@ -230,13 +232,14 @@ public class RuntimePetriNet {
 	/**
 	 * Drop token on place.
 	 *
-	 * @param placeLabel the place label
+	 * @param geometryLabel the place's GEOMETRY label
 	 */
-	public void dropTokenOnPlace(String placeLabel) {
-		RuntimeToken droppedToken = new RuntimeToken("none");
+	public void dropTokenOnPlace(String geometryLabel) {
+		RuntimeToken droppedToken = new RuntimeToken("null");
+		droppedToken.setFinished(true);
 		Place placeForLabel = null;
 		for(Place place : tokensMap.keySet()) {
-			if(place.getGeoLabel().equals(placeLabel)) {
+			if(place.getGeoLabel().equals(geometryLabel)) {
 				placeForLabel = place;
 				break;
 			}		

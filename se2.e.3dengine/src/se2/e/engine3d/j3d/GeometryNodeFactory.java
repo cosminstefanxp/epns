@@ -36,7 +36,7 @@ public class GeometryNodeFactory {
 	 * 
 	 * @param loader the loader
 	 */
-	public GeometryNodeFactory(GeometryAndAppearanceLoader loader) {
+	public GeometryNodeFactory(GeometryAndAppearanceLoader loader, J3DEngine engine) {
 		super();
 		this.loader = loader;
 	}

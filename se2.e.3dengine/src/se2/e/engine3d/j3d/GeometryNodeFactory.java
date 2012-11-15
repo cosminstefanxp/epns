@@ -1,6 +1,5 @@
 package se2.e.engine3d.j3d;
 
-import java.util.HashMap;
 import java.util.logging.Logger;
 
 import javax.media.j3d.Appearance;
@@ -22,6 +21,7 @@ import se2.e.geometry.Position;
 import se2.e.geometry.Track;
 import se2.e.utilities.Vector2D;
 import appearance.AppearanceInfo;
+import appearance.Object3D;
 import appearance.SurfaceColor;
 
 import com.sun.j3d.utils.geometry.ColorCube;
@@ -41,14 +41,17 @@ public class GeometryNodeFactory {
 	private GeometryAndAppearanceLoader loader;
 
 	private Canvas3D canvas;
-	
+
 	private J3DEngine engine;
+
 	/**
 	 * Instantiates a new geometry node factory.
 	 * 
-	 * @param loader the loader
+	 * @param loader
+	 *            the loader
 	 */
-	public GeometryNodeFactory(GeometryAndAppearanceLoader loader, J3DEngine engine, Canvas3D canvas) {
+	public GeometryNodeFactory(GeometryAndAppearanceLoader loader,
+			J3DEngine engine, Canvas3D canvas) {
 		super();
 		this.loader = loader;
 		this.canvas = canvas;
@@ -56,133 +59,153 @@ public class GeometryNodeFactory {
 	}
 
 	/**
-	 * Gets the geometry node (could be, for example, a Transform Group) for a specific label (e.g. 'track1').
+	 * Gets the geometry node (could be, for example, a Transform Group) for a
+	 * specific label (e.g. 'track1').
 	 * 
-	 * @param geometryLabel the geometry label
-	 * @return the node containing the representation for the geometry, or null, if there is no geometry with the given
-	 * label or it's not a static GeometryObject (Track).
+	 * @param geometryLabel
+	 *            the geometry label
+	 * @return the node containing the representation for the geometry, or null,
+	 *         if there is no geometry with the given label or it's not a static
+	 *         GeometryObject (Track).
 	 */
 	public Node getGeometryNode(String geometryLabel) {
 		// Get the track points
 		Vector2D[] trackPoints = loader.getTrackPoints(geometryLabel);
 		if (trackPoints == null)
 			return null;
-		
+
 		Track track = loader.getTrackFromLabel(geometryLabel);
-		Logger.getAnonymousLogger().info("Generating " + geometryLabel + " for: " + trackPoints);
+		Logger.getAnonymousLogger().info(
+				"Generating " + geometryLabel + " for: " + trackPoints);
 
 		// Prepare the points of the tracks
-		LineArray lineArr = new LineArray((trackPoints.length - 1) * 2, LineArray.COORDINATES);
-		lineArr.setCoordinate(0, new Point3d(trackPoints[0].getX(), trackPoints[0].getY(), DRAWING_PLANE_Z));
+		LineArray lineArr = new LineArray((trackPoints.length - 1) * 2,
+				LineArray.COORDINATES);
+		lineArr.setCoordinate(0, new Point3d(trackPoints[0].getX(),
+				trackPoints[0].getY(), DRAWING_PLANE_Z));
 		for (int i = 1; i < trackPoints.length - 1; i++) {
-			// Add each point twice, as it will be both an endpoint for a line and a startpoint for the next one
-			lineArr.setCoordinate(2 * i - 1, new Point3d(trackPoints[i].getX(), trackPoints[i].getY(), DRAWING_PLANE_Z));
-			lineArr.setCoordinate(2 * i, new Point3d(trackPoints[i].getX(), trackPoints[i].getY(), DRAWING_PLANE_Z));
+			// Add each point twice, as it will be both an endpoint for a line
+			// and a startpoint for the next one
+			lineArr.setCoordinate(2 * i - 1, new Point3d(trackPoints[i].getX(),
+					trackPoints[i].getY(), DRAWING_PLANE_Z));
+			lineArr.setCoordinate(2 * i, new Point3d(trackPoints[i].getX(),
+					trackPoints[i].getY(), DRAWING_PLANE_Z));
 		}
-		lineArr.setCoordinate(2 * (trackPoints.length - 1) - 1, new Point3d(trackPoints[trackPoints.length - 1].getX(),
+		lineArr.setCoordinate(2 * (trackPoints.length - 1) - 1, new Point3d(
+				trackPoints[trackPoints.length - 1].getX(),
 				trackPoints[trackPoints.length - 1].getY(), DRAWING_PLANE_Z));
-		
+
 		// Add the line to the track group
 		TransformGroup g = new TransformGroup();
-		
+
 		// set line width
 		LineAttributes la = new LineAttributes();
 		la.setLineWidth(5.0f);
 		Appearance app = new Appearance();
 		app.setLineAttributes(la);
-		//set line color
+		// set line color
 		ColoringAttributes ca = new ColoringAttributes();
-		
-		//String color = "90,60,90";
+
+		// String color = "90,60,90";
 		boolean colorSet = false;
-		if (track.getAppearanceLabel() != null)
-		{
-			AppearanceInfo color = loader.getAppearanceInfo(track.getAppearanceLabel());
-			if (color != null && color instanceof SurfaceColor)
-			{
+		if (track.getAppearanceLabel() != null) {
+			AppearanceInfo color = loader.getAppearanceInfo(track
+					.getAppearanceLabel());
+			if (color != null && color instanceof SurfaceColor) {
 				colorSet = true;
-				SurfaceColor sc = (SurfaceColor)color;
+				SurfaceColor sc = (SurfaceColor) color;
 				String[] rgb = sc.getColorCode().split(",");
-				ca.setColor(new Color3f(Float.parseFloat(rgb[0])/255, Float.parseFloat(rgb[1])/255, Float.parseFloat(rgb[2])/255));
+				ca.setColor(new Color3f(Float.parseFloat(rgb[0]) / 255, Float
+						.parseFloat(rgb[1]) / 255,
+						Float.parseFloat(rgb[2]) / 255));
 				app.setColoringAttributes(ca);
 			}
 		}
-		if (colorSet == false)
-		{
+		if (colorSet == false) {
 			ca.setColor(new Color3f(0.5f, 0.5f, 0.5f));
 			app.setColoringAttributes(ca);
 		}
-		
-		
 
-		//System.out.println(new java.io.File(".").getAbsolutePath());
+		// System.out.println(new java.io.File(".").getAbsolutePath());
 		/**
-		*the texture file and folder has to be in eclipse's home directory (where eclipse.exe is)
-		**/
-//		Texture tex = new TextureLoader("graphics/textures/texture-green.png", engine).getTexture();
-//		app.setTexture(tex);
-//		TextureAttributes texAttr = new TextureAttributes();
-//		texAttr.setTextureMode(TextureAttributes.REPLACE);
-//		app.setTextureAttributes(texAttr);
+		 * the texture file and folder has to be in eclipse's home directory
+		 * (where eclipse.exe is)
+		 **/
+		// Texture tex = new
+		// TextureLoader("graphics/textures/texture-green.png",
+		// engine).getTexture();
+		// app.setTexture(tex);
+		// TextureAttributes texAttr = new TextureAttributes();
+		// texAttr.setTextureMode(TextureAttributes.REPLACE);
+		// app.setTextureAttributes(texAttr);
 
-		
 		g.addChild(new Shape3D(lineArr, app));
 		return g;
 	}
-	
-	
+
 	/**
-	 *  @author Marius
-	 * Returns a static branch that contains an interactive input point that, when clicked,
-	 * will callback the 3D engine
+	 * @author Marius Returns a static branch that contains an interactive input
+	 *         point that, when clicked, will callback the 3D engine
 	 * @param appearanceLabel
 	 * @param geomLabel
 	 * @return
 	 */
-	public InteractiveInputBranch getInteractiveInputBranch(String appearanceLabel, String geomLabel) {
-		AppearanceInfo appearanceInfo = this.loader.getAppearanceInfo(appearanceLabel);
-		Position position = this.loader.getSimplePositionObject(geomLabel).getPosition();
+	public InteractiveInputBranch getInteractiveInputBranch(
+			String appearanceLabel, String geomLabel) {
+		AppearanceInfo appearanceInfo = this.loader
+				.getAppearanceInfo(appearanceLabel);
+		Position position = this.loader.getSimplePositionObject(geomLabel)
+				.getPosition();
 		BranchGroup branchGroup = new BranchGroup();
 		TransformGroup tg = null;
-		
-		String apinfo = appearanceInfo.getLabel();
-		//switch - case with strings only in JRE 7. for compatibility issues, I'm using if - else
-		if (appearanceInfo instanceof Shape3D){
-			if (apinfo.equalsIgnoreCase("Cube"))
-			{
+		System.out.println("Appearance: " + appearanceLabel + "     "
+				+ appearanceInfo);
+		System.out.println("Position: " + position);
+		// switch - case with strings only in JRE 7. for compatibility issues,
+		// I'm using if - else
+		if (appearanceInfo instanceof appearance.Shape3D) {
+			Object3D type = ((appearance.Shape3D) appearanceInfo).getType();
+			System.out.println("TYPE::::" + type);
+			if (type == Object3D.CUBE) {
 				ColorCube model = new ColorCube(0.5f);
 				Transform3D trans3d = new Transform3D();
-				trans3d.setTranslation(new Vector3d(position.getX(), position.getY(), DRAWING_PLANE_Z));
+				trans3d.setTranslation(new Vector3d(position.getX(), position
+						.getY(), DRAWING_PLANE_Z));
 				tg = new TransformGroup(trans3d);
 				tg.addChild(model);
 				tg.setPickable(true);
 				branchGroup.addChild(tg);
-			}
-			else if (apinfo.equalsIgnoreCase("Sphere"))
-			{
+			} else if (type == Object3D.SPHERE) {
+				System.out.println("SFERA!!!!!!!");
 				Appearance app = new Appearance();
-//				Texture tex = new TextureLoader("graphics/textures/earth.png", engine).getTexture();
-//				//FIXME: may need to be changed from / to \ depending on the operating system
-//				app.setTexture(tex);
-//				TextureAttributes texAttr = new TextureAttributes();
-//				texAttr.setTextureMode(TextureAttributes.MODULATE);
-//				app.setTextureAttributes(texAttr);
-//				Sphere model = new Sphere(0.86f, Sphere.GENERATE_TEXTURE_COORDS, app);
+				// Texture tex = new
+				// TextureLoader("graphics/textures/earth.png",
+				// engine).getTexture();
+				// //FIXME: may need to be changed from / to \ depending on the
+				// operating system
+				// app.setTexture(tex);
+				// TextureAttributes texAttr = new TextureAttributes();
+				// texAttr.setTextureMode(TextureAttributes.MODULATE);
+				// app.setTextureAttributes(texAttr);
+				// Sphere model = new Sphere(0.86f,
+				// Sphere.GENERATE_TEXTURE_COORDS, app);
 				ColoringAttributes ca = new ColoringAttributes();
 				ca.setColor(new Color3f(0.0f, 1.0f, 0));
 				app.setColoringAttributes(ca);
 				Sphere model = new Sphere(5, app);
 				Transform3D trans3d = new Transform3D();
-				trans3d.setTranslation(new Vector3d(position.getX(), position.getY(), DRAWING_PLANE_Z));
+				trans3d.setTranslation(new Vector3d(position.getX(), position
+						.getY(), DRAWING_PLANE_Z));
 				tg = new TransformGroup(trans3d);
 				tg.addChild(model);
 				tg.setPickable(true);
 				branchGroup.addChild(tg);
 			}
 		}
-		
-		InteractiveInputBranch branch = new InteractiveInputBranch(geomLabel, tg, branchGroup, engine, canvas);
+
+		InteractiveInputBranch branch = new InteractiveInputBranch(geomLabel,
+				tg, branchGroup, engine, canvas);
 		return branch;
-	
+
 	}
 }

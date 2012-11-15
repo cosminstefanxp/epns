@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="org.eclipse.ui.popupMenus">
+     
+      <objectContribution
+            objectClass="se2.e.configurator.Configurator"
+            id="start.contribution1">
+       
+         <action
+               label="Start simulation"
+               class="start.popup.actions.Start"
+               enablesFor="1"
+               id="se2.e.petrinet.Start">
+         </action>
+      </objectContribution>
+   </extension>
+</plugin>

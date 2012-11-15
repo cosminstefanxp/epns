@@ -81,7 +81,6 @@ public class GeometryNodeFactory {
 		// Add the line to the track group
 		TransformGroup g = new TransformGroup();
 		g.addChild(new Shape3D(lineArr));
-		g.addChild(new ColorCube(30));
 		return g;
 	}
 	

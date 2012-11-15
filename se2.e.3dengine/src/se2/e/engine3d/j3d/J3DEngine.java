@@ -180,10 +180,6 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 		sceneRoot = createSceneGraph();
 		universe.addBranchGraph(sceneRoot);
 
-		BranchGroup br = new BranchGroup();
-		br.addChild(new ColorCube());
-		sceneRoot.addChild(br);
-
 		// Initialize other objects
 		runningAnimations = new ArrayList<RuntimeAnimation>();
 		this.dynamicBranchFactory = new DynamicBranchFactory(loader, this);

@@ -1,5 +1,7 @@
 package se2.e.engine3d;
 
+import animations.Animation;
+import appearance.AppearanceModel;
 import se2.e.geometry.Geometry;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 
@@ -17,8 +19,7 @@ public interface Engine3D {
 	 * @param geometry the geometry
 	 * @param appearance the appearance config
 	 */
-	// TODO: Proper parameters
-	public void init(Geometry geometry, Object appearance);
+	public void init(Geometry geometry, AppearanceModel appearance);
 
 	/**
 	 * Starts an animation.
@@ -26,7 +27,7 @@ public interface Engine3D {
 	 * @param token the token
 	 * @param place the place
 	 */
-	public void startAnimation(RuntimeToken token, String placeLabel, Object animation);
+	public void startAnimation(RuntimeToken token, Animation animation);
 
 	/**
 	 * Sets the engine 3D listener.

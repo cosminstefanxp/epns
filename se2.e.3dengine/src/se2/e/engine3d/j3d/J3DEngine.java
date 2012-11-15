@@ -39,6 +39,9 @@ import se2.e.engine3d.Engine3DListener;
 import se2.e.engine3d.GeometryAndAppearanceLoader;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 
+import animations.Animation;
+import appearance.AppearanceModel;
+
 import com.sun.j3d.utils.geometry.ColorCube;
 import com.sun.j3d.utils.universe.SimpleUniverse;
 
@@ -131,10 +134,10 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 	 * 
 	 * @see se2.e.engine3d.Engine3D#init(java.lang.Object, java.lang.Object)
 	 * 
-	 * @author cosmin
+	 * @author cosmin, marius (some fixes after update of loader class) 
 	 */
 	@Override
-	public void init(Geometry geometry, Object appearance) {
+	public void init(Geometry geometry, AppearanceModel appearance) {
 
 		// Load the geometry and appearance
 		this.loader = new GeometryAndAppearanceLoader(geometry, appearance);
@@ -226,7 +229,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 	 * @author cosmin
 	 */
 	@Override
-	public void startAnimation(RuntimeToken token, String placeLabel, Object animationOnPlace) {
+	public void startAnimation(RuntimeToken token, Animation animationOnPlace) {
 		// TODO: Update all types of animations
 
 		// Get the associated geometry

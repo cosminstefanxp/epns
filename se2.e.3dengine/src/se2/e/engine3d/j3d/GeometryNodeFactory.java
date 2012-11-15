@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import javax.media.j3d.Appearance;
 import javax.media.j3d.BranchGroup;
 import javax.media.j3d.Canvas3D;
+import javax.media.j3d.ColoringAttributes;
 import javax.media.j3d.LineArray;
 import javax.media.j3d.LineAttributes;
 import javax.media.j3d.Node;
@@ -13,6 +14,7 @@ import javax.media.j3d.Texture;
 import javax.media.j3d.TextureAttributes;
 import javax.media.j3d.Transform3D;
 import javax.media.j3d.TransformGroup;
+import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
@@ -87,6 +89,9 @@ public class GeometryNodeFactory {
 		la.setLineWidth(5.0f);
 		Appearance app = new Appearance();
 		app.setLineAttributes(la);
+		ColoringAttributes ca = new ColoringAttributes();
+		ca.setColor(new Color3f(1.0f, 0, 0));
+		app.setColoringAttributes(ca);
 		
 		g.addChild(new Shape3D(lineArr, app));
 		return g;

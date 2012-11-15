@@ -135,7 +135,7 @@ public class GeometryNodeFactory {
 			else if (apinfo.equalsIgnoreCase("Sphere"))
 			{
 				Appearance app = new Appearance();
-				Texture tex = new TextureLoader("graphics/textures/earth.jpg", engine).getTexture();
+				Texture tex = new TextureLoader("graphics/textures/earth.png", engine).getTexture();
 				//FIXME: may need to be changed from / to \ depending on the operating system
 				app.setTexture(tex);
 				TextureAttributes texAttr = new TextureAttributes();

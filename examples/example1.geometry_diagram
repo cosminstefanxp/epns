@@ -76,6 +76,6 @@
     <styles xmi:type="notation:RoutingStyle" xmi:id="_6I70IS8uEeKAeo2CFa0KLg"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_6I70Ii8uEeKAeo2CFa0KLg" fontName="Ubuntu"/>
     <element xmi:type="geometry:Track" href="example1.geometry#//@geoObjects.8"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6I70Iy8uEeKAeo2CFa0KLg" points="[6, 4, 0, -117]$[78, 64, 72, -57]$[12, 116, 6, -5]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6I70Iy8uEeKAeo2CFa0KLg" points="[6, -1, 0, -122]$[306, -20, 300, -141]$[12, 118, 6, -3]"/>
   </edges>
 </notation:Diagram>

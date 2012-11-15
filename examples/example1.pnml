@@ -88,6 +88,11 @@
           <structure xsi:type="animations:Move" speed="3.0" geoTrack="L1"/>
           <text>move(3.0, L1)</text>
         </animations>
+        <tokens>
+          <appearance>
+            <text>S2</text>
+          </appearance>
+        </tokens>
       </place>
       <place id="P2" geoLabel="L2">
         <graphics>
@@ -101,11 +106,6 @@
           <structure xsi:type="animations:Move" speed="3.0" geoTrack="L2"/>
           <text>move(3.0, L2)</text>
         </animations>
-        <tokens>
-          <appearance>
-            <text>S1</text>
-          </appearance>
-        </tokens>
       </place>
       <place id="P3" geoLabel="L3">
         <graphics>

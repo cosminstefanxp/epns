@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:animations="http://animations/1.0" xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="Extended PetriNet">
+    <page>
+      <place id="P1" geoLabel="L1">
+        <animations>
+          <structure xsi:type="animations:Move" speed="4.0" geoTrack="L1"/>
+          <text>move(4.0,L1)</text>
+        </animations>
+        <tokens>
+          <appearance>
+            <text>S1</text>
+          </appearance>
+        </tokens>
+      </place>
+      <transition id="T1"/>
+      <arc id="A1" source="P1" target="T1">
+        <ignoreAnimation/>
+      </arc>
+      <arc id="A2" source="T1" target="P1">
+        <ignoreAnimation/>
+      </arc>
+    </page>
+  </net>
+</pnml>

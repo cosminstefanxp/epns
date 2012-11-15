@@ -10,20 +10,19 @@ import javax.vecmath.Point3d;
 import se2.e.engine3d.j3d.DynamicBranch;
 import se2.e.engine3d.j3d.J3DEngine;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
-import animations.Animation;
 
 /**
  * The Class RuntimeAnimation.
  * 
  * @author cosmin
  */
-public abstract class RuntimeAnimation extends Behavior {
+public abstract class RuntimeAnimation<T> extends Behavior {
 
 	/** The target branch. */
 	protected DynamicBranch targetBranch;
 
 	/** The animation. */
-	protected Animation animation;
+	protected T animation;
 
 	/** The associated runtime token. */
 	protected RuntimeToken token;
@@ -66,13 +65,18 @@ public abstract class RuntimeAnimation extends Behavior {
 	 * @param token the token
 	 * @param engine the engine
 	 */
-	public RuntimeAnimation(DynamicBranch targetBranch, Animation animation, RuntimeToken token, J3DEngine engine) {
+	public RuntimeAnimation(DynamicBranch targetBranch, T animation, RuntimeToken token, J3DEngine engine) {
 		super();
 		this.targetBranch = targetBranch;
 		this.token = token;
 		this.animation = animation;
 		this.engine = engine;
 		init();
+		
+		// Connect the behavior to the branch group
+		this.targetBranch.setBehaviorNode(this);
+		this.targetBranch.getBranchGroup().addChild(this);
+		
 	}
 
 	/**
@@ -104,20 +108,19 @@ public abstract class RuntimeAnimation extends Behavior {
 
 	@Override
 	public void initialize() {
+		System.out.println("Initialize behavior...");
 		init();
 		WakeupCondition criteria = onUpdateAnimation();
 		wakeupOn(criteria);
 		BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 1000.0);
 		this.setSchedulingBounds(bounds);
-
-		// Connect the behavior to the branch group
-		this.targetBranch.setBehaviorNode(this);
-		this.targetBranch.getBranchGroup().addChild(this);
 	}
 
 	@Override
 	public void processStimulus(@SuppressWarnings("rawtypes") Enumeration inCriteria) {
+		System.out.println("Stimulus...");
 		WakeupCondition criteria = onUpdateAnimation();
-		wakeupOn(criteria);
+		if(criteria!=null)
+			wakeupOn(criteria);
 	}
 }

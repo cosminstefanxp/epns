@@ -61,6 +61,7 @@ public class DynamicBranchFactory {
 	public DynamicBranch getTokenBranch(String label) {
 		AppearanceInfo appearanceInfo = this.loader.getAppearanceInfo(label);
 		BranchGroup branchGroup = new BranchGroup();
+		branchGroup.setCapability(BranchGroup.ALLOW_DETACH);
 		TransformGroup tg = null;
 		
 		//String apinfo = appearanceInfo.getLabel();
@@ -69,9 +70,10 @@ public class DynamicBranchFactory {
 			Object3D type = ((Shape3D)appearanceInfo).getType();
 			if (type == Object3D.CUBE)
 			{
-				ColorCube model = new ColorCube(0.5f);
+				ColorCube model = new ColorCube(5);
 				tg = new TransformGroup();
 				tg.addChild(model);
+				tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 				branchGroup.addChild(tg);
 			}
 			else if (type == Object3D.SPHERE)
@@ -84,8 +86,9 @@ public class DynamicBranchFactory {
 				TextureAttributes texAttr = new TextureAttributes();
 				texAttr.setTextureMode(TextureAttributes.MODULATE);
 				app.setTextureAttributes(texAttr);
-				Sphere model = new Sphere(0.86f, Sphere.GENERATE_TEXTURE_COORDS, app);
+				Sphere model = new Sphere(5, Sphere.GENERATE_TEXTURE_COORDS, app);
 				tg = new TransformGroup();
+				tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 				tg.addChild(model);
 				branchGroup.addChild(tg);
 			}
@@ -107,6 +110,7 @@ public class DynamicBranchFactory {
 				e.printStackTrace();
 			}
 			tg = new TransformGroup();
+			tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 			tg.addChild (s.getSceneGroup ());
 			
 			BoundingSphere bounds = new BoundingSphere (new Point3d (0.0, 0.0, 5.0), 200.0);

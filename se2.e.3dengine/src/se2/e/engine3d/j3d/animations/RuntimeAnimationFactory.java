@@ -12,17 +12,17 @@ public class RuntimeAnimationFactory {
 
 	/**
 	 * Gets the runtime animation that corresponds with a given {@link Animation}.
-	 *
+	 * 
 	 * @param targetBranch the target branch, same as the parameters for {@link RuntimeAnimation}
 	 * @param animation the animation
 	 * @param token the token
 	 * @param engine the engine
 	 * @return the runtime animation
 	 */
-	public static RuntimeAnimation getRuntimeAnimation(DynamicBranch targetBranch, Animation animation,
+	public static RuntimeAnimation<?> getRuntimeAnimation(DynamicBranch targetBranch, Animation animation,
 			RuntimeToken token, J3DEngine engine) {
 		if (animation instanceof Move) {
-			return new RuntimeMoveAnimation(targetBranch, animation, token, engine);
+			return new RuntimeMoveAnimation(targetBranch, (Move) animation, token, engine);
 		}
 
 		Logger.getAnonymousLogger().warning(

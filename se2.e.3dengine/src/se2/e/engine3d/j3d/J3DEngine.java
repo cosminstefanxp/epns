@@ -33,7 +33,6 @@ import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import animations.Animation;
 import appearance.AppearanceModel;
 
-import com.sun.j3d.utils.geometry.ColorCube;
 import com.sun.j3d.utils.universe.SimpleUniverse;
 import com.sun.j3d.utils.universe.Viewer;
 import com.sun.j3d.utils.universe.ViewingPlatform;
@@ -79,7 +78,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 	private Logger log = Logger.getLogger("J3DEngine");
 
 	/** The running animations. */
-	private List<RuntimeAnimation> runningAnimations;
+	private List<RuntimeAnimation<?>> runningAnimations;
 
 	private Canvas3D canvas;
 
@@ -181,7 +180,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 		universe.addBranchGraph(sceneRoot);
 
 		// Initialize other objects
-		runningAnimations = new ArrayList<RuntimeAnimation>();
+		runningAnimations = new ArrayList<RuntimeAnimation<?>>();
 		this.dynamicBranchFactory = new DynamicBranchFactory(loader, this);
 
 		log.info("J3D Engine initialized...");
@@ -251,7 +250,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 		DynamicBranch branch = dynamicBranchFactory.getTokenBranch(token.getLabel());
 
 		// Build the RuntimeAnimation
-		RuntimeAnimation rtAnimation = RuntimeAnimationFactory.getRuntimeAnimation(branch, animation, token, this);
+		RuntimeAnimation<?> rtAnimation = RuntimeAnimationFactory.getRuntimeAnimation(branch, animation, token, this);
 		runningAnimations.add(rtAnimation);
 
 		// Attach the Animation branch to the Scene graph
@@ -280,6 +279,15 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 	}
 
 	/**
+	 * Gets the geometry and appearance loader.
+	 *
+	 * @return the geometry and appearance loader
+	 */
+	public GeometryAndAppearanceLoader getGeometryAndAppearanceLoader() {
+		return loader;
+	}
+
+	/**
 	 * Run when the animation for a token is finished. Notifies the listener.
 	 * 
 	 * @param token the token
@@ -287,7 +295,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 	public void animationFinished(RuntimeToken token) {
 		engineListener.onAnimationFinished(token);
 	}
-	
+
 	protected void userInteraction(String geomLabel) {
 		engineListener.onUserInteraction(geomLabel);
 	}

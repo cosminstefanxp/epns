@@ -23,8 +23,9 @@ public class LinearPathInterpolator implements PathInterpolator {
 	 * @param start
 	 * @param positions
 	 */
-	public LinearPathInterpolator(Vector2D start, Vector2D... positions) {
-		Vector2D actual = start;
+	public LinearPathInterpolator(Vector2D... positions) {
+		assert(positions!=null && positions.length>=2);
+		Vector2D actual = positions[0];
 		for (Vector2D next : positions) {
 			last = new Step(length, actual, next);
 			steps.add(last);

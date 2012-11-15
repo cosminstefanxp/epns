@@ -163,7 +163,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 	 * 
 	 * @see se2.e.engine3d.Engine3D#init(java.lang.Object, java.lang.Object)
 	 * 
-	 * @author cosmin, marius (some fixes after update of loader class)
+	 * @author cosmin, marius (some fixes after update of loader and dynamicBranchFactory class)
 	 */
 	@Override
 	public void init(Geometry geometry, AppearanceModel appearance) {
@@ -185,7 +185,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 
 		// Initialize other objects
 		runningAnimations = new ArrayList<RuntimeAnimation>();
-		this.dynamicBranchFactory = new DynamicBranchFactory(loader);
+		this.dynamicBranchFactory = new DynamicBranchFactory(loader, this);
 
 		log.info("J3D Engine initialized...");
 	}

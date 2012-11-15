@@ -78,10 +78,11 @@ public class GeometryNodeFactory {
 			// Add each point twice, as it will be both an endpoint for a line and a startpoint for the next one
 			lineArr.setCoordinate(2 * i - 1, new Point3d(trackPoints[i].getX(), trackPoints[i].getY(), DRAWING_PLANE_Z));
 			lineArr.setCoordinate(2 * i, new Point3d(trackPoints[i].getX(), trackPoints[i].getY(), DRAWING_PLANE_Z));
+			
 		}
 		lineArr.setCoordinate(2 * (trackPoints.length - 1) - 1, new Point3d(trackPoints[trackPoints.length - 1].getX(),
 				trackPoints[trackPoints.length - 1].getY(), DRAWING_PLANE_Z));
-
+		
 		// Add the line to the track group
 		TransformGroup g = new TransformGroup();
 		

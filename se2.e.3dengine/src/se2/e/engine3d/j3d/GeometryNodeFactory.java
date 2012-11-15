@@ -10,10 +10,14 @@ import javax.media.j3d.Node;
 import javax.media.j3d.Shape3D;
 import javax.media.j3d.Texture;
 import javax.media.j3d.TextureAttributes;
+import javax.media.j3d.Transform3D;
 import javax.media.j3d.TransformGroup;
 import javax.vecmath.Point3d;
+import javax.vecmath.Vector3d;
 
 import se2.e.engine3d.GeometryAndAppearanceLoader;
+import se2.e.geometry.Position;
+import se2.e.geometry.SimplePosition;
 import se2.e.utilities.Vector2D;
 import appearance.AppearanceInfo;
 
@@ -82,8 +86,17 @@ public class GeometryNodeFactory {
 	}
 	
 	
+	/**
+	 *  @author Marius
+	 * Returns a static branch that contains an interactive input point that, when clicked,
+	 * will callback the 3D engine
+	 * @param appearanceLabel
+	 * @param geomLabel
+	 * @return
+	 */
 	public InteractiveInputBranch getInteractiveInputBranch(String appearanceLabel, String geomLabel) {
 		AppearanceInfo appearanceInfo = this.loader.getAppearanceInfo(appearanceLabel);
+		Position position = this.loader.getSimplePositionObject(geomLabel).getPosition();
 		BranchGroup branchGroup = new BranchGroup();
 		TransformGroup tg = null;
 		
@@ -93,9 +106,11 @@ public class GeometryNodeFactory {
 			if (apinfo.equalsIgnoreCase("Cube"))
 			{
 				ColorCube model = new ColorCube(0.5f);
-				model.setPickable(true);
-				tg = new TransformGroup();
+				Transform3D trans3d = new Transform3D();
+				trans3d.setTranslation(new Vector3d(position.getX(), position.getY(), DRAWING_PLANE_Z));
+				tg = new TransformGroup(trans3d);
 				tg.addChild(model);
+				tg.setPickable(true);
 				branchGroup.addChild(tg);
 			}
 			else if (apinfo.equalsIgnoreCase("Sphere"))
@@ -108,14 +123,15 @@ public class GeometryNodeFactory {
 				texAttr.setTextureMode(TextureAttributes.MODULATE);
 				app.setTextureAttributes(texAttr);
 				Sphere model = new Sphere(0.86f, Sphere.GENERATE_TEXTURE_COORDS, app);
-				model.setPickable(true);
-				tg = new TransformGroup();
+				
+				Transform3D trans3d = new Transform3D();
+				trans3d.setTranslation(new Vector3d(position.getX(), position.getY(), DRAWING_PLANE_Z));
+				tg = new TransformGroup(trans3d);
 				tg.addChild(model);
+				tg.setPickable(true);
 				branchGroup.addChild(tg);
 			}
 		}
-		
-
 		
 		InteractiveInputBranch branch = new InteractiveInputBranch(geomLabel, tg, branchGroup, engine, canvas);
 		return branch;

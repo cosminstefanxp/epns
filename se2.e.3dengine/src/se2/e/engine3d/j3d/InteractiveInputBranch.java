@@ -27,6 +27,14 @@ public class InteractiveInputBranch implements MouseListener{
 	/** The branch group. */
 	private BranchGroup branchGroup;
 	
+	public BranchGroup getBranchGroup() {
+		return branchGroup;
+	}
+
+	public void setBranchGroup(BranchGroup branchGroup) {
+		this.branchGroup = branchGroup;
+	}
+
 	/** The Java 3D engine */
 	private J3DEngine engine;
 
@@ -54,7 +62,6 @@ public class InteractiveInputBranch implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		pickCanvas.setShapeLocation(e);
 
 	    PickResult result = pickCanvas.pickClosest();
@@ -68,16 +75,13 @@ public class InteractiveInputBranch implements MouseListener{
 
 	       if (s != null) {
 	    	  //TODO: add more interesting behaviour
-	    	  // engine.userInteraction(this.geomLabel);
+	    	   engine.userInteraction(this.geomLabel);
 	           System.out.println("Picked " + s.getClass().getName());
 
 	       } else{
 	          System.out.println("null");
-
 	       }
-
-	    }   
-				
+	    }   			
 	}
 
 	@Override

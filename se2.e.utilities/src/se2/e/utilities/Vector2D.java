@@ -13,55 +13,55 @@ import static java.lang.Math.*;
  * @author anders
  *
  */
-public class Vector {
+public class Vector2D {
 	private double x;
 	private double y;
 	
-	public Vector(Vector template) {
+	public Vector2D(Vector2D template) {
 		this.x = template.x;
 		this.y = template.y;
 		}
 	
-	private Vector(double x, double y) {
+	private Vector2D(double x, double y) {
 		this.x = x;
 		this.y = y;
 		}
 	
-	public static Vector cartesian(double x, double y) {
-		return new Vector(x, y);
+	public static Vector2D cartesian(double x, double y) {
+		return new Vector2D(x, y);
 		}
 	
-	public static Vector polar(double angle, double length) {
-		return new Vector(length*cos(angle), length*sin(angle));
+	public static Vector2D polar(double angle, double length) {
+		return new Vector2D(length*cos(angle), length*sin(angle));
 		}
 	
-	public static Vector polar(double angle) {
+	public static Vector2D polar(double angle) {
 		return polar(angle, 1.0);
 		}
 	
-	public static Vector add(Vector a, Vector b) {
-		Vector result = new Vector(a);
+	public static Vector2D add(Vector2D a, Vector2D b) {
+		Vector2D result = new Vector2D(a);
 		result.add(b);
 		return result;
 		}
 	
-	public static Vector subtract(Vector a, Vector b) {
-		Vector result = new Vector(a);
+	public static Vector2D subtract(Vector2D a, Vector2D b) {
+		Vector2D result = new Vector2D(a);
 		result.subtract(b);
 		return result;
 		}
 	
-	public void add(Vector other) {
+	public void add(Vector2D other) {
 		this.x += other.x;
 		this.y += other.y;
 		}
 	
-	public void subtract(Vector other) {
+	public void subtract(Vector2D other) {
 		this.x -= other.x;
 		this.y -= other.y;
 		}
 	
-	public Vector normal() {
+	public Vector2D normal() {
 		return polar(getAngle());
 		}
 	

@@ -3,8 +3,8 @@ package se2.e.utilities.path;
 import java.util.ArrayList;
 import java.util.List;
 
-import se2.e.utilities.Path;
-import se2.e.utilities.Vector;
+import se2.e.utilities.PathInterpolator;
+import se2.e.utilities.Vector2D;
 import se2.e.utilities.Where;
 
 /**
@@ -13,7 +13,7 @@ import se2.e.utilities.Where;
  * @author anders
  *
  */
-public class LinearPath implements Path {
+public class LinearPathInterpolator implements PathInterpolator {
 	private List<Step> steps = new ArrayList<Step>();
 	private Step last;
 	private double length = 0.0;
@@ -23,9 +23,9 @@ public class LinearPath implements Path {
 	 * @param start
 	 * @param positions
 	 */
-	public LinearPath(Vector start, Vector... positions) {
-		Vector actual = start;
-		for (Vector next : positions) {
+	public LinearPathInterpolator(Vector2D start, Vector2D... positions) {
+		Vector2D actual = start;
+		for (Vector2D next : positions) {
 			last = new Step(length, actual, next);
 			steps.add(last);
 			length += last.getLength();
@@ -55,13 +55,13 @@ public class LinearPath implements Path {
 //	
 	private class Step {
 		private double basis;
-		private Vector start;
-		private Vector next;
+		private Vector2D start;
+		private Vector2D next;
 		
-		public Step(double basis, Vector start, Vector end) {
+		public Step(double basis, Vector2D start, Vector2D end) {
 			this.basis = basis;
 			this.start = start;
-			this.next = Vector.subtract(end, start);
+			this.next = Vector2D.subtract(end, start);
 			}
 		
 		public boolean isWithin(double distance) {

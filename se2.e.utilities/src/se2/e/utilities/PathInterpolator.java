@@ -5,7 +5,7 @@ package se2.e.utilities;
  * @author anders
  *
  */
-public interface Path {
+public interface PathInterpolator {
 	
 	/**
 	 * Get the length of the path.

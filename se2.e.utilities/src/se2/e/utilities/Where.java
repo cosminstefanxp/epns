@@ -6,12 +6,12 @@ package se2.e.utilities;
  *
  */
 public class Where {
-	private Vector position;
-	private Vector orientation;
+	private Vector2D position;
+	private Vector2D orientation;
 	
 	public Where(double x, double y, double heading) {
-		position = Vector.cartesian(x, y);
-		orientation = Vector.polar(heading);
+		position = Vector2D.cartesian(x, y);
+		orientation = Vector2D.polar(heading);
 		}
 	
 	public double getX() {
@@ -26,11 +26,11 @@ public class Where {
 		return orientation.getAngle();
 		}
 	
-	public Vector getPosition() {
+	public Vector2D getPosition() {
 		return position;
 		}
 	
-	public Vector getOrientation() {
+	public Vector2D getOrientation() {
 		return orientation;
 		}
 	

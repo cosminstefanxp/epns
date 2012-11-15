@@ -119,7 +119,6 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 
 	@Override
 	public void processStimulus(@SuppressWarnings("rawtypes") Enumeration inCriteria) {
-		System.out.println("Animation stimulus...");
 		WakeupCondition criteria = onUpdateAnimation();
 		if(criteria!=null)
 			wakeupOn(criteria);

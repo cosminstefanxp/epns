@@ -7,6 +7,7 @@ import se2.e.engine3d.j3d.J3DEngine;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import animations.Animation;
 import animations.Move;
+import animations.Wait;
 
 public class RuntimeAnimationFactory {
 
@@ -21,10 +22,16 @@ public class RuntimeAnimationFactory {
 	 */
 	public static RuntimeAnimation<?> getRuntimeAnimation(DynamicBranch targetBranch, Animation animation,
 			RuntimeToken token, J3DEngine engine) {
+		
 		if (animation instanceof Move) {
 			Logger.getAnonymousLogger().info("Creating RuntimeMoveAnimation with: " + animation);
 			return new RuntimeMoveAnimation(targetBranch, (Move) animation, token, engine);
 		}
+		if (animation instanceof Wait) {
+			Logger.getAnonymousLogger().info("Creating RuntimeWaitAnimation with: " + animation);
+			return new RuntimeWaitAnimation(targetBranch, (Wait) animation, token, engine);
+		}
+		
 
 		Logger.getAnonymousLogger().warning(
 				"RuntimeAnimationFactory could not create RuntimeAnimation for " + animation);

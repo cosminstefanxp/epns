@@ -6,6 +6,7 @@ import javax.media.j3d.AmbientLight;
 import javax.media.j3d.Appearance;
 import javax.media.j3d.BoundingSphere;
 import javax.media.j3d.BranchGroup;
+import javax.media.j3d.ColoringAttributes;
 import javax.media.j3d.Texture;
 import javax.media.j3d.TextureAttributes;
 import javax.media.j3d.TransformGroup;
@@ -80,13 +81,17 @@ public class DynamicBranchFactory {
 			{
 				//load earth texture on sphere
 				Appearance app = new Appearance();
-				Texture tex = new TextureLoader("graphics/textures/earth.png", engine).getTexture();
-				//FIXME: may need to be changed from / to \ depending on the operating system
-				app.setTexture(tex);
-				TextureAttributes texAttr = new TextureAttributes();
-				texAttr.setTextureMode(TextureAttributes.MODULATE);
-				app.setTextureAttributes(texAttr);
-				Sphere model = new Sphere(5, Sphere.GENERATE_TEXTURE_COORDS, app);
+//				Texture tex = new TextureLoader("graphics/textures/earth.png", engine).getTexture();
+//				//FIXME: may need to be changed from / to \ depending on the operating system
+//				app.setTexture(tex);
+//				TextureAttributes texAttr = new TextureAttributes();
+//				texAttr.setTextureMode(TextureAttributes.MODULATE);
+//				app.setTextureAttributes(texAttr);
+//				Sphere model = new Sphere(5, Sphere.GENERATE_TEXTURE_COORDS, app);
+				ColoringAttributes ca = new ColoringAttributes();
+				ca.setColor(new Color3f(0.0f, 1.0f, 0));
+				app.setColoringAttributes(ca);
+				Sphere model = new Sphere(5, app);
 				tg = new TransformGroup();
 				tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 				tg.addChild(model);

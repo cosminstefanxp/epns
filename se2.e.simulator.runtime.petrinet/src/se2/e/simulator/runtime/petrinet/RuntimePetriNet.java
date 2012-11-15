@@ -14,6 +14,7 @@ import org.pnml.tools.epnk.pnmlcoremodel.PetriNet;
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 import org.pnml.tools.epnk.pnmlcoremodel.Transition;
 
+import extendedpetrinet.Arc;
 import extendedpetrinet.Place;
 import extendedpetrinet.Token;
 
@@ -140,6 +141,7 @@ public class RuntimePetriNet {
 	 */
 	public List<TokenMovement> fireTransition(Transition selectedTransition) {
 
+		
 		List<Place> selectedTransitionPreset = preset.get(selectedTransition);
 		List<Place> selectedTransitionPostset = postset.get(selectedTransition);
 		/* check that every preset has a token */
@@ -170,7 +172,6 @@ public class RuntimePetriNet {
 				if (token.isFinished()) {
 					tokensMap.get(place).remove(token);
 					tokenExt = token;
-					System.out.println("Scot tokenul si-l retin");
 					break;
 				}
 			}
@@ -180,13 +181,13 @@ public class RuntimePetriNet {
 		/* add tokens to postsets */
 		for (Place place : selectedTransitionPostset) {
 			//TODO: check
+			
 			String geomLabel = removedTokens.get(count%removedTokens.size()).getLabel();
 			count++;
 			RuntimeToken tokenExt = new RuntimeToken(geomLabel);
 			tokensMap.get(place).add(tokenExt);
 			//TODO: modify to use the place's animation!!!!!!!!
-			tokensMovement.add(new TokenMovement(tokenExt, place.getGeoLabel().getText(), null));
-			System.out.println("Adaug token movement!!!");
+			tokensMovement.add(new TokenMovement(tokenExt, place.getGeoLabel(), null));
 		}
 		return tokensMovement;
 	}

@@ -2,7 +2,10 @@ package se2.e.engine3d;
 
 import se2.e.geometry.Geometry;
 import se2.e.geometry.GeometryObject;
+import se2.e.geometry.SimplePosition;
 import se2.e.geometry.Track;
+import appearance.AppearanceInfo;
+import appearance.AppearanceModel;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,14 +14,18 @@ import java.util.logging.Logger;
 
 /**
  * The GeometryAndAppearanceLoader handles the loading of the geometry and appearance configurations.
+ * @author marius, cosmin (just initial structure)
  */
 public class GeometryAndAppearanceLoader {
-
-	/** The geometry objects. */
-	private HashMap<String, GeometryObject> geometryObjects;
+	
+	/** The track objects. */
+	private HashMap<String, Track> trackObjects;
+	
+	/** The simple position objects. */
+	private HashMap<String, SimplePosition> simplePositionObjects;
 
 	/** The appearance information. */
-	private HashMap<String, Object> appearanceInfo;
+	private HashMap<String, AppearanceInfo> appearanceInfo;
 
 	/** The log. */
 	private Logger log = Logger.getLogger("GeometryAndAppearanceLoader");
@@ -30,32 +37,51 @@ public class GeometryAndAppearanceLoader {
 	 * @param geometry the geometry
 	 * @param appearance the appearance
 	 */
-	public GeometryAndAppearanceLoader(Geometry geometry, Object appearance) {
-		// TODO: eventually fix appearance type
+	public GeometryAndAppearanceLoader(Geometry geometry, AppearanceModel appearance) {
 		log.info("Loading geometry and appearance configurations...");
 		List<GeometryObject> geomObjs = geometry.getGeoObjects();
-		geometryObjects = new HashMap<String, GeometryObject>();
+		trackObjects = new HashMap<String, Track>();
+		simplePositionObjects = new HashMap<String, SimplePosition>();
 		for (GeometryObject geomObj : geomObjs) {
 			if(geomObj instanceof Track)
 			{
-				geometryObjects.put(((Track)geomObj).getLabel(), geomObj);
-				//TODO: Eventually maybe create a hashmap for each of the 2 types: Track/SimplePosition
+				trackObjects.put(((Track)geomObj).getLabel(), (Track)geomObj);
 			}
-			//Fill in for all required geometry objects
+			else if(geomObj instanceof SimplePosition)
+			{
+				simplePositionObjects.put(((SimplePosition)geomObj).getLabel(), (SimplePosition)geomObj);
+			}
 		}
-		log.info("Loaded geometry: " + geometryObjects);
-		// TODO: change class of appearance - do same thing
-
+		log.info("Loaded trackObjects geometry: " + trackObjects);
+		log.info("Loaded simplePositionObjects geometry: " + simplePositionObjects);
+		
+		
+		List<AppearanceInfo> appInfoObjs = appearance.getAppearanceInfos();
+		appearanceInfo = new HashMap<String, AppearanceInfo>();
+		for (AppearanceInfo appInfo: appInfoObjs){
+			appearanceInfo.put(appInfo.getLabel(), appInfo);
+		}
+		log.info("Loaded appearanceInfo: " + appearanceInfo);
 	}
-
+	
 	/**
-	 * Gets the geometry object with a given name.
-	 * 
+	 * Gets the track object with a given name.
+	 *
 	 * @param label the label
-	 * @return the geometry object
+	 * @return the track object
 	 */
-	public GeometryObject getGeometryObject(String label) {
-		return geometryObjects.get(label);
+	public Track getTrackObject(String label){
+		return trackObjects.get(label);
+	}
+	
+	/**
+	 * Gets the simple position object with a given name.
+	 *
+	 * @param label the label
+	 * @return the simple position object
+	 */
+	public SimplePosition getSimplePositionObject(String label){
+		return simplePositionObjects.get(label);
 	}
 
 	/**
@@ -64,16 +90,34 @@ public class GeometryAndAppearanceLoader {
 	 * @param label the label
 	 * @return the appearance info
 	 */
-	public Object getAppearanceInfo(String label) {
+	public AppearanceInfo getAppearanceInfo(String label) {
 		return appearanceInfo.get(label);
 	}
 	
 	/**
-	 * Gets the geometry labels.
+	 * Gets the track labels.
 	 *
-	 * @return the geometry labels
+	 * @return the track labels
 	 */
-	public Set<String> getGeometryLabels(){
-		return geometryObjects.keySet();
+	public Set<String> getTrackLabels(){
+		return trackObjects.keySet();
+	}
+	
+	/**
+	 * Gets the simple position labels.
+	 *
+	 * @return the simple position labels
+	 */
+	public Set<String> getSimplePositionLabels(){
+		return simplePositionObjects.keySet();
+	}
+	
+	/**
+	 * Gets the appearance info labels.
+	 *
+	 * @return the appearance info labels
+	 */
+	public Set<String> getAppearanceInfoLabels(){
+		return appearanceInfo.keySet();
 	}
 }

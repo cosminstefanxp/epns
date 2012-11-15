@@ -29,6 +29,7 @@ import se2.e.engine3d.GeometryAndAppearanceLoader;
 import se2.e.engine3d.j3d.animations.RuntimeAnimation;
 import se2.e.engine3d.j3d.animations.RuntimeAnimationFactory;
 import se2.e.geometry.Geometry;
+import se2.e.geometry.SimplePosition;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import animations.Animation;
 import appearance.AppearanceModel;
@@ -197,7 +198,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 		// Create the root node of the content branch
 		BranchGroup rootNode = new BranchGroup();
 
-		// Add representations for the static objects
+		// Add representations for the tracks
 		Group trackGroup = new Group();
 		for (String label : loader.getTrackLabels()) {
 
@@ -205,9 +206,21 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 			Node geometryNode = geometryNodeFactory.getGeometryNode(label);
 			if (geometryNode != null)
 				trackGroup.addChild(geometryNode);
-
 		}
 		rootNode.addChild(trackGroup);
+		
+		// Add representations for the tracks
+		Group inputPlacesGroup = new Group();
+		for (String label : loader.getSimplePositionLabels()) {
+			SimplePosition obj=loader.getSimplePositionObject(label);
+			// Create the node corresponding to input places and add it to the scene graph
+			InteractiveInputBranch inputPlaceBranch = geometryNodeFactory.getInteractiveInputBranch(obj.getAppearanceLabel(), label);
+			if (inputPlaceBranch != null)
+				inputPlacesGroup.addChild(inputPlaceBranch.getBranchGroup());
+		}
+		rootNode.addChild(inputPlacesGroup);
+		
+		
 
 		// Compile to perform optimizations on this content branch.
 		rootNode.setCapability(BranchGroup.ALLOW_CHILDREN_EXTEND);

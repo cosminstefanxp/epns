@@ -28,6 +28,6 @@ public class RuntimeAnimationFactory {
 
 		Logger.getAnonymousLogger().warning(
 				"RuntimeAnimationFactory could not create RuntimeAnimation for " + animation);
-		return null;
+		return new RuntimeDummyAnimation(targetBranch, animation, token, engine);
 	}
 }

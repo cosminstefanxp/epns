@@ -1,5 +1,6 @@
 package se2.e.engine3d.j3d;
 
+import java.util.HashMap;
 import java.util.logging.Logger;
 
 import javax.media.j3d.Appearance;
@@ -18,8 +19,10 @@ import javax.vecmath.Vector3d;
 
 import se2.e.engine3d.GeometryAndAppearanceLoader;
 import se2.e.geometry.Position;
+import se2.e.geometry.Track;
 import se2.e.utilities.Vector2D;
 import appearance.AppearanceInfo;
+import appearance.SurfaceColor;
 
 import com.sun.j3d.utils.geometry.ColorCube;
 import com.sun.j3d.utils.geometry.Sphere;
@@ -64,6 +67,8 @@ public class GeometryNodeFactory {
 		Vector2D[] trackPoints = loader.getTrackPoints(geometryLabel);
 		if (trackPoints == null)
 			return null;
+		
+		Track track = loader.getTrackFromLabel(geometryLabel);
 		Logger.getAnonymousLogger().info("Generating " + geometryLabel + " for: " + trackPoints);
 
 		// Prepare the points of the tracks
@@ -73,7 +78,6 @@ public class GeometryNodeFactory {
 			// Add each point twice, as it will be both an endpoint for a line and a startpoint for the next one
 			lineArr.setCoordinate(2 * i - 1, new Point3d(trackPoints[i].getX(), trackPoints[i].getY(), DRAWING_PLANE_Z));
 			lineArr.setCoordinate(2 * i, new Point3d(trackPoints[i].getX(), trackPoints[i].getY(), DRAWING_PLANE_Z));
-			
 		}
 		lineArr.setCoordinate(2 * (trackPoints.length - 1) - 1, new Point3d(trackPoints[trackPoints.length - 1].getX(),
 				trackPoints[trackPoints.length - 1].getY(), DRAWING_PLANE_Z));
@@ -88,8 +92,28 @@ public class GeometryNodeFactory {
 		app.setLineAttributes(la);
 		//set line color
 		ColoringAttributes ca = new ColoringAttributes();
-		ca.setColor(new Color3f(1.0f, 0, 0));
-		app.setColoringAttributes(ca);
+		
+		//String color = "90,60,90";
+		boolean colorSet = false;
+		if (track.getAppearanceLabel() != null)
+		{
+			AppearanceInfo color = loader.getAppearanceInfo(track.getAppearanceLabel());
+			if (color != null && color instanceof SurfaceColor)
+			{
+				colorSet = true;
+				SurfaceColor sc = (SurfaceColor)color;
+				String[] rgb = sc.getColorCode().split(",");
+				ca.setColor(new Color3f(Float.parseFloat(rgb[0])/255, Float.parseFloat(rgb[1])/255, Float.parseFloat(rgb[2])/255));
+				app.setColoringAttributes(ca);
+			}
+		}
+		if (colorSet == false)
+		{
+			ca.setColor(new Color3f(0.5f, 0.5f, 0.5f));
+			app.setColoringAttributes(ca);
+		}
+		
+		
 
 		//System.out.println(new java.io.File(".").getAbsolutePath());
 		/**

@@ -8,7 +8,6 @@ import javax.media.j3d.Canvas3D;
 import javax.media.j3d.Shape3D;
 import javax.media.j3d.TransformGroup;
 
-import com.sun.j3d.utils.geometry.Primitive;
 import com.sun.j3d.utils.picking.PickCanvas;
 import com.sun.j3d.utils.picking.PickResult;
 

@@ -1,5 +1,8 @@
 package se2.e.engine3d;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -54,11 +57,11 @@ public class GeometryAndAppearanceLoader {
 	private void updateLimits(Position pos) {
 		if (pos.getX() > maxX)
 			maxX = pos.getX();
-		else if (pos.getX() < minX)
+		if (pos.getX() < minX)
 			minX = pos.getX();
 		if (pos.getY() > maxY)
 			maxY = pos.getY();
-		else if (pos.getY() < minY)
+		if (pos.getY() < minY)
 			minY = pos.getY();
 	}
 
@@ -103,13 +106,14 @@ public class GeometryAndAppearanceLoader {
 				// EndPoint
 				trackPoints[curIndex++] = buildVector2D(track.getEndPosition().getPosition());
 				updateLimits(track.getEndPosition().getPosition());
+				System.out.println(Arrays.toString(trackPoints));
 				trackObjects.put(track.getLabel(), trackPoints);
 			} else if (geomObj instanceof SimplePosition) {
 				simplePositionObjects.put(((SimplePosition) geomObj).getLabel(), (SimplePosition) geomObj);
 				updateLimits(((SimplePosition) geomObj).getPosition());
 			}
 		}
-		log.info("Loaded trackObjects geometry: " + trackObjects);
+		log.info("Loaded trackPoints for geometry: " + trackObjects);
 		log.info("Loaded simplePositionObjects geometry: " + simplePositionObjects);
 		log.info(String.format("Limits - X: (%f,  %f), Y: (%f, %f)", minX, maxX, minY, maxY));
 

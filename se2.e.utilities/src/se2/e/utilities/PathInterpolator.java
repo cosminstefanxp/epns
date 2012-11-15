@@ -21,11 +21,10 @@ public interface PathInterpolator {
 	 * the position of the end point will be set.
 	 * 
 	 * @param distance the distance from the start of the path.
-	 * @param position the position to update with the new values.
 	 * @return the position.
 	 * @throws IllegalArgumentException if distance is less than zero.
 	 */
-	Where findPosition(double distance, Where position);
+	Where findPosition(double distance);
 	
 	/**
 	 * The start position of this path.

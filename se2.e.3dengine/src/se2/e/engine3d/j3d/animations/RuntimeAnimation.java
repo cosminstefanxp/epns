@@ -109,8 +109,9 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 	@Override
 	public void initialize() {
 		System.out.println("Initialize behavior...");
-		init();
 		WakeupCondition criteria = onUpdateAnimation();
+		if(criteria==null)
+			return;
 		wakeupOn(criteria);
 		BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 1000.0);
 		this.setSchedulingBounds(bounds);
@@ -118,7 +119,7 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 
 	@Override
 	public void processStimulus(@SuppressWarnings("rawtypes") Enumeration inCriteria) {
-		System.out.println("Stimulus...");
+		System.out.println("Animation stimulus...");
 		WakeupCondition criteria = onUpdateAnimation();
 		if(criteria!=null)
 			wakeupOn(criteria);

@@ -1,6 +1,6 @@
 package se2.e.engine3d.j3d.animations;
 
-import java.util.logging.Logger;
+import java.util.Arrays;
 
 import javax.media.j3d.Transform3D;
 import javax.media.j3d.WakeupCondition;
@@ -17,14 +17,14 @@ import se2.e.utilities.path.LinearPathInterpolator;
 import animations.Move;
 
 /**
- * The Class RuntimeMoveAnimation.
+ * The Class RuntimeMoveAnimation implementing a {@link RuntimeAnimation} for a {@link Move} animation.
  * 
- * @author cosmin, anders
+ * @author cosmin
  */
 public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 
 	/** The Constant UPDATE_FRAME_COUNT. */
-	private static final int UPDATE_FRAME_COUNT = 10;
+	private static final int UPDATE_FRAME_COUNT = 20;
 
 	private PathInterpolator pathInterpolator;
 	private Where currentPosition = null;
@@ -48,15 +48,15 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 	public void init() {
 		Vector2D[] trackPoints = engine.getGeometryAndAppearanceLoader().getTrackPoints(animation.getGeoTrack());
 		this.pathInterpolator = new LinearPathInterpolator(trackPoints);
+		System.out.println("Starting new move animation for: " + Arrays.toString(trackPoints));
 		currentPosition = this.pathInterpolator.start();
 	}
 
 	@Override
 	public WakeupCondition onUpdateAnimation() {
-		Logger.getAnonymousLogger().info("Updating animation...");
 		// Compute new update location
 		distance += animation.getSpeed();
-		currentPosition = pathInterpolator.findPosition(distance, currentPosition);
+		currentPosition = pathInterpolator.findPosition(distance);
 
 		// Move the object to the new position
 		Transform3D t = new Transform3D();
@@ -64,8 +64,7 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 		this.targetBranch.getTransformGroup().setTransform(t);
 
 		// Check for finishing conditions
-		if (pathInterpolator.getLength() < distance)
-		{
+		if (pathInterpolator.getLength() < distance) {
 			onAnimationFinished();
 			return null;
 		}
@@ -74,7 +73,7 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 
 	@Override
 	protected void onAnimationFinished() {
-		System.out.println("Animation Finished.");
+		System.out.println("Animation Finished: " + token);
 		engine.getSceneRoot().removeChild(this.targetBranch.getBranchGroup());
 		engine.animationFinished(token);
 	}

@@ -15,22 +15,23 @@ import se2.e.utilities.Where;
  */
 public class LinearPathInterpolator implements PathInterpolator {
 	private List<Step> steps = new ArrayList<Step>();
-	private Step last;
 	private double length = 0.0;
 	
 	/**
 	 * 
-	 * @param start
+	 * @param originPoint
 	 * @param positions
 	 */
 	public LinearPathInterpolator(Vector2D... positions) {
 		assert(positions!=null && positions.length>=2);
-		Vector2D actual = positions[0];
-		for (Vector2D next : positions) {
-			last = new Step(length, actual, next);
+		Step last;
+		for(int i=0;i<positions.length-1;i++)
+		{
+			last=new Step(length, positions[i], positions[i+1]);
 			steps.add(last);
 			length += last.getLength();
-			}
+		}
+		System.out.println("Steps: "+steps);
 		}
 	
 	@Override
@@ -38,16 +39,17 @@ public class LinearPathInterpolator implements PathInterpolator {
 
 	@Override
 	public Where start() {
-		return findPosition(0, null);
+		return findPosition(0);
 		}
 	
 	@Override
-	public Where findPosition(double distance, Where position) {
+	public Where findPosition(double distance) {
 		for (Step step : steps) {
 			if (!step.isWithin(distance)) continue;
-			return step.findPosition(distance, position);
+			System.out.println("Using step: "+step);
+			return step.findPosition(distance);
 			}
-		return last.findPosition(0, position);
+		return steps.get(steps.size()-1).findPosition(length);
 		}
 	
 //	@Override
@@ -55,32 +57,37 @@ public class LinearPathInterpolator implements PathInterpolator {
 //		}
 //	
 	private class Step {
-		private double basis;
-		private Vector2D start;
+		private double baseDistance;
+		private Vector2D originPoint;
 		private Vector2D next;
 		
-		public Step(double basis, Vector2D start, Vector2D end) {
-			this.basis = basis;
-			this.start = start;
-			this.next = Vector2D.subtract(end, start);
+		public Step(double baseDistance, Vector2D originPoint, Vector2D endPoint) {
+			this.baseDistance = baseDistance;
+			this.originPoint = originPoint;
+			this.next = Vector2D.subtract(endPoint, originPoint);
 			}
 		
 		public boolean isWithin(double distance) {
-			if (distance < this.basis) return false;
-			if (next.longerThan(distance - this.basis)) return true;
+			if (distance < this.baseDistance) return false;
+			if (next.longerThan(distance - this.baseDistance)) return true;
 			return false;
 			}
 		
-		public Where findPosition(double distance, Where position) {
-			double partial = distance - basis;
-			if (position == null) position = new Where(0, 0, 0);
-			position.getPosition().setX(start.getX() + next.deltaX(partial));
-			position.getPosition().setY(start.getY() + next.deltaX(partial));
+		public Where findPosition(double distance) {
+			double partial = distance - baseDistance;
+			Where position = new Where(0, 0, 0);
+			position.getPosition().setX(originPoint.getX() + next.deltaX(partial));
+			position.getPosition().setY(originPoint.getY() + next.deltaY(partial));
 			position.getOrientation().setAngle(next.getAngle());
 			return position;
 			}
 		
 		public double getLength() { return next.getLength(); }
+
+		@Override
+		public String toString() {
+			return "Step [baseDistance=" + baseDistance + ", originPoint=" + originPoint + ", next=" + next + "]";
+		}
 		}
 
 	}

@@ -115,5 +115,10 @@ public class Vector2D {
 	public boolean longerThan(double distance) {
 		return x*x + y*y > distance*distance;
 		}
+
+	@Override
+	public String toString() {
+		return "Vector2D [x=" + x + ", y=" + y + "]";
+	}
 	
 	}

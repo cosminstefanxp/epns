@@ -33,5 +33,10 @@ public class Where {
 	public Vector2D getOrientation() {
 		return orientation;
 		}
+
+	@Override
+	public String toString() {
+		return "Where [position=" + position + ", orientation=" + orientation + "]";
+	}
 	
 	}

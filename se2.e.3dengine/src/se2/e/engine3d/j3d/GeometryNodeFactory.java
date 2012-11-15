@@ -1,6 +1,5 @@
 package se2.e.engine3d.j3d;
 
-import java.io.IOException;
 import java.util.logging.Logger;
 
 import javax.media.j3d.Appearance;
@@ -11,8 +10,6 @@ import javax.media.j3d.LineArray;
 import javax.media.j3d.LineAttributes;
 import javax.media.j3d.Node;
 import javax.media.j3d.Shape3D;
-import javax.media.j3d.Texture;
-import javax.media.j3d.TextureAttributes;
 import javax.media.j3d.Transform3D;
 import javax.media.j3d.TransformGroup;
 import javax.vecmath.Color3f;
@@ -21,13 +18,11 @@ import javax.vecmath.Vector3d;
 
 import se2.e.engine3d.GeometryAndAppearanceLoader;
 import se2.e.geometry.Position;
-import se2.e.geometry.SimplePosition;
 import se2.e.utilities.Vector2D;
 import appearance.AppearanceInfo;
 
 import com.sun.j3d.utils.geometry.ColorCube;
 import com.sun.j3d.utils.geometry.Sphere;
-import com.sun.j3d.utils.image.TextureLoader;
 
 /**
  * A factory for creating nodes containing the representation for the geometry.
@@ -95,6 +90,7 @@ public class GeometryNodeFactory {
 		ColoringAttributes ca = new ColoringAttributes();
 		ca.setColor(new Color3f(1.0f, 0, 0));
 		app.setColoringAttributes(ca);
+
 		//System.out.println(new java.io.File(".").getAbsolutePath());
 		/**
 		*the texture file and folder has to be in eclipse's home directory (where eclipse.exe is)
@@ -104,6 +100,7 @@ public class GeometryNodeFactory {
 //		TextureAttributes texAttr = new TextureAttributes();
 //		texAttr.setTextureMode(TextureAttributes.REPLACE);
 //		app.setTextureAttributes(texAttr);
+
 		
 		g.addChild(new Shape3D(lineArr, app));
 		return g;

@@ -143,6 +143,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 		double xCenter = (loader.maxX + loader.minX) / 2;
 		double yCenter = (loader.maxY + loader.minY) / 2;
 		double zHeight = ((loader.maxX - loader.minX) + (loader.maxY - loader.minY));
+		// double zHeight=1500;
 		t3d.lookAt(new Point3d(xCenter, yCenter, zHeight), new Point3d(xCenter, yCenter, 0), new Vector3d(0, 1, 0));
 		t3d.invert();
 		viewTransform.setTransform(t3d);
@@ -280,7 +281,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 
 	/**
 	 * Gets the geometry and appearance loader.
-	 *
+	 * 
 	 * @return the geometry and appearance loader
 	 */
 	public GeometryAndAppearanceLoader getGeometryAndAppearanceLoader() {

@@ -7,11 +7,15 @@ import javax.media.j3d.Appearance;
 import javax.media.j3d.BoundingSphere;
 import javax.media.j3d.BranchGroup;
 import javax.media.j3d.ColoringAttributes;
-import javax.media.j3d.Texture;
-import javax.media.j3d.TextureAttributes;
 import javax.media.j3d.TransformGroup;
 import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
+
+import se2.e.engine3d.GeometryAndAppearanceLoader;
+import appearance.AppearanceInfo;
+import appearance.Model3D;
+import appearance.Object3D;
+import appearance.Shape3D;
 
 import com.sun.j3d.loaders.IncorrectFormatException;
 import com.sun.j3d.loaders.ParsingErrorException;
@@ -19,15 +23,6 @@ import com.sun.j3d.loaders.Scene;
 import com.sun.j3d.loaders.objectfile.ObjectFile;
 import com.sun.j3d.utils.geometry.ColorCube;
 import com.sun.j3d.utils.geometry.Sphere;
-import com.sun.j3d.utils.image.TextureLoader;
-
-import appearance.AppearanceInfo;
-import appearance.Model3D;
-import appearance.Object3D;
-import appearance.Shape;
-import appearance.Shape3D;
-
-import se2.e.engine3d.GeometryAndAppearanceLoader;
 
 /**
  * A factory for creating DynamicBranch objects. It is the responsibility of this factory to create the Java3D nodes and

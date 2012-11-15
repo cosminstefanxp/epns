@@ -22,6 +22,7 @@ public class RuntimeAnimationFactory {
 	public static RuntimeAnimation<?> getRuntimeAnimation(DynamicBranch targetBranch, Animation animation,
 			RuntimeToken token, J3DEngine engine) {
 		if (animation instanceof Move) {
+			Logger.getAnonymousLogger().info("Creating RuntimeMoveAnimation with: " + animation);
 			return new RuntimeMoveAnimation(targetBranch, (Move) animation, token, engine);
 		}
 

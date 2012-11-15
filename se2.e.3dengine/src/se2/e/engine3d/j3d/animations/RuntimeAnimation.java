@@ -25,10 +25,10 @@ public abstract class RuntimeAnimation {
 
 	/**
 	 * Inits the runtime animation. Usually, after initialization, a call to
-	 *
-	 * @return the wakeup condition defining when it should first update the animation.
 	 * {@link RuntimeAnimation#onUpdateAnimation()} will be performed, to update the animation and to set up next wakeup
 	 * conditions.
+	 * 
+	 * @return the wakeup condition defining when it should first update the animation.
 	 */
 	public abstract void init();
 
@@ -38,7 +38,7 @@ public abstract class RuntimeAnimation {
 	 * triggered again.
 	 * <p>
 	 * Also this method must make the verification for finishing of animation and, if needed, call the
-	 *
+	 * 
 	 * @return the wakeup condition defining when it should be called again.
 	 * {@link RuntimeAnimation#onAnimationFinished()} method.
 	 * </p>
@@ -52,7 +52,7 @@ public abstract class RuntimeAnimation {
 
 	/**
 	 * Instantiates a new runtime animation.
-	 *
+	 * 
 	 * @param targetBranch the target branch
 	 * @param animation the animation
 	 * @param token the token
@@ -85,7 +85,7 @@ public abstract class RuntimeAnimation {
 
 	/**
 	 * Gets the associated runtime token.
-	 *
+	 * 
 	 * @return the token
 	 */
 	public RuntimeToken getToken() {

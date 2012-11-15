@@ -1,7 +1,7 @@
 package se2.e.engine3d.runtime;
 
 import se2.e.engine3d.runtime.annimations.MoveAnimation;
-import se2.e.utilities.Path;
+import se2.e.utilities.PathInterpolator;
 
 public class AnimationBase implements Animation {
 	private AnimatedObject target;
@@ -25,7 +25,7 @@ public class AnimationBase implements Animation {
 	 * @param speed speed of the move
 	 * @return the animation base of the the move animation.
 	 */
-	public static Animation createMove(AnimatedObject target, Path path, double speed) {
+	public static Animation createMove(AnimatedObject target, PathInterpolator path, double speed) {
 		Animation root = new MoveAnimation(path, speed);
 		return new AnimationBase(target, root);
 		}

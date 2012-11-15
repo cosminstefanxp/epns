@@ -2,13 +2,13 @@ package se2.e.engine3d.runtime.annimations;
 
 import se2.e.engine3d.runtime.AnimatedObject;
 import se2.e.engine3d.runtime.Animation;
-import se2.e.utilities.Path;
+import se2.e.utilities.PathInterpolator;
 import se2.e.utilities.Where;
 
 
 public class MoveAnimation implements Animation {
 	private Animation parent;
-	private Path path;
+	private PathInterpolator path;
 	private double speed;
 	private Where where = null;
 
@@ -19,7 +19,7 @@ public class MoveAnimation implements Animation {
 	 * @param path
 	 * @param speed
 	 */
-	public MoveAnimation(Path path, double speed) {
+	public MoveAnimation(PathInterpolator path, double speed) {
 		this.speed = speed;
 		this.path = path;
 		where = path.start();

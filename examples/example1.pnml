@@ -116,8 +116,8 @@
         </graphics>
         <interactiveInput/>
         <animations>
-          <structure xsi:type="animations:Move" speed="3.0" geoTrack="L2"/>
-          <text>move(3.0, L2)</text>
+          <structure xsi:type="animations:Move" speed="3.0" geoTrack="L3"/>
+          <text>move(3.0, L3)</text>
         </animations>
       </place>
       <place id="P4" geoLabel="L4">
@@ -129,8 +129,8 @@
         </graphics>
         <interactiveInput/>
         <animations>
-          <structure xsi:type="animations:Move" speed="3.0" geoTrack="L2"/>
-          <text>move(3.0, L2)</text>
+          <structure xsi:type="animations:Move" speed="3.0" geoTrack="L4"/>
+          <text>move(3.0, L4)</text>
         </animations>
       </place>
       <place id="P5" geoLabel="L5">
@@ -142,8 +142,8 @@
         </graphics>
         <interactiveInput/>
         <animations>
-          <structure xsi:type="animations:Move" speed="3.0" geoTrack="L2"/>
-          <text>move(3.0, L2)</text>
+          <structure xsi:type="animations:Move" speed="3.0" geoTrack="L5"/>
+          <text>move(3.0, L5)</text>
         </animations>
       </place>
       <transition id="T1">

@@ -43,7 +43,9 @@ public class RuntimePetriNet {
 		List<Token> tempTokens = place.getTokens();
 		List<RuntimeToken> tempTokensExt = new ArrayList<RuntimeToken>();
 		for (Token token : tempTokens) {
-			tempTokensExt.add(new RuntimeToken(token.getAppearance().getText()));
+			RuntimeToken rt = new RuntimeToken(token.getAppearance().getText());
+			rt.setFinished(true);
+			tempTokensExt.add(rt);
 		}
 		tokensMap.put(place, tempTokensExt);
 	}
@@ -86,9 +88,9 @@ public class RuntimePetriNet {
 	 */
 	public void printPetri() {
 		for (Transition transition : transitions) {
-			System.out.println(transition.getName() + " :");
+			System.out.println(transition.getId() + " :");
 			for (Place place : preset.get(transition)) {
-				System.out.println("\t" + place.getName());
+				System.out.println("\t" + place.getId());
 				for (RuntimeToken token : tokensMap.get(place)) {
 					System.out.println("\t\t" + token.isFinished());
 				}

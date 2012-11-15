@@ -46,7 +46,7 @@
     <styles xmi:type="notation:RoutingStyle" xmi:id="_1xZzMS8uEeKAeo2CFa0KLg"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_1xZzMi8uEeKAeo2CFa0KLg" fontName="Ubuntu"/>
     <element xmi:type="geometry:Track" href="example1.geometry#//@geoObjects.5"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1xZzMy8uEeKAeo2CFa0KLg" points="[10, 0, -251, -13]$[255, 12, -6, -1]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1xZzMy8uEeKAeo2CFa0KLg" points="[10, 1, -306, -50]$[310, 50, -6, -1]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xeEoC8uEeKAeo2CFa0KLg" id="(0.16666666666666666,0.4166666666666667)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_29snMC8uEeKAeo2CFa0KLg" type="4001" source="_yNuREC8uEeKAeo2CFa0KLg" target="_y6R1EC8uEeKAeo2CFa0KLg">
@@ -66,7 +66,7 @@
     <styles xmi:type="notation:RoutingStyle" xmi:id="_5PGpIS8uEeKAeo2CFa0KLg"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_5PGpIi8uEeKAeo2CFa0KLg" fontName="Ubuntu"/>
     <element xmi:type="geometry:Track" href="example1.geometry#//@geoObjects.7"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5PGpIy8uEeKAeo2CFa0KLg" points="[6, 0, -241, -15]$[247, 17, 0, 2]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5PGpIy8uEeKAeo2CFa0KLg" points="[6, 2, -277, 7]$[90, 30, -193, 35]$[276, -4, -7, 1]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5PK6kC8uEeKAeo2CFa0KLg" id="(0.5833333333333334,0.8333333333333334)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_6I70IC8uEeKAeo2CFa0KLg" type="4001" source="_ydSXEC8uEeKAeo2CFa0KLg" target="_ysPZEC8uEeKAeo2CFa0KLg">
@@ -76,6 +76,6 @@
     <styles xmi:type="notation:RoutingStyle" xmi:id="_6I70IS8uEeKAeo2CFa0KLg"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_6I70Ii8uEeKAeo2CFa0KLg" fontName="Ubuntu"/>
     <element xmi:type="geometry:Track" href="example1.geometry#//@geoObjects.8"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6I70Iy8uEeKAeo2CFa0KLg" points="[6, -1, 0, -122]$[306, -20, 300, -141]$[12, 118, 6, -3]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6I70Iy8uEeKAeo2CFa0KLg" points="[6, 6, 0, -115]$[54, 52, 48, -69]$[10, 115, 4, -6]"/>
   </edges>
 </notation:Diagram>

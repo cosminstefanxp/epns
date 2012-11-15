@@ -6,7 +6,10 @@ import java.util.List;
 
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 
+import appearance.AppearanceModel;
 
+
+import extendedpetrinet.Appearance;
 import extendedpetrinet.ExtendedPetriNet;
 
 import se2.e.engine3d.Engine3D;
@@ -28,6 +31,8 @@ public class Simulator implements Engine3DListener {
 	/** The geometry. */
 	private Geometry geometry;
 	
+	AppearanceModel appearance;
+	
 	/** The rpn. */
 	private RuntimePetriNet rpn;
 	
@@ -40,10 +45,11 @@ public class Simulator implements Engine3DListener {
 	 * @param geometry the geometry
 	 * @param selectedPetri the selected petri
 	 */
-	public Simulator(Geometry geometry, PetriNetDoc selectedPetri) {
+	public Simulator(Geometry geometry, PetriNetDoc selectedPetri, AppearanceModel appearance) {
 		rpn = new RuntimePetriNet(selectedPetri);
 		this.selectedPetri = selectedPetri;
 		this.geometry = geometry;
+		this.appearance = appearance;
 		System.out.println("Constructor Simulator");
 	}
 
@@ -52,7 +58,7 @@ public class Simulator implements Engine3DListener {
 	 */
 	public void startSimulation() {
 		engine = Engine3DFactory.getEngine();
-		engine.init(this.geometry, null);
+		engine.init(this.geometry, this.appearance);
 		engine.setEngine3DListener(this);
 	}
 
@@ -64,7 +70,8 @@ public class Simulator implements Engine3DListener {
 		rpn.markToken( token);
 		List<TokenMovement> tokenMovements = rpn.fireTransitions();
 		for(TokenMovement tokenMovement : tokenMovements) {
-			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getPlace(), tokenMovement.getAnimation());
+			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation());
+		
 		}
 
 	}
@@ -77,7 +84,7 @@ public class Simulator implements Engine3DListener {
 		// fire transitions
 		List<TokenMovement> tokenMovements = rpn.fireTransitions();
 		for(TokenMovement tokenMovement : tokenMovements) {
-			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getPlace(), tokenMovement.getAnimation());
+			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation());
 		}
 	}
 
@@ -86,7 +93,7 @@ public class Simulator implements Engine3DListener {
 		rpn.dropTokenOnPlace(label);
 		List<TokenMovement> tokenMovements = rpn.fireTransitions();
 		for(TokenMovement tokenMovement : tokenMovements) {
-			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getPlace(), tokenMovement.getAnimation());
+			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation());
 		}
 	}
 

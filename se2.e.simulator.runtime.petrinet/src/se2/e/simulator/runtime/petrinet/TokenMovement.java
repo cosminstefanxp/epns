@@ -1,5 +1,7 @@
 package se2.e.simulator.runtime.petrinet;
 
+import animations.Animation;
+
 /**
  * The Class TokenMovement.
  * @author Ruxandra, Marius
@@ -11,7 +13,7 @@ public class TokenMovement {
 	 * @param place
 	 * @param animation
 	 */
-	public TokenMovement(RuntimeToken token, String place, Object animation) {
+	public TokenMovement(RuntimeToken token, String place, Animation animation) {
 		super();
 		this.token = token;
 		this.place = place;
@@ -34,11 +36,11 @@ public class TokenMovement {
 		this.place = place;
 	}
 
-	public Object getAnimation() {
+	public Animation getAnimation() {
 		return animation;
 	}
 
-	public void setAnimation(Object animation) {
+	public void setAnimation(Animation animation) {
 		this.animation = animation;
 	}
 
@@ -48,7 +50,7 @@ public class TokenMovement {
 	/** The place. */
 	private String place;
 	
-	private Object animation;
+	private Animation animation;
 	
 
 }

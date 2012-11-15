@@ -8,7 +8,8 @@ Require-Bundle: org.eclipse.ui,
  se2.e.3dengine;bundle-version="1.0.0",
  se2.e.staticpetrinet;bundle-version="1.0.0",
  se2.e.simulator.runtime.petrinet;bundle-version="1.0.0",
- se2.e.geometry;bundle-version="1.0.0"
+ se2.e.geometry;bundle-version="1.0.0",
+ se2.e.appearance;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: se2.e.simulator
 Import-Package: se2.e.simulator

@@ -2,15 +2,24 @@ package se2.e.engine3d.j3d;
 
 import java.util.logging.Logger;
 
+import javax.media.j3d.Appearance;
+import javax.media.j3d.BranchGroup;
+import javax.media.j3d.Canvas3D;
 import javax.media.j3d.LineArray;
 import javax.media.j3d.Node;
 import javax.media.j3d.Shape3D;
+import javax.media.j3d.Texture;
+import javax.media.j3d.TextureAttributes;
 import javax.media.j3d.TransformGroup;
 import javax.vecmath.Point3d;
 
 import org.eclipse.emf.common.util.EList;
 
+import appearance.AppearanceInfo;
+
 import com.sun.j3d.utils.geometry.ColorCube;
+import com.sun.j3d.utils.geometry.Sphere;
+import com.sun.j3d.utils.image.TextureLoader;
 
 import se2.e.engine3d.GeometryAndAppearanceLoader;
 import se2.e.geometry.GeometryObject;
@@ -31,14 +40,19 @@ public class GeometryNodeFactory {
 	/** The loader. */
 	private GeometryAndAppearanceLoader loader;
 
+	private Canvas3D canvas;
+	
+	private J3DEngine engine;
 	/**
 	 * Instantiates a new geometry node factory.
 	 * 
 	 * @param loader the loader
 	 */
-	public GeometryNodeFactory(GeometryAndAppearanceLoader loader, J3DEngine engine) {
+	public GeometryNodeFactory(GeometryAndAppearanceLoader loader, J3DEngine engine, Canvas3D canvas) {
 		super();
 		this.loader = loader;
+		this.canvas = canvas;
+		this.engine = engine;
 	}
 
 	/**
@@ -76,5 +90,46 @@ public class GeometryNodeFactory {
 		g.addChild(new Shape3D(lineArr));
 		g.addChild(new ColorCube(30));
 		return g;
+	}
+	
+	
+	public InteractiveInputBranch getInteractiveInputBranch(String appearanceLabel, String geomLabel) {
+		AppearanceInfo appearanceInfo = this.loader.getAppearanceInfo(appearanceLabel);
+		BranchGroup branchGroup = new BranchGroup();
+		TransformGroup tg = null;
+		
+		String apinfo = appearanceInfo.getLabel();
+		//switch - case with strings only in JRE 7. for compatibility issues, I'm using if - else
+		if (appearanceInfo instanceof Shape3D){
+			if (apinfo.equalsIgnoreCase("Cube"))
+			{
+				ColorCube model = new ColorCube(0.5f);
+				model.setPickable(true);
+				tg = new TransformGroup();
+				tg.addChild(model);
+				branchGroup.addChild(tg);
+			}
+			else if (apinfo.equalsIgnoreCase("Sphere"))
+			{
+				Appearance app = new Appearance();
+				Texture tex = new TextureLoader("graphics/textures/earth.jpg", engine).getTexture();
+				//FIXME: may need to be changed from / to \ depending on the operating system
+				app.setTexture(tex);
+				TextureAttributes texAttr = new TextureAttributes();
+				texAttr.setTextureMode(TextureAttributes.MODULATE);
+				app.setTextureAttributes(texAttr);
+				Sphere model = new Sphere(0.86f, Sphere.GENERATE_TEXTURE_COORDS, app);
+				model.setPickable(true);
+				tg = new TransformGroup();
+				tg.addChild(model);
+				branchGroup.addChild(tg);
+			}
+		}
+		
+
+		
+		InteractiveInputBranch branch = new InteractiveInputBranch(geomLabel, tg, branchGroup, engine, canvas);
+		return branch;
+	
 	}
 }

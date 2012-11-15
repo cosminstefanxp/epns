@@ -95,6 +95,9 @@ public class GeometryNodeFactory {
 		ca.setColor(new Color3f(1.0f, 0, 0));
 		app.setColoringAttributes(ca);
 		//System.out.println(new java.io.File(".").getAbsolutePath());
+		/**
+		*the texture file and folder has to be in eclipse's home directory (where eclipse.exe is)
+		**/
 //		Texture tex = new TextureLoader("graphics/textures/texture-green.png", engine).getTexture();
 //		app.setTexture(tex);
 //		TextureAttributes texAttr = new TextureAttributes();

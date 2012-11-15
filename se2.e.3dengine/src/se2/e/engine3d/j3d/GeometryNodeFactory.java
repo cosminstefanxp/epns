@@ -6,6 +6,7 @@ import javax.media.j3d.Appearance;
 import javax.media.j3d.BranchGroup;
 import javax.media.j3d.Canvas3D;
 import javax.media.j3d.LineArray;
+import javax.media.j3d.LineAttributes;
 import javax.media.j3d.Node;
 import javax.media.j3d.Shape3D;
 import javax.media.j3d.Texture;
@@ -80,7 +81,14 @@ public class GeometryNodeFactory {
 
 		// Add the line to the track group
 		TransformGroup g = new TransformGroup();
-		g.addChild(new Shape3D(lineArr));
+		
+		// set line width
+		LineAttributes la = new LineAttributes();
+		la.setLineWidth(5.0f);
+		Appearance app = new Appearance();
+		app.setLineAttributes(la);
+		
+		g.addChild(new Shape3D(lineArr, app));
 		return g;
 	}
 	

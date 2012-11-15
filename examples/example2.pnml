@@ -20,6 +20,12 @@
       <arc id="A2" source="T1" target="P1">
         <ignoreAnimation/>
       </arc>
+      <place id="P2" geoLabel="Sem">
+        <interactiveInput>
+          <text>true</text>
+        </interactiveInput>
+      </place>
+      <arc id="A3" source="P2" target="T1"/>
     </page>
   </net>
 </pnml>

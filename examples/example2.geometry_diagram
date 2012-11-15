@@ -14,6 +14,14 @@
     <element xmi:type="geometry:TrackPosition" href="example2.geometry#//@geoObjects.1"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cMpJRC9fEeKJT8AOUf5XNg" x="276" y="120"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_jDObAC9pEeK-CIXW42EY1Q" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_jDObBS9pEeK-CIXW42EY1Q" type="5001"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_jDObAS9pEeK-CIXW42EY1Q"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jDObAi9pEeK-CIXW42EY1Q" fontName="Segoe UI"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_jDObAy9pEeK-CIXW42EY1Q"/>
+    <element xmi:type="geometry:SimplePosition" href="example2.geometry#//@geoObjects.3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jDObBC9pEeK-CIXW42EY1Q" x="316" y="102"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_az50sS9fEeKJT8AOUf5XNg"/>
   <element xmi:type="geometry:Geometry" href="example2.geometry#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_cq39YC9fEeKJT8AOUf5XNg" type="4001" source="_b5vbYC9fEeKJT8AOUf5XNg" target="_cMpJQC9fEeKJT8AOUf5XNg">

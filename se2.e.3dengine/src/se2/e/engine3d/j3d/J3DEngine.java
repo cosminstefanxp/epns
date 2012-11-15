@@ -361,4 +361,8 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 	protected void animationFinished(RuntimeToken token) {
 		engineListener.onAnimationFinished(token);
 	}
+	
+	protected void userInteraction(String geomLabel) {
+		engineListener.onUserInteraction(geomLabel);
+	}
 }

@@ -193,15 +193,11 @@ public class RuntimePetriNet {
 			}
 			RuntimeToken tokenExt = new RuntimeToken(geomLabel);
 			tokensMap.get(place).add(tokenExt);
-			//TODO: modify to use the place's animation!!!!!!!!
-			
-//			Move move = null;
-//			if(place.getGeoLabel() != null) {
-//				move = AnimationsFactoryImpl.init().createMove();
-//				move.setGeoTrack(place.getGeoLabel());
-//				move.setSpeed(3.0);
-//			}	
-			tokensMovement.add(new TokenMovement(tokenExt, place.getGeoLabel(), place.getAnimations().getStructure()));
+	
+			if(place.getAnimations()!= null)
+				tokensMovement.add(new TokenMovement(tokenExt, place.getGeoLabel(), place.getAnimations().getStructure()));
+			else
+				tokensMovement.add(new TokenMovement(tokenExt, place.getGeoLabel(), null));
 		}
 		return tokensMovement;
 	}

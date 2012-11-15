@@ -6,7 +6,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.pnml.tools.epnk.pnmlcoremodel.Object;
+import org.pnml.tools.epnk.pnmlcoremodel.Page;
+import org.pnml.tools.epnk.pnmlcoremodel.PetriNet;
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 import org.pnml.tools.epnk.pnmlcoremodel.Transition;
 
@@ -105,10 +109,12 @@ public class RuntimePetriNet {
 		preset = new HashMap<Transition, List<Place>>();
 		postset = new HashMap<Transition, List<Place>>();
 		
-		Iterator<EObject> iter = selectedPetri.getNet().get(0).eContents().iterator();
+		Iterator<Object> iter = selectedPetri.getNet().get(0).getPage().get(0).getObject().iterator();
+
 		while (iter.hasNext()) {
-			EObject item = iter.next();
+			Object item = iter.next();
 			if (item instanceof Transition) {
+				
 				/* add transition to list */
 				transitions.add((Transition) item);
 				/* create preset for each transition */

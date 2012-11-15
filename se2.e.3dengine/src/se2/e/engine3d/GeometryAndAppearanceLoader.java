@@ -32,6 +32,9 @@ public class GeometryAndAppearanceLoader {
 
 	/** The appearance information. */
 	private HashMap<String, AppearanceInfo> appearanceInfo;
+	
+	/** The track objects with labels. */
+	private HashMap<String, Track> trackObjectsWithLabels;
 
 	/** The log. */
 	private Logger log = Logger.getLogger("GeometryAndAppearanceLoader");
@@ -88,10 +91,12 @@ public class GeometryAndAppearanceLoader {
 		List<GeometryObject> geomObjs = geometry.getGeoObjects();
 		trackObjects = new HashMap<String, Vector2D[]>();
 		simplePositionObjects = new HashMap<String, SimplePosition>();
+		trackObjectsWithLabels = new HashMap<String, Track>();
 		// Load up geometry objects
 		for (GeometryObject geomObj : geomObjs) {
 			if (geomObj instanceof Track) {
 				Track track = (Track) geomObj;
+				trackObjectsWithLabels.put(track.getLabel(), track);
 				// Build the track points array for the track
 				Vector2D trackPoints[] = new Vector2D[track.getIntermediatePositions().size() + 2];
 				int curIndex = 0;
@@ -181,5 +186,15 @@ public class GeometryAndAppearanceLoader {
 	 */
 	public Set<String> getAppearanceInfoLabels() {
 		return appearanceInfo.keySet();
+	}
+
+	/**
+	 * Gets the track from label.
+	 *
+	 * @param label the label
+	 * @return the track from label
+	 */
+	public Track getTrackFromLabel(String label){
+		return trackObjectsWithLabels.get(label);
 	}
 }

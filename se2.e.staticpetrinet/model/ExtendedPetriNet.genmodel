@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/se2.e.staticpetrinet/src" modelPluginID="se2.e.staticpetrinet"
+    modelName="ExtendedPetriNet" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false" usedGenPackages="../../se2.e.animations/model/Animations.genmodel#//animations ../../org.pnml.tools.epnk/model/PNMLCoreModel.genmodel#//pnmlcoremodel ../../org.pnml.tools.epnk/model/PNMLStructuredPNTypeModel.genmodel#//structuredpntypemodel">
+  <foreignModel>ExtendedPetriNet.ecore</foreignModel>
+  <genPackages prefix="Extendedpetrinet" resource="XML" disposableProviderFactory="true"
+      ecorePackage="ExtendedPetriNet.ecore#/">
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//ExtendedPetriNet"/>
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//Arc">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Arc/ignoreAnimation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Arc/identity"/>
+    </genClasses>
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//Place">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/interactiveInput"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/animations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/tokens"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Place/geoLabel"/>
+    </genClasses>
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//Identity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Identity/text"/>
+    </genClasses>
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//IgnoreAnimation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//IgnoreAnimation/text"/>
+    </genClasses>
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//InteractiveInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//InteractiveInput/text"/>
+    </genClasses>
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//Token">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Token/ID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Token/appearance"/>
+    </genClasses>
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//Animations">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Animations/structure"/>
+    </genClasses>
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//Appearance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Appearance/text"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

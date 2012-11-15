@@ -13,19 +13,13 @@ import javax.media.j3d.TextureAttributes;
 import javax.media.j3d.TransformGroup;
 import javax.vecmath.Point3d;
 
-import org.eclipse.emf.common.util.EList;
-
+import se2.e.engine3d.GeometryAndAppearanceLoader;
+import se2.e.utilities.Vector2D;
 import appearance.AppearanceInfo;
 
 import com.sun.j3d.utils.geometry.ColorCube;
 import com.sun.j3d.utils.geometry.Sphere;
 import com.sun.j3d.utils.image.TextureLoader;
-
-import se2.e.engine3d.GeometryAndAppearanceLoader;
-import se2.e.geometry.GeometryObject;
-import se2.e.geometry.Position;
-import se2.e.geometry.Track;
-import se2.e.geometry.TrackPosition;
 
 /**
  * A factory for creating nodes containing the representation for the geometry.
@@ -63,27 +57,22 @@ public class GeometryNodeFactory {
 	 * label or it's not a static GeometryObject (Track).
 	 */
 	public Node getGeometryNode(String geometryLabel) {
-		// Get the track and its coordinates
-		Track track = loader.getTrackObject(geometryLabel);
-		if (track == null)
+		// Get the track points
+		Vector2D[] trackPoints = loader.getTrackPoints(geometryLabel);
+		if (trackPoints == null)
 			return null;
-		TrackPosition firstPoint = track.getStartPosition();
-		TrackPosition lastPoint = track.getEndPosition();
-		EList<Position> intermediatePoints = track.getIntermediatePositions();
-		Logger.getAnonymousLogger().info("Generating " + geometryLabel + " of size " + (intermediatePoints.size() + 2));
+		Logger.getAnonymousLogger().info("Generating " + geometryLabel + " for: " + trackPoints);
 
 		// Prepare the points of the tracks
-		LineArray lineArr = new LineArray(intermediatePoints.size() * 2 + 2, LineArray.COORDINATES);
-		lineArr.setCoordinate(0, new Point3d(firstPoint.getPosition().getX(), firstPoint.getPosition().getY(),
-				DRAWING_PLANE_Z));
-		int cur_index = 1;
-		for (Position pos : intermediatePoints) {
+		LineArray lineArr = new LineArray((trackPoints.length - 1) * 2, LineArray.COORDINATES);
+		lineArr.setCoordinate(0, new Point3d(trackPoints[0].getX(), trackPoints[0].getY(), DRAWING_PLANE_Z));
+		for (int i = 1; i < trackPoints.length - 1; i++) {
 			// Add each point twice, as it will be both an endpoint for a line and a startpoint for the next one
-			lineArr.setCoordinate(cur_index++, new Point3d(pos.getX(), pos.getY(), DRAWING_PLANE_Z));
-			lineArr.setCoordinate(cur_index++, new Point3d(pos.getX(), pos.getY(), DRAWING_PLANE_Z));
+			lineArr.setCoordinate(2 * i - 1, new Point3d(trackPoints[i].getX(), trackPoints[i].getY(), DRAWING_PLANE_Z));
+			lineArr.setCoordinate(2 * i, new Point3d(trackPoints[i].getX(), trackPoints[i].getY(), DRAWING_PLANE_Z));
 		}
-		lineArr.setCoordinate(cur_index, new Point3d(lastPoint.getPosition().getX(), lastPoint
-				.getPosition().getY(), DRAWING_PLANE_Z));
+		lineArr.setCoordinate(2 * (trackPoints.length - 1) - 1, new Point3d(trackPoints[trackPoints.length - 1].getX(),
+				trackPoints[trackPoints.length - 1].getY(), DRAWING_PLANE_Z));
 
 		// Add the line to the track group
 		TransformGroup g = new TransformGroup();

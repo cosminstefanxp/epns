@@ -1,34 +1,42 @@
 package se2.e.engine3d.j3d.animations;
 
-import javax.media.j3d.WakeupCondition;
+import java.util.Enumeration;
 
-import animations.Animation;
+import javax.media.j3d.Behavior;
+import javax.media.j3d.BoundingSphere;
+import javax.media.j3d.WakeupCondition;
+import javax.vecmath.Point3d;
 
 import se2.e.engine3d.j3d.DynamicBranch;
+import se2.e.engine3d.j3d.J3DEngine;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
+import animations.Animation;
 
 /**
  * The Class RuntimeAnimation.
  * 
  * @author cosmin
  */
-public abstract class RuntimeAnimation {
+public abstract class RuntimeAnimation extends Behavior {
 
 	/** The target branch. */
-	private DynamicBranch targetBranch;
+	protected DynamicBranch targetBranch;
 
 	/** The animation. */
-	private Animation animation;
+	protected Animation animation;
 
 	/** The associated runtime token. */
-	private RuntimeToken token;
+	protected RuntimeToken token;
+
+	/** The engine. */
+	protected J3DEngine engine;
 
 	/**
 	 * Inits the runtime animation. Usually, after initialization, a call to
-	 * {@link RuntimeAnimation#onUpdateAnimation()} will be performed, to update the animation and to set up next wakeup
-	 * conditions.
 	 * 
 	 * @return the wakeup condition defining when it should first update the animation.
+	 * {@link RuntimeAnimation#onUpdateAnimation()} will be performed, to update the animation and to set up next wakeup
+	 * conditions.
 	 */
 	public abstract void init();
 
@@ -56,12 +64,14 @@ public abstract class RuntimeAnimation {
 	 * @param targetBranch the target branch
 	 * @param animation the animation
 	 * @param token the token
+	 * @param engine the engine
 	 */
-	public RuntimeAnimation(DynamicBranch targetBranch, Animation animation, RuntimeToken token) {
+	public RuntimeAnimation(DynamicBranch targetBranch, Animation animation, RuntimeToken token, J3DEngine engine) {
 		super();
 		this.targetBranch = targetBranch;
 		this.token = token;
 		this.animation = animation;
+		this.engine = engine;
 		init();
 	}
 
@@ -90,5 +100,24 @@ public abstract class RuntimeAnimation {
 	 */
 	public RuntimeToken getToken() {
 		return token;
+	}
+
+	@Override
+	public void initialize() {
+		init();
+		WakeupCondition criteria = onUpdateAnimation();
+		wakeupOn(criteria);
+		BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 1000.0);
+		this.setSchedulingBounds(bounds);
+
+		// Connect the behavior to the branch group
+		this.targetBranch.setBehaviorNode(this);
+		this.targetBranch.getBranchGroup().addChild(this);
+	}
+
+	@Override
+	public void processStimulus(@SuppressWarnings("rawtypes") Enumeration inCriteria) {
+		WakeupCondition criteria = onUpdateAnimation();
+		wakeupOn(criteria);
 	}
 }

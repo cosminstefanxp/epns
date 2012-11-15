@@ -27,6 +27,7 @@ import se2.e.engine3d.Engine3D;
 import se2.e.engine3d.Engine3DListener;
 import se2.e.engine3d.GeometryAndAppearanceLoader;
 import se2.e.engine3d.j3d.animations.RuntimeAnimation;
+import se2.e.engine3d.j3d.animations.RuntimeAnimationFactory;
 import se2.e.geometry.Geometry;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import animations.Animation;
@@ -248,88 +249,17 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 	 * @author cosmin
 	 */
 	@Override
-	public void startAnimation(RuntimeToken token, Animation animationOnPlace) {
-		// TODO: Update all types of animations
-
+	public void startAnimation(RuntimeToken token, Animation animation) {
 		// Build the branch representing the token
 		// TODO: Fix for dynamic objects (e.g. when using ShowAnimation)
 		DynamicBranch branch = dynamicBranchFactory.getTokenBranch(token.getLabel());
 
 		// Build the RuntimeAnimation
-		// RuntimeAnimation rtAnimation = RuntimeAnimationFactory.getRuntimeAnimation(branch, animation, token);
-		// runningAnimations.add(rtAnimation);
+		RuntimeAnimation rtAnimation = RuntimeAnimationFactory.getRuntimeAnimation(branch, animation, token, this);
+		runningAnimations.add(rtAnimation);
 
 		// Attach the Animation branch to the Scene graph
 		sceneRoot.addChild(branch.getBranchGroup());
-
-		// TODO: Create a behavior that runs the animation
-
-		// // Get the associated geometry
-		// GeometryObject geometryObj = loader.getGeometryObject(placeLabel);
-		// if (!(geometryObj instanceof Track)) {
-		// log.severe("Starting animation for token " + token + " on place with wrong type of geometry: "
-		// + geometryObj);
-		// return;
-		// }
-		// Track track = (Track) geometryObj;
-
-		// See if there is already an object representation for the token
-		// RunningAnimation animation;
-		// animation = runningAnimations.get(token);
-		// if (animation == null) {
-		//
-		// // Create a BranchGroup for this Move animation, which will contain the Token Representation, the
-		// // interpolator for the animation and a behavior to clean up when the animation is finished
-		// BranchGroup animationsRoot = new BranchGroup();
-		// animationsRoot.setCapability(BranchGroup.ALLOW_DETACH);
-		//
-		// // Create the TransformGroup node, which is writable to support animation
-		// TransformGroup tokenRepresGroup = new TransformGroup();
-		// tokenRepresGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-		// animationsRoot.addChild(tokenRepresGroup);
-		//
-		// // Create the token representation node (color cube) and add it to the group
-		// // TODO: Eventually get info from Place
-		// tokenRepresGroup.addChild(new ColorCube(0.2));
-		//
-		// // Save the running animation for future use
-		// animation = new RunningAnimation(track, tokenRepresGroup, animationsRoot, 0);
-		// runningAnimations.put(token, animation);
-		//
-		// }
-		//
-		// /** Start the animation **/
-		// // Get the track points and their coordinates
-		// TrackPosition firstPoint = track.getStartPosition();
-		// TrackPosition lastPoint = track.getEndPosition();
-		//
-		// // Put the token representation at the beginning of the path
-		// Transform3D initTransform = new Transform3D();
-		// initTransform.setTranslation(new Vector3d(firstPoint.getPosition().getX(), firstPoint.getPosition().getY(),
-		// DRAWING_PLANE_Z));
-		// animation.transformGroup.setTransform(initTransform);
-		//
-		// // Create a Behavior (Interpolator) node that moves the cube and add it to the scene
-		// Transform3D yAxis = new Transform3D();
-		// Alpha timing = new Alpha(1, 4000);
-		// timing.setStartTime(new Date().getTime());
-		// timing.setMode(Alpha.INCREASING_ENABLE);
-		// Point3f startPoint = new Point3f(new Point3d(firstPoint.getPosition().getX(),
-		// firstPoint.getPosition().getY(), DRAWING_PLANE_Z));
-		// Point3f endPoint = new Point3f(new Point3d(lastPoint.getPosition().getX(), lastPoint.getPosition().getY(),
-		// DRAWING_PLANE_Z));
-		// PositionPathInterpolator nodePositionInterpolator = new PositionPathInterpolator(timing,
-		// animation.transformGroup, yAxis, new float[] { 0, 1 }, new Point3f[] { startPoint, endPoint });
-		// BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 100.0);
-		// nodePositionInterpolator.setSchedulingBounds(bounds);
-		// animation.animationBranchGroup.addChild(nodePositionInterpolator);
-		//
-		// // Create a behavior that handles the finish of the animation
-		// FinishAnimationBehavior beh = new FinishAnimationBehavior(this, animation, token, 4000);
-		// animation.animationBranchGroup.addChild(beh);
-		//
-		// // Add the branch to the root
-		// sceneRoot.addChild(animation.animationBranchGroup);
 	}
 
 	/*
@@ -349,7 +279,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 	 * 
 	 * @return the scene root
 	 */
-	protected BranchGroup getSceneRoot() {
+	public BranchGroup getSceneRoot() {
 		return sceneRoot;
 	}
 
@@ -358,7 +288,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 	 * 
 	 * @param token the token
 	 */
-	protected void animationFinished(RuntimeToken token) {
+	public void animationFinished(RuntimeToken token) {
 		engineListener.onAnimationFinished(token);
 	}
 	

@@ -10,7 +10,8 @@ Bundle-ClassPath: 3dengine.jar,
 Export-Package: se2.e.engine3d
 Require-Bundle: se2.e.simulator.runtime.petrinet;bundle-version="1.0.0",
  se2.e.geometry;bundle-version="1.0.0",
- se2.e.animations;bundle-version="1.0.0"
+ se2.e.animations;bundle-version="1.0.0",
+ se2.e.utilities;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: animations,
  appearance

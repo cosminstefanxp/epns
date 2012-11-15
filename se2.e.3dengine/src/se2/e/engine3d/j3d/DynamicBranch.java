@@ -26,7 +26,7 @@ public class DynamicBranch {
 	 * 
 	 * @return the behavior node
 	 */
-	protected Behavior getBehaviorNode() {
+	public Behavior getBehaviorNode() {
 		return behaviorNode;
 	}
 
@@ -35,7 +35,7 @@ public class DynamicBranch {
 	 * 
 	 * @param behaviorNode the new behavior node
 	 */
-	protected void setBehaviorNode(Behavior behaviorNode) {
+	public void setBehaviorNode(Behavior behaviorNode) {
 		this.behaviorNode = behaviorNode;
 	}
 
@@ -44,7 +44,7 @@ public class DynamicBranch {
 	 * 
 	 * @return the transform group
 	 */
-	protected TransformGroup getTransformGroup() {
+	public TransformGroup getTransformGroup() {
 		return transformGroup;
 	}
 
@@ -53,7 +53,7 @@ public class DynamicBranch {
 	 * 
 	 * @return the branch group
 	 */
-	protected BranchGroup getBranchGroup() {
+	public BranchGroup getBranchGroup() {
 		return branchGroup;
 	}
 

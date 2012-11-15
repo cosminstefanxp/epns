@@ -1,27 +1,28 @@
 package se2.e.engine3d;
 
-import se2.e.geometry.Geometry;
-import se2.e.geometry.GeometryObject;
-import se2.e.geometry.Position;
-import se2.e.geometry.SimplePosition;
-import se2.e.geometry.Track;
-import appearance.AppearanceInfo;
-import appearance.AppearanceModel;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import se2.e.geometry.Geometry;
+import se2.e.geometry.GeometryObject;
+import se2.e.geometry.Position;
+import se2.e.geometry.SimplePosition;
+import se2.e.geometry.Track;
+import se2.e.utilities.Vector2D;
+import appearance.AppearanceInfo;
+import appearance.AppearanceModel;
+
 /**
  * The GeometryAndAppearanceLoader handles the loading of the geometry and appearance configurations.
  * 
- * @author marius, cosmin (just initial structure)
+ * @author marius, cosmin
  */
 public class GeometryAndAppearanceLoader {
 
 	/** The track objects. */
-	private HashMap<String, Track> trackObjects;
+	private HashMap<String, Vector2D[]> trackObjects;
 
 	/** The simple position objects. */
 	private HashMap<String, SimplePosition> simplePositionObjects;
@@ -62,6 +63,16 @@ public class GeometryAndAppearanceLoader {
 	}
 
 	/**
+	 * Builds the Vector2D object.
+	 * 
+	 * @param pos the position
+	 * @return the vector2D
+	 */
+	private Vector2D buildVector2D(Position pos) {
+		return Vector2D.cartesian(pos.getX(), pos.getY());
+	}
+
+	/**
 	 * Instantiates a new geometry loader, loading the geometry and appearance configurations and connecting them with
 	 * each-other.
 	 * 
@@ -72,17 +83,27 @@ public class GeometryAndAppearanceLoader {
 	public GeometryAndAppearanceLoader(Geometry geometry, AppearanceModel appearance) {
 		log.info("Loading geometry and appearance configurations...");
 		List<GeometryObject> geomObjs = geometry.getGeoObjects();
-		trackObjects = new HashMap<String, Track>();
+		trackObjects = new HashMap<String, Vector2D[]>();
 		simplePositionObjects = new HashMap<String, SimplePosition>();
 		// Load up geometry objects
 		for (GeometryObject geomObj : geomObjs) {
 			if (geomObj instanceof Track) {
 				Track track = (Track) geomObj;
-				trackObjects.put(track.getLabel(), track);
+				// Build the track points array for the track
+				Vector2D trackPoints[] = new Vector2D[track.getIntermediatePositions().size() + 2];
+				int curIndex = 0;
+				// Start points
+				trackPoints[curIndex++] = buildVector2D(track.getStartPosition().getPosition());
 				updateLimits(track.getStartPosition().getPosition());
-				updateLimits(track.getEndPosition().getPosition());
-				for (Position pos : track.getIntermediatePositions())
+				// IntermediatePoints
+				for (Position pos : track.getIntermediatePositions()) {
 					updateLimits(pos);
+					trackPoints[curIndex++] = buildVector2D(pos);
+				}
+				// EndPoint
+				trackPoints[curIndex++] = buildVector2D(track.getEndPosition().getPosition());
+				updateLimits(track.getEndPosition().getPosition());
+				trackObjects.put(track.getLabel(), trackPoints);
 			} else if (geomObj instanceof SimplePosition) {
 				simplePositionObjects.put(((SimplePosition) geomObj).getLabel(), (SimplePosition) geomObj);
 				updateLimits(((SimplePosition) geomObj).getPosition());
@@ -102,12 +123,12 @@ public class GeometryAndAppearanceLoader {
 	}
 
 	/**
-	 * Gets the track object with a given name.
+	 * Gets the track points for a track with a given name.
 	 * 
 	 * @param label the label
-	 * @return the track object
+	 * @return the track points
 	 */
-	public Track getTrackObject(String label) {
+	public Vector2D[] getTrackPoints(String label) {
 		return trackObjects.get(label);
 	}
 

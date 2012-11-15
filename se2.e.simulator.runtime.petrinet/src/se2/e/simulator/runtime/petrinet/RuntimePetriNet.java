@@ -187,7 +187,7 @@ public class RuntimePetriNet {
 			String geomLabel = removedTokens.get(count%removedTokens.size()).getLabel();
 			count++;
 			//TODO: replace this when we put identities on the Arcs!!!!!
-			if(geomLabel.equals("null")) {
+			if(geomLabel == null) {
 				geomLabel = removedTokens.get(count%removedTokens.size()).getLabel();
 				count++;
 			}
@@ -245,7 +245,7 @@ public class RuntimePetriNet {
 	 * @param geometryLabel the place's GEOMETRY label
 	 */
 	public void dropTokenOnPlace(String geometryLabel) {
-		RuntimeToken droppedToken = new RuntimeToken("null");
+		RuntimeToken droppedToken = new RuntimeToken(null);
 		droppedToken.setFinished(true);
 		Place placeForLabel = null;
 		for(Place place : tokensMap.keySet()) {

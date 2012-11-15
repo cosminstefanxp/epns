@@ -120,6 +120,11 @@ public class DynamicBranchFactory {
 	        tg.addChild (ambientLightNode);
 	        
 			branchGroup.addChild(tg);
+		} else {
+			ColorCube model = new ColorCube(0.5f);
+			tg = new TransformGroup();
+			tg.addChild(model);
+			branchGroup.addChild(tg);
 		}
 		
 

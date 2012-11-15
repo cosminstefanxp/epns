@@ -20,7 +20,7 @@
     <intermediatePositions x="306.0" y="174.0"/>
     <intermediatePositions x="306.0" y="162.0"/>
   </geoObjects>
-  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="Cube" label="Sem">
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="S2" label="Sem">
     <position x="316.0" y="102.0"/>
   </geoObjects>
 </geometry:Geometry>

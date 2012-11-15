@@ -170,7 +170,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 
 		// Load the geometry and appearance
 		this.loader = new GeometryAndAppearanceLoader(geometry, appearance);
-		this.geometryNodeFactory = new GeometryNodeFactory(loader);
+		this.geometryNodeFactory = new GeometryNodeFactory(loader, this);
 
 		// Load the universe
 		universe = createUniverse(canvas);

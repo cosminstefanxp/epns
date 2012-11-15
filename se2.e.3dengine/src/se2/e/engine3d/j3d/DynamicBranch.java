@@ -13,13 +13,13 @@ import javax.media.j3d.TransformGroup;
 public class DynamicBranch {
 
 	/** The {@link TransformGroup} holding the 3D object. */
-	public TransformGroup transformGroup;
+	private TransformGroup transformGroup;
 
 	/** The branch group. */
-	public BranchGroup branchGroup;
+	private BranchGroup branchGroup;
 
 	/** The behavior node. */
-	public Behavior behaviorNode;
+	private Behavior behaviorNode;
 
 	/**
 	 * Gets the behavior node.

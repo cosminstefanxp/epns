@@ -106,7 +106,6 @@ public class GeometryNodeFactory {
 		// set line color
 		ColoringAttributes ca = new ColoringAttributes();
 
-		// String color = "90,60,90";
 		boolean colorSet = false;
 		if (track.getAppearanceLabel() != null) {
 			AppearanceInfo color = loader.getAppearanceInfo(track

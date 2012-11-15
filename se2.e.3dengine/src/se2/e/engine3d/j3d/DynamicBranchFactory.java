@@ -112,9 +112,13 @@ public class DynamicBranchFactory {
 			}
 			tg = new TransformGroup();
 			tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+			Transform3D scale = new Transform3D();
+			tg.getTransform(scale);
+			scale.setScale(100);
+			tg.setTransform(scale);
 			tg.addChild (s.getSceneGroup ());
 			
-			BoundingSphere bounds = new BoundingSphere (new Point3d (0.0, 0.0, 5.0), 200.0);
+			BoundingSphere bounds = new BoundingSphere (new Point3d (0.0, 0.0, 15.0), 2000.0);
 	        Color3f ambientColor = new Color3f (1.0f, 1.0f, 1.0f);
 	        AmbientLight ambientLightNode = new AmbientLight (ambientColor);
 	        ambientLightNode.setInfluencingBounds (bounds);

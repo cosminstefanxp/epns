@@ -25,6 +25,7 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> {
 		currentAnimationIndex = 0;
 		currentAnimation = animation.getComponents().get(0);
 		// TODO: Finish it
+		//TODO: Register itself as RuntimeAnimationListener for children animations 
 		return null;
 	}
 

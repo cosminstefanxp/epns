@@ -7,8 +7,8 @@ import javax.media.j3d.WakeupCondition;
 import javax.media.j3d.WakeupOnElapsedFrames;
 import javax.vecmath.Vector3d;
 
+import se2.e.engine3d.GeometryAndAppearanceLoader;
 import se2.e.engine3d.j3d.DynamicBranch;
-import se2.e.engine3d.j3d.J3DEngine;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import se2.e.utilities.PathInterpolator;
 import se2.e.utilities.Vector2D;
@@ -26,10 +26,17 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 	/** The Constant UPDATE_FRAME_COUNT. */
 	private static final int UPDATE_FRAME_COUNT = 20;
 
+	/** The path interpolator. */
 	private PathInterpolator pathInterpolator;
+
+	/** The current position. */
 	private Where currentPosition = null;
 
+	/** The current distance from the origin of the move animation the object is at. */
 	private double distance = 0;
+
+	/** The geometry and appearance loader. */
+	GeometryAndAppearanceLoader loader;
 
 	/**
 	 * Instantiates a new runtime move animation.
@@ -37,19 +44,28 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 	 * @param targetBranch the target branch
 	 * @param animation the animation
 	 * @param token the token
-	 * @param engine the engine
+	 * @param listener the engine
+	 * @param loader the loader
 	 * @author cosmin
 	 */
-	public RuntimeMoveAnimation(DynamicBranch targetBranch, Move animation, RuntimeToken token, J3DEngine engine) {
-		super(targetBranch, animation, token, engine);
+	public RuntimeMoveAnimation(DynamicBranch targetBranch, Move animation, RuntimeToken token,
+			RuntimeAnimationListener listener, GeometryAndAppearanceLoader loader) {
+		super(targetBranch, animation, token, listener);
+		this.loader = loader;
 	}
 
 	@Override
-	public void init() {
-		Vector2D[] trackPoints = engine.getGeometryAndAppearanceLoader().getTrackPoints(animation.getGeoTrack());
+	public WakeupCondition init() {
+		Vector2D[] trackPoints = loader.getTrackPoints(animation.getGeoTrack());
 		this.pathInterpolator = new LinearPathInterpolator(trackPoints);
 		System.out.println("Starting new move animation for: " + Arrays.toString(trackPoints));
 		currentPosition = this.pathInterpolator.start();
+
+		// Place the object on the initial position
+		distance = -animation.getSpeed();
+		WakeupCondition criteria = onUpdateAnimation();
+
+		return criteria;
 	}
 
 	@Override
@@ -74,8 +90,7 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 	@Override
 	protected void onAnimationFinished() {
 		System.out.println("Animation Finished: " + token);
-		engine.getSceneRoot().removeChild(this.targetBranch.getBranchGroup());
-		engine.animationFinished(token);
+		super.onAnimationFinished();
 	}
 
 }

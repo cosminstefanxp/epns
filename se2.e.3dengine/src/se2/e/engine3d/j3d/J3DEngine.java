@@ -28,6 +28,7 @@ import se2.e.engine3d.Engine3DListener;
 import se2.e.engine3d.GeometryAndAppearanceLoader;
 import se2.e.engine3d.j3d.animations.RuntimeAnimation;
 import se2.e.engine3d.j3d.animations.RuntimeAnimationFactory;
+import se2.e.engine3d.j3d.animations.RuntimeAnimationListener;
 import se2.e.geometry.Geometry;
 import se2.e.geometry.SimplePosition;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
@@ -43,7 +44,7 @@ import com.sun.j3d.utils.universe.ViewingPlatform;
  * 
  * @author cosmin
  */
-public class J3DEngine extends JFrame implements Engine3D, ActionListener {
+public class J3DEngine extends JFrame implements Engine3D, ActionListener, RuntimeAnimationListener {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 5165791727088692312L;
@@ -81,6 +82,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 	/** The running animations. */
 	private List<RuntimeAnimation<?>> runningAnimations;
 
+	/** The canvas. */
 	private Canvas3D canvas;
 
 	/**
@@ -208,19 +210,18 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 				trackGroup.addChild(geometryNode);
 		}
 		rootNode.addChild(trackGroup);
-		
+
 		// Add representations for the tracks
 		Group inputPlacesGroup = new Group();
 		for (String label : loader.getSimplePositionLabels()) {
-			SimplePosition obj=loader.getSimplePositionObject(label);
+			SimplePosition obj = loader.getSimplePositionObject(label);
 			// Create the node corresponding to input places and add it to the scene graph
-			InteractiveInputBranch inputPlaceBranch = geometryNodeFactory.getInteractiveInputBranch(obj.getAppearanceLabel(), label);
+			InteractiveInputBranch inputPlaceBranch = geometryNodeFactory.getInteractiveInputBranch(
+					obj.getAppearanceLabel(), label);
 			if (inputPlaceBranch != null)
 				inputPlacesGroup.addChild(inputPlaceBranch.getBranchGroup());
 		}
 		rootNode.addChild(inputPlacesGroup);
-		
-		
 
 		// Compile to perform optimizations on this content branch.
 		rootNode.setCapability(BranchGroup.ALLOW_CHILDREN_EXTEND);
@@ -301,16 +302,24 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener {
 		return loader;
 	}
 
-	/**
-	 * Run when the animation for a token is finished. Notifies the listener.
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @param token the token
+	 * @see se2.e.engine3d.j3d.animations.RuntimeAnimationListener#animationFinished(se2.e.simulator.runtime.petrinet.
+	 * RuntimeToken)
 	 */
 	public void animationFinished(RuntimeToken token) {
+		// Notify the engine listener
 		engineListener.onAnimationFinished(token);
 	}
 
-	protected void userInteraction(String geomLabel) {
+	/**
+	 * Method called when an user has interacted with an Interactive Input place.
+	 * 
+	 * @param geometryLabel the geometry label of the interactive input place
+	 */
+	public void userInteraction(String geomLabel) {
+		// Notify the engine listener
 		engineListener.onUserInteraction(geomLabel);
 	}
 }

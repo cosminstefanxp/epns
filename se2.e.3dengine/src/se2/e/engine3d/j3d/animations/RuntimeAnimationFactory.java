@@ -17,21 +17,21 @@ public class RuntimeAnimationFactory {
 	 * @param targetBranch the target branch, same as the parameters for {@link RuntimeAnimation}
 	 * @param animation the animation
 	 * @param token the token
-	 * @param engine the engine
+	 * @param engine the listener
 	 * @return the runtime animation
 	 */
 	public static RuntimeAnimation<?> getRuntimeAnimation(DynamicBranch targetBranch, Animation animation,
 			RuntimeToken token, J3DEngine engine) {
-		
+
 		if (animation instanceof Move) {
 			Logger.getAnonymousLogger().info("Creating RuntimeMoveAnimation with: " + animation);
-			return new RuntimeMoveAnimation(targetBranch, (Move) animation, token, engine);
+			return new RuntimeMoveAnimation(targetBranch, (Move) animation, token, engine,
+					engine.getGeometryAndAppearanceLoader());
 		}
 		if (animation instanceof Wait) {
 			Logger.getAnonymousLogger().info("Creating RuntimeWaitAnimation with: " + animation);
 			return new RuntimeWaitAnimation(targetBranch, (Wait) animation, token, engine);
 		}
-		
 
 		Logger.getAnonymousLogger().warning(
 				"RuntimeAnimationFactory could not create RuntimeAnimation for " + animation);

@@ -4,7 +4,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="AppearanceInfo" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Shape" abstract="true" eSuperTypes="#//AppearanceInfo"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Shape" abstract="true" eSuperTypes="#//AppearanceInfo">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shapeSurface" eType="#//Surface"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Surface" abstract="true" eSuperTypes="#//AppearanceInfo"/>
   <eClassifiers xsi:type="ecore:EClass" name="Model3D" eSuperTypes="#//Shape">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

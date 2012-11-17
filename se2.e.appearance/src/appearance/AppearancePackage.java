@@ -104,13 +104,22 @@ public interface AppearancePackage extends EPackage {
 	int SHAPE__LABEL = APPEARANCE_INFO__LABEL;
 
 	/**
+	 * The feature id for the '<em><b>Shape Surface</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__SHAPE_SURFACE = APPEARANCE_INFO_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Shape</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE_FEATURE_COUNT = APPEARANCE_INFO_FEATURE_COUNT + 0;
+	int SHAPE_FEATURE_COUNT = APPEARANCE_INFO_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link appearance.impl.SurfaceImpl <em>Surface</em>}' class.
@@ -160,6 +169,15 @@ public interface AppearancePackage extends EPackage {
 	int MODEL3_D__LABEL = SHAPE__LABEL;
 
 	/**
+	 * The feature id for the '<em><b>Shape Surface</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL3_D__SHAPE_SURFACE = SHAPE__SHAPE_SURFACE;
+
+	/**
 	 * The feature id for the '<em><b>File</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -195,6 +213,15 @@ public interface AppearancePackage extends EPackage {
 	 * @ordered
 	 */
 	int SHAPE3_D__LABEL = SHAPE__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Shape Surface</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE3_D__SHAPE_SURFACE = SHAPE__SHAPE_SURFACE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -376,6 +403,17 @@ public interface AppearancePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getShape();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link appearance.Shape#getShapeSurface <em>Shape Surface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Shape Surface</em>'.
+	 * @see appearance.Shape#getShapeSurface()
+	 * @see #getShape()
+	 * @generated
+	 */
+	EReference getShape_ShapeSurface();
 
 	/**
 	 * Returns the meta object for class '{@link appearance.Surface <em>Surface</em>}'.
@@ -561,6 +599,14 @@ public interface AppearancePackage extends EPackage {
 		 * @generated
 		 */
 		EClass SHAPE = eINSTANCE.getShape();
+
+		/**
+		 * The meta object literal for the '<em><b>Shape Surface</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SHAPE__SHAPE_SURFACE = eINSTANCE.getShape_ShapeSurface();
 
 		/**
 		 * The meta object literal for the '{@link appearance.impl.SurfaceImpl <em>Surface</em>}' class.

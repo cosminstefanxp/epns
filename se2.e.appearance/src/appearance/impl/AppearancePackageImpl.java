@@ -193,6 +193,15 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getShape_ShapeSurface() {
+		return (EReference)shapeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSurface() {
 		return surfaceEClass;
 	}
@@ -337,6 +346,7 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 		createEAttribute(appearanceInfoEClass, APPEARANCE_INFO__LABEL);
 
 		shapeEClass = createEClass(SHAPE);
+		createEReference(shapeEClass, SHAPE__SHAPE_SURFACE);
 
 		surfaceEClass = createEClass(SURFACE);
 
@@ -401,6 +411,7 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 		initEAttribute(getAppearanceInfo_Label(), ecorePackage.getEString(), "label", null, 0, 1, AppearanceInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(shapeEClass, Shape.class, "Shape", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getShape_ShapeSurface(), this.getSurface(), null, "shapeSurface", null, 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(surfaceEClass, Surface.class, "Surface", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

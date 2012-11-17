@@ -12,7 +12,9 @@
     <genClasses image="false" ecoreClass="Appearance.ecore#//AppearanceInfo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//AppearanceInfo/label"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="Appearance.ecore#//Shape"/>
+    <genClasses image="false" ecoreClass="Appearance.ecore#//Shape">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Appearance.ecore#//Shape/shapeSurface"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="Appearance.ecore#//Surface"/>
     <genClasses ecoreClass="Appearance.ecore#//Model3D">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//Model3D/file"/>

@@ -226,4 +226,18 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SC2T4y2gEeKZQ4SyZ5YQ8Q" points="[0, 21, 7, -46]$[0, 45, 7, -22]$[0, 65, 7, -2]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SC6lUC2gEeKZQ4SyZ5YQ8Q" id="(0.4523809523809524,0.058823529411764705)"/>
   </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_vbfmoDDGEeK8Cufv5qq7VQ" type="3002" source="_rkLsAC2TEeKZQ4SyZ5YQ8Q" target="_sMjTkC2TEeKZQ4SyZ5YQ8Q">
+    <children xmi:type="notation:Node" xmi:id="_vbip8DDGEeK8Cufv5qq7VQ" visible="false" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_vbip8TDGEeK8Cufv5qq7VQ" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_vbjRADDGEeK8Cufv5qq7VQ" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_vbjRATDGEeK8Cufv5qq7VQ" x="5" y="14"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_vbgNsDDGEeK8Cufv5qq7VQ" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_vbgNsTDGEeK8Cufv5qq7VQ" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="Appearance.ecore#//Shape/shapeSurface"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vbgNsjDGEeK8Cufv5qq7VQ" points="[14, 1, -165, 1]$[180, -19, 1, -19]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vboJgDDGEeK8Cufv5qq7VQ" id="(0.8627450980392157,0.46511627906976744)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vboJgTDGEeK8Cufv5qq7VQ" id="(0.10784313725490197,0.46511627906976744)"/>
+  </edges>
 </notation:Diagram>

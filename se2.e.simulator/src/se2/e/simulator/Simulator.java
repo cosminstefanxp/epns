@@ -46,7 +46,7 @@ public class Simulator implements Engine3DListener {
 	 * @param selectedPetri the selected petri
 	 */
 	public Simulator(Geometry geometry, PetriNetDoc selectedPetri, AppearanceModel appearance) {
-		rpn = new RuntimePetriNet(selectedPetri);
+		rpn = new RuntimePetriNet();
 		this.selectedPetri = selectedPetri;
 		this.geometry = geometry;
 		this.appearance = appearance;
@@ -58,6 +58,7 @@ public class Simulator implements Engine3DListener {
 	 */
 	public void startSimulation() {
 		engine = Engine3DFactory.getEngine();
+		//TODO: add parame
 		engine.init(this.geometry, this.appearance);
 		engine.setEngine3DListener(this);
 		
@@ -88,8 +89,8 @@ public class Simulator implements Engine3DListener {
 	@Override
 	public void onStartSimulation() {
 		// fire transitions
-		List<TokenMovement> tokenMovements = rpn.fireTransitions();
-		for(TokenMovement tokenMovement : tokenMovements) {
+		List<TokenMovement> initialMovements = rpn.init(selectedPetri);
+		for(TokenMovement tokenMovement : initialMovements) {
 			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation());
 		}
 	}

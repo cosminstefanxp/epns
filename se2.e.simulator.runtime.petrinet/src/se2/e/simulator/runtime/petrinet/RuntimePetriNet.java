@@ -18,6 +18,7 @@ import animations.Move;
 import animations.impl.AnimationsFactoryImpl;
 
 import extendedpetrinet.Arc;
+import extendedpetrinet.InteractiveInput;
 import extendedpetrinet.Place;
 import extendedpetrinet.Token;
 
@@ -42,15 +43,20 @@ public class RuntimePetriNet {
 	 * @param place the place
 	 * @author Ruxandra, Marius
 	 */
-	private void initializeTokensInPlaceList(Place place) {
+	private List<TokenMovement> initializeTokensInPlaceList(Place place) {
 		List<Token> tempTokens = place.getTokens();
+		List<TokenMovement> movements = new ArrayList<TokenMovement>();
 		List<RuntimeToken> tempTokensExt = new ArrayList<RuntimeToken>();
 		for (Token token : tempTokens) {
 			RuntimeToken rt = new RuntimeToken(token.getAppearance().getText());
-			rt.setFinished(true);
+			if(place.getAnimations()!= null)
+				movements.add(new TokenMovement(rt, place.getGeoLabel(), place.getAnimations().getStructure()));
+			else
+				movements.add(new TokenMovement(rt, place.getGeoLabel(), null));
 			tempTokensExt.add(rt);
 		}
 		tokensMap.put(place, tempTokensExt);
+		return movements;
 	}
 
 	/**
@@ -106,15 +112,18 @@ public class RuntimePetriNet {
 	 * @param selectedPetri the selected petri
 	 * @author Ruxandra, Marius
 	 */
-	public RuntimePetriNet(PetriNetDoc selectedPetri) {
+	public RuntimePetriNet() {
 		/* create an internal structure so that it will be easy to fire transitions */
 		transitions = new ArrayList<Transition>();
 		tokensMap = new HashMap<Place, List<RuntimeToken>>();
 		preset = new HashMap<Transition, List<Place>>();
 		postset = new HashMap<Transition, List<Place>>();
-		
+	}
+	
+	public List<TokenMovement> init(PetriNetDoc selectedPetri){
+		List<TokenMovement> tokenMovementsList = new ArrayList<TokenMovement>();
 		Iterator<Object> iter = selectedPetri.getNet().get(0).getPage().get(0).getObject().iterator();
-
+		
 		while (iter.hasNext()) {
 			Object item = iter.next();
 			if (item instanceof Transition) {
@@ -130,10 +139,11 @@ public class RuntimePetriNet {
 				/* create a place->tokens hashmap */
 				Place place = (Place) item;
 				System.out.println(place.getId());
-				this.initializeTokensInPlaceList(place);
+				tokenMovementsList.addAll(this.initializeTokensInPlaceList(place));
 			}
 		}
 		printPetri();
+		return tokenMovementsList;
 	}
 
 	/**
@@ -245,7 +255,11 @@ public class RuntimePetriNet {
 		droppedToken.setFinished(true);
 		Place placeForLabel = null;
 		for(Place place : tokensMap.keySet()) {
-			if(place.getGeoLabel().equals(geometryLabel)) {
+			boolean isInteractive = false;
+			InteractiveInput x = place.getInteractiveInput();
+			if(x != null)
+				isInteractive = x.isText();
+			if(place.getGeoLabel().equals(geometryLabel) && isInteractive) {
 				placeForLabel = place;
 				break;
 			}		

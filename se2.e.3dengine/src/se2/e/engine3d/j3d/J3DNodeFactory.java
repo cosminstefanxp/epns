@@ -232,7 +232,7 @@ public class J3DNodeFactory {
 			}
 		}
 
-		DynamicBranch branch = new DynamicBranch(branchGroup, tg, geomLabel, engine, canvas);
+		DynamicBranch branch = new DynamicInputBranch(branchGroup, tg, geomLabel, engine, canvas);
 		return branch;
 
 	}

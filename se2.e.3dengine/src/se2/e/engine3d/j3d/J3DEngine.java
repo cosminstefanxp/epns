@@ -322,4 +322,10 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		// Notify the engine listener
 		engineListener.onUserInteraction(geomLabel);
 	}
+
+	@Override
+	public void destroyRepresentation(RuntimeToken token) {
+		// TODO Auto-generated method stub
+		
+	}
 }

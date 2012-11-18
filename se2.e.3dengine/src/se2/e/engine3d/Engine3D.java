@@ -28,7 +28,14 @@ public interface Engine3D {
 	 * @param place the place
 	 */
 	public void startAnimation(RuntimeToken token, Animation animation);
-
+	
+	/**
+	 * Destroy the representation associated with the.
+	 *
+	 * @param token the token
+	 */
+	public void destroyRepresentation(RuntimeToken token);
+	
 	/**
 	 * Sets the engine 3D listener.
 	 * 

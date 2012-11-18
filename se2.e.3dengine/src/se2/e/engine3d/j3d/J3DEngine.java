@@ -70,11 +70,8 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	/** The geometry. */
 	private GeometryAndAppearanceLoader loader;
 
-	/** The dynamic branch factory. */
-	private DynamicBranchFactory dynamicBranchFactory;
-
 	/** The geometry node factory. */
-	private GeometryNodeFactory geometryNodeFactory;
+	private J3DNodeFactory nodeFactory;
 
 	/** The logger. */
 	private Logger log = Logger.getLogger("J3DEngine");
@@ -174,7 +171,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 
 		// Load the geometry and appearance
 		this.loader = new GeometryAndAppearanceLoader(geometry, appearance);
-		this.geometryNodeFactory = new GeometryNodeFactory(loader, this, canvas);
+		this.nodeFactory = new J3DNodeFactory(loader, this, canvas);
 
 		// Load the universe
 		universe = createUniverse(canvas);
@@ -185,7 +182,6 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 
 		// Initialize other objects
 		runningAnimations = new ArrayList<RuntimeAnimation<?>>();
-		this.dynamicBranchFactory = new DynamicBranchFactory(loader, this);
 
 		log.info("J3D Engine initialized...");
 	}
@@ -205,7 +201,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		for (String label : loader.getTrackLabels()) {
 
 			// Create the node corresponding to tracks and add it to the scene graph
-			Node geometryNode = geometryNodeFactory.getGeometryNode(label);
+			Node geometryNode = nodeFactory.getGeometryTransformGroup(label);
 			if (geometryNode != null)
 				trackGroup.addChild(geometryNode);
 		}
@@ -216,8 +212,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		for (String label : loader.getSimplePositionLabels()) {
 			SimplePosition obj = loader.getSimplePositionObject(label);
 			// Create the node corresponding to input places and add it to the scene graph
-			InteractiveInputBranch inputPlaceBranch = geometryNodeFactory.getInteractiveInputBranch(
-					obj.getAppearanceLabel(), label);
+			DynamicBranch inputPlaceBranch = nodeFactory.getInteractiveInputBranch(obj.getAppearanceLabel(), label);
 			if (inputPlaceBranch != null)
 				inputPlacesGroup.addChild(inputPlaceBranch.getBranchGroup());
 		}
@@ -262,7 +257,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	public void startAnimation(RuntimeToken token, Animation animation) {
 		// Build the branch representing the token
 		// TODO: Fix for dynamic objects (e.g. when using ShowAnimation)
-		DynamicBranch branch = dynamicBranchFactory.getTokenBranch(token.getLabel());
+		DynamicBranch branch = nodeFactory.getTokenBranch(token.getLabel());
 
 		// Build the RuntimeAnimation
 		RuntimeAnimation<?> rtAnimation = RuntimeAnimationFactory.getRuntimeAnimation(branch, animation, token, this);
@@ -326,6 +321,6 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	@Override
 	public void destroyRepresentation(RuntimeToken token) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

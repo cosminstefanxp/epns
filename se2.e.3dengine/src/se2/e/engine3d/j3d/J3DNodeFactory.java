@@ -1,15 +1,17 @@
 package se2.e.engine3d.j3d;
 
+import java.io.FileNotFoundException;
 import java.util.logging.Logger;
 
+import javax.media.j3d.AmbientLight;
 import javax.media.j3d.Appearance;
+import javax.media.j3d.BoundingSphere;
 import javax.media.j3d.BranchGroup;
 import javax.media.j3d.Canvas3D;
 import javax.media.j3d.ColoringAttributes;
 import javax.media.j3d.LineArray;
 import javax.media.j3d.LineAttributes;
 import javax.media.j3d.Node;
-import javax.media.j3d.Shape3D;
 import javax.media.j3d.Transform3D;
 import javax.media.j3d.TransformGroup;
 import javax.vecmath.Color3f;
@@ -21,18 +23,25 @@ import se2.e.geometry.Position;
 import se2.e.geometry.Track;
 import se2.e.utilities.Vector2D;
 import appearance.AppearanceInfo;
+import appearance.Model3D;
 import appearance.Object3D;
+import appearance.Shape3D;
+import appearance.Surface;
 import appearance.SurfaceColor;
 
+import com.sun.j3d.loaders.IncorrectFormatException;
+import com.sun.j3d.loaders.ParsingErrorException;
+import com.sun.j3d.loaders.Scene;
+import com.sun.j3d.loaders.objectfile.ObjectFile;
 import com.sun.j3d.utils.geometry.ColorCube;
 import com.sun.j3d.utils.geometry.Sphere;
 
 /**
- * A factory for creating nodes containing the representation for the geometry.
+ * A factory for creating nodes containing the representation for various types of objects in Java3D.
  * 
- * @author cosmin
+ * @author ruxy, marius, cosmin
  */
-public class GeometryNodeFactory {
+public class J3DNodeFactory {
 
 	/** The Constant DRAWING_PLANE_Z. */
 	private static final double DRAWING_PLANE_Z = 0d;
@@ -40,18 +49,20 @@ public class GeometryNodeFactory {
 	/** The loader. */
 	private GeometryAndAppearanceLoader loader;
 
+	/** The canvas. */
 	private Canvas3D canvas;
 
+	/** The engine. */
 	private J3DEngine engine;
 
 	/**
 	 * Instantiates a new geometry node factory.
 	 * 
-	 * @param loader
-	 *            the loader
+	 * @param loader the geometry and appearance loader
+	 * @param engine the engine
+	 * @param canvas the canvas
 	 */
-	public GeometryNodeFactory(GeometryAndAppearanceLoader loader,
-			J3DEngine engine, Canvas3D canvas) {
+	public J3DNodeFactory(GeometryAndAppearanceLoader loader, J3DEngine engine, Canvas3D canvas) {
 		super();
 		this.loader = loader;
 		this.canvas = canvas;
@@ -59,40 +70,64 @@ public class GeometryNodeFactory {
 	}
 
 	/**
-	 * Gets the geometry node (could be, for example, a Transform Group) for a
-	 * specific label (e.g. 'track1').
+	 * Builds the Java3D Appearance based on the given Appearance Info.
 	 * 
-	 * @param geometryLabel
-	 *            the geometry label
-	 * @return the node containing the representation for the geometry, or null,
-	 *         if there is no geometry with the given label or it's not a static
-	 *         GeometryObject (Track).
+	 * @param appearanceInfo the information of how the surface should look like
+	 * @return the appearance
 	 */
-	public Node getGeometryNode(String geometryLabel) {
+	private Appearance buildSurfaceAppearance(Surface appearanceInfo) {
+		// TODO: Fill in
+		return null;
+	}
+
+	/**
+	 * Gets a Transform Group containing the representation for a specific appearance label (e.g. 'cube', 'red_train').
+	 * If a TranformGroup is provided, the nodes needed for representation should be added as children, otherwise a new
+	 * TransformGroup should be created.
+	 * 
+	 * @param appearanceLabel the appearance label
+	 * @param transformGroup the transform group
+	 * @return the node containing the representation for the appearance, or null, if there is no appearance with the
+	 * given label.
+	 * 
+	 */
+	public TransformGroup getTransformGroupForAppearance(String appearanceLabel, TransformGroup transformGroup) {
+		if (transformGroup == null)
+			transformGroup = new TransformGroup();
+
+		// TODO: To fill in...
+		return transformGroup;
+	}
+
+	/**
+	 * Gets a Transform Group containing the representation for a specific geometry label (e.g. 'track1').
+	 * 
+	 * @param geometryLabel the geometry label
+	 * @return the node containing the representation for the geometry, or null, if there is no geometry with the given
+	 * label or it's not a static GeometryObject (Track).
+	 * 
+	 * @author cosmin
+	 */
+	public Node getGeometryTransformGroup(String geometryLabel) {
+
 		// Get the track points
 		Vector2D[] trackPoints = loader.getTrackPoints(geometryLabel);
 		if (trackPoints == null)
 			return null;
 
 		Track track = loader.getTrackFromLabel(geometryLabel);
-		Logger.getAnonymousLogger().info(
-				"Generating " + geometryLabel + " for: " + trackPoints);
+		Logger.getAnonymousLogger().info("Generating " + geometryLabel + " for: " + trackPoints);
 
 		// Prepare the points of the tracks
-		LineArray lineArr = new LineArray((trackPoints.length - 1) * 2,
-				LineArray.COORDINATES);
-		lineArr.setCoordinate(0, new Point3d(trackPoints[0].getX(),
-				trackPoints[0].getY(), DRAWING_PLANE_Z));
+		LineArray lineArr = new LineArray((trackPoints.length - 1) * 2, LineArray.COORDINATES);
+		lineArr.setCoordinate(0, new Point3d(trackPoints[0].getX(), trackPoints[0].getY(), DRAWING_PLANE_Z));
 		for (int i = 1; i < trackPoints.length - 1; i++) {
 			// Add each point twice, as it will be both an endpoint for a line
 			// and a startpoint for the next one
-			lineArr.setCoordinate(2 * i - 1, new Point3d(trackPoints[i].getX(),
-					trackPoints[i].getY(), DRAWING_PLANE_Z));
-			lineArr.setCoordinate(2 * i, new Point3d(trackPoints[i].getX(),
-					trackPoints[i].getY(), DRAWING_PLANE_Z));
+			lineArr.setCoordinate(2 * i - 1, new Point3d(trackPoints[i].getX(), trackPoints[i].getY(), DRAWING_PLANE_Z));
+			lineArr.setCoordinate(2 * i, new Point3d(trackPoints[i].getX(), trackPoints[i].getY(), DRAWING_PLANE_Z));
 		}
-		lineArr.setCoordinate(2 * (trackPoints.length - 1) - 1, new Point3d(
-				trackPoints[trackPoints.length - 1].getX(),
+		lineArr.setCoordinate(2 * (trackPoints.length - 1) - 1, new Point3d(trackPoints[trackPoints.length - 1].getX(),
 				trackPoints[trackPoints.length - 1].getY(), DRAWING_PLANE_Z));
 
 		// Add the line to the track group
@@ -108,15 +143,13 @@ public class GeometryNodeFactory {
 
 		boolean colorSet = false;
 		if (track.getAppearanceLabel() != null) {
-			AppearanceInfo color = loader.getAppearanceInfo(track
-					.getAppearanceLabel());
+			AppearanceInfo color = loader.getAppearanceInfo(track.getAppearanceLabel());
 			if (color != null && color instanceof SurfaceColor) {
 				colorSet = true;
 				SurfaceColor sc = (SurfaceColor) color;
 				String[] rgb = sc.getColorCode().split(",");
-				ca.setColor(new Color3f(Float.parseFloat(rgb[0]) / 255, Float
-						.parseFloat(rgb[1]) / 255,
-						Float.parseFloat(rgb[2]) / 255));
+				ca.setColor(new Color3f(Float.parseFloat(rgb[0]) / 255, Float.parseFloat(rgb[1]) / 255, Float
+						.parseFloat(rgb[2]) / 255));
 				app.setColoringAttributes(ca);
 			}
 		}
@@ -124,11 +157,11 @@ public class GeometryNodeFactory {
 			ca.setColor(new Color3f(0.5f, 0.5f, 0.5f));
 			app.setColoringAttributes(ca);
 		}
+		// TODO: The buildAppearance() method should be used...
 
 		// System.out.println(new java.io.File(".").getAbsolutePath());
 		/**
-		 * the texture file and folder has to be in eclipse's home directory
-		 * (where eclipse.exe is)
+		 * the texture file and folder has to be in eclipse's home directory (where eclipse.exe is)
 		 **/
 		// Texture tex = new
 		// TextureLoader("graphics/textures/texture-green.png",
@@ -138,27 +171,26 @@ public class GeometryNodeFactory {
 		// texAttr.setTextureMode(TextureAttributes.REPLACE);
 		// app.setTextureAttributes(texAttr);
 
-		g.addChild(new Shape3D(lineArr, app));
+		g.addChild(new javax.media.j3d.Shape3D(lineArr, app));
 		return g;
 	}
 
 	/**
-	 * @author Marius Returns a static branch that contains an interactive input
-	 *         point that, when clicked, will callback the 3D engine
-	 * @param appearanceLabel
-	 * @param geomLabel
-	 * @return
+	 * Returns a static branch that contains an interactive input point that, when clicked, will callback the 3D engine.
+	 * 
+	 * @param appearanceLabel the appearance label
+	 * @param geomLabel the geom label
+	 * @return the interactive input branch
+	 * @author Marius
 	 */
-	public InteractiveInputBranch getInteractiveInputBranch(
-			String appearanceLabel, String geomLabel) {
-		AppearanceInfo appearanceInfo = this.loader
-				.getAppearanceInfo(appearanceLabel);
-		Position position = this.loader.getSimplePositionObject(geomLabel)
-				.getPosition();
+	public DynamicBranch getInteractiveInputBranch(String appearanceLabel, String geomLabel) {
+
+		// TODO: Change to use getTransformGrupForAppearance and buildAppearance
+		AppearanceInfo appearanceInfo = this.loader.getAppearanceInfo(appearanceLabel);
+		Position position = this.loader.getSimplePositionObject(geomLabel).getPosition();
 		BranchGroup branchGroup = new BranchGroup();
 		TransformGroup tg = null;
-		System.out.println("Appearance: " + appearanceLabel + "     "
-				+ appearanceInfo);
+		System.out.println("Appearance: " + appearanceLabel + "     " + appearanceInfo);
 		System.out.println("Position: " + position);
 		// switch - case with strings only in JRE 7. for compatibility issues,
 		// I'm using if - else
@@ -168,8 +200,7 @@ public class GeometryNodeFactory {
 			if (type == Object3D.CUBE) {
 				ColorCube model = new ColorCube(0.5f);
 				Transform3D trans3d = new Transform3D();
-				trans3d.setTranslation(new Vector3d(position.getX(), position
-						.getY(), DRAWING_PLANE_Z));
+				trans3d.setTranslation(new Vector3d(position.getX(), position.getY(), DRAWING_PLANE_Z));
 				tg = new TransformGroup(trans3d);
 				tg.addChild(model);
 				tg.setPickable(true);
@@ -193,8 +224,7 @@ public class GeometryNodeFactory {
 				app.setColoringAttributes(ca);
 				Sphere model = new Sphere(5, app);
 				Transform3D trans3d = new Transform3D();
-				trans3d.setTranslation(new Vector3d(position.getX(), position
-						.getY(), DRAWING_PLANE_Z));
+				trans3d.setTranslation(new Vector3d(position.getX(), position.getY(), DRAWING_PLANE_Z));
 				tg = new TransformGroup(trans3d);
 				tg.addChild(model);
 				tg.setPickable(true);
@@ -202,9 +232,95 @@ public class GeometryNodeFactory {
 			}
 		}
 
-		InteractiveInputBranch branch = new InteractiveInputBranch(geomLabel,
-				tg, branchGroup, engine, canvas);
+		DynamicBranch branch = new DynamicBranch(branchGroup, tg, geomLabel, engine, canvas);
 		return branch;
 
 	}
+
+	/**
+	 * Gets the token branch for a specific label (e.g. 'red_train'). It is the responsibility of this factory to create
+	 * the Java3D node and connect the {@link TransformGroup} to the {@link BranchGroup}, before putting them in the
+	 * 
+	 * @param label the label
+	 * @return the token branch {@link DynamicBranch}.
+	 */
+	public DynamicBranch getTokenBranch(String label) {
+
+		// TODO: Change to use getTransformGrupForAppearance and buildAppearance
+		AppearanceInfo appearanceInfo = this.loader.getAppearanceInfo(label);
+		BranchGroup branchGroup = new BranchGroup();
+		branchGroup.setCapability(BranchGroup.ALLOW_DETACH);
+		TransformGroup tg = null;
+
+		// String apinfo = appearanceInfo.getLabel();
+		// switch - case with strings only in JRE 7. for compatibility issues, I'm using if - else
+		if (appearanceInfo instanceof Shape3D) {
+			Object3D type = ((Shape3D) appearanceInfo).getType();
+			if (type == Object3D.CUBE) {
+				ColorCube model = new ColorCube(5);
+				tg = new TransformGroup();
+				tg.addChild(model);
+				tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+				branchGroup.addChild(tg);
+			} else if (type == Object3D.SPHERE) {
+				// load earth texture on sphere
+				Appearance app = new Appearance();
+				// Texture tex = new TextureLoader("graphics/textures/earth.png", engine).getTexture();
+				// //FIXME: may need to be changed from / to \ depending on the operating system
+				// app.setTexture(tex);
+				// TextureAttributes texAttr = new TextureAttributes();
+				// texAttr.setTextureMode(TextureAttributes.MODULATE);
+				// app.setTextureAttributes(texAttr);
+				// Sphere model = new Sphere(5, Sphere.GENERATE_TEXTURE_COORDS, app);
+				ColoringAttributes ca = new ColoringAttributes();
+				ca.setColor(new Color3f(0.0f, 1.0f, 0));
+				app.setColoringAttributes(ca);
+				Sphere model = new Sphere(5, app);
+				tg = new TransformGroup();
+				tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+				tg.addChild(model);
+				branchGroup.addChild(tg);
+			}
+		} else if (appearanceInfo instanceof Model3D) {
+			String filepath = ((Model3D) appearanceInfo).getFile();
+
+			Scene s = null;
+			ObjectFile f = new ObjectFile();
+			f.setFlags(ObjectFile.RESIZE | ObjectFile.TRIANGULATE | ObjectFile.STRIPIFY);
+
+			try {
+				s = f.load(filepath);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IncorrectFormatException e) {
+				e.printStackTrace();
+			} catch (ParsingErrorException e) {
+				e.printStackTrace();
+			}
+			tg = new TransformGroup();
+			tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+			Transform3D scale = new Transform3D();
+			tg.getTransform(scale);
+			scale.setScale(100);
+			tg.setTransform(scale);
+			tg.addChild(s.getSceneGroup());
+
+			BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 15.0), 2000.0);
+			Color3f ambientColor = new Color3f(1.0f, 1.0f, 1.0f);
+			AmbientLight ambientLightNode = new AmbientLight(ambientColor);
+			ambientLightNode.setInfluencingBounds(bounds);
+			tg.addChild(ambientLightNode);
+
+			branchGroup.addChild(tg);
+		} else {
+			ColorCube model = new ColorCube(0.5f);
+			tg = new TransformGroup();
+			tg.addChild(model);
+			branchGroup.addChild(tg);
+		}
+
+		DynamicBranch branch = new DynamicBranch(branchGroup, tg);
+		return branch;
+	}
+
 }

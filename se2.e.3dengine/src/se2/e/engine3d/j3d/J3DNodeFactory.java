@@ -19,6 +19,7 @@ import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
 import se2.e.engine3d.GeometryAndAppearanceLoader;
+import se2.e.geometry.GeometryObject;
 import se2.e.geometry.Position;
 import se2.e.geometry.Track;
 import se2.e.utilities.Vector2D;
@@ -86,27 +87,30 @@ public class J3DNodeFactory {
 	 * TransformGroup should be created.
 	 * 
 	 * @param appearanceLabel the appearance label
-	 * @param transformGroup the transform group
+	 * @param destinationTransformGroup the destination transform group, or null if a new Transform Group should be
+	 * created
 	 * @return the node containing the representation for the appearance, or null, if there is no appearance with the
 	 * given label.
 	 * 
 	 */
-	public TransformGroup getTransformGroupForAppearance(String appearanceLabel, TransformGroup transformGroup) {
-		if (transformGroup == null)
-			transformGroup = new TransformGroup();
+	private TransformGroup getTransformGroupForAppearance(String appearanceLabel,
+			TransformGroup destinationTransformGroup) {
+		if (destinationTransformGroup == null)
+			destinationTransformGroup = new TransformGroup();
 
 		// TODO: To fill in...
-		return transformGroup;
+		return destinationTransformGroup;
 	}
 
 	/**
-	 * Gets a Transform Group containing the representation for a specific geometry label (e.g. 'track1').
+	 * Gets a Transform Group containing the representation for a specific geometry label (e.g. 'track1'), corresponding
+	 * to a {@link Track} object.
 	 * 
 	 * @param geometryLabel the geometry label
 	 * @return the node containing the representation for the geometry, or null, if there is no geometry with the given
-	 * label or it's not a static GeometryObject (Track).
+	 * label or it's not a {@link Track}.
 	 * 
-	 * @author cosmin
+	 * @author cosmin, marius
 	 */
 	public Node getGeometryTransformGroup(String geometryLabel) {
 
@@ -176,20 +180,51 @@ public class J3DNodeFactory {
 	}
 
 	/**
-	 * Returns a static branch that contains an interactive input point that, when clicked, will callback the 3D engine.
+	 * Returns a dynamic branch that contains the representation for a particular {@link GeometryObject} referenced by
+	 * the geometryLabel. The {@link AppearanceInfo} is obtained from the {@link GeometryObject}. The last parameter
+	 * defines whether the place is an interactive input, so the {@link TransformGroup} has associated a
+	 * InteractiveInput Listener.
 	 * 
-	 * @param appearanceLabel the appearance label
-	 * @param geomLabel the geom label
-	 * @return the interactive input branch
+	 * @param geometryLabel the geometry label
+	 * @param interactiveInput whether it is an interactive input place
+	 * @return the geometry branch
 	 * @author Marius
 	 */
-	public DynamicBranch getInteractiveInputBranch(String appearanceLabel, String geomLabel) {
+	public DynamicBranch getGeometryBranch(String geometryLabel, boolean interactiveInput) {
+		// TODO: Fill in...
+		return null;
+	}
 
+	/**
+	 * Returns a dynamic branch that contains the representation for a particular object according to the
+	 * {@link AppearanceInfo} corresponding to the appearanceLabel, but placed at the place defined by the
+	 * {@link GeometryObject} referenced by the geometryLabel. If a {@link DynamicBranch} is given as a parameter, its
+	 * transform group is used as a parent for the nodes of the representations. Otherwise, it is the responsibility of
+	 * this method to create the Java3D nodes and connect the {@link TransformGroup} to the {@link BranchGroup}, before
+	 * putting them in the {@link DynamicBranch}.
+	 * <p>
+	 * If the geometry is a Track, the representation is placed at the beginning of the track. If the geometry is a
+	 * SimplePosition, the representation is placed at the corresponding position.
+	 * </p>
+	 * <p>
+	 * If the destination DynamicBranch is not provided, the generated Dynamic Branch does not have an interactive input
+	 * listener.
+	 * </p>
+	 * 
+	 * @param appearanceLabel the appearance label
+	 * @param geometryLabel the geometry label
+	 * @param destinationBranch the branch
+	 * @return the geometry branch
+	 * @author Marius
+	 */
+	public DynamicBranch getGeometryBranch(String appearanceLabel, String geometryLabel, DynamicBranch destinationBranch) {
+
+		// TODO: Change to behave according to the JavaDoc
 		// TODO: Change to use getTransformGrupForAppearance and buildAppearance
 		AppearanceInfo appearanceInfo = this.loader.getAppearanceInfo(appearanceLabel);
-		Position position = this.loader.getSimplePositionObject(geomLabel).getPosition();
+		Position position = this.loader.getSimplePositionObject(geometryLabel).getPosition();
 		BranchGroup branchGroup = new BranchGroup();
-		TransformGroup tg = null;
+		TransformGroup tg = null; // TODO: If needed, get the transform group from the destinationBranch
 		System.out.println("Appearance: " + appearanceLabel + "     " + appearanceInfo);
 		System.out.println("Position: " + position);
 		// switch - case with strings only in JRE 7. for compatibility issues,
@@ -232,22 +267,25 @@ public class J3DNodeFactory {
 			}
 		}
 
-		DynamicBranch branch = new DynamicInputBranch(branchGroup, tg, geomLabel, engine, canvas);
+		// TODO: Don't always build a new DynamicBranch group
+		DynamicBranch branch = new DynamicInputBranch(branchGroup, tg, geometryLabel, engine, canvas);
 		return branch;
 
 	}
 
 	/**
-	 * Gets the token branch for a specific label (e.g. 'red_train'). It is the responsibility of this factory to create
-	 * the Java3D node and connect the {@link TransformGroup} to the {@link BranchGroup}, before putting them in the
+	 * Gets the token branch representation for a particular object according to the {@link AppearanceInfo}
+	 * corresponding to the appearanceLabel. It is the responsibility of this method to create the Java3D node and
+	 * connect the {@link TransformGroup} to the {@link BranchGroup}, before putting them in the {@link DynamicBranch}.
 	 * 
-	 * @param label the label
-	 * @return the token branch {@link DynamicBranch}.
+	 * @param appearanceLabel the label
+	 * @return the token branch
+	 * @author Marius
 	 */
-	public DynamicBranch getTokenBranch(String label) {
+	public DynamicBranch getTokenBranch(String appearanceLabel) {
 
-		// TODO: Change to use getTransformGrupForAppearance and buildAppearance
-		AppearanceInfo appearanceInfo = this.loader.getAppearanceInfo(label);
+		// TODO: Change to use getTransformGroupForAppearance and buildAppearance
+		AppearanceInfo appearanceInfo = this.loader.getAppearanceInfo(appearanceLabel);
 		BranchGroup branchGroup = new BranchGroup();
 		branchGroup.setCapability(BranchGroup.ALLOW_DETACH);
 		TransformGroup tg = null;

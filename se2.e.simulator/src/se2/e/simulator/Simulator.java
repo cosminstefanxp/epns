@@ -2,12 +2,13 @@ package se2.e.simulator;
 
 import se2.e.geometry.Geometry;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 
 import appearance.AppearanceModel;
-
 
 import extendedpetrinet.Appearance;
 import extendedpetrinet.ExtendedPetriNet;
@@ -21,27 +22,28 @@ import se2.e.simulator.runtime.petrinet.TokenMovement;
 
 /**
  * The Class Simulator.
+ * 
  * @author Ruxandra, Marius
  */
 public class Simulator implements Engine3DListener {
 
 	/** The selected petri. */
 	private PetriNetDoc selectedPetri;
-	
+
 	/** The geometry. */
 	private Geometry geometry;
-	
+
 	AppearanceModel appearance;
-	
+
 	/** The rpn. */
 	private RuntimePetriNet rpn;
-	
+
 	/** The engine. */
 	private Engine3D engine;
 
 	/**
 	 * Instantiates a new simulator.
-	 *
+	 * 
 	 * @param geometry the geometry
 	 * @param selectedPetri the selected petri
 	 */
@@ -58,54 +60,56 @@ public class Simulator implements Engine3DListener {
 	 */
 	public void startSimulation() {
 		engine = Engine3DFactory.getEngine();
-		//TODO: add parame
-		engine.init(this.geometry, this.appearance);
+		// TODO: add input places labels...
+		engine.init(this.geometry, this.appearance, Collections.<String> emptySet());
 		engine.setEngine3DListener(this);
-		
+
 		/* TO BE REMOVED Test for input place without 3d engine */
-		//rpn.dropTokenOnPlace("Signal");
-		//List<TokenMovement> tokenMovements = rpn.fireTransitions();
-	
-		
+		// rpn.dropTokenOnPlace("Signal");
+		// List<TokenMovement> tokenMovements = rpn.fireTransitions();
+
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see se2.e.engine3d.Engine3DListener#onAnimationFinished(se2.e.simulator.runtime.petrinet.RuntimeToken)
 	 */
 	@Override
-	public void onAnimationFinished(RuntimeToken token) {		
-		rpn.markToken( token);
+	public void onAnimationFinished(RuntimeToken token) {
+		rpn.markToken(token);
 		List<TokenMovement> tokenMovements = rpn.fireTransitions();
-		for(TokenMovement tokenMovement : tokenMovements) {
+		for (TokenMovement tokenMovement : tokenMovements) {
 			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation());
-		
+
 		}
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see se2.e.engine3d.Engine3DListener#onStartSimulation()
 	 */
 	@Override
 	public void onStartSimulation() {
 		// fire transitions
 		List<TokenMovement> initialMovements = rpn.init(selectedPetri);
-		for(TokenMovement tokenMovement : initialMovements) {
+		for (TokenMovement tokenMovement : initialMovements) {
 			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation());
 		}
 	}
 
 	public void onUserInteraction(String label) {
-		//drop token on the place with the label label
+		// drop token on the place with the label label
 		rpn.dropTokenOnPlace(label);
 		List<TokenMovement> tokenMovements = rpn.fireTransitions();
-		for(TokenMovement tokenMovement : tokenMovements) {
+		for (TokenMovement tokenMovement : tokenMovements) {
 			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation());
 		}
 	}
 
-
 	public void onStopSimulation() {
-		
+
 	}
 }

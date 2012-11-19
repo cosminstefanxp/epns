@@ -7,7 +7,9 @@ import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import javax.media.j3d.BranchGroup;
@@ -40,7 +42,7 @@ import com.sun.j3d.utils.universe.Viewer;
 import com.sun.j3d.utils.universe.ViewingPlatform;
 
 /**
- * The Class J3DEngine that is an implementation of an {@link Engine3D} using Java 3D library.
+ * The Class J3DEngine that is an implementation of a {@link Engine3D} using Java 3D library.
  * 
  * @author cosmin
  */
@@ -78,6 +80,9 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 
 	/** The running animations. */
 	private List<RuntimeAnimation<?>> runningAnimations;
+
+	/** The token representations. */
+	private HashMap<RuntimeToken, DynamicBranch> tokenRepresentations;
 
 	/** The canvas. */
 	private Canvas3D canvas;
@@ -117,7 +122,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		// Configure this JFrame
 		this.setLocation(200, 200);
 		this.setSize(640, 480);
-		this.setTitle("Hello Universe");
+		this.setTitle("Petri Net Simulator");
 		// this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 		// Show the JFrame
@@ -167,7 +172,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 * @author cosmin, marius (some fixes after update of loader and dynamicBranchFactory class)
 	 */
 	@Override
-	public void init(Geometry geometry, AppearanceModel appearance) {
+	public void init(Geometry geometry, AppearanceModel appearance, Set<String> inputPlacesLabels) {
 
 		// Load the geometry and appearance
 		this.loader = new GeometryAndAppearanceLoader(geometry, appearance);
@@ -177,11 +182,12 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		universe = createUniverse(canvas);
 
 		// Create the initial scene and add it to the graph
-		sceneRoot = createSceneGraph();
+		sceneRoot = createSceneGraph(inputPlacesLabels);
 		universe.addBranchGraph(sceneRoot);
 
 		// Initialize other objects
 		runningAnimations = new ArrayList<RuntimeAnimation<?>>();
+		tokenRepresentations = new HashMap<RuntimeToken, DynamicBranch>();
 
 		log.info("J3D Engine initialized...");
 	}
@@ -189,10 +195,11 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	/**
 	 * Creates the scene graph (content branch) and add the static objects (e.g. {@link Place}s representations).
 	 * 
+	 * @param inputPlacesLabels the input places labels
 	 * @return the branch group
 	 * @author cosmin
 	 */
-	public BranchGroup createSceneGraph() {
+	public BranchGroup createSceneGraph(Set<String> inputPlacesLabels) {
 		// Create the root node of the content branch
 		BranchGroup rootNode = new BranchGroup();
 
@@ -207,16 +214,24 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		}
 		rootNode.addChild(trackGroup);
 
-		// Add representations for the tracks
-		Group inputPlacesGroup = new Group();
+		// Add representations for the simple positions
 		for (String label : loader.getSimplePositionLabels()) {
-			SimplePosition obj = loader.getSimplePositionObject(label);
-			// Create the node corresponding to input places and add it to the scene graph
-			DynamicBranch inputPlaceBranch = nodeFactory.getInteractiveInputBranch(obj.getAppearanceLabel(), label);
+			// Create the node corresponding to simple position and add it to the scene graph
+			DynamicBranch inputPlaceBranch = nodeFactory.getGeometryBranch(label, true);
+
+			// The node corresponds to an interactive input place
+			if (inputPlacesLabels.contains(label)) {
+				log.info("Setting up a new interactive input place: " + label);
+				inputPlaceBranch = nodeFactory.getGeometryBranch(label, true);
+			} // The node doesn't correspond to an interactive input place
+			else {
+				log.info("Setting up a new simple position: " + label);
+				inputPlaceBranch = nodeFactory.getGeometryBranch(label, false);
+			}
+			// Add the branch to the scene graph
 			if (inputPlaceBranch != null)
-				inputPlacesGroup.addChild(inputPlaceBranch.getBranchGroup());
+				rootNode.addChild(inputPlaceBranch.getBranchGroup());
 		}
-		rootNode.addChild(inputPlacesGroup);
 
 		// Compile to perform optimizations on this content branch.
 		rootNode.setCapability(BranchGroup.ALLOW_CHILDREN_EXTEND);
@@ -311,13 +326,18 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	/**
 	 * Method called when an user has interacted with an Interactive Input place.
 	 * 
-	 * @param geometryLabel the geometry label of the interactive input place
+	 * @param geomLabel the geom label
 	 */
 	public void userInteraction(String geomLabel) {
 		// Notify the engine listener
 		engineListener.onUserInteraction(geomLabel);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see se2.e.engine3d.Engine3D#destroyRepresentation(se2.e.simulator.runtime.petrinet.RuntimeToken)
+	 */
 	@Override
 	public void destroyRepresentation(RuntimeToken token) {
 		// TODO Auto-generated method stub

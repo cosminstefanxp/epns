@@ -93,13 +93,12 @@ public class J3DNodeFactory {
 	 * given label.
 	 * 
 	 */
-	private TransformGroup getTransformGroupForAppearance(String appearanceLabel,
-			TransformGroup destinationTransformGroup) {
-		if (destinationTransformGroup == null)
-			destinationTransformGroup = new TransformGroup();
+	public TransformGroup buildTransformGroupForShape3D(Shape3D shape3D, TransformGroup transformGroup) {
+		if (transformGroup == null)
+			transformGroup = new TransformGroup();
 
 		// TODO: To fill in...
-		return destinationTransformGroup;
+		return transformGroup;
 	}
 
 	/**

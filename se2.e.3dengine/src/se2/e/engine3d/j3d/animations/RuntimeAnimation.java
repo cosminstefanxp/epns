@@ -14,6 +14,7 @@ import se2.e.simulator.runtime.petrinet.RuntimeToken;
 /**
  * The Class RuntimeAnimation.
  * 
+ * @param <T> the generic type
  * @author cosmin
  */
 public abstract class RuntimeAnimation<T> extends Behavior {
@@ -29,6 +30,9 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 
 	/** The listener. */
 	protected RuntimeAnimationListener animationListener;
+
+	/** Whether it is attached to root. */
+	private boolean attachedToRoot = false;
 
 	/**
 	 * Inits the runtime animation. Usually, this is called in the initialization method of the Behavior associated with
@@ -46,10 +50,10 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 	 * again.
 	 * <p>
 	 * Also this method must make the verification for finishing of animation and, if needed, call the
-	 * {@link RuntimeAnimation#onAnimationFinished()} method.
-	 * </p>
 	 * 
 	 * @return the wakeup condition defining when it should be called again.
+	 * {@link RuntimeAnimation#onAnimationFinished()} method.
+	 * </p>
 	 */
 	public abstract WakeupCondition onUpdateAnimation();
 
@@ -74,8 +78,7 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 	 * @param targetBranch the target branch
 	 * @param animation the animation
 	 * @param token the token
-	 * @param engine the engine
-	 * 
+	 * @param animationListener the animation listener
 	 * @author cosmin
 	 */
 	public RuntimeAnimation(DynamicBranch targetBranch, T animation, RuntimeToken token,
@@ -85,6 +88,7 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 		this.token = token;
 		this.animation = animation;
 		this.animationListener = animationListener;
+		this.attachedToRoot = false;
 
 		// Connect the behavior to the branch group
 		this.targetBranch.setBehaviorNode(this);
@@ -119,6 +123,27 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 		return token;
 	}
 
+	/**
+	 * Checks if is attached to root.
+	 * 
+	 * @return true, if is attached to root
+	 */
+	public boolean isAttachedToRoot() {
+		return attachedToRoot;
+	}
+
+	/**
+	 * Sets the attached to root.
+	 * 
+	 * @param attachedToRoot the new attached to root
+	 */
+	public void setAttachedToRoot(boolean attachedToRoot) {
+		this.attachedToRoot = attachedToRoot;
+	}
+
+	/**
+	 * Initialize.
+	 */
 	@Override
 	/* @author cosmin. */
 	public void initialize() {
@@ -132,6 +157,11 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 		this.setSchedulingBounds(bounds);
 	}
 
+	/**
+	 * Process stimulus.
+	 * 
+	 * @param inCriteria the in criteria
+	 */
 	@Override
 	public void processStimulus(@SuppressWarnings("rawtypes") Enumeration inCriteria) {
 		WakeupCondition criteria = onUpdateAnimation();

@@ -270,16 +270,18 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 */
 	@Override
 	public void startAnimation(RuntimeToken token, Animation animation) {
-		// Build the branch representing the token
-		// TODO: Fix for dynamic objects (e.g. when using ShowAnimation)
-		DynamicBranch branch = nodeFactory.getTokenBranch(token.getLabel());
+		// Get any existing branch representation of the token
+		DynamicBranch branch = tokenRepresentations.get(token);
 
 		// Build the RuntimeAnimation
 		RuntimeAnimation<?> rtAnimation = RuntimeAnimationFactory.getRuntimeAnimation(branch, animation, token, this);
 		runningAnimations.add(rtAnimation);
 
-		// Attach the Animation branch to the Scene graph
-		sceneRoot.addChild(branch.getBranchGroup());
+		// Attach the Animation branch to the Scene graph, if needed and if not already attached
+		if (!rtAnimation.isAttachedToRoot() && rtAnimation.getTargetBranch() != null) {
+			sceneRoot.addChild(rtAnimation.getTargetBranch().getBranchGroup());
+			rtAnimation.setAttachedToRoot(true);
+		}
 	}
 
 	/*
@@ -310,6 +312,15 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 */
 	public GeometryAndAppearanceLoader getGeometryAndAppearanceLoader() {
 		return loader;
+	}
+
+	/**
+	 * Gets the node factory.
+	 *
+	 * @return the node factory
+	 */
+	public J3DNodeFactory getNodeFactory() {
+		return nodeFactory;
 	}
 
 	/*

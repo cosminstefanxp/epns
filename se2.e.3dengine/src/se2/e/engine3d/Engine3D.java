@@ -33,7 +33,7 @@ public interface Engine3D {
 	public void startAnimation(RuntimeToken token, Animation animation);
 
 	/**
-	 * Destroy the representation associated with the.
+	 * Destroy the representation associated with the token.
 	 * 
 	 * @param token the token
 	 */

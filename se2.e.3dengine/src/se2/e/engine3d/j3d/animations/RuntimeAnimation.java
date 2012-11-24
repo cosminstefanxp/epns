@@ -148,7 +148,8 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 	/* @author cosmin. */
 	public void initialize() {
 		// Initialize the behavior and prepare first wake-up criterion
-		Logger.getAnonymousLogger().info("Initializing behavior corresponding to animation " + this.getName());
+		Logger.getAnonymousLogger().info(
+				"Initializing behavior corresponding to animation " + this.getClass().getSimpleName());
 		WakeupCondition criteria = init();
 		if (criteria == null)
 			return;

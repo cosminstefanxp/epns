@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import javax.media.j3d.BoundingSphere;
 import javax.media.j3d.BranchGroup;
 import javax.media.j3d.Canvas3D;
 import javax.media.j3d.Group;
@@ -32,7 +33,6 @@ import se2.e.engine3d.j3d.animations.RuntimeAnimation;
 import se2.e.engine3d.j3d.animations.RuntimeAnimationFactory;
 import se2.e.engine3d.j3d.animations.RuntimeAnimationListener;
 import se2.e.geometry.Geometry;
-import se2.e.geometry.SimplePosition;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import animations.Animation;
 import appearance.AppearanceModel;
@@ -166,7 +166,11 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		view.setBackClipDistance(2 * zHeight);
 
 		// Set the Orbit Behavior to allow moving through the universe
-		OrbitBehavior ob = new OrbitBehavior(canvas);
+		OrbitBehavior ob = new OrbitBehavior(canvas, OrbitBehavior.REVERSE_ROTATE | OrbitBehavior.STOP_ZOOM);
+		ob.setTransFactors(10.0d, 10.0d);
+		ob.setZoomFactor(10.0d);
+		ob.setRotFactors(0.2d, 0.2d);
+		ob.setSchedulingBounds(new BoundingSphere(new Point3d(0.0d, 0.0d, 0.0d), 2000));
 		viewingPlatform.setViewPlatformBehavior(ob);
 
 		return new SimpleUniverse(viewingPlatform, viewer);
@@ -352,6 +356,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 * RuntimeToken)
 	 */
 	public void animationFinished(RuntimeToken token) {
+		log.info("Animation finished for: " + token);
 		// Notify the engine listener
 		engineListener.onAnimationFinished(token);
 	}
@@ -362,6 +367,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 * @param geomLabel the geom label
 	 */
 	public void userInteraction(String geomLabel) {
+		log.info("User interaction on: " + geomLabel);
 		// Notify the engine listener
 		engineListener.onUserInteraction(geomLabel);
 	}

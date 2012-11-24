@@ -202,8 +202,9 @@ public class RuntimePetriNet {
 							tokensMap.get(src).remove(rt);
 							removedTokens.add(rt);
 						}
-						tokensMap.get(dest).add(rt);
 						rt.setFinished(false);
+						tokensMap.get(dest).add(rt);
+						
 						
 						if(dest.getAnimations()!= null)
 							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), dest.getAnimations().getStructure(), false));
@@ -237,8 +238,9 @@ public class RuntimePetriNet {
 					removedTokens.add(rt);
 					tokensMap.get(src).remove(rt);
 				}
-				tokensMap.get(dest).add(rt);
 				rt.setFinished(false);
+				tokensMap.get(dest).add(rt);
+				
 				if(dest.getAnimations() != null) {
 					System.out.println("ANIMATION");
 					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), dest.getAnimations().getStructure(),false));
@@ -250,10 +252,12 @@ public class RuntimePetriNet {
 			}
 		}
 		
-		Iterator<RuntimeToken> it = tokensToBeRemoved.values().iterator();
+		Iterator<Place> it = tokensToBeRemoved.keySet().iterator();
 		while(it.hasNext()){
-			RuntimeToken rt = it.next();
+			Place place = it.next();
+			RuntimeToken rt = tokensToBeRemoved.get(place);
 			if(!removedTokens.contains(rt)){
+				tokensMap.get(place).remove(rt);
 				tokensMovement.add(new TokenMovement(rt, null, null, true));
 			}
 		}

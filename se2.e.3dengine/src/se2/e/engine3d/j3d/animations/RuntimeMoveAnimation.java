@@ -36,7 +36,10 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 	private double distance = 0;
 
 	/** The geometry and appearance loader. */
-	GeometryAndAppearanceLoader loader;
+	private GeometryAndAppearanceLoader loader;
+
+	/** The geometry label. */
+	private String geometryLabel;
 
 	/**
 	 * Instantiates a new runtime move animation.
@@ -49,14 +52,15 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 	 * @author cosmin
 	 */
 	public RuntimeMoveAnimation(DynamicBranch targetBranch, Move animation, RuntimeToken token,
-			RuntimeAnimationListener listener, GeometryAndAppearanceLoader loader) {
+			RuntimeAnimationListener listener, GeometryAndAppearanceLoader loader, String geometryLabel) {
 		super(targetBranch, animation, token, listener);
 		this.loader = loader;
+		this.geometryLabel = geometryLabel;
 	}
 
 	@Override
 	public WakeupCondition init() {
-		Vector2D[] trackPoints = loader.getTrackPoints(animation.getGeoTrack());
+		Vector2D[] trackPoints = loader.getTrackPoints(geometryLabel);
 		this.pathInterpolator = new LinearPathInterpolator(trackPoints);
 		System.out.println("Starting new move animation for: " + Arrays.toString(trackPoints));
 		currentPosition = this.pathInterpolator.start();

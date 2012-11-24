@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import javax.media.j3d.WakeupCondition;
 
 import se2.e.engine3d.j3d.DynamicBranch;
+import se2.e.engine3d.j3d.J3DEngine;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import animations.Animation;
 import animations.Sequence;
@@ -13,19 +14,26 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> {
 
 	private int currentAnimationIndex;
 	private Animation currentAnimation;
+	private J3DEngine engine;
+	private String geometryLabel;
 
 	public RuntimeSequenceAnimation(DynamicBranch targetBranch, Sequence animation, RuntimeToken token,
-			RuntimeAnimationListener listener) {
-		super(targetBranch, animation, token, listener);
+			J3DEngine engine, String geometryLabel) {
+		super(targetBranch, animation, token, engine);
+		this.engine = engine;
+		this.geometryLabel = geometryLabel;
 	}
 
 	@Override
 	public WakeupCondition init() {
 		Logger.getAnonymousLogger().info("Initializing RuntimeSequenceAnimation...");
+
+		// Start the first animation
 		currentAnimationIndex = 0;
 		currentAnimation = animation.getComponents().get(0);
-		// TODO: Finish it
-		//TODO: Register itself as RuntimeAnimationListener for children animations 
+		// Register itself as RuntimeAnimationListener for children animations
+		RuntimeAnimation<?> ra = RuntimeAnimationFactory.getRuntimeAnimation(targetBranch, currentAnimation, token,
+				engine, geometryLabel);
 		return null;
 	}
 

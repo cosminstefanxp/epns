@@ -28,9 +28,10 @@ public interface Engine3D {
 	 * Starts an animation.
 	 * 
 	 * @param token the token
-	 * @param place the place
+	 * @param animation the animation
+	 * @param geometryLabel the geometry label associated with the place, if any and if needed, or null otherwise
 	 */
-	public void startAnimation(RuntimeToken token, Animation animation);
+	public void startAnimation(RuntimeToken token, Animation animation, String geometryLabel);
 
 	/**
 	 * Destroy the representation associated with the token.

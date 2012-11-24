@@ -14,11 +14,17 @@ import se2.e.simulator.runtime.petrinet.RuntimeToken;
  */
 public interface RuntimeAnimationListener {
 
-
 	/**
 	 * Method called when the animation for a token is finished.
 	 * 
 	 * @param token the token for which the animation has finished
 	 */
 	public void animationFinished(RuntimeToken token);
+
+	/**
+	 * Checks if the animation should be paused.
+	 * 
+	 * @return true, if is paused
+	 */
+	public boolean isPaused();
 }

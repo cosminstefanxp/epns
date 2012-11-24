@@ -37,6 +37,7 @@ import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import animations.Animation;
 import appearance.AppearanceModel;
 
+import com.sun.j3d.utils.behaviors.vp.OrbitBehavior;
 import com.sun.j3d.utils.universe.SimpleUniverse;
 import com.sun.j3d.utils.universe.Viewer;
 import com.sun.j3d.utils.universe.ViewingPlatform;
@@ -86,6 +87,9 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 
 	/** The canvas. */
 	private Canvas3D canvas;
+
+	/** The paused. */
+	private boolean paused = false;
 
 	/**
 	 * Instantiates a new Java 3D engine.
@@ -161,6 +165,10 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		View view = viewer.getView();
 		view.setBackClipDistance(2 * zHeight);
 
+		// Set the Orbit Behavior to allow moving through the universe
+		OrbitBehavior ob = new OrbitBehavior(canvas);
+		viewingPlatform.setViewPlatformBehavior(ob);
+
 		return new SimpleUniverse(viewingPlatform, viewer);
 	}
 
@@ -217,7 +225,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		// Add representations for the simple positions
 		for (String label : loader.getSimplePositionLabels()) {
 			// Create the node corresponding to simple position and add it to the scene graph
-			DynamicBranch inputPlaceBranch = null; //nodeFactory.getGeometryBranch(label, true);
+			DynamicBranch inputPlaceBranch = null; // nodeFactory.getGeometryBranch(label, true);
 			System.out.println("Label: " + label);
 			System.out.println(inputPlacesLabels);
 			// The node corresponds to an interactive input place
@@ -257,10 +265,21 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 			if (this.engineListener != null) {
 				engineListener.onStartSimulation();
 				btnStart.setEnabled(false);
+				btnPause.setEnabled(true);
 			}
 		}
 
-		// TODO: Add implementation for Pause and Stop
+		// If the user clicked the Pause/Resume button
+		if (e.getSource() == btnPause) {
+			log.info("Pause/Resume button clicked...");
+			paused = !paused;
+			if (paused)
+				btnPause.setText("Resume");
+			else
+				btnPause.setText("Pause");
+		}
+
+		// TODO: Add implementation for Stop
 	}
 
 	/*
@@ -271,12 +290,13 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 * @author cosmin
 	 */
 	@Override
-	public void startAnimation(RuntimeToken token, Animation animation) {
+	public void startAnimation(RuntimeToken token, Animation animation, String geometryLabel) {
 		// Get any existing branch representation of the token
 		DynamicBranch branch = tokenRepresentations.get(token);
 
 		// Build the RuntimeAnimation
-		RuntimeAnimation<?> rtAnimation = RuntimeAnimationFactory.getRuntimeAnimation(branch, animation, token, this);
+		RuntimeAnimation<?> rtAnimation = RuntimeAnimationFactory.getRuntimeAnimation(branch, animation, token, this,
+				geometryLabel);
 		runningAnimations.add(rtAnimation);
 
 		// Attach the Animation branch to the Scene graph, if needed and if not already attached
@@ -318,7 +338,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 
 	/**
 	 * Gets the node factory.
-	 *
+	 * 
 	 * @return the node factory
 	 */
 	public J3DNodeFactory getNodeFactory() {
@@ -353,7 +373,21 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 */
 	@Override
 	public void destroyRepresentation(RuntimeToken token) {
-		// TODO Auto-generated method stub
+		log.info("Destroying token representation for: " + token);
+		DynamicBranch tokenBranch = tokenRepresentations.get(token);
+		if (tokenBranch != null) {
+			tokenBranch.getBranchGroup().detach();
+			tokenRepresentations.remove(token);
+		}
+	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see se2.e.engine3d.j3d.animations.RuntimeAnimationListener#isPaused()
+	 */
+	@Override
+	public boolean isPaused() {
+		return paused;
 	}
 }

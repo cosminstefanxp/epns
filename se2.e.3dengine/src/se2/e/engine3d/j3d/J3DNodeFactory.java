@@ -88,9 +88,11 @@ public class J3DNodeFactory {
 		ColoringAttributes ca = new ColoringAttributes();
 		if (surface instanceof SurfaceColor) {
 			SurfaceColor sc = (SurfaceColor) surface;
-			String[] rgb = sc.getColorCode().split(",");
-			ca.setColor(new Color3f(Float.parseFloat(rgb[0]) / 255, Float
-					.parseFloat(rgb[1]) / 255, Float.parseFloat(rgb[2]) / 255));
+//			String[] rgb = sc.getColorCode().split(",");
+//			ca.setColor(new Color3f(Float.parseFloat(rgb[0]) / 255, Float
+//					.parseFloat(rgb[1]) / 255, Float.parseFloat(rgb[2]) / 255));
+			//TODO fix color after latest update
+			ca.setColor(new Color3f(0f, 1f, 0f));
 			app.setColoringAttributes(ca);
 		} else if (surface instanceof appearance.Texture) {
 			String file = ((appearance.Texture) surface).getFile();

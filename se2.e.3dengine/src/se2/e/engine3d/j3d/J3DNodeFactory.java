@@ -304,8 +304,14 @@ public class J3DNodeFactory {
 		tg.setTransform(trans3d);
 		tg.setPickable(interactiveInput);
 		branchGroup.addChild(tg);
-		DynamicBranch branch = new DynamicInputBranch(branchGroup, tg,
-				geometryLabel, engine, canvas);
+//		DynamicBranch branch = new DynamicInputBranch(branchGroup, tg,
+//				geometryLabel, engine, canvas);
+		DynamicBranch branch = null;
+		if (interactiveInput)
+			branch = new DynamicInputBranch(branchGroup, tg,
+					geometryLabel, engine, canvas);
+		else
+			branch = new DynamicBranch(branchGroup, tg);
 		return branch;
 	}
 

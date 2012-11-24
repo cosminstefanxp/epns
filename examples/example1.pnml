@@ -85,7 +85,7 @@
         </graphics>
         <interactiveInput/>
         <animations>
-          <structure xsi:type="animations:Move" speed="3.0" geoTrack="L1"/>
+          <structure xsi:type="animations:Move" speed="3.0"/>
           <text>move(3.0, L1)</text>
         </animations>
         <tokens>
@@ -103,7 +103,7 @@
         </graphics>
         <interactiveInput/>
         <animations>
-          <structure xsi:type="animations:Move" speed="3.0" geoTrack="L2"/>
+          <structure xsi:type="animations:Move" speed="3.0"/>
           <text>move(3.0, L2)</text>
         </animations>
       </place>
@@ -116,7 +116,7 @@
         </graphics>
         <interactiveInput/>
         <animations>
-          <structure xsi:type="animations:Move" speed="3.0" geoTrack="L3"/>
+          <structure xsi:type="animations:Move" speed="3.0"/>
           <text>move(3.0, L3)</text>
         </animations>
       </place>
@@ -129,7 +129,7 @@
         </graphics>
         <interactiveInput/>
         <animations>
-          <structure xsi:type="animations:Move" speed="3.0" geoTrack="L4"/>
+          <structure xsi:type="animations:Move" speed="3.0"/>
           <text>move(3.0, L4)</text>
         </animations>
       </place>
@@ -142,7 +142,7 @@
         </graphics>
         <interactiveInput/>
         <animations>
-          <structure xsi:type="animations:Move" speed="3.0" geoTrack="L5"/>
+          <structure xsi:type="animations:Move" speed="3.0"/>
           <text>move(3.0, L5)</text>
         </animations>
       </place>

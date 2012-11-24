@@ -4,7 +4,7 @@
     <page>
       <place id="P1" geoLabel="L1">
         <animations>
-          <structure xsi:type="animations:Move" speed="4.0" geoTrack="L1"/>
+          <structure xsi:type="animations:Move" speed="4.0"/>
           <text>move(4.0,L1)</text>
         </animations>
         <tokens>

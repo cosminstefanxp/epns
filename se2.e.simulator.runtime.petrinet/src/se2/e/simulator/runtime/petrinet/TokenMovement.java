@@ -7,17 +7,45 @@ import animations.Animation;
  * @author Ruxandra, Marius
  */
 public class TokenMovement {
+
+
+	/** The token. */
+	private RuntimeToken token;
+	
+	/** The place. */
+	private String geoLabel;
+	
+	private Animation animation;
+	
+	private boolean isDestroyed;
+	
+	
 	
 	/**
 	 * @param token
 	 * @param place
 	 * @param animation
 	 */
-	public TokenMovement(RuntimeToken token, String place, Animation animation) {
+	public TokenMovement(RuntimeToken token, String geoLabel, Animation animation) {
 		super();
 		this.token = token;
-		this.place = place;
+		this.setGeoLabel(geoLabel);
 		this.animation = animation;
+		this.setDestroyed(false);
+	}
+
+	/**
+	 * @param token
+	 * @param place
+	 * @param animation
+	 * @param destroyed
+	 */
+	public TokenMovement(RuntimeToken token, String place, Animation animation, boolean destroyed) {
+		super();
+		this.token = token;
+		this.setGeoLabel(place);
+		this.animation = animation;
+		this.setDestroyed(destroyed);
 	}
 
 	public RuntimeToken getToken() {
@@ -28,13 +56,7 @@ public class TokenMovement {
 		this.token = token;
 	}
 
-	public String getPlace() {
-		return place;
-	}
 
-	public void setPlace(String place) {
-		this.place = place;
-	}
 
 	public Animation getAnimation() {
 		return animation;
@@ -44,13 +66,39 @@ public class TokenMovement {
 		this.animation = animation;
 	}
 
-	/** The token. */
-	private RuntimeToken token;
-	
-	/** The place. */
-	private String place;
-	
-	private Animation animation;
+
+
+	/**
+	 * @return the isDestroyed
+	 */
+	public boolean isDestroyed() {
+		return isDestroyed;
+	}
+
+	/**
+	 * @param isDestroyed the isDestroyed to set
+	 */
+	public void setDestroyed(boolean isDestroyed) {
+		this.isDestroyed = isDestroyed;
+	}
+
+
+
+	/**
+	 * @return the geoLabel
+	 */
+	public String getGeoLabel() {
+		return geoLabel;
+	}
+
+	/**
+	 * @param geoLabel the geoLabel to set
+	 */
+	public void setGeoLabel(String geoLabel) {
+		this.geoLabel = geoLabel;
+	}
+
+
 	
 
 }

@@ -203,6 +203,7 @@ public class RuntimePetriNet {
 						}
 						tokensMap.get(dest).add(rt);
 						rt.setFinished(false);
+						
 						if(dest.getAnimations()!= null)
 							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), dest.getAnimations().getStructure()));
 						else

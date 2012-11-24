@@ -21,18 +21,6 @@ public class TokenMovement {
 	
 	
 	
-	/**
-	 * @param token
-	 * @param place
-	 * @param animation
-	 */
-	public TokenMovement(RuntimeToken token, String geoLabel, Animation animation) {
-		super();
-		this.token = token;
-		this.setGeoLabel(geoLabel);
-		this.animation = animation;
-		this.setDestroyed(false);
-	}
 
 	/**
 	 * @param token

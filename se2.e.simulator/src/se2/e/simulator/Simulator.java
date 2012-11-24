@@ -1,26 +1,18 @@
 package se2.e.simulator;
 
-import se2.e.geometry.Geometry;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 
-import appearance.AppearanceModel;
-
-import extendedpetrinet.Appearance;
-import extendedpetrinet.ExtendedPetriNet;
-
 import se2.e.engine3d.Engine3D;
 import se2.e.engine3d.Engine3DFactory;
 import se2.e.engine3d.Engine3DListener;
+import se2.e.geometry.Geometry;
 import se2.e.simulator.runtime.petrinet.RuntimePetriNet;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import se2.e.simulator.runtime.petrinet.TokenMovement;
+import appearance.AppearanceModel;
 
 /**
  * The Class Simulator.
@@ -86,7 +78,10 @@ public class Simulator implements Engine3DListener {
 		rpn.markToken(token);
 		List<TokenMovement> tokenMovements = rpn.fireTransitions();
 		for (TokenMovement tokenMovement : tokenMovements) {
-			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation(), tokenMovement.getGeoLabel());
+			if(tokenMovement.isDestroyed())
+				engine.destroyRepresentation(tokenMovement.getToken());
+			else 
+				engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation(), tokenMovement.getGeoLabel());
 
 		}
 
@@ -101,19 +96,30 @@ public class Simulator implements Engine3DListener {
 	public void onStartSimulation() {
 		
 		for (TokenMovement tokenMovement : initialMovements) {
-			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation(), tokenMovement.getGeoLabel());
+			if(tokenMovement.isDestroyed())
+				engine.destroyRepresentation(tokenMovement.getToken());
+			else 
+				engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation(), tokenMovement.getGeoLabel());
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see se2.e.engine3d.Engine3DListener#onUserInteraction(java.lang.String)
+	 */
+	@Override
 	public void onUserInteraction(String label) {
 		// drop token on the place with the label label
 		rpn.dropTokenOnPlace(label);
 		List<TokenMovement> tokenMovements = rpn.fireTransitions();
 		for (TokenMovement tokenMovement : tokenMovements) {
-			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation(), tokenMovement.getGeoLabel());
+			if(tokenMovement.isDestroyed())
+				engine.destroyRepresentation(tokenMovement.getToken());
+			else 
+				engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation(), tokenMovement.getGeoLabel());
 		}
 	}
 
+	@Override
 	public void onStopSimulation() {
 
 	}

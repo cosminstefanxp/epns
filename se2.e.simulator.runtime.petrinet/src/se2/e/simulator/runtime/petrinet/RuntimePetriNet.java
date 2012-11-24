@@ -4,6 +4,7 @@ package se2.e.simulator.runtime.petrinet;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -53,9 +54,9 @@ public class RuntimePetriNet {
 		for (Token token : tempTokens) {
 			RuntimeToken rt = new RuntimeToken(token.getAppearance().getText());
 			if(place.getAnimations()!= null)
-				movements.add(new TokenMovement(rt, place.getGeoLabel(), place.getAnimations().getStructure()));
+				movements.add(new TokenMovement(rt, place.getGeoLabel(), place.getAnimations().getStructure(), false));
 			else
-				movements.add(new TokenMovement(rt, place.getGeoLabel(), null));
+				movements.add(new TokenMovement(rt, place.getGeoLabel(), null, false));
 			tempTokensExt.add(rt);
 		}
 		tokensMap.put(place, tempTokensExt);
@@ -179,7 +180,7 @@ public class RuntimePetriNet {
 				return null;
 		}
 		List<TokenMovement> tokensMovement = new ArrayList<TokenMovement>();
-		List<RuntimeToken> removedTokens = new ArrayList<RuntimeToken>();
+		Set<RuntimeToken> removedTokens = new HashSet<RuntimeToken>();
 		
 		
 		//matching all the out-bound arcs with identities
@@ -205,9 +206,9 @@ public class RuntimePetriNet {
 						rt.setFinished(false);
 						
 						if(dest.getAnimations()!= null)
-							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), dest.getAnimations().getStructure()));
+							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), dest.getAnimations().getStructure(), false));
 						else
-							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), null));
+							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), null, false));
 						
 						
 					}
@@ -240,17 +241,22 @@ public class RuntimePetriNet {
 				rt.setFinished(false);
 				if(dest.getAnimations() != null) {
 					System.out.println("ANIMATION");
-					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), dest.getAnimations().getStructure()));
+					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), dest.getAnimations().getStructure(),false));
 				}
 				else {
-					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), null));
+					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), null, false));
 					System.out.println("NO ANIMATION");
 				}
 			}
 		}
 		
-		
-		
+		Iterator<RuntimeToken> it = tokensToBeRemoved.values().iterator();
+		while(it.hasNext()){
+			RuntimeToken rt = it.next();
+			if(!removedTokens.contains(rt)){
+				tokensMovement.add(new TokenMovement(rt, null, null, true));
+			}
+		}
 		
 		/*
 		 * To be used for the actual implementation - for maintaining the labels

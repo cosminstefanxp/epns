@@ -113,22 +113,13 @@ public interface AnimationsPackage extends EPackage {
 	int HIDE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Simple Position</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HIDE__SIMPLE_POSITION = ANIMATION_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Hide</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HIDE_FEATURE_COUNT = ANIMATION_FEATURE_COUNT + 1;
+	int HIDE_FEATURE_COUNT = ANIMATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link animations.impl.ShowImpl <em>Show</em>}' class.
@@ -141,22 +132,13 @@ public interface AnimationsPackage extends EPackage {
 	int SHOW = 3;
 
 	/**
-	 * The feature id for the '<em><b>Simple Position</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SHOW__SIMPLE_POSITION = ANIMATION_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Shape</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHOW__SHAPE = ANIMATION_FEATURE_COUNT + 1;
+	int SHOW__SHAPE = ANIMATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Show</em>' class.
@@ -165,7 +147,7 @@ public interface AnimationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOW_FEATURE_COUNT = ANIMATION_FEATURE_COUNT + 2;
+	int SHOW_FEATURE_COUNT = ANIMATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link animations.impl.MoveImpl <em>Move</em>}' class.
@@ -187,22 +169,13 @@ public interface AnimationsPackage extends EPackage {
 	int MOVE__SPEED = ANIMATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Geo Track</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE__GEO_TRACK = ANIMATION_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Move</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_FEATURE_COUNT = ANIMATION_FEATURE_COUNT + 2;
+	int MOVE_FEATURE_COUNT = ANIMATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link animations.impl.WaitImpl <em>Wait</em>}' class.
@@ -275,17 +248,6 @@ public interface AnimationsPackage extends EPackage {
 	EClass getHide();
 
 	/**
-	 * Returns the meta object for the attribute '{@link animations.Hide#getSimplePosition <em>Simple Position</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Simple Position</em>'.
-	 * @see animations.Hide#getSimplePosition()
-	 * @see #getHide()
-	 * @generated
-	 */
-	EAttribute getHide_SimplePosition();
-
-	/**
 	 * Returns the meta object for class '{@link animations.Show <em>Show</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,17 +256,6 @@ public interface AnimationsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getShow();
-
-	/**
-	 * Returns the meta object for the attribute '{@link animations.Show#getSimplePosition <em>Simple Position</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Simple Position</em>'.
-	 * @see animations.Show#getSimplePosition()
-	 * @see #getShow()
-	 * @generated
-	 */
-	EAttribute getShow_SimplePosition();
 
 	/**
 	 * Returns the meta object for the attribute '{@link animations.Show#getShape <em>Shape</em>}'.
@@ -337,17 +288,6 @@ public interface AnimationsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMove_Speed();
-
-	/**
-	 * Returns the meta object for the attribute '{@link animations.Move#getGeoTrack <em>Geo Track</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Geo Track</em>'.
-	 * @see animations.Move#getGeoTrack()
-	 * @see #getMove()
-	 * @generated
-	 */
-	EAttribute getMove_GeoTrack();
 
 	/**
 	 * Returns the meta object for class '{@link animations.Wait <em>Wait</em>}'.
@@ -431,14 +371,6 @@ public interface AnimationsPackage extends EPackage {
 		EClass HIDE = eINSTANCE.getHide();
 
 		/**
-		 * The meta object literal for the '<em><b>Simple Position</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HIDE__SIMPLE_POSITION = eINSTANCE.getHide_SimplePosition();
-
-		/**
 		 * The meta object literal for the '{@link animations.impl.ShowImpl <em>Show</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -447,14 +379,6 @@ public interface AnimationsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SHOW = eINSTANCE.getShow();
-
-		/**
-		 * The meta object literal for the '<em><b>Simple Position</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SHOW__SIMPLE_POSITION = eINSTANCE.getShow_SimplePosition();
 
 		/**
 		 * The meta object literal for the '<em><b>Shape</b></em>' attribute feature.
@@ -481,14 +405,6 @@ public interface AnimationsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MOVE__SPEED = eINSTANCE.getMove_Speed();
-
-		/**
-		 * The meta object literal for the '<em><b>Geo Track</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MOVE__GEO_TRACK = eINSTANCE.getMove_GeoTrack();
 
 		/**
 		 * The meta object literal for the '{@link animations.impl.WaitImpl <em>Wait</em>}' class.

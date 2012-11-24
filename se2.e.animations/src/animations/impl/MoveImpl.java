@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link animations.impl.MoveImpl#getSpeed <em>Speed</em>}</li>
- *   <li>{@link animations.impl.MoveImpl#getGeoTrack <em>Geo Track</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,26 +44,6 @@ public class MoveImpl extends AnimationImpl implements Move {
 	 * @ordered
 	 */
 	protected double speed = SPEED_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getGeoTrack() <em>Geo Track</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGeoTrack()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String GEO_TRACK_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getGeoTrack() <em>Geo Track</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGeoTrack()
-	 * @generated
-	 * @ordered
-	 */
-	protected String geoTrack = GEO_TRACK_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,34 +90,11 @@ public class MoveImpl extends AnimationImpl implements Move {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getGeoTrack() {
-		return geoTrack;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGeoTrack(String newGeoTrack) {
-		String oldGeoTrack = geoTrack;
-		geoTrack = newGeoTrack;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnimationsPackage.MOVE__GEO_TRACK, oldGeoTrack, geoTrack));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case AnimationsPackage.MOVE__SPEED:
 				return getSpeed();
-			case AnimationsPackage.MOVE__GEO_TRACK:
-				return getGeoTrack();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -153,9 +109,6 @@ public class MoveImpl extends AnimationImpl implements Move {
 		switch (featureID) {
 			case AnimationsPackage.MOVE__SPEED:
 				setSpeed((Double)newValue);
-				return;
-			case AnimationsPackage.MOVE__GEO_TRACK:
-				setGeoTrack((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -172,9 +125,6 @@ public class MoveImpl extends AnimationImpl implements Move {
 			case AnimationsPackage.MOVE__SPEED:
 				setSpeed(SPEED_EDEFAULT);
 				return;
-			case AnimationsPackage.MOVE__GEO_TRACK:
-				setGeoTrack(GEO_TRACK_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -189,8 +139,6 @@ public class MoveImpl extends AnimationImpl implements Move {
 		switch (featureID) {
 			case AnimationsPackage.MOVE__SPEED:
 				return speed != SPEED_EDEFAULT;
-			case AnimationsPackage.MOVE__GEO_TRACK:
-				return GEO_TRACK_EDEFAULT == null ? geoTrack != null : !GEO_TRACK_EDEFAULT.equals(geoTrack);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -207,8 +155,6 @@ public class MoveImpl extends AnimationImpl implements Move {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (speed: ");
 		result.append(speed);
-		result.append(", geoTrack: ");
-		result.append(geoTrack);
 		result.append(')');
 		return result.toString();
 	}

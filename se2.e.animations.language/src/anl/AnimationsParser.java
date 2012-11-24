@@ -16,7 +16,7 @@ import anl.parser.antlr.AnimationsLanguageParser;
  * This class makes available the parse operations in a singleton class.
  * 
  * @generated NOT
- * @author
+ * @author Juan, Pablo and María
  */
 
 public class AnimationsParser {

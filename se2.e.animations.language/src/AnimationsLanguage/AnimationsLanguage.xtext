@@ -13,19 +13,19 @@ SimpleAnimation returns Animation:
 
 Move returns Move:
 	{Move}
-	'move' '(' speed = EDouble ',' geoTrack = EString ')';
+	'move' '(' speed = EDouble')';
 
 Hide returns Hide:
 	{Hide}
-	'hide' '(' simplePosition = EString ')';
+	'hide' '('')';
 
 Show returns Show:
 	{Show}
-	'show' '(' simplePosition = EString ',' shape = EString ')';
+	'show' '(' shape = EString ')';
 
 Wait returns Wait:
 	{Wait}
-	'wait' '(' time = EDouble ')';
+	'wait' '(' time = EInt ')';
 	
 Sequence returns Sequence:
 	{Sequence}
@@ -36,3 +36,6 @@ EString returns ecore::EString:
 
 EDouble returns ecore::EDouble:
 	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;
+
+EInt returns ecore::EInt:
+	'-'? INT;

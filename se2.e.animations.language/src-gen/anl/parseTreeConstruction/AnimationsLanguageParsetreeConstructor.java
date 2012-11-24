@@ -574,11 +574,11 @@ protected class SimpleAnimation_SequenceParserRuleCall_4 extends RuleCallToken {
 /************ begin Rule Move ****************
  *
  * Move:
- * 	{Move} "move" "(" speed=EDouble "," geoTrack=EString ")";
+ * 	{Move} "move" "(" speed=EDouble ")";
  *
  **/
 
-// {Move} "move" "(" speed=EDouble "," geoTrack=EString ")"
+// {Move} "move" "(" speed=EDouble ")"
 protected class Move_Group extends GroupToken {
 	
 	public Move_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -593,7 +593,7 @@ protected class Move_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Move_RightParenthesisKeyword_6(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Move_RightParenthesisKeyword_4(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -711,78 +711,22 @@ protected class Move_SpeedAssignment_3 extends AssignmentToken  {
 
 }
 
-// ","
-protected class Move_CommaKeyword_4 extends KeywordToken  {
+// ")"
+protected class Move_RightParenthesisKeyword_4 extends KeywordToken  {
 	
-	public Move_CommaKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Move_RightParenthesisKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMoveAccess().getCommaKeyword_4();
+		return grammarAccess.getMoveAccess().getRightParenthesisKeyword_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new Move_SpeedAssignment_3(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// geoTrack=EString
-protected class Move_GeoTrackAssignment_5 extends AssignmentToken  {
-	
-	public Move_GeoTrackAssignment_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getMoveAccess().getGeoTrackAssignment_5();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Move_CommaKeyword_4(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("geoTrack",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("geoTrack");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getMoveAccess().getGeoTrackEStringParserRuleCall_5_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getMoveAccess().getGeoTrackEStringParserRuleCall_5_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// ")"
-protected class Move_RightParenthesisKeyword_6 extends KeywordToken  {
-	
-	public Move_RightParenthesisKeyword_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getMoveAccess().getRightParenthesisKeyword_6();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Move_GeoTrackAssignment_5(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -796,11 +740,11 @@ protected class Move_RightParenthesisKeyword_6 extends KeywordToken  {
 /************ begin Rule Hide ****************
  *
  * Hide:
- * 	{Hide} "hide" "(" simplePosition=EString ")";
+ * 	{Hide} "hide" "(" ")";
  *
  **/
 
-// {Hide} "hide" "(" simplePosition=EString ")"
+// {Hide} "hide" "(" ")"
 protected class Hide_Group extends GroupToken {
 	
 	public Hide_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -815,7 +759,7 @@ protected class Hide_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Hide_RightParenthesisKeyword_4(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Hide_RightParenthesisKeyword_3(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -899,56 +843,22 @@ protected class Hide_LeftParenthesisKeyword_2 extends KeywordToken  {
 
 }
 
-// simplePosition=EString
-protected class Hide_SimplePositionAssignment_3 extends AssignmentToken  {
+// ")"
+protected class Hide_RightParenthesisKeyword_3 extends KeywordToken  {
 	
-	public Hide_SimplePositionAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Hide_RightParenthesisKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getHideAccess().getSimplePositionAssignment_3();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getHideAccess().getRightParenthesisKeyword_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new Hide_LeftParenthesisKeyword_2(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("simplePosition",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("simplePosition");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getHideAccess().getSimplePositionEStringParserRuleCall_3_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getHideAccess().getSimplePositionEStringParserRuleCall_3_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// ")"
-protected class Hide_RightParenthesisKeyword_4 extends KeywordToken  {
-	
-	public Hide_RightParenthesisKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getHideAccess().getRightParenthesisKeyword_4();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Hide_SimplePositionAssignment_3(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -962,11 +872,11 @@ protected class Hide_RightParenthesisKeyword_4 extends KeywordToken  {
 /************ begin Rule Show ****************
  *
  * Show:
- * 	{Show} "show" "(" simplePosition=EString "," shape=EString ")";
+ * 	{Show} "show" "(" shape=EString ")";
  *
  **/
 
-// {Show} "show" "(" simplePosition=EString "," shape=EString ")"
+// {Show} "show" "(" shape=EString ")"
 protected class Show_Group extends GroupToken {
 	
 	public Show_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -981,7 +891,7 @@ protected class Show_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Show_RightParenthesisKeyword_6(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Show_RightParenthesisKeyword_4(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1065,16 +975,16 @@ protected class Show_LeftParenthesisKeyword_2 extends KeywordToken  {
 
 }
 
-// simplePosition=EString
-protected class Show_SimplePositionAssignment_3 extends AssignmentToken  {
+// shape=EString
+protected class Show_ShapeAssignment_3 extends AssignmentToken  {
 	
-	public Show_SimplePositionAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Show_ShapeAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getShowAccess().getSimplePositionAssignment_3();
+		return grammarAccess.getShowAccess().getShapeAssignment_3();
 	}
 
     @Override
@@ -1087,67 +997,11 @@ protected class Show_SimplePositionAssignment_3 extends AssignmentToken  {
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("simplePosition",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("simplePosition");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getShowAccess().getSimplePositionEStringParserRuleCall_3_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getShowAccess().getSimplePositionEStringParserRuleCall_3_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// ","
-protected class Show_CommaKeyword_4 extends KeywordToken  {
-	
-	public Show_CommaKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getShowAccess().getCommaKeyword_4();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Show_SimplePositionAssignment_3(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// shape=EString
-protected class Show_ShapeAssignment_5 extends AssignmentToken  {
-	
-	public Show_ShapeAssignment_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getShowAccess().getShapeAssignment_5();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Show_CommaKeyword_4(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("shape",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("shape");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getShowAccess().getShapeEStringParserRuleCall_5_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getShowAccess().getShapeEStringParserRuleCall_3_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getShowAccess().getShapeEStringParserRuleCall_5_0();
+			element = grammarAccess.getShowAccess().getShapeEStringParserRuleCall_3_0();
 			return obj;
 		}
 		return null;
@@ -1156,21 +1010,21 @@ protected class Show_ShapeAssignment_5 extends AssignmentToken  {
 }
 
 // ")"
-protected class Show_RightParenthesisKeyword_6 extends KeywordToken  {
+protected class Show_RightParenthesisKeyword_4 extends KeywordToken  {
 	
-	public Show_RightParenthesisKeyword_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Show_RightParenthesisKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getShowAccess().getRightParenthesisKeyword_6();
+		return grammarAccess.getShowAccess().getRightParenthesisKeyword_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Show_ShapeAssignment_5(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Show_ShapeAssignment_3(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1184,11 +1038,11 @@ protected class Show_RightParenthesisKeyword_6 extends KeywordToken  {
 /************ begin Rule Wait ****************
  *
  * Wait:
- * 	{Wait} "wait" "(" time=EDouble ")";
+ * 	{Wait} "wait" "(" time=EInt ")";
  *
  **/
 
-// {Wait} "wait" "(" time=EDouble ")"
+// {Wait} "wait" "(" time=EInt ")"
 protected class Wait_Group extends GroupToken {
 	
 	public Wait_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1287,7 +1141,7 @@ protected class Wait_LeftParenthesisKeyword_2 extends KeywordToken  {
 
 }
 
-// time=EDouble
+// time=EInt
 protected class Wait_TimeAssignment_3 extends AssignmentToken  {
 	
 	public Wait_TimeAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1311,9 +1165,9 @@ protected class Wait_TimeAssignment_3 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("time",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("time");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getWaitAccess().getTimeEDoubleParserRuleCall_3_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getWaitAccess().getTimeEIntParserRuleCall_3_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getWaitAccess().getTimeEDoubleParserRuleCall_3_0();
+			element = grammarAccess.getWaitAccess().getTimeEIntParserRuleCall_3_0();
 			return obj;
 		}
 		return null;
@@ -1594,6 +1448,7 @@ protected class Sequence_RightSquareBracketKeyword_4 extends KeywordToken  {
 
 
 /************ end Rule Sequence ****************/
+
 
 
 

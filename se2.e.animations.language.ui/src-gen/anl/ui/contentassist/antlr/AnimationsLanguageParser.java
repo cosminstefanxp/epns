@@ -51,13 +51,11 @@ public class AnimationsLanguageParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSequenceAccess().getGroup_3(), "rule__Sequence__Group_3__0");
 					put(grammarAccess.getEDoubleAccess().getGroup(), "rule__EDouble__Group__0");
 					put(grammarAccess.getEDoubleAccess().getGroup_4(), "rule__EDouble__Group_4__0");
+					put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 					put(grammarAccess.getAnimationAccess().getComponentsAssignment_1_2(), "rule__Animation__ComponentsAssignment_1_2");
 					put(grammarAccess.getAnimationAccess().getComponentsAssignment_1_3_1(), "rule__Animation__ComponentsAssignment_1_3_1");
 					put(grammarAccess.getMoveAccess().getSpeedAssignment_3(), "rule__Move__SpeedAssignment_3");
-					put(grammarAccess.getMoveAccess().getGeoTrackAssignment_5(), "rule__Move__GeoTrackAssignment_5");
-					put(grammarAccess.getHideAccess().getSimplePositionAssignment_3(), "rule__Hide__SimplePositionAssignment_3");
-					put(grammarAccess.getShowAccess().getSimplePositionAssignment_3(), "rule__Show__SimplePositionAssignment_3");
-					put(grammarAccess.getShowAccess().getShapeAssignment_5(), "rule__Show__ShapeAssignment_5");
+					put(grammarAccess.getShowAccess().getShapeAssignment_3(), "rule__Show__ShapeAssignment_3");
 					put(grammarAccess.getWaitAccess().getTimeAssignment_3(), "rule__Wait__TimeAssignment_3");
 					put(grammarAccess.getSequenceAccess().getComponentsAssignment_2(), "rule__Sequence__ComponentsAssignment_2");
 					put(grammarAccess.getSequenceAccess().getComponentsAssignment_3_1(), "rule__Sequence__ComponentsAssignment_3_1");

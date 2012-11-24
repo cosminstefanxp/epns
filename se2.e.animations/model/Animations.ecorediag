@@ -30,15 +30,11 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_BOTVYSvvEeK--fmKguZavg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="Animations.ecore#//Sequence"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BOTVYivvEeK--fmKguZavg" x="110" y="185"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BOTVYivvEeK--fmKguZavg" x="145" y="185"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_B2JYgCvvEeK--fmKguZavg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_B2J_kCvvEeK--fmKguZavg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_B2J_kSvvEeK--fmKguZavg" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_ixVv0C2zEeKZQ4SyZ5YQ8Q" type="2001">
-        <element xmi:type="ecore:EAttribute" href="Animations.ecore#//Hide/simplePosition"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_ixVv0S2zEeKZQ4SyZ5YQ8Q"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_B2J_kivvEeK--fmKguZavg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_B2J_kyvvEeK--fmKguZavg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_B2J_lCvvEeK--fmKguZavg"/>
@@ -55,10 +51,6 @@
   <children xmi:type="notation:Node" xmi:id="_C3Db4CvvEeK--fmKguZavg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_C3EC8CvvEeK--fmKguZavg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_C3EC8SvvEeK--fmKguZavg" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_ocHhUC2zEeKZQ4SyZ5YQ8Q" type="2001">
-        <element xmi:type="ecore:EAttribute" href="Animations.ecore#//Show/simplePosition"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_ocHhUS2zEeKZQ4SyZ5YQ8Q"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_qqsRsC2zEeKZQ4SyZ5YQ8Q" type="2001">
         <element xmi:type="ecore:EAttribute" href="Animations.ecore#//Show/shape"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_qqsRsS2zEeKZQ4SyZ5YQ8Q"/>
@@ -74,7 +66,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_C3Db4SvvEeK--fmKguZavg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="Animations.ecore#//Show"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C3Db4ivvEeK--fmKguZavg" x="685" y="185"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C3Db4ivvEeK--fmKguZavg" x="600" y="185"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_ENoNQCvvEeK--fmKguZavg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_ENo0UCvvEeK--fmKguZavg" type="4001"/>
@@ -82,10 +74,6 @@
       <children xmi:type="notation:Node" xmi:id="_OafC0CvvEeK--fmKguZavg" type="2001">
         <element xmi:type="ecore:EAttribute" href="Animations.ecore#//Move/speed"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_OafC0SvvEeK--fmKguZavg"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_VqRL4C2zEeKZQ4SyZ5YQ8Q" type="2001">
-        <element xmi:type="ecore:EAttribute" href="Animations.ecore#//Move/geoTrack"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_VqRL4S2zEeKZQ4SyZ5YQ8Q"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_ENo0UivvEeK--fmKguZavg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_ENo0UyvvEeK--fmKguZavg"/>
@@ -98,7 +86,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_ENoNQSvvEeK--fmKguZavg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="Animations.ecore#//Move"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ENoNQivvEeK--fmKguZavg" x="215" y="185"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ENoNQivvEeK--fmKguZavg" x="250" y="185"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_E0xFwCvvEeK--fmKguZavg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_E0xs0CvvEeK--fmKguZavg" type="4001"/>
@@ -118,7 +106,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_E0xFwSvvEeK--fmKguZavg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="Animations.ecore#//Wait"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E0xFwivvEeK--fmKguZavg" x="365" y="185"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E0xFwivvEeK--fmKguZavg" x="390" y="185"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="__La3oSvuEeK--fmKguZavg"/>
   <element xmi:type="ecore:EPackage" href="Animations.ecore#/"/>

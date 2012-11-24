@@ -57,32 +57,9 @@ public class ShowItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSimplePositionPropertyDescriptor(object);
 			addShapePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Simple Position feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSimplePositionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Show_simplePosition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Show_simplePosition_feature", "_UI_Show_type"),
-				 AnimationsPackage.Literals.SHOW__SIMPLE_POSITION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -126,7 +103,7 @@ public class ShowItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Show)object).getSimplePosition();
+		String label = ((Show)object).getShape();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Show_type") :
 			getString("_UI_Show_type") + " " + label;
@@ -144,7 +121,6 @@ public class ShowItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Show.class)) {
-			case AnimationsPackage.SHOW__SIMPLE_POSITION:
 			case AnimationsPackage.SHOW__SHAPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

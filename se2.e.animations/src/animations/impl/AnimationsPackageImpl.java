@@ -169,15 +169,6 @@ public class AnimationsPackageImpl extends EPackageImpl implements AnimationsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getHide_SimplePosition() {
-		return (EAttribute)hideEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getShow() {
 		return showEClass;
 	}
@@ -187,17 +178,8 @@ public class AnimationsPackageImpl extends EPackageImpl implements AnimationsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getShow_SimplePosition() {
-		return (EAttribute)showEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getShow_Shape() {
-		return (EAttribute)showEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)showEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -216,15 +198,6 @@ public class AnimationsPackageImpl extends EPackageImpl implements AnimationsPac
 	 */
 	public EAttribute getMove_Speed() {
 		return (EAttribute)moveEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMove_GeoTrack() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -279,15 +252,12 @@ public class AnimationsPackageImpl extends EPackageImpl implements AnimationsPac
 		createEReference(sequenceEClass, SEQUENCE__COMPONENTS);
 
 		hideEClass = createEClass(HIDE);
-		createEAttribute(hideEClass, HIDE__SIMPLE_POSITION);
 
 		showEClass = createEClass(SHOW);
-		createEAttribute(showEClass, SHOW__SIMPLE_POSITION);
 		createEAttribute(showEClass, SHOW__SHAPE);
 
 		moveEClass = createEClass(MOVE);
 		createEAttribute(moveEClass, MOVE__SPEED);
-		createEAttribute(moveEClass, MOVE__GEO_TRACK);
 
 		waitEClass = createEClass(WAIT);
 		createEAttribute(waitEClass, WAIT__TIME);
@@ -334,18 +304,15 @@ public class AnimationsPackageImpl extends EPackageImpl implements AnimationsPac
 		initEReference(getSequence_Components(), this.getAnimation(), null, "components", null, 2, -1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(hideEClass, Hide.class, "Hide", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getHide_SimplePosition(), ecorePackage.getEString(), "simplePosition", null, 0, 1, Hide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(showEClass, Show.class, "Show", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getShow_SimplePosition(), ecorePackage.getEString(), "simplePosition", null, 0, 1, Show.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getShow_Shape(), ecorePackage.getEString(), "shape", null, 0, 1, Show.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(moveEClass, Move.class, "Move", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMove_Speed(), ecorePackage.getEDouble(), "speed", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMove_GeoTrack(), ecorePackage.getEString(), "geoTrack", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(waitEClass, Wait.class, "Wait", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getWait_Time(), ecorePackage.getEDouble(), "time", null, 0, 1, Wait.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWait_Time(), ecorePackage.getEInt(), "time", null, 0, 1, Wait.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

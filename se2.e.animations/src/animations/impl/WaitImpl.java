@@ -33,7 +33,7 @@ public class WaitImpl extends AnimationImpl implements Wait {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double TIME_EDEFAULT = 0.0;
+	protected static final int TIME_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getTime() <em>Time</em>}' attribute.
@@ -43,7 +43,7 @@ public class WaitImpl extends AnimationImpl implements Wait {
 	 * @generated
 	 * @ordered
 	 */
-	protected double time = TIME_EDEFAULT;
+	protected int time = TIME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,7 +69,7 @@ public class WaitImpl extends AnimationImpl implements Wait {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getTime() {
+	public int getTime() {
 		return time;
 	}
 
@@ -78,8 +78,8 @@ public class WaitImpl extends AnimationImpl implements Wait {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTime(double newTime) {
-		double oldTime = time;
+	public void setTime(int newTime) {
+		int oldTime = time;
 		time = newTime;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AnimationsPackage.WAIT__TIME, oldTime, time));
@@ -108,7 +108,7 @@ public class WaitImpl extends AnimationImpl implements Wait {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AnimationsPackage.WAIT__TIME:
-				setTime((Double)newValue);
+				setTime((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -29,12 +29,12 @@ public interface Wait extends Animation {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Time</em>' attribute.
-	 * @see #setTime(double)
+	 * @see #setTime(int)
 	 * @see animations.AnimationsPackage#getWait_Time()
 	 * @model
 	 * @generated
 	 */
-	double getTime();
+	int getTime();
 
 	/**
 	 * Sets the value of the '{@link animations.Wait#getTime <em>Time</em>}' attribute.
@@ -44,6 +44,6 @@ public interface Wait extends Animation {
 	 * @see #getTime()
 	 * @generated
 	 */
-	void setTime(double value);
+	void setTime(int value);
 
 } // Wait

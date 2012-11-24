@@ -58,7 +58,6 @@ public class MoveItemProvider
 			super.getPropertyDescriptors(object);
 
 			addSpeedPropertyDescriptor(object);
-			addGeoTrackPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,28 +80,6 @@ public class MoveItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Geo Track feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGeoTrackPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Move_geoTrack_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Move_geoTrack_feature", "_UI_Move_type"),
-				 AnimationsPackage.Literals.MOVE__GEO_TRACK,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -143,7 +120,6 @@ public class MoveItemProvider
 
 		switch (notification.getFeatureID(Move.class)) {
 			case AnimationsPackage.MOVE__SPEED:
-			case AnimationsPackage.MOVE__GEO_TRACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

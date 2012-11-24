@@ -9,16 +9,12 @@
     <genClasses ecoreClass="Animations.ecore#//Sequence">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Animations.ecore#//Sequence/components"/>
     </genClasses>
-    <genClasses ecoreClass="Animations.ecore#//Hide">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Animations.ecore#//Hide/simplePosition"/>
-    </genClasses>
+    <genClasses ecoreClass="Animations.ecore#//Hide"/>
     <genClasses ecoreClass="Animations.ecore#//Show">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Animations.ecore#//Show/simplePosition"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Animations.ecore#//Show/shape"/>
     </genClasses>
     <genClasses ecoreClass="Animations.ecore#//Move">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Animations.ecore#//Move/speed"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Animations.ecore#//Move/geoTrack"/>
     </genClasses>
     <genClasses ecoreClass="Animations.ecore#//Wait">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Animations.ecore#//Wait/time"/>

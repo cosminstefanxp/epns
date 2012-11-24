@@ -21,10 +21,9 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "';'", "'move'", "'('", "','", "')'", "'hide'", "'show'", "'wait'", "'['", "']'", "'-'", "'.'", "'E'", "'e'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "';'", "'move'", "'('", "')'", "'hide'", "'show'", "'wait'", "'['", "']'", "'-'", "'.'", "'E'", "'e'"
     };
     public static final int RULE_ID=5;
-    public static final int T__24=24;
     public static final int T__23=23;
     public static final int T__22=22;
     public static final int RULE_ANY_OTHER=10;
@@ -363,22 +362,22 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
                 alt3=1;
                 }
                 break;
-            case 16:
+            case 15:
                 {
                 alt3=2;
                 }
                 break;
-            case 17:
+            case 16:
                 {
                 alt3=3;
                 }
                 break;
-            case 18:
+            case 17:
                 {
                 alt3=4;
                 }
                 break;
-            case 19:
+            case 18:
                 {
                 alt3=5;
                 }
@@ -538,27 +537,24 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleMove"
-    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:226:1: ruleMove returns [EObject current=null] : ( () otherlv_1= 'move' otherlv_2= '(' ( (lv_speed_3_0= ruleEDouble ) ) otherlv_4= ',' ( (lv_geoTrack_5_0= ruleEString ) ) otherlv_6= ')' ) ;
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:226:1: ruleMove returns [EObject current=null] : ( () otherlv_1= 'move' otherlv_2= '(' ( (lv_speed_3_0= ruleEDouble ) ) otherlv_4= ')' ) ;
     public final EObject ruleMove() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token otherlv_2=null;
         Token otherlv_4=null;
-        Token otherlv_6=null;
         AntlrDatatypeRuleToken lv_speed_3_0 = null;
-
-        AntlrDatatypeRuleToken lv_geoTrack_5_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:229:28: ( ( () otherlv_1= 'move' otherlv_2= '(' ( (lv_speed_3_0= ruleEDouble ) ) otherlv_4= ',' ( (lv_geoTrack_5_0= ruleEString ) ) otherlv_6= ')' ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:230:1: ( () otherlv_1= 'move' otherlv_2= '(' ( (lv_speed_3_0= ruleEDouble ) ) otherlv_4= ',' ( (lv_geoTrack_5_0= ruleEString ) ) otherlv_6= ')' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:229:28: ( ( () otherlv_1= 'move' otherlv_2= '(' ( (lv_speed_3_0= ruleEDouble ) ) otherlv_4= ')' ) )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:230:1: ( () otherlv_1= 'move' otherlv_2= '(' ( (lv_speed_3_0= ruleEDouble ) ) otherlv_4= ')' )
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:230:1: ( () otherlv_1= 'move' otherlv_2= '(' ( (lv_speed_3_0= ruleEDouble ) ) otherlv_4= ',' ( (lv_geoTrack_5_0= ruleEString ) ) otherlv_6= ')' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:230:2: () otherlv_1= 'move' otherlv_2= '(' ( (lv_speed_3_0= ruleEDouble ) ) otherlv_4= ',' ( (lv_geoTrack_5_0= ruleEString ) ) otherlv_6= ')'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:230:1: ( () otherlv_1= 'move' otherlv_2= '(' ( (lv_speed_3_0= ruleEDouble ) ) otherlv_4= ')' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:230:2: () otherlv_1= 'move' otherlv_2= '(' ( (lv_speed_3_0= ruleEDouble ) ) otherlv_4= ')'
             {
             // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:230:2: ()
             // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:231:5: 
@@ -612,42 +608,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
             otherlv_4=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleMove549); 
 
-                	newLeafNode(otherlv_4, grammarAccess.getMoveAccess().getCommaKeyword_4());
-                
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:266:1: ( (lv_geoTrack_5_0= ruleEString ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:267:1: (lv_geoTrack_5_0= ruleEString )
-            {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:267:1: (lv_geoTrack_5_0= ruleEString )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:268:3: lv_geoTrack_5_0= ruleEString
-            {
-             
-            	        newCompositeNode(grammarAccess.getMoveAccess().getGeoTrackEStringParserRuleCall_5_0()); 
-            	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleMove570);
-            lv_geoTrack_5_0=ruleEString();
-
-            state._fsp--;
-
-
-            	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getMoveRule());
-            	        }
-                   		set(
-                   			current, 
-                   			"geoTrack",
-                    		lv_geoTrack_5_0, 
-                    		"EString");
-            	        afterParserOrEnumRuleCall();
-            	    
-
-            }
-
-
-            }
-
-            otherlv_6=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleMove582); 
-
-                	newLeafNode(otherlv_6, grammarAccess.getMoveAccess().getRightParenthesisKeyword_6());
+                	newLeafNode(otherlv_4, grammarAccess.getMoveAccess().getRightParenthesisKeyword_4());
                 
 
             }
@@ -670,7 +631,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleHide"
-    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:296:1: entryRuleHide returns [EObject current=null] : iv_ruleHide= ruleHide EOF ;
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:274:1: entryRuleHide returns [EObject current=null] : iv_ruleHide= ruleHide EOF ;
     public final EObject entryRuleHide() throws RecognitionException {
         EObject current = null;
 
@@ -678,17 +639,17 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:297:2: (iv_ruleHide= ruleHide EOF )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:298:2: iv_ruleHide= ruleHide EOF
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:275:2: (iv_ruleHide= ruleHide EOF )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:276:2: iv_ruleHide= ruleHide EOF
             {
              newCompositeNode(grammarAccess.getHideRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleHide_in_entryRuleHide618);
+            pushFollow(FollowSets000.FOLLOW_ruleHide_in_entryRuleHide585);
             iv_ruleHide=ruleHide();
 
             state._fsp--;
 
              current =iv_ruleHide; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleHide628); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleHide595); 
 
             }
 
@@ -706,27 +667,25 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleHide"
-    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:305:1: ruleHide returns [EObject current=null] : ( () otherlv_1= 'hide' otherlv_2= '(' ( (lv_simplePosition_3_0= ruleEString ) ) otherlv_4= ')' ) ;
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:283:1: ruleHide returns [EObject current=null] : ( () otherlv_1= 'hide' otherlv_2= '(' otherlv_3= ')' ) ;
     public final EObject ruleHide() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token otherlv_2=null;
-        Token otherlv_4=null;
-        AntlrDatatypeRuleToken lv_simplePosition_3_0 = null;
-
+        Token otherlv_3=null;
 
          enterRule(); 
             
         try {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:308:28: ( ( () otherlv_1= 'hide' otherlv_2= '(' ( (lv_simplePosition_3_0= ruleEString ) ) otherlv_4= ')' ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:309:1: ( () otherlv_1= 'hide' otherlv_2= '(' ( (lv_simplePosition_3_0= ruleEString ) ) otherlv_4= ')' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:286:28: ( ( () otherlv_1= 'hide' otherlv_2= '(' otherlv_3= ')' ) )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:287:1: ( () otherlv_1= 'hide' otherlv_2= '(' otherlv_3= ')' )
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:309:1: ( () otherlv_1= 'hide' otherlv_2= '(' ( (lv_simplePosition_3_0= ruleEString ) ) otherlv_4= ')' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:309:2: () otherlv_1= 'hide' otherlv_2= '(' ( (lv_simplePosition_3_0= ruleEString ) ) otherlv_4= ')'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:287:1: ( () otherlv_1= 'hide' otherlv_2= '(' otherlv_3= ')' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:287:2: () otherlv_1= 'hide' otherlv_2= '(' otherlv_3= ')'
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:309:2: ()
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:310:5: 
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:287:2: ()
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:288:5: 
             {
 
                     current = forceCreateModelElement(
@@ -736,48 +695,17 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_1=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleHide674); 
+            otherlv_1=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleHide641); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getHideAccess().getHideKeyword_1());
                 
-            otherlv_2=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleHide686); 
+            otherlv_2=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleHide653); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getHideAccess().getLeftParenthesisKeyword_2());
                 
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:323:1: ( (lv_simplePosition_3_0= ruleEString ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:324:1: (lv_simplePosition_3_0= ruleEString )
-            {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:324:1: (lv_simplePosition_3_0= ruleEString )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:325:3: lv_simplePosition_3_0= ruleEString
-            {
-             
-            	        newCompositeNode(grammarAccess.getHideAccess().getSimplePositionEStringParserRuleCall_3_0()); 
-            	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleHide707);
-            lv_simplePosition_3_0=ruleEString();
+            otherlv_3=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleHide665); 
 
-            state._fsp--;
-
-
-            	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getHideRule());
-            	        }
-                   		set(
-                   			current, 
-                   			"simplePosition",
-                    		lv_simplePosition_3_0, 
-                    		"EString");
-            	        afterParserOrEnumRuleCall();
-            	    
-
-            }
-
-
-            }
-
-            otherlv_4=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleHide719); 
-
-                	newLeafNode(otherlv_4, grammarAccess.getHideAccess().getRightParenthesisKeyword_4());
+                	newLeafNode(otherlv_3, grammarAccess.getHideAccess().getRightParenthesisKeyword_3());
                 
 
             }
@@ -800,7 +728,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleShow"
-    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:353:1: entryRuleShow returns [EObject current=null] : iv_ruleShow= ruleShow EOF ;
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:313:1: entryRuleShow returns [EObject current=null] : iv_ruleShow= ruleShow EOF ;
     public final EObject entryRuleShow() throws RecognitionException {
         EObject current = null;
 
@@ -808,17 +736,17 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:354:2: (iv_ruleShow= ruleShow EOF )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:355:2: iv_ruleShow= ruleShow EOF
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:314:2: (iv_ruleShow= ruleShow EOF )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:315:2: iv_ruleShow= ruleShow EOF
             {
              newCompositeNode(grammarAccess.getShowRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleShow_in_entryRuleShow755);
+            pushFollow(FollowSets000.FOLLOW_ruleShow_in_entryRuleShow701);
             iv_ruleShow=ruleShow();
 
             state._fsp--;
 
              current =iv_ruleShow; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleShow765); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleShow711); 
 
             }
 
@@ -836,30 +764,27 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleShow"
-    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:362:1: ruleShow returns [EObject current=null] : ( () otherlv_1= 'show' otherlv_2= '(' ( (lv_simplePosition_3_0= ruleEString ) ) otherlv_4= ',' ( (lv_shape_5_0= ruleEString ) ) otherlv_6= ')' ) ;
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:322:1: ruleShow returns [EObject current=null] : ( () otherlv_1= 'show' otherlv_2= '(' ( (lv_shape_3_0= ruleEString ) ) otherlv_4= ')' ) ;
     public final EObject ruleShow() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token otherlv_2=null;
         Token otherlv_4=null;
-        Token otherlv_6=null;
-        AntlrDatatypeRuleToken lv_simplePosition_3_0 = null;
-
-        AntlrDatatypeRuleToken lv_shape_5_0 = null;
+        AntlrDatatypeRuleToken lv_shape_3_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:365:28: ( ( () otherlv_1= 'show' otherlv_2= '(' ( (lv_simplePosition_3_0= ruleEString ) ) otherlv_4= ',' ( (lv_shape_5_0= ruleEString ) ) otherlv_6= ')' ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:366:1: ( () otherlv_1= 'show' otherlv_2= '(' ( (lv_simplePosition_3_0= ruleEString ) ) otherlv_4= ',' ( (lv_shape_5_0= ruleEString ) ) otherlv_6= ')' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:325:28: ( ( () otherlv_1= 'show' otherlv_2= '(' ( (lv_shape_3_0= ruleEString ) ) otherlv_4= ')' ) )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:326:1: ( () otherlv_1= 'show' otherlv_2= '(' ( (lv_shape_3_0= ruleEString ) ) otherlv_4= ')' )
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:366:1: ( () otherlv_1= 'show' otherlv_2= '(' ( (lv_simplePosition_3_0= ruleEString ) ) otherlv_4= ',' ( (lv_shape_5_0= ruleEString ) ) otherlv_6= ')' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:366:2: () otherlv_1= 'show' otherlv_2= '(' ( (lv_simplePosition_3_0= ruleEString ) ) otherlv_4= ',' ( (lv_shape_5_0= ruleEString ) ) otherlv_6= ')'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:326:1: ( () otherlv_1= 'show' otherlv_2= '(' ( (lv_shape_3_0= ruleEString ) ) otherlv_4= ')' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:326:2: () otherlv_1= 'show' otherlv_2= '(' ( (lv_shape_3_0= ruleEString ) ) otherlv_4= ')'
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:366:2: ()
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:367:5: 
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:326:2: ()
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:327:5: 
             {
 
                     current = forceCreateModelElement(
@@ -869,60 +794,25 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_1=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleShow811); 
+            otherlv_1=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleShow757); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getShowAccess().getShowKeyword_1());
                 
-            otherlv_2=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleShow823); 
+            otherlv_2=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleShow769); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getShowAccess().getLeftParenthesisKeyword_2());
                 
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:380:1: ( (lv_simplePosition_3_0= ruleEString ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:381:1: (lv_simplePosition_3_0= ruleEString )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:340:1: ( (lv_shape_3_0= ruleEString ) )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:341:1: (lv_shape_3_0= ruleEString )
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:381:1: (lv_simplePosition_3_0= ruleEString )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:382:3: lv_simplePosition_3_0= ruleEString
-            {
-             
-            	        newCompositeNode(grammarAccess.getShowAccess().getSimplePositionEStringParserRuleCall_3_0()); 
-            	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleShow844);
-            lv_simplePosition_3_0=ruleEString();
-
-            state._fsp--;
-
-
-            	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getShowRule());
-            	        }
-                   		set(
-                   			current, 
-                   			"simplePosition",
-                    		lv_simplePosition_3_0, 
-                    		"EString");
-            	        afterParserOrEnumRuleCall();
-            	    
-
-            }
-
-
-            }
-
-            otherlv_4=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleShow856); 
-
-                	newLeafNode(otherlv_4, grammarAccess.getShowAccess().getCommaKeyword_4());
-                
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:402:1: ( (lv_shape_5_0= ruleEString ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:403:1: (lv_shape_5_0= ruleEString )
-            {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:403:1: (lv_shape_5_0= ruleEString )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:404:3: lv_shape_5_0= ruleEString
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:341:1: (lv_shape_3_0= ruleEString )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:342:3: lv_shape_3_0= ruleEString
             {
              
-            	        newCompositeNode(grammarAccess.getShowAccess().getShapeEStringParserRuleCall_5_0()); 
+            	        newCompositeNode(grammarAccess.getShowAccess().getShapeEStringParserRuleCall_3_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleShow877);
-            lv_shape_5_0=ruleEString();
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleShow790);
+            lv_shape_3_0=ruleEString();
 
             state._fsp--;
 
@@ -933,7 +823,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
                    		set(
                    			current, 
                    			"shape",
-                    		lv_shape_5_0, 
+                    		lv_shape_3_0, 
                     		"EString");
             	        afterParserOrEnumRuleCall();
             	    
@@ -943,9 +833,9 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_6=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleShow889); 
+            otherlv_4=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleShow802); 
 
-                	newLeafNode(otherlv_6, grammarAccess.getShowAccess().getRightParenthesisKeyword_6());
+                	newLeafNode(otherlv_4, grammarAccess.getShowAccess().getRightParenthesisKeyword_4());
                 
 
             }
@@ -968,7 +858,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleWait"
-    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:432:1: entryRuleWait returns [EObject current=null] : iv_ruleWait= ruleWait EOF ;
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:370:1: entryRuleWait returns [EObject current=null] : iv_ruleWait= ruleWait EOF ;
     public final EObject entryRuleWait() throws RecognitionException {
         EObject current = null;
 
@@ -976,17 +866,17 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:433:2: (iv_ruleWait= ruleWait EOF )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:434:2: iv_ruleWait= ruleWait EOF
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:371:2: (iv_ruleWait= ruleWait EOF )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:372:2: iv_ruleWait= ruleWait EOF
             {
              newCompositeNode(grammarAccess.getWaitRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleWait_in_entryRuleWait925);
+            pushFollow(FollowSets000.FOLLOW_ruleWait_in_entryRuleWait838);
             iv_ruleWait=ruleWait();
 
             state._fsp--;
 
              current =iv_ruleWait; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleWait935); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleWait848); 
 
             }
 
@@ -1004,7 +894,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleWait"
-    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:441:1: ruleWait returns [EObject current=null] : ( () otherlv_1= 'wait' otherlv_2= '(' ( (lv_time_3_0= ruleEDouble ) ) otherlv_4= ')' ) ;
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:379:1: ruleWait returns [EObject current=null] : ( () otherlv_1= 'wait' otherlv_2= '(' ( (lv_time_3_0= ruleEInt ) ) otherlv_4= ')' ) ;
     public final EObject ruleWait() throws RecognitionException {
         EObject current = null;
 
@@ -1017,14 +907,14 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:444:28: ( ( () otherlv_1= 'wait' otherlv_2= '(' ( (lv_time_3_0= ruleEDouble ) ) otherlv_4= ')' ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:445:1: ( () otherlv_1= 'wait' otherlv_2= '(' ( (lv_time_3_0= ruleEDouble ) ) otherlv_4= ')' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:382:28: ( ( () otherlv_1= 'wait' otherlv_2= '(' ( (lv_time_3_0= ruleEInt ) ) otherlv_4= ')' ) )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:383:1: ( () otherlv_1= 'wait' otherlv_2= '(' ( (lv_time_3_0= ruleEInt ) ) otherlv_4= ')' )
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:445:1: ( () otherlv_1= 'wait' otherlv_2= '(' ( (lv_time_3_0= ruleEDouble ) ) otherlv_4= ')' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:445:2: () otherlv_1= 'wait' otherlv_2= '(' ( (lv_time_3_0= ruleEDouble ) ) otherlv_4= ')'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:383:1: ( () otherlv_1= 'wait' otherlv_2= '(' ( (lv_time_3_0= ruleEInt ) ) otherlv_4= ')' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:383:2: () otherlv_1= 'wait' otherlv_2= '(' ( (lv_time_3_0= ruleEInt ) ) otherlv_4= ')'
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:445:2: ()
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:446:5: 
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:383:2: ()
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:384:5: 
             {
 
                     current = forceCreateModelElement(
@@ -1034,25 +924,25 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_1=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleWait981); 
+            otherlv_1=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleWait894); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getWaitAccess().getWaitKeyword_1());
                 
-            otherlv_2=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleWait993); 
+            otherlv_2=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleWait906); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getWaitAccess().getLeftParenthesisKeyword_2());
                 
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:459:1: ( (lv_time_3_0= ruleEDouble ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:460:1: (lv_time_3_0= ruleEDouble )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:397:1: ( (lv_time_3_0= ruleEInt ) )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:398:1: (lv_time_3_0= ruleEInt )
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:460:1: (lv_time_3_0= ruleEDouble )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:461:3: lv_time_3_0= ruleEDouble
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:398:1: (lv_time_3_0= ruleEInt )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:399:3: lv_time_3_0= ruleEInt
             {
              
-            	        newCompositeNode(grammarAccess.getWaitAccess().getTimeEDoubleParserRuleCall_3_0()); 
+            	        newCompositeNode(grammarAccess.getWaitAccess().getTimeEIntParserRuleCall_3_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEDouble_in_ruleWait1014);
-            lv_time_3_0=ruleEDouble();
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleWait927);
+            lv_time_3_0=ruleEInt();
 
             state._fsp--;
 
@@ -1064,7 +954,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
                    			current, 
                    			"time",
                     		lv_time_3_0, 
-                    		"EDouble");
+                    		"EInt");
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -1073,7 +963,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_4=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleWait1026); 
+            otherlv_4=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleWait939); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getWaitAccess().getRightParenthesisKeyword_4());
                 
@@ -1098,7 +988,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleSequence"
-    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:489:1: entryRuleSequence returns [EObject current=null] : iv_ruleSequence= ruleSequence EOF ;
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:427:1: entryRuleSequence returns [EObject current=null] : iv_ruleSequence= ruleSequence EOF ;
     public final EObject entryRuleSequence() throws RecognitionException {
         EObject current = null;
 
@@ -1106,17 +996,17 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:490:2: (iv_ruleSequence= ruleSequence EOF )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:491:2: iv_ruleSequence= ruleSequence EOF
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:428:2: (iv_ruleSequence= ruleSequence EOF )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:429:2: iv_ruleSequence= ruleSequence EOF
             {
              newCompositeNode(grammarAccess.getSequenceRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSequence_in_entryRuleSequence1062);
+            pushFollow(FollowSets000.FOLLOW_ruleSequence_in_entryRuleSequence975);
             iv_ruleSequence=ruleSequence();
 
             state._fsp--;
 
              current =iv_ruleSequence; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSequence1072); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSequence985); 
 
             }
 
@@ -1134,7 +1024,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleSequence"
-    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:498:1: ruleSequence returns [EObject current=null] : ( () otherlv_1= '[' ( (lv_components_2_0= ruleSimpleAnimation ) ) (otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) ) )* otherlv_5= ']' ) ;
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:436:1: ruleSequence returns [EObject current=null] : ( () otherlv_1= '[' ( (lv_components_2_0= ruleSimpleAnimation ) ) (otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) ) )* otherlv_5= ']' ) ;
     public final EObject ruleSequence() throws RecognitionException {
         EObject current = null;
 
@@ -1149,14 +1039,14 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:501:28: ( ( () otherlv_1= '[' ( (lv_components_2_0= ruleSimpleAnimation ) ) (otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) ) )* otherlv_5= ']' ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:502:1: ( () otherlv_1= '[' ( (lv_components_2_0= ruleSimpleAnimation ) ) (otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) ) )* otherlv_5= ']' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:439:28: ( ( () otherlv_1= '[' ( (lv_components_2_0= ruleSimpleAnimation ) ) (otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) ) )* otherlv_5= ']' ) )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:440:1: ( () otherlv_1= '[' ( (lv_components_2_0= ruleSimpleAnimation ) ) (otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) ) )* otherlv_5= ']' )
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:502:1: ( () otherlv_1= '[' ( (lv_components_2_0= ruleSimpleAnimation ) ) (otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) ) )* otherlv_5= ']' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:502:2: () otherlv_1= '[' ( (lv_components_2_0= ruleSimpleAnimation ) ) (otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) ) )* otherlv_5= ']'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:440:1: ( () otherlv_1= '[' ( (lv_components_2_0= ruleSimpleAnimation ) ) (otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) ) )* otherlv_5= ']' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:440:2: () otherlv_1= '[' ( (lv_components_2_0= ruleSimpleAnimation ) ) (otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) ) )* otherlv_5= ']'
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:502:2: ()
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:503:5: 
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:440:2: ()
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:441:5: 
             {
 
                     current = forceCreateModelElement(
@@ -1166,20 +1056,20 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_1=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleSequence1118); 
+            otherlv_1=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleSequence1031); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getSequenceAccess().getLeftSquareBracketKeyword_1());
                 
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:512:1: ( (lv_components_2_0= ruleSimpleAnimation ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:513:1: (lv_components_2_0= ruleSimpleAnimation )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:450:1: ( (lv_components_2_0= ruleSimpleAnimation ) )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:451:1: (lv_components_2_0= ruleSimpleAnimation )
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:513:1: (lv_components_2_0= ruleSimpleAnimation )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:514:3: lv_components_2_0= ruleSimpleAnimation
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:451:1: (lv_components_2_0= ruleSimpleAnimation )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:452:3: lv_components_2_0= ruleSimpleAnimation
             {
              
             	        newCompositeNode(grammarAccess.getSequenceAccess().getComponentsSimpleAnimationParserRuleCall_2_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleSimpleAnimation_in_ruleSequence1139);
+            pushFollow(FollowSets000.FOLLOW_ruleSimpleAnimation_in_ruleSequence1052);
             lv_components_2_0=ruleSimpleAnimation();
 
             state._fsp--;
@@ -1201,7 +1091,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
             }
 
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:530:2: (otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) ) )*
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:468:2: (otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) ) )*
             loop4:
             do {
                 int alt4=2;
@@ -1214,22 +1104,22 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
                 switch (alt4) {
             	case 1 :
-            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:530:4: otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) )
+            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:468:4: otherlv_3= ';' ( (lv_components_4_0= ruleSimpleAnimation ) )
             	    {
-            	    otherlv_3=(Token)match(input,11,FollowSets000.FOLLOW_11_in_ruleSequence1152); 
+            	    otherlv_3=(Token)match(input,11,FollowSets000.FOLLOW_11_in_ruleSequence1065); 
 
             	        	newLeafNode(otherlv_3, grammarAccess.getSequenceAccess().getSemicolonKeyword_3_0());
             	        
-            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:534:1: ( (lv_components_4_0= ruleSimpleAnimation ) )
-            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:535:1: (lv_components_4_0= ruleSimpleAnimation )
+            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:472:1: ( (lv_components_4_0= ruleSimpleAnimation ) )
+            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:473:1: (lv_components_4_0= ruleSimpleAnimation )
             	    {
-            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:535:1: (lv_components_4_0= ruleSimpleAnimation )
-            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:536:3: lv_components_4_0= ruleSimpleAnimation
+            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:473:1: (lv_components_4_0= ruleSimpleAnimation )
+            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:474:3: lv_components_4_0= ruleSimpleAnimation
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getSequenceAccess().getComponentsSimpleAnimationParserRuleCall_3_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleSimpleAnimation_in_ruleSequence1173);
+            	    pushFollow(FollowSets000.FOLLOW_ruleSimpleAnimation_in_ruleSequence1086);
             	    lv_components_4_0=ruleSimpleAnimation();
 
             	    state._fsp--;
@@ -1260,7 +1150,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleSequence1187); 
+            otherlv_5=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleSequence1100); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getSequenceAccess().getRightSquareBracketKeyword_4());
                 
@@ -1285,7 +1175,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleEString"
-    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:564:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:502:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -1293,17 +1183,17 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:565:2: (iv_ruleEString= ruleEString EOF )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:566:2: iv_ruleEString= ruleEString EOF
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:503:2: (iv_ruleEString= ruleEString EOF )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:504:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_entryRuleEString1224);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_entryRuleEString1137);
             iv_ruleEString=ruleEString();
 
             state._fsp--;
 
              current =iv_ruleEString.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEString1235); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEString1148); 
 
             }
 
@@ -1321,7 +1211,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleEString"
-    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:573:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:511:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1331,10 +1221,10 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:576:28: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:577:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:514:28: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:515:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:577:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:515:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1352,9 +1242,9 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
             }
             switch (alt5) {
                 case 1 :
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:577:6: this_STRING_0= RULE_STRING
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:515:6: this_STRING_0= RULE_STRING
                     {
-                    this_STRING_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleEString1275); 
+                    this_STRING_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleEString1188); 
 
                     		current.merge(this_STRING_0);
                         
@@ -1365,9 +1255,9 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 2 :
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:585:10: this_ID_1= RULE_ID
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:523:10: this_ID_1= RULE_ID
                     {
-                    this_ID_1=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleEString1301); 
+                    this_ID_1=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleEString1214); 
 
                     		current.merge(this_ID_1);
                         
@@ -1398,7 +1288,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleEDouble"
-    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:600:1: entryRuleEDouble returns [String current=null] : iv_ruleEDouble= ruleEDouble EOF ;
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:538:1: entryRuleEDouble returns [String current=null] : iv_ruleEDouble= ruleEDouble EOF ;
     public final String entryRuleEDouble() throws RecognitionException {
         String current = null;
 
@@ -1406,17 +1296,17 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:601:2: (iv_ruleEDouble= ruleEDouble EOF )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:602:2: iv_ruleEDouble= ruleEDouble EOF
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:539:2: (iv_ruleEDouble= ruleEDouble EOF )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:540:2: iv_ruleEDouble= ruleEDouble EOF
             {
              newCompositeNode(grammarAccess.getEDoubleRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEDouble_in_entryRuleEDouble1347);
+            pushFollow(FollowSets000.FOLLOW_ruleEDouble_in_entryRuleEDouble1260);
             iv_ruleEDouble=ruleEDouble();
 
             state._fsp--;
 
              current =iv_ruleEDouble.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEDouble1358); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEDouble1271); 
 
             }
 
@@ -1434,7 +1324,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleEDouble"
-    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:609:1: ruleEDouble returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? ) ;
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:547:1: ruleEDouble returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? ) ;
     public final AntlrDatatypeRuleToken ruleEDouble() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1446,24 +1336,24 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:612:28: ( ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:613:1: ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:550:28: ( ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? ) )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:551:1: ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? )
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:613:1: ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:613:2: (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )?
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:551:1: ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:551:2: (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )?
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:613:2: (kw= '-' )?
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:551:2: (kw= '-' )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==21) ) {
+            if ( (LA6_0==20) ) {
                 alt6=1;
             }
             switch (alt6) {
                 case 1 :
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:614:2: kw= '-'
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:552:2: kw= '-'
                     {
-                    kw=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleEDouble1397); 
+                    kw=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleEDouble1310); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getEDoubleAccess().getHyphenMinusKeyword_0()); 
@@ -1474,7 +1364,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
             }
 
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:619:3: (this_INT_1= RULE_INT )?
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:557:3: (this_INT_1= RULE_INT )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1483,9 +1373,9 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
             }
             switch (alt7) {
                 case 1 :
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:619:8: this_INT_1= RULE_INT
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:557:8: this_INT_1= RULE_INT
                     {
-                    this_INT_1=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEDouble1415); 
+                    this_INT_1=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEDouble1328); 
 
                     		current.merge(this_INT_1);
                         
@@ -1498,37 +1388,37 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
             }
 
-            kw=(Token)match(input,22,FollowSets000.FOLLOW_22_in_ruleEDouble1435); 
+            kw=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleEDouble1348); 
 
                     current.merge(kw);
                     newLeafNode(kw, grammarAccess.getEDoubleAccess().getFullStopKeyword_2()); 
                 
-            this_INT_3=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEDouble1450); 
+            this_INT_3=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEDouble1363); 
 
             		current.merge(this_INT_3);
                 
              
                 newLeafNode(this_INT_3, grammarAccess.getEDoubleAccess().getINTTerminalRuleCall_3()); 
                 
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:639:1: ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )?
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:577:1: ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( ((LA10_0>=23 && LA10_0<=24)) ) {
+            if ( ((LA10_0>=22 && LA10_0<=23)) ) {
                 alt10=1;
             }
             switch (alt10) {
                 case 1 :
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:639:2: (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:577:2: (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT
                     {
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:639:2: (kw= 'E' | kw= 'e' )
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:577:2: (kw= 'E' | kw= 'e' )
                     int alt8=2;
                     int LA8_0 = input.LA(1);
 
-                    if ( (LA8_0==23) ) {
+                    if ( (LA8_0==22) ) {
                         alt8=1;
                     }
-                    else if ( (LA8_0==24) ) {
+                    else if ( (LA8_0==23) ) {
                         alt8=2;
                     }
                     else {
@@ -1539,9 +1429,9 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
                     }
                     switch (alt8) {
                         case 1 :
-                            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:640:2: kw= 'E'
+                            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:578:2: kw= 'E'
                             {
-                            kw=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleEDouble1470); 
+                            kw=(Token)match(input,22,FollowSets000.FOLLOW_22_in_ruleEDouble1383); 
 
                                     current.merge(kw);
                                     newLeafNode(kw, grammarAccess.getEDoubleAccess().getEKeyword_4_0_0()); 
@@ -1550,9 +1440,9 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
                             }
                             break;
                         case 2 :
-                            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:647:2: kw= 'e'
+                            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:585:2: kw= 'e'
                             {
-                            kw=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleEDouble1489); 
+                            kw=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleEDouble1402); 
 
                                     current.merge(kw);
                                     newLeafNode(kw, grammarAccess.getEDoubleAccess().getEKeyword_4_0_1()); 
@@ -1563,18 +1453,18 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:652:2: (kw= '-' )?
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:590:2: (kw= '-' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
-                    if ( (LA9_0==21) ) {
+                    if ( (LA9_0==20) ) {
                         alt9=1;
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:653:2: kw= '-'
+                            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:591:2: kw= '-'
                             {
-                            kw=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleEDouble1504); 
+                            kw=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleEDouble1417); 
 
                                     current.merge(kw);
                                     newLeafNode(kw, grammarAccess.getEDoubleAccess().getHyphenMinusKeyword_4_1()); 
@@ -1585,7 +1475,7 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
 
                     }
 
-                    this_INT_7=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEDouble1521); 
+                    this_INT_7=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEDouble1434); 
 
                     		current.merge(this_INT_7);
                         
@@ -1617,6 +1507,108 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
     }
     // $ANTLR end "ruleEDouble"
 
+
+    // $ANTLR start "entryRuleEInt"
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:611:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    public final String entryRuleEInt() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleEInt = null;
+
+
+        try {
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:612:2: (iv_ruleEInt= ruleEInt EOF )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:613:2: iv_ruleEInt= ruleEInt EOF
+            {
+             newCompositeNode(grammarAccess.getEIntRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_entryRuleEInt1482);
+            iv_ruleEInt=ruleEInt();
+
+            state._fsp--;
+
+             current =iv_ruleEInt.getText(); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEInt1493); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleEInt"
+
+
+    // $ANTLR start "ruleEInt"
+    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:620:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        Token this_INT_1=null;
+
+         enterRule(); 
+            
+        try {
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:623:28: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:624:1: ( (kw= '-' )? this_INT_1= RULE_INT )
+            {
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:624:1: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:624:2: (kw= '-' )? this_INT_1= RULE_INT
+            {
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:624:2: (kw= '-' )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
+
+            if ( (LA11_0==20) ) {
+                alt11=1;
+            }
+            switch (alt11) {
+                case 1 :
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:625:2: kw= '-'
+                    {
+                    kw=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleEInt1532); 
+
+                            current.merge(kw);
+                            newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
+                        
+
+                    }
+                    break;
+
+            }
+
+            this_INT_1=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEInt1549); 
+
+            		current.merge(this_INT_1);
+                
+             
+                newLeafNode(this_INT_1, grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); 
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleEInt"
+
     // Delegated rules
 
 
@@ -1627,9 +1619,9 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
         public static final BitSet FOLLOW_ruleAnimation_in_entryRuleAnimation75 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleAnimation85 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleSimpleAnimation_in_ruleAnimation132 = new BitSet(new long[]{0x0000000000000802L});
-        public static final BitSet FOLLOW_11_in_ruleAnimation144 = new BitSet(new long[]{0x00000000000F1000L});
+        public static final BitSet FOLLOW_11_in_ruleAnimation144 = new BitSet(new long[]{0x0000000000079000L});
         public static final BitSet FOLLOW_ruleSimpleAnimation_in_ruleAnimation174 = new BitSet(new long[]{0x0000000000000802L});
-        public static final BitSet FOLLOW_11_in_ruleAnimation187 = new BitSet(new long[]{0x00000000000F1000L});
+        public static final BitSet FOLLOW_11_in_ruleAnimation187 = new BitSet(new long[]{0x0000000000079000L});
         public static final BitSet FOLLOW_ruleSimpleAnimation_in_ruleAnimation208 = new BitSet(new long[]{0x0000000000000802L});
         public static final BitSet FOLLOW_ruleSimpleAnimation_in_entryRuleSimpleAnimation248 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleSimpleAnimation258 = new BitSet(new long[]{0x0000000000000002L});
@@ -1641,52 +1633,51 @@ public class InternalAnimationsLanguageParser extends AbstractInternalAntlrParse
         public static final BitSet FOLLOW_ruleMove_in_entryRuleMove448 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleMove458 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_12_in_ruleMove504 = new BitSet(new long[]{0x0000000000002000L});
-        public static final BitSet FOLLOW_13_in_ruleMove516 = new BitSet(new long[]{0x0000000000600040L});
+        public static final BitSet FOLLOW_13_in_ruleMove516 = new BitSet(new long[]{0x0000000000300040L});
         public static final BitSet FOLLOW_ruleEDouble_in_ruleMove537 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_ruleMove549 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleMove570 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_ruleMove582 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleHide_in_entryRuleHide618 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleHide628 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_16_in_ruleHide674 = new BitSet(new long[]{0x0000000000002000L});
-        public static final BitSet FOLLOW_13_in_ruleHide686 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleHide707 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_ruleHide719 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleShow_in_entryRuleShow755 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleShow765 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_17_in_ruleShow811 = new BitSet(new long[]{0x0000000000002000L});
-        public static final BitSet FOLLOW_13_in_ruleShow823 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleShow844 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_ruleShow856 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleShow877 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_ruleShow889 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleWait_in_entryRuleWait925 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleWait935 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_18_in_ruleWait981 = new BitSet(new long[]{0x0000000000002000L});
-        public static final BitSet FOLLOW_13_in_ruleWait993 = new BitSet(new long[]{0x0000000000600040L});
-        public static final BitSet FOLLOW_ruleEDouble_in_ruleWait1014 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_ruleWait1026 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSequence_in_entryRuleSequence1062 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSequence1072 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_19_in_ruleSequence1118 = new BitSet(new long[]{0x00000000000F1000L});
-        public static final BitSet FOLLOW_ruleSimpleAnimation_in_ruleSequence1139 = new BitSet(new long[]{0x0000000000100800L});
-        public static final BitSet FOLLOW_11_in_ruleSequence1152 = new BitSet(new long[]{0x00000000000F1000L});
-        public static final BitSet FOLLOW_ruleSimpleAnimation_in_ruleSequence1173 = new BitSet(new long[]{0x0000000000100800L});
-        public static final BitSet FOLLOW_20_in_ruleSequence1187 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_entryRuleEString1224 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleEString1235 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_STRING_in_ruleEString1275 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleEString1301 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEDouble_in_entryRuleEDouble1347 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleEDouble1358 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_21_in_ruleEDouble1397 = new BitSet(new long[]{0x0000000000400040L});
-        public static final BitSet FOLLOW_RULE_INT_in_ruleEDouble1415 = new BitSet(new long[]{0x0000000000400000L});
-        public static final BitSet FOLLOW_22_in_ruleEDouble1435 = new BitSet(new long[]{0x0000000000000040L});
-        public static final BitSet FOLLOW_RULE_INT_in_ruleEDouble1450 = new BitSet(new long[]{0x0000000001800002L});
-        public static final BitSet FOLLOW_23_in_ruleEDouble1470 = new BitSet(new long[]{0x0000000000200040L});
-        public static final BitSet FOLLOW_24_in_ruleEDouble1489 = new BitSet(new long[]{0x0000000000200040L});
-        public static final BitSet FOLLOW_21_in_ruleEDouble1504 = new BitSet(new long[]{0x0000000000000040L});
-        public static final BitSet FOLLOW_RULE_INT_in_ruleEDouble1521 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_14_in_ruleMove549 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleHide_in_entryRuleHide585 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleHide595 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_15_in_ruleHide641 = new BitSet(new long[]{0x0000000000002000L});
+        public static final BitSet FOLLOW_13_in_ruleHide653 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_14_in_ruleHide665 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleShow_in_entryRuleShow701 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleShow711 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_16_in_ruleShow757 = new BitSet(new long[]{0x0000000000002000L});
+        public static final BitSet FOLLOW_13_in_ruleShow769 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleShow790 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_14_in_ruleShow802 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleWait_in_entryRuleWait838 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleWait848 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_17_in_ruleWait894 = new BitSet(new long[]{0x0000000000002000L});
+        public static final BitSet FOLLOW_13_in_ruleWait906 = new BitSet(new long[]{0x0000000000100040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleWait927 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_14_in_ruleWait939 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSequence_in_entryRuleSequence975 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSequence985 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_18_in_ruleSequence1031 = new BitSet(new long[]{0x0000000000079000L});
+        public static final BitSet FOLLOW_ruleSimpleAnimation_in_ruleSequence1052 = new BitSet(new long[]{0x0000000000080800L});
+        public static final BitSet FOLLOW_11_in_ruleSequence1065 = new BitSet(new long[]{0x0000000000079000L});
+        public static final BitSet FOLLOW_ruleSimpleAnimation_in_ruleSequence1086 = new BitSet(new long[]{0x0000000000080800L});
+        public static final BitSet FOLLOW_19_in_ruleSequence1100 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_entryRuleEString1137 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleEString1148 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_ruleEString1188 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleEString1214 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEDouble_in_entryRuleEDouble1260 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleEDouble1271 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_20_in_ruleEDouble1310 = new BitSet(new long[]{0x0000000000200040L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleEDouble1328 = new BitSet(new long[]{0x0000000000200000L});
+        public static final BitSet FOLLOW_21_in_ruleEDouble1348 = new BitSet(new long[]{0x0000000000000040L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleEDouble1363 = new BitSet(new long[]{0x0000000000C00002L});
+        public static final BitSet FOLLOW_22_in_ruleEDouble1383 = new BitSet(new long[]{0x0000000000100040L});
+        public static final BitSet FOLLOW_23_in_ruleEDouble1402 = new BitSet(new long[]{0x0000000000100040L});
+        public static final BitSet FOLLOW_20_in_ruleEDouble1417 = new BitSet(new long[]{0x0000000000000040L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleEDouble1434 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_entryRuleEInt1482 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleEInt1493 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_20_in_ruleEInt1532 = new BitSet(new long[]{0x0000000000000040L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleEInt1549 = new BitSet(new long[]{0x0000000000000002L});
     }
 
 

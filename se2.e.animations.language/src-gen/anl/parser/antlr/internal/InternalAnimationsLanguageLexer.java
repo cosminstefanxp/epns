@@ -13,7 +13,6 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAnimationsLanguageLexer extends Lexer {
     public static final int RULE_ID=5;
-    public static final int T__24=24;
     public static final int T__23=23;
     public static final int T__22=22;
     public static final int RULE_ANY_OTHER=10;
@@ -114,10 +113,10 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:14:7: ( ',' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:14:9: ','
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:14:7: ( ')' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:14:9: ')'
             {
-            match(','); 
+            match(')'); 
 
             }
 
@@ -134,10 +133,11 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:15:7: ( ')' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:15:9: ')'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:15:7: ( 'hide' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:15:9: 'hide'
             {
-            match(')'); 
+            match("hide"); 
+
 
             }
 
@@ -154,10 +154,10 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:16:7: ( 'hide' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:16:9: 'hide'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:16:7: ( 'show' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:16:9: 'show'
             {
-            match("hide"); 
+            match("show"); 
 
 
             }
@@ -175,10 +175,10 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:17:7: ( 'show' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:17:9: 'show'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:17:7: ( 'wait' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:17:9: 'wait'
             {
-            match("show"); 
+            match("wait"); 
 
 
             }
@@ -196,11 +196,10 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:18:7: ( 'wait' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:18:9: 'wait'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:18:7: ( '[' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:18:9: '['
             {
-            match("wait"); 
-
+            match('['); 
 
             }
 
@@ -217,10 +216,10 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:19:7: ( '[' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:19:9: '['
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:19:7: ( ']' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:19:9: ']'
             {
-            match('['); 
+            match(']'); 
 
             }
 
@@ -237,10 +236,10 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:20:7: ( ']' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:20:9: ']'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:20:7: ( '-' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:20:9: '-'
             {
-            match(']'); 
+            match('-'); 
 
             }
 
@@ -257,10 +256,10 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:21:7: ( '-' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:21:9: '-'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:21:7: ( '.' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:21:9: '.'
             {
-            match('-'); 
+            match('.'); 
 
             }
 
@@ -277,10 +276,10 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:22:7: ( '.' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:22:9: '.'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:22:7: ( 'E' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:22:9: 'E'
             {
-            match('.'); 
+            match('E'); 
 
             }
 
@@ -297,28 +296,8 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:23:7: ( 'E' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:23:9: 'E'
-            {
-            match('E'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__23"
-
-    // $ANTLR start "T__24"
-    public final void mT__24() throws RecognitionException {
-        try {
-            int _type = T__24;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:24:7: ( 'e' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:24:9: 'e'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:23:7: ( 'e' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:23:9: 'e'
             {
             match('e'); 
 
@@ -330,17 +309,17 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__24"
+    // $ANTLR end "T__23"
 
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:672:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:672:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:644:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:644:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:672:11: ( '^' )?
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:644:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -349,7 +328,7 @@ public class InternalAnimationsLanguageLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:672:11: '^'
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:644:11: '^'
                     {
                     match('^'); 
 
@@ -367,7 +346,7 @@ public class InternalAnimationsLanguageLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:672:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:644:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -416,10 +395,10 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:674:10: ( ( '0' .. '9' )+ )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:674:12: ( '0' .. '9' )+
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:646:10: ( ( '0' .. '9' )+ )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:646:12: ( '0' .. '9' )+
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:674:12: ( '0' .. '9' )+
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:646:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -433,7 +412,7 @@ public class InternalAnimationsLanguageLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:674:13: '0' .. '9'
+            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:646:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -465,10 +444,10 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:676:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:676:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:648:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:648:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:676:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:648:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -486,10 +465,10 @@ public class InternalAnimationsLanguageLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:676:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:648:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:676:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:648:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -505,7 +484,7 @@ public class InternalAnimationsLanguageLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:676:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:648:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -521,7 +500,7 @@ public class InternalAnimationsLanguageLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:676:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:648:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -546,10 +525,10 @@ public class InternalAnimationsLanguageLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:676:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:648:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:676:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:648:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -565,7 +544,7 @@ public class InternalAnimationsLanguageLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:676:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:648:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -581,7 +560,7 @@ public class InternalAnimationsLanguageLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:676:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:648:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -624,12 +603,12 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:678:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:678:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:650:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:650:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:678:24: ( options {greedy=false; } : . )*
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:650:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -654,7 +633,7 @@ public class InternalAnimationsLanguageLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:678:52: .
+            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:650:52: .
             	    {
             	    matchAny(); 
 
@@ -684,12 +663,12 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:680:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:680:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:652:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:652:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:680:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:652:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -702,7 +681,7 @@ public class InternalAnimationsLanguageLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:680:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:652:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -722,7 +701,7 @@ public class InternalAnimationsLanguageLexer extends Lexer {
                 }
             } while (true);
 
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:680:40: ( ( '\\r' )? '\\n' )?
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:652:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -731,9 +710,9 @@ public class InternalAnimationsLanguageLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:680:41: ( '\\r' )? '\\n'
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:652:41: ( '\\r' )? '\\n'
                     {
-                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:680:41: ( '\\r' )?
+                    // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:652:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -742,7 +721,7 @@ public class InternalAnimationsLanguageLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:680:41: '\\r'
+                            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:652:41: '\\r'
                             {
                             match('\r'); 
 
@@ -774,10 +753,10 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:682:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:682:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:654:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:654:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:682:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:654:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -831,8 +810,8 @@ public class InternalAnimationsLanguageLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:684:16: ( . )
-            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:684:18: .
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:656:16: ( . )
+            // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:656:18: .
             {
             matchAny(); 
 
@@ -847,8 +826,8 @@ public class InternalAnimationsLanguageLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=21;
+        // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=20;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -943,56 +922,49 @@ public class InternalAnimationsLanguageLexer extends Lexer {
                 }
                 break;
             case 14 :
-                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:88: T__24
-                {
-                mT__24(); 
-
-                }
-                break;
-            case 15 :
-                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:94: RULE_ID
+                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:88: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 16 :
-                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:102: RULE_INT
+            case 15 :
+                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:96: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 17 :
-                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:111: RULE_STRING
+            case 16 :
+                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:105: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 18 :
-                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:123: RULE_ML_COMMENT
+            case 17 :
+                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:117: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 19 :
-                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:139: RULE_SL_COMMENT
+            case 18 :
+                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:133: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 20 :
-                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:155: RULE_WS
+            case 19 :
+                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:149: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 21 :
-                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:163: RULE_ANY_OTHER
+            case 20 :
+                // ../se2.e.animations.language/src-gen/anl/parser/antlr/internal/InternalAnimationsLanguage.g:1:157: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1006,80 +978,78 @@ public class InternalAnimationsLanguageLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\2\uffff\1\31\3\uffff\3\31\4\uffff\1\44\1\45\1\26\2\uffff\3\26\3"+
-        "\uffff\1\31\4\uffff\3\31\13\uffff\4\31\1\63\1\64\1\65\1\66\4\uffff";
+        "\2\uffff\1\30\2\uffff\3\30\4\uffff\1\42\1\43\1\25\2\uffff\3\25\3"+
+        "\uffff\1\30\3\uffff\3\30\13\uffff\4\30\1\61\1\62\1\63\1\64\4\uffff";
     static final String DFA12_eofS =
-        "\67\uffff";
+        "\65\uffff";
     static final String DFA12_minS =
-        "\1\0\1\uffff\1\157\3\uffff\1\151\1\150\1\141\4\uffff\2\60\1\101"+
-        "\2\uffff\2\0\1\52\3\uffff\1\166\4\uffff\1\144\1\157\1\151\13\uffff"+
+        "\1\0\1\uffff\1\157\2\uffff\1\151\1\150\1\141\4\uffff\2\60\1\101"+
+        "\2\uffff\2\0\1\52\3\uffff\1\166\3\uffff\1\144\1\157\1\151\13\uffff"+
         "\2\145\1\167\1\164\4\60\4\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\uffff\1\157\3\uffff\1\151\1\150\1\141\4\uffff\3\172\2"+
-        "\uffff\2\uffff\1\57\3\uffff\1\166\4\uffff\1\144\1\157\1\151\13\uffff"+
+        "\1\uffff\1\uffff\1\157\2\uffff\1\151\1\150\1\141\4\uffff\3\172\2"+
+        "\uffff\2\uffff\1\57\3\uffff\1\166\3\uffff\1\144\1\157\1\151\13\uffff"+
         "\2\145\1\167\1\164\4\172\4\uffff";
     static final String DFA12_acceptS =
-        "\1\uffff\1\1\1\uffff\1\3\1\4\1\5\3\uffff\1\11\1\12\1\13\1\14\3\uffff"+
-        "\1\17\1\20\3\uffff\1\24\1\25\1\1\1\uffff\1\17\1\3\1\4\1\5\3\uffff"+
-        "\1\11\1\12\1\13\1\14\1\15\1\16\1\20\1\21\1\22\1\23\1\24\10\uffff"+
-        "\1\2\1\6\1\7\1\10";
+        "\1\uffff\1\1\1\uffff\1\3\1\4\3\uffff\1\10\1\11\1\12\1\13\3\uffff"+
+        "\1\16\1\17\3\uffff\1\23\1\24\1\1\1\uffff\1\16\1\3\1\4\3\uffff\1"+
+        "\10\1\11\1\12\1\13\1\14\1\15\1\17\1\20\1\21\1\22\1\23\10\uffff\1"+
+        "\2\1\5\1\6\1\7";
     static final String DFA12_specialS =
-        "\1\0\21\uffff\1\1\1\2\43\uffff}>";
+        "\1\0\20\uffff\1\1\1\2\42\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\26\2\25\2\26\1\25\22\26\1\25\1\26\1\22\4\26\1\23\1\3\1\5"+
-            "\2\26\1\4\1\13\1\14\1\24\12\21\1\26\1\1\5\26\4\20\1\15\25\20"+
-            "\1\11\1\26\1\12\1\17\1\20\1\26\4\20\1\16\2\20\1\6\4\20\1\2\5"+
-            "\20\1\7\3\20\1\10\3\20\uff85\26",
+            "\11\25\2\24\2\25\1\24\22\25\1\24\1\25\1\21\4\25\1\22\1\3\1\4"+
+            "\3\25\1\12\1\13\1\23\12\20\1\25\1\1\5\25\4\17\1\14\25\17\1\10"+
+            "\1\25\1\11\1\16\1\17\1\25\4\17\1\15\2\17\1\5\4\17\1\2\5\17\1"+
+            "\6\3\17\1\7\3\17\uff85\25",
             "",
-            "\1\30",
+            "\1\27",
             "",
             "",
-            "",
+            "\1\33",
+            "\1\34",
             "\1\35",
-            "\1\36",
-            "\1\37",
             "",
             "",
             "",
             "",
-            "\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
-            "\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
-            "\32\31\4\uffff\1\31\1\uffff\32\31",
+            "\12\30\7\uffff\32\30\4\uffff\1\30\1\uffff\32\30",
+            "\12\30\7\uffff\32\30\4\uffff\1\30\1\uffff\32\30",
+            "\32\30\4\uffff\1\30\1\uffff\32\30",
             "",
             "",
-            "\0\47",
-            "\0\47",
-            "\1\50\4\uffff\1\51",
+            "\0\45",
+            "\0\45",
+            "\1\46\4\uffff\1\47",
             "",
             "",
             "",
+            "\1\51",
+            "",
+            "",
+            "",
+            "\1\52",
             "\1\53",
-            "",
-            "",
-            "",
-            "",
             "\1\54",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\55",
             "\1\56",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\57",
             "\1\60",
-            "\1\61",
-            "\1\62",
-            "\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
-            "\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
-            "\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
-            "\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31",
+            "\12\30\7\uffff\32\30\4\uffff\1\30\1\uffff\32\30",
+            "\12\30\7\uffff\32\30\4\uffff\1\30\1\uffff\32\30",
+            "\12\30\7\uffff\32\30\4\uffff\1\30\1\uffff\32\30",
+            "\12\30\7\uffff\32\30\4\uffff\1\30\1\uffff\32\30",
             "",
             "",
             "",
@@ -1116,7 +1086,7 @@ public class InternalAnimationsLanguageLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
@@ -1132,63 +1102,61 @@ public class InternalAnimationsLanguageLexer extends Lexer {
 
                         else if ( (LA12_0=='(') ) {s = 3;}
 
-                        else if ( (LA12_0==',') ) {s = 4;}
+                        else if ( (LA12_0==')') ) {s = 4;}
 
-                        else if ( (LA12_0==')') ) {s = 5;}
+                        else if ( (LA12_0=='h') ) {s = 5;}
 
-                        else if ( (LA12_0=='h') ) {s = 6;}
+                        else if ( (LA12_0=='s') ) {s = 6;}
 
-                        else if ( (LA12_0=='s') ) {s = 7;}
+                        else if ( (LA12_0=='w') ) {s = 7;}
 
-                        else if ( (LA12_0=='w') ) {s = 8;}
+                        else if ( (LA12_0=='[') ) {s = 8;}
 
-                        else if ( (LA12_0=='[') ) {s = 9;}
+                        else if ( (LA12_0==']') ) {s = 9;}
 
-                        else if ( (LA12_0==']') ) {s = 10;}
+                        else if ( (LA12_0=='-') ) {s = 10;}
 
-                        else if ( (LA12_0=='-') ) {s = 11;}
+                        else if ( (LA12_0=='.') ) {s = 11;}
 
-                        else if ( (LA12_0=='.') ) {s = 12;}
+                        else if ( (LA12_0=='E') ) {s = 12;}
 
-                        else if ( (LA12_0=='E') ) {s = 13;}
+                        else if ( (LA12_0=='e') ) {s = 13;}
 
-                        else if ( (LA12_0=='e') ) {s = 14;}
+                        else if ( (LA12_0=='^') ) {s = 14;}
 
-                        else if ( (LA12_0=='^') ) {s = 15;}
+                        else if ( ((LA12_0>='A' && LA12_0<='D')||(LA12_0>='F' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='a' && LA12_0<='d')||(LA12_0>='f' && LA12_0<='g')||(LA12_0>='i' && LA12_0<='l')||(LA12_0>='n' && LA12_0<='r')||(LA12_0>='t' && LA12_0<='v')||(LA12_0>='x' && LA12_0<='z')) ) {s = 15;}
 
-                        else if ( ((LA12_0>='A' && LA12_0<='D')||(LA12_0>='F' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='a' && LA12_0<='d')||(LA12_0>='f' && LA12_0<='g')||(LA12_0>='i' && LA12_0<='l')||(LA12_0>='n' && LA12_0<='r')||(LA12_0>='t' && LA12_0<='v')||(LA12_0>='x' && LA12_0<='z')) ) {s = 16;}
+                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 16;}
 
-                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 17;}
+                        else if ( (LA12_0=='\"') ) {s = 17;}
 
-                        else if ( (LA12_0=='\"') ) {s = 18;}
+                        else if ( (LA12_0=='\'') ) {s = 18;}
 
-                        else if ( (LA12_0=='\'') ) {s = 19;}
+                        else if ( (LA12_0=='/') ) {s = 19;}
 
-                        else if ( (LA12_0=='/') ) {s = 20;}
+                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 20;}
 
-                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 21;}
-
-                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='+')||LA12_0==':'||(LA12_0>='<' && LA12_0<='@')||LA12_0=='\\'||LA12_0=='`'||(LA12_0>='{' && LA12_0<='\uFFFF')) ) {s = 22;}
+                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<=',')||LA12_0==':'||(LA12_0>='<' && LA12_0<='@')||LA12_0=='\\'||LA12_0=='`'||(LA12_0>='{' && LA12_0<='\uFFFF')) ) {s = 21;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA12_18 = input.LA(1);
+                        int LA12_17 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_18>='\u0000' && LA12_18<='\uFFFF')) ) {s = 39;}
+                        if ( ((LA12_17>='\u0000' && LA12_17<='\uFFFF')) ) {s = 37;}
 
-                        else s = 22;
+                        else s = 21;
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA12_19 = input.LA(1);
+                        int LA12_18 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_19>='\u0000' && LA12_19<='\uFFFF')) ) {s = 39;}
+                        if ( ((LA12_18>='\u0000' && LA12_18<='\uFFFF')) ) {s = 37;}
 
-                        else s = 22;
+                        else s = 21;
 
                         if ( s>=0 ) return s;
                         break;

@@ -11,10 +11,13 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.pnml.tools.epnk.helpers.NetFunctions;
+import org.pnml.tools.epnk.pnmlcoremodel.PetriNetType;
 import org.pnml.tools.epnk.structuredpntypemodel.impl.StructuredLabelImpl;
 
 /**
@@ -173,6 +176,27 @@ public class AnimationLabelImpl extends StructuredLabelImpl implements Animation
 				return structure != null;
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	/**
+     * Method for parsing the text of an animation label. 
+     * 
+     * @generated NOT
+     * @author Juan, Pablo and María
+     */
+	@Override
+	public EObject parse(String input) {
+		if (input != null) {
+			PetriNetType type = NetFunctions.getPetriNetType(this);
+			if (type instanceof ExtendedPetriNetImpl) {
+				ExtendedPetriNetImpl extpn  = (ExtendedPetriNetImpl) type;
+				if (extpn.parser != null) {
+					return extpn.parser.parseAnimation(input);
+				}
+			}
+		}
+		
+		return null;
 	}
 
 } //AnimationLabelImpl

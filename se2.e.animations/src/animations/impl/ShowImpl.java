@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link animations.impl.ShowImpl#getSimplePosition <em>Simple Position</em>}</li>
  *   <li>{@link animations.impl.ShowImpl#getShape <em>Shape</em>}</li>
  * </ul>
  * </p>
@@ -26,26 +25,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class ShowImpl extends AnimationImpl implements Show {
-	/**
-	 * The default value of the '{@link #getSimplePosition() <em>Simple Position</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSimplePosition()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SIMPLE_POSITION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSimplePosition() <em>Simple Position</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSimplePosition()
-	 * @generated
-	 * @ordered
-	 */
-	protected String simplePosition = SIMPLE_POSITION_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getShape() <em>Shape</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -90,27 +69,6 @@ public class ShowImpl extends AnimationImpl implements Show {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSimplePosition() {
-		return simplePosition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSimplePosition(String newSimplePosition) {
-		String oldSimplePosition = simplePosition;
-		simplePosition = newSimplePosition;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnimationsPackage.SHOW__SIMPLE_POSITION, oldSimplePosition, simplePosition));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getShape() {
 		return shape;
 	}
@@ -135,8 +93,6 @@ public class ShowImpl extends AnimationImpl implements Show {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AnimationsPackage.SHOW__SIMPLE_POSITION:
-				return getSimplePosition();
 			case AnimationsPackage.SHOW__SHAPE:
 				return getShape();
 		}
@@ -151,9 +107,6 @@ public class ShowImpl extends AnimationImpl implements Show {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AnimationsPackage.SHOW__SIMPLE_POSITION:
-				setSimplePosition((String)newValue);
-				return;
 			case AnimationsPackage.SHOW__SHAPE:
 				setShape((String)newValue);
 				return;
@@ -169,9 +122,6 @@ public class ShowImpl extends AnimationImpl implements Show {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AnimationsPackage.SHOW__SIMPLE_POSITION:
-				setSimplePosition(SIMPLE_POSITION_EDEFAULT);
-				return;
 			case AnimationsPackage.SHOW__SHAPE:
 				setShape(SHAPE_EDEFAULT);
 				return;
@@ -187,8 +137,6 @@ public class ShowImpl extends AnimationImpl implements Show {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AnimationsPackage.SHOW__SIMPLE_POSITION:
-				return SIMPLE_POSITION_EDEFAULT == null ? simplePosition != null : !SIMPLE_POSITION_EDEFAULT.equals(simplePosition);
 			case AnimationsPackage.SHOW__SHAPE:
 				return SHAPE_EDEFAULT == null ? shape != null : !SHAPE_EDEFAULT.equals(shape);
 		}
@@ -205,9 +153,7 @@ public class ShowImpl extends AnimationImpl implements Show {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (simplePosition: ");
-		result.append(simplePosition);
-		result.append(", shape: ");
+		result.append(" (shape: ");
 		result.append(shape);
 		result.append(')');
 		return result.toString();

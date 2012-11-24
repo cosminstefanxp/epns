@@ -31,7 +31,7 @@ public class LinearPathInterpolator implements PathInterpolator {
 			steps.add(last);
 			length += last.getLength();
 		}
-		System.out.println("Steps: "+steps);
+		//System.out.println("Steps: "+steps);
 		}
 	
 	@Override
@@ -46,7 +46,7 @@ public class LinearPathInterpolator implements PathInterpolator {
 	public Where findPosition(double distance) {
 		for (Step step : steps) {
 			if (!step.isWithin(distance)) continue;
-			System.out.println("Using step: "+step);
+			//System.out.println("Using step: "+step);
 			return step.findPosition(distance);
 			}
 		return steps.get(steps.size()-1).findPosition(length);

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pnml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:animations="http://animations/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net type="Extended PetriNet" id="ExtendedPetriNetExample">
+  <net type="ePNS PetriNet" id="ExtendedPetriNetExample">
     <page id="PetriNetExample">
       <toolspecific tool="org.pnml.tools.epnk.diagraminfo" version="0.9.2">
         <diagram visible="true" type="PNMLCoreModel" element="PetriNetExample" name="Page null" measurementUnit="Pixel">

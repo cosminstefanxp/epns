@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pnml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:animations="http://animations/1.0" xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net type="Extended PetriNet">
+  <net type="ePNS PetriNet">
     <page>
       <place id="P1" geoLabel="L1">
         <animations>

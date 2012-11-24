@@ -61,7 +61,6 @@ public class AppearanceFactoryImpl extends EFactoryImpl implements AppearanceFac
 			case AppearancePackage.SHAPE3_D: return createShape3D();
 			case AppearancePackage.TEXTURE: return createTexture();
 			case AppearancePackage.SURFACE_COLOR: return createSurfaceColor();
-			case AppearancePackage.CUBE: return createCube();
 			case AppearancePackage.APPEARANCE_MODEL: return createAppearanceModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -78,6 +77,8 @@ public class AppearanceFactoryImpl extends EFactoryImpl implements AppearanceFac
 		switch (eDataType.getClassifierID()) {
 			case AppearancePackage.OBJECT3_D:
 				return createObject3DFromString(eDataType, initialValue);
+			case AppearancePackage.COLOR_TYPE:
+				return createColorTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -93,6 +94,8 @@ public class AppearanceFactoryImpl extends EFactoryImpl implements AppearanceFac
 		switch (eDataType.getClassifierID()) {
 			case AppearancePackage.OBJECT3_D:
 				return convertObject3DToString(eDataType, instanceValue);
+			case AppearancePackage.COLOR_TYPE:
+				return convertColorTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -143,16 +146,6 @@ public class AppearanceFactoryImpl extends EFactoryImpl implements AppearanceFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Cube createCube() {
-		CubeImpl cube = new CubeImpl();
-		return cube;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AppearanceModel createAppearanceModel() {
 		AppearanceModelImpl appearanceModel = new AppearanceModelImpl();
 		return appearanceModel;
@@ -175,6 +168,26 @@ public class AppearanceFactoryImpl extends EFactoryImpl implements AppearanceFac
 	 * @generated
 	 */
 	public String convertObject3DToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ColorType createColorTypeFromString(EDataType eDataType, String initialValue) {
+		ColorType result = ColorType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertColorTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

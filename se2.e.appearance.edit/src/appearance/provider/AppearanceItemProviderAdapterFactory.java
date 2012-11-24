@@ -164,29 +164,6 @@ public class AppearanceItemProviderAdapterFactory extends AppearanceAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link appearance.Cube} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CubeItemProvider cubeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link appearance.Cube}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCubeAdapter() {
-		if (cubeItemProvider == null) {
-			cubeItemProvider = new CubeItemProvider(this);
-		}
-
-		return cubeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link appearance.AppearanceModel} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -312,7 +289,6 @@ public class AppearanceItemProviderAdapterFactory extends AppearanceAdapterFacto
 		if (shape3DItemProvider != null) shape3DItemProvider.dispose();
 		if (textureItemProvider != null) textureItemProvider.dispose();
 		if (surfaceColorItemProvider != null) surfaceColorItemProvider.dispose();
-		if (cubeItemProvider != null) cubeItemProvider.dispose();
 		if (appearanceModelItemProvider != null) appearanceModelItemProvider.dispose();
 	}
 

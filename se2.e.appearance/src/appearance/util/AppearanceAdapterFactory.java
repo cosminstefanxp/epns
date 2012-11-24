@@ -96,10 +96,6 @@ public class AppearanceAdapterFactory extends AdapterFactoryImpl {
 				return createSurfaceColorAdapter();
 			}
 			@Override
-			public Adapter caseCube(Cube object) {
-				return createCubeAdapter();
-			}
-			@Override
 			public Adapter caseAppearanceModel(AppearanceModel object) {
 				return createAppearanceModelAdapter();
 			}
@@ -218,20 +214,6 @@ public class AppearanceAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSurfaceColorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link appearance.Cube <em>Cube</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see appearance.Cube
-	 * @generated
-	 */
-	public Adapter createCubeAdapter() {
 		return null;
 	}
 

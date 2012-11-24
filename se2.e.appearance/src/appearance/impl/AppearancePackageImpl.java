@@ -6,7 +6,7 @@ import appearance.AppearanceFactory;
 import appearance.AppearanceInfo;
 import appearance.AppearanceModel;
 import appearance.AppearancePackage;
-import appearance.Cube;
+import appearance.ColorType;
 import appearance.Model3D;
 import appearance.Object3D;
 import appearance.Shape;
@@ -84,13 +84,6 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass cubeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass appearanceModelEClass = null;
 
 	/**
@@ -99,6 +92,13 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 	 * @generated
 	 */
 	private EEnum object3DEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum colorTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -274,17 +274,8 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSurfaceColor_ColorCode() {
+	public EAttribute getSurfaceColor_Color() {
 		return (EAttribute)surfaceColorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCube() {
-		return cubeEClass;
 	}
 
 	/**
@@ -312,6 +303,15 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 	 */
 	public EEnum getObject3D() {
 		return object3DEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getColorType() {
+		return colorTypeEEnum;
 	}
 
 	/**
@@ -360,15 +360,14 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 		createEAttribute(textureEClass, TEXTURE__FILE);
 
 		surfaceColorEClass = createEClass(SURFACE_COLOR);
-		createEAttribute(surfaceColorEClass, SURFACE_COLOR__COLOR_CODE);
-
-		cubeEClass = createEClass(CUBE);
+		createEAttribute(surfaceColorEClass, SURFACE_COLOR__COLOR);
 
 		appearanceModelEClass = createEClass(APPEARANCE_MODEL);
 		createEReference(appearanceModelEClass, APPEARANCE_MODEL__APPEARANCE_INFOS);
 
 		// Create enums
 		object3DEEnum = createEEnum(OBJECT3_D);
+		colorTypeEEnum = createEEnum(COLOR_TYPE);
 	}
 
 	/**
@@ -425,9 +424,7 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 		initEAttribute(getTexture_File(), ecorePackage.getEString(), "file", null, 0, 1, Texture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(surfaceColorEClass, SurfaceColor.class, "SurfaceColor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSurfaceColor_ColorCode(), ecorePackage.getEString(), "colorCode", null, 0, 1, SurfaceColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(cubeEClass, Cube.class, "Cube", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSurfaceColor_Color(), this.getColorType(), "color", null, 0, 1, SurfaceColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(appearanceModelEClass, AppearanceModel.class, "AppearanceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAppearanceModel_AppearanceInfos(), this.getAppearanceInfo(), null, "appearanceInfos", null, 0, -1, AppearanceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -436,6 +433,21 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 		initEEnum(object3DEEnum, Object3D.class, "Object3D");
 		addEEnumLiteral(object3DEEnum, Object3D.CUBE);
 		addEEnumLiteral(object3DEEnum, Object3D.SPHERE);
+
+		initEEnum(colorTypeEEnum, ColorType.class, "ColorType");
+		addEEnumLiteral(colorTypeEEnum, ColorType.BLACK);
+		addEEnumLiteral(colorTypeEEnum, ColorType.BLUE);
+		addEEnumLiteral(colorTypeEEnum, ColorType.CYAN);
+		addEEnumLiteral(colorTypeEEnum, ColorType.DARK_GRAY);
+		addEEnumLiteral(colorTypeEEnum, ColorType.GRAY);
+		addEEnumLiteral(colorTypeEEnum, ColorType.GREEN);
+		addEEnumLiteral(colorTypeEEnum, ColorType.LIGHT_GRAY);
+		addEEnumLiteral(colorTypeEEnum, ColorType.MAGENTA);
+		addEEnumLiteral(colorTypeEEnum, ColorType.ORANGE);
+		addEEnumLiteral(colorTypeEEnum, ColorType.PINK);
+		addEEnumLiteral(colorTypeEEnum, ColorType.RED);
+		addEEnumLiteral(colorTypeEEnum, ColorType.WHITE);
+		addEEnumLiteral(colorTypeEEnum, ColorType.YELLOW);
 
 		// Create resource
 		createResource(eNS_URI);

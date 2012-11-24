@@ -58,15 +58,6 @@ public interface AppearanceFactory extends EFactory {
 	SurfaceColor createSurfaceColor();
 
 	/**
-	 * Returns a new object of class '<em>Cube</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cube</em>'.
-	 * @generated
-	 */
-	Cube createCube();
-
-	/**
 	 * Returns a new object of class '<em>Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

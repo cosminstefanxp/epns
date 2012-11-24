@@ -118,12 +118,6 @@ public class AppearanceSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AppearancePackage.CUBE: {
-				Cube cube = (Cube)theEObject;
-				T result = caseCube(cube);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case AppearancePackage.APPEARANCE_MODEL: {
 				AppearanceModel appearanceModel = (AppearanceModel)theEObject;
 				T result = caseAppearanceModel(appearanceModel);
@@ -236,21 +230,6 @@ public class AppearanceSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSurfaceColor(SurfaceColor object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Cube</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Cube</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCube(Cube object) {
 		return null;
 	}
 

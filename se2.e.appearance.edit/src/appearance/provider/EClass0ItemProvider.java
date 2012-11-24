@@ -3,33 +3,30 @@
 package appearance.provider;
 
 
-import appearance.AppearancePackage;
-import appearance.SurfaceColor;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link appearance.SurfaceColor} object.
+ * This is the item provider adapter for a {@link appearance.EClass0} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SurfaceColorItemProvider
-	extends SurfaceItemProvider
+public class EClass0ItemProvider
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -42,7 +39,7 @@ public class SurfaceColorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SurfaceColorItemProvider(AdapterFactory adapterFactory) {
+	public EClass0ItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,42 +54,19 @@ public class SurfaceColorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addColorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Color feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addColorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SurfaceColor_color_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SurfaceColor_color_feature", "_UI_SurfaceColor_type"),
-				 AppearancePackage.Literals.SURFACE_COLOR__COLOR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns SurfaceColor.gif.
+	 * This returns EClass0.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SurfaceColor"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EClass0"));
 	}
 
 	/**
@@ -103,10 +77,7 @@ public class SurfaceColorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SurfaceColor)object).getLabel();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SurfaceColor_type") :
-			getString("_UI_SurfaceColor_type") + " " + label;
+		return getString("_UI_EClass0_type");
 	}
 
 	/**
@@ -119,12 +90,6 @@ public class SurfaceColorItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(SurfaceColor.class)) {
-			case AppearancePackage.SURFACE_COLOR__COLOR:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -138,6 +103,17 @@ public class SurfaceColorItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return AppearanceEditPlugin.INSTANCE;
 	}
 
 }

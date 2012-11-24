@@ -19,9 +19,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SurfaceColor" eSuperTypes="#//Surface">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//ColorType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Cube"/>
   <eClassifiers xsi:type="ecore:EEnum" name="Object3D">
     <eLiterals name="Cube"/>
     <eLiterals name="Sphere" value="1"/>
@@ -29,5 +28,20 @@
   <eClassifiers xsi:type="ecore:EClass" name="AppearanceModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="appearanceInfos" upperBound="-1"
         eType="#//AppearanceInfo" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ColorType">
+    <eLiterals name="Black"/>
+    <eLiterals name="Blue" value="1"/>
+    <eLiterals name="Cyan" value="2"/>
+    <eLiterals name="DarkGray" value="3"/>
+    <eLiterals name="Gray" value="4"/>
+    <eLiterals name="Green" value="5"/>
+    <eLiterals name="LightGray" value="6"/>
+    <eLiterals name="Magenta" value="7"/>
+    <eLiterals name="Orange" value="8"/>
+    <eLiterals name="Pink" value="9"/>
+    <eLiterals name="Red" value="10"/>
+    <eLiterals name="White" value="11"/>
+    <eLiterals name="Yellow" value="12"/>
   </eClassifiers>
 </ecore:EPackage>

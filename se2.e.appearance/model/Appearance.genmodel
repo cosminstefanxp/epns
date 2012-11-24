@@ -9,6 +9,21 @@
       <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//Object3D/Cube"/>
       <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//Object3D/Sphere"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Appearance.ecore#//ColorType">
+      <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//ColorType/Black"/>
+      <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//ColorType/Blue"/>
+      <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//ColorType/Cyan"/>
+      <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//ColorType/DarkGray"/>
+      <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//ColorType/Gray"/>
+      <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//ColorType/Green"/>
+      <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//ColorType/LightGray"/>
+      <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//ColorType/Magenta"/>
+      <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//ColorType/Orange"/>
+      <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//ColorType/Pink"/>
+      <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//ColorType/Red"/>
+      <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//ColorType/White"/>
+      <genEnumLiterals ecoreEnumLiteral="Appearance.ecore#//ColorType/Yellow"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="Appearance.ecore#//AppearanceInfo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//AppearanceInfo/label"/>
     </genClasses>
@@ -26,9 +41,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//Texture/file"/>
     </genClasses>
     <genClasses ecoreClass="Appearance.ecore#//SurfaceColor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//SurfaceColor/colorCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//SurfaceColor/color"/>
     </genClasses>
-    <genClasses ecoreClass="Appearance.ecore#//Cube"/>
     <genClasses ecoreClass="Appearance.ecore#//AppearanceModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Appearance.ecore#//AppearanceModel/appearanceInfos"/>
     </genClasses>

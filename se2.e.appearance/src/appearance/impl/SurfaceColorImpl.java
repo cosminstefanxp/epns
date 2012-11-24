@@ -3,6 +3,7 @@
 package appearance.impl;
 
 import appearance.AppearancePackage;
+import appearance.ColorType;
 import appearance.SurfaceColor;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -18,7 +19,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link appearance.impl.SurfaceColorImpl#getColorCode <em>Color Code</em>}</li>
+ *   <li>{@link appearance.impl.SurfaceColorImpl#getColor <em>Color</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,24 +27,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class SurfaceColorImpl extends SurfaceImpl implements SurfaceColor {
 	/**
-	 * The default value of the '{@link #getColorCode() <em>Color Code</em>}' attribute.
+	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getColorCode()
+	 * @see #getColor()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String COLOR_CODE_EDEFAULT = null;
+	protected static final ColorType COLOR_EDEFAULT = ColorType.BLACK;
 
 	/**
-	 * The cached value of the '{@link #getColorCode() <em>Color Code</em>}' attribute.
+	 * The cached value of the '{@link #getColor() <em>Color</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getColorCode()
+	 * @see #getColor()
 	 * @generated
 	 * @ordered
 	 */
-	protected String colorCode = COLOR_CODE_EDEFAULT;
+	protected ColorType color = COLOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,8 +70,8 @@ public class SurfaceColorImpl extends SurfaceImpl implements SurfaceColor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getColorCode() {
-		return colorCode;
+	public ColorType getColor() {
+		return color;
 	}
 
 	/**
@@ -78,11 +79,11 @@ public class SurfaceColorImpl extends SurfaceImpl implements SurfaceColor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setColorCode(String newColorCode) {
-		String oldColorCode = colorCode;
-		colorCode = newColorCode;
+	public void setColor(ColorType newColor) {
+		ColorType oldColor = color;
+		color = newColor == null ? COLOR_EDEFAULT : newColor;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AppearancePackage.SURFACE_COLOR__COLOR_CODE, oldColorCode, colorCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, AppearancePackage.SURFACE_COLOR__COLOR, oldColor, color));
 	}
 
 	/**
@@ -93,8 +94,8 @@ public class SurfaceColorImpl extends SurfaceImpl implements SurfaceColor {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AppearancePackage.SURFACE_COLOR__COLOR_CODE:
-				return getColorCode();
+			case AppearancePackage.SURFACE_COLOR__COLOR:
+				return getColor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -107,8 +108,8 @@ public class SurfaceColorImpl extends SurfaceImpl implements SurfaceColor {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AppearancePackage.SURFACE_COLOR__COLOR_CODE:
-				setColorCode((String)newValue);
+			case AppearancePackage.SURFACE_COLOR__COLOR:
+				setColor((ColorType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,8 +123,8 @@ public class SurfaceColorImpl extends SurfaceImpl implements SurfaceColor {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AppearancePackage.SURFACE_COLOR__COLOR_CODE:
-				setColorCode(COLOR_CODE_EDEFAULT);
+			case AppearancePackage.SURFACE_COLOR__COLOR:
+				setColor(COLOR_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -137,8 +138,8 @@ public class SurfaceColorImpl extends SurfaceImpl implements SurfaceColor {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AppearancePackage.SURFACE_COLOR__COLOR_CODE:
-				return COLOR_CODE_EDEFAULT == null ? colorCode != null : !COLOR_CODE_EDEFAULT.equals(colorCode);
+			case AppearancePackage.SURFACE_COLOR__COLOR:
+				return color != COLOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -153,8 +154,8 @@ public class SurfaceColorImpl extends SurfaceImpl implements SurfaceColor {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (colorCode: ");
-		result.append(colorCode);
+		result.append(" (color: ");
+		result.append(color);
 		result.append(')');
 		return result.toString();
 	}

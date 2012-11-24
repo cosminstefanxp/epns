@@ -298,13 +298,13 @@ public interface AppearancePackage extends EPackage {
 	int SURFACE_COLOR__LABEL = SURFACE__LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Color Code</b></em>' attribute.
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SURFACE_COLOR__COLOR_CODE = SURFACE_FEATURE_COUNT + 0;
+	int SURFACE_COLOR__COLOR = SURFACE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Surface Color</em>' class.
@@ -316,25 +316,6 @@ public interface AppearancePackage extends EPackage {
 	int SURFACE_COLOR_FEATURE_COUNT = SURFACE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link appearance.impl.CubeImpl <em>Cube</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see appearance.impl.CubeImpl
-	 * @see appearance.impl.AppearancePackageImpl#getCube()
-	 * @generated
-	 */
-	int CUBE = 7;
-
-	/**
-	 * The number of structural features of the '<em>Cube</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CUBE_FEATURE_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link appearance.impl.AppearanceModelImpl <em>Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -342,7 +323,7 @@ public interface AppearancePackage extends EPackage {
 	 * @see appearance.impl.AppearancePackageImpl#getAppearanceModel()
 	 * @generated
 	 */
-	int APPEARANCE_MODEL = 8;
+	int APPEARANCE_MODEL = 7;
 
 	/**
 	 * The feature id for the '<em><b>Appearance Infos</b></em>' containment reference list.
@@ -370,7 +351,18 @@ public interface AppearancePackage extends EPackage {
 	 * @see appearance.impl.AppearancePackageImpl#getObject3D()
 	 * @generated
 	 */
-	int OBJECT3_D = 9;
+	int OBJECT3_D = 8;
+
+
+	/**
+	 * The meta object id for the '{@link appearance.ColorType <em>Color Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see appearance.ColorType
+	 * @see appearance.impl.AppearancePackageImpl#getColorType()
+	 * @generated
+	 */
+	int COLOR_TYPE = 9;
 
 
 	/**
@@ -499,25 +491,15 @@ public interface AppearancePackage extends EPackage {
 	EClass getSurfaceColor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link appearance.SurfaceColor#getColorCode <em>Color Code</em>}'.
+	 * Returns the meta object for the attribute '{@link appearance.SurfaceColor#getColor <em>Color</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Color Code</em>'.
-	 * @see appearance.SurfaceColor#getColorCode()
+	 * @return the meta object for the attribute '<em>Color</em>'.
+	 * @see appearance.SurfaceColor#getColor()
 	 * @see #getSurfaceColor()
 	 * @generated
 	 */
-	EAttribute getSurfaceColor_ColorCode();
-
-	/**
-	 * Returns the meta object for class '{@link appearance.Cube <em>Cube</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Cube</em>'.
-	 * @see appearance.Cube
-	 * @generated
-	 */
-	EClass getCube();
+	EAttribute getSurfaceColor_Color();
 
 	/**
 	 * Returns the meta object for class '{@link appearance.AppearanceModel <em>Model</em>}'.
@@ -549,6 +531,16 @@ public interface AppearancePackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getObject3D();
+
+	/**
+	 * Returns the meta object for enum '{@link appearance.ColorType <em>Color Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Color Type</em>'.
+	 * @see appearance.ColorType
+	 * @generated
+	 */
+	EEnum getColorType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -683,22 +675,12 @@ public interface AppearancePackage extends EPackage {
 		EClass SURFACE_COLOR = eINSTANCE.getSurfaceColor();
 
 		/**
-		 * The meta object literal for the '<em><b>Color Code</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SURFACE_COLOR__COLOR_CODE = eINSTANCE.getSurfaceColor_ColorCode();
-
-		/**
-		 * The meta object literal for the '{@link appearance.impl.CubeImpl <em>Cube</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see appearance.impl.CubeImpl
-		 * @see appearance.impl.AppearancePackageImpl#getCube()
-		 * @generated
-		 */
-		EClass CUBE = eINSTANCE.getCube();
+		EAttribute SURFACE_COLOR__COLOR = eINSTANCE.getSurfaceColor_Color();
 
 		/**
 		 * The meta object literal for the '{@link appearance.impl.AppearanceModelImpl <em>Model</em>}' class.
@@ -727,6 +709,16 @@ public interface AppearancePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum OBJECT3_D = eINSTANCE.getObject3D();
+
+		/**
+		 * The meta object literal for the '{@link appearance.ColorType <em>Color Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see appearance.ColorType
+		 * @see appearance.impl.AppearancePackageImpl#getColorType()
+		 * @generated
+		 */
+		EEnum COLOR_TYPE = eINSTANCE.getColorType();
 
 	}
 

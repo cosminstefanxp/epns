@@ -171,7 +171,7 @@ public class RuntimePetriNet {
 				if (token.isFinished()) {
 					tokensToBeRemoved.put(place, token);
 					atLeastOneMarked = true;
-					System.out.println("Marcat " + selectedTransition.getName());
+					System.out.println("Marcat " + selectedTransition.getId());
 					break;
 				}
 			}
@@ -202,6 +202,7 @@ public class RuntimePetriNet {
 							removedTokens.add(rt);
 						}
 						tokensMap.get(dest).add(rt);
+						rt.setFinished(false);
 						if(dest.getAnimations()!= null)
 							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), dest.getAnimations().getStructure()));
 						else
@@ -235,10 +236,15 @@ public class RuntimePetriNet {
 					tokensMap.get(src).remove(rt);
 				}
 				tokensMap.get(dest).add(rt);
-				if(dest.getAnimations()!= null)
+				rt.setFinished(false);
+				if(dest.getAnimations() != null) {
+					System.out.println("ANIMATION");
 					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), dest.getAnimations().getStructure()));
-				else
+				}
+				else {
 					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), null));
+					System.out.println("NO ANIMATION");
+				}
 			}
 		}
 		
@@ -298,7 +304,7 @@ public class RuntimePetriNet {
 		System.out.println("Should be firing transitions");
 		List<TokenMovement> tokensMovements = new ArrayList<TokenMovement>();
 		for (Transition transition : transitions) {
-			System.out.println("Selected transition: " + transition.getName());
+			System.out.println("Selected transition: " + transition.getId());
 			while (true) {
 				/* tokenMovement = pair between the token and the place it's moving to */
 				List<TokenMovement> movements = fireTransition(transition);

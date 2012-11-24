@@ -191,7 +191,7 @@ public class RuntimePetriNet {
 			if(out.getIdentity() != null){
 				for(org.pnml.tools.epnk.pnmlcoremodel.Arc inArc : selectedTransition.getIn()){
 					Arc in = (Arc)inArc;
-					if(in.getIdentity() == out.getIdentity()){
+					if(in.getIdentity() != null && in.getIdentity().getText() == out.getIdentity().getText()){
 						Place src = (Place) in.getSource();
 						RuntimeToken rt = tokensToBeRemoved.get(src);
 						String label = rt.getLabel();

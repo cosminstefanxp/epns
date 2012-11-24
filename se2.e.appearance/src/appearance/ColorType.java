@@ -496,6 +496,7 @@ public enum ColorType implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
+	 * @author Juan, María and Pablo.
 	 */
 	public Color getColorCode() {
 		switch (value) {

@@ -2,6 +2,7 @@ package se2.e.simulator.runtime.petrinet;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -160,12 +161,15 @@ public class RuntimePetriNet {
 		
 		List<Place> selectedTransitionPreset = preset.get(selectedTransition);
 		List<Place> selectedTransitionPostset = postset.get(selectedTransition);
+		
+		HashMap<Place, RuntimeToken> tokensToBeRemoved = new HashMap<Place, RuntimeToken>();
 		/* check that every preset has a token */
 		for (Place place : selectedTransitionPreset) {
 			/* check all tokens to see if there is at least one marked */
 			boolean atLeastOneMarked = false;
 			for (RuntimeToken token : tokensMap.get(place)) {
 				if (token.isFinished()) {
+					tokensToBeRemoved.put(place, token);
 					atLeastOneMarked = true;
 					System.out.println("Marcat " + selectedTransition.getName());
 					break;
@@ -175,42 +179,112 @@ public class RuntimePetriNet {
 				return null;
 		}
 		List<TokenMovement> tokensMovement = new ArrayList<TokenMovement>();
-
+		List<RuntimeToken> removedTokens = new ArrayList<RuntimeToken>();
+		
+		
+		//matching all the out-bound arcs with identities
+		for(org.pnml.tools.epnk.pnmlcoremodel.Arc outArc : selectedTransition.getOut()){
+			Arc out = (Arc) outArc;
+			Place dest = (Place)out.getTarget();
+			//match identities to the ones in the input
+			if(out.getIdentity() != null){
+				for(org.pnml.tools.epnk.pnmlcoremodel.Arc inArc : selectedTransition.getIn()){
+					Arc in = (Arc)inArc;
+					if(in.getIdentity() == out.getIdentity()){
+						Place src = (Place) in.getSource();
+						RuntimeToken rt = tokensToBeRemoved.get(src);
+						String label = rt.getLabel();
+						
+						if(removedTokens.contains(rt)){
+							rt = new RuntimeToken(label);
+						} else {
+							tokensMap.get(src).remove(rt);
+							removedTokens.add(rt);
+						}
+						tokensMap.get(dest).add(rt);
+						if(dest.getAnimations()!= null)
+							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), dest.getAnimations().getStructure()));
+						else
+							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), null));
+						
+						
+					}
+				}
+			}
+		}
+		
+		int count = 0;
+		
+		List<Place> listOfPlaces = new ArrayList<Place>(tokensToBeRemoved.keySet());
+		//match all out-bound arcs without identities
+		for(org.pnml.tools.epnk.pnmlcoremodel.Arc outArc : selectedTransition.getOut()){
+			Arc out = (Arc) outArc;
+			Place dest = (Place)out.getTarget();
+			if(out.getIdentity() == null) {
+				System.out.println("fara identitate");
+				count = count % listOfPlaces.size();
+				Place src = listOfPlaces.get(count);
+				count ++;
+				RuntimeToken rt = tokensToBeRemoved.get(src);
+				String label = rt.getLabel();
+				
+				if(removedTokens.contains(rt)){
+					rt = new RuntimeToken(label);
+				} else {
+					removedTokens.add(rt);
+					tokensMap.get(src).remove(rt);
+				}
+				tokensMap.get(dest).add(rt);
+				if(dest.getAnimations()!= null)
+					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), dest.getAnimations().getStructure()));
+				else
+					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), null));
+			}
+		}
+		
+		
+		
+		
 		/*
 		 * To be used for the actual implementation - for maintaining the labels
 		 */
-		List<RuntimeToken> removedTokens = new ArrayList<RuntimeToken>();
-
-		/* consume tokens from the presets */
-		for (Place place : selectedTransitionPreset) {
-			RuntimeToken tokenExt = null;
-			for (RuntimeToken token : tokensMap.get(place)) {
-				if (token.isFinished()) {
-					tokensMap.get(place).remove(token);
-					tokenExt = token;
-					break;
-				}
-			}
-			removedTokens.add(tokenExt);
-		}
-		int count = 0;
-		/* add tokens to postsets */
-		for (Place place : selectedTransitionPostset) {
-			String geomLabel = removedTokens.get(count%removedTokens.size()).getLabel();
-			count++;
-			//TODO: replace this when we put identities on the Arcs!!!!!
-			if(geomLabel == null) {
-				geomLabel = removedTokens.get(count%removedTokens.size()).getLabel();
-				count++;
-			}
-			RuntimeToken tokenExt = new RuntimeToken(geomLabel);
-			tokensMap.get(place).add(tokenExt);
+		
 	
-			if(place.getAnimations()!= null)
-				tokensMovement.add(new TokenMovement(tokenExt, place.getGeoLabel(), place.getAnimations().getStructure()));
-			else
-				tokensMovement.add(new TokenMovement(tokenExt, place.getGeoLabel(), null));
-		}
+		
+//		
+//		
+//
+//		/* consume tokens from the presets */
+//		for (Place place : selectedTransitionPreset) {
+//			RuntimeToken tokenExt = null;
+//			for (RuntimeToken token : tokensMap.get(place)) {
+//				if (token.isFinished()) {
+//					tokensMap.get(place).remove(token);
+//					tokenExt = token;
+//					break;
+//				}
+//			}
+//			removedTokens.add(tokenExt);
+//		}
+//		int count = 0;
+//		/* add tokens to postsets */
+//		for (Place place : selectedTransitionPostset) {
+//			String geomLabel = removedTokens.get(count%removedTokens.size()).getLabel();
+//			count++;
+//			//TODO: replace this when we put identities on the Arcs!!!!!
+//			if(geomLabel == null) {
+//				geomLabel = removedTokens.get(count%removedTokens.size()).getLabel();
+//				count++;
+//			}
+//			RuntimeToken tokenExt = new RuntimeToken(geomLabel);
+//			tokensMap.get(place).add(tokenExt);
+//	
+//			if(place.getAnimations()!= null)
+//				tokensMovement.add(new TokenMovement(tokenExt, place.getGeoLabel(), place.getAnimations().getStructure()));
+//			else
+//				tokensMovement.add(new TokenMovement(tokenExt, place.getGeoLabel(), null));
+//		}
+		System.out.println("DIMENSIUNE: " + tokensMovement.size());
 		return tokensMovement;
 	}
 

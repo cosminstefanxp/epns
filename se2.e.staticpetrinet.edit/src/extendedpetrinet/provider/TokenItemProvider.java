@@ -17,16 +17,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.pnml.tools.epnk.pnmlcoremodel.provider.ObjectItemProvider;
 
 /**
  * This is the item provider adapter for a {@link extendedpetrinet.Token} object.
@@ -35,7 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class TokenItemProvider
-	extends ItemProviderAdapter
+	extends ObjectItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -63,31 +61,8 @@ public class TokenItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIDPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the ID feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIDPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Token_ID_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Token_ID_feature", "_UI_Token_type"),
-				 ExtendedpetrinetPackage.Literals.TOKEN__ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -139,8 +114,10 @@ public class TokenItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Token token = (Token)object;
-		return getString("_UI_Token_type") + " " + token.getID();
+		String label = ((Token)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Token_type") :
+			getString("_UI_Token_type") + " " + label;
 	}
 
 	/**
@@ -155,9 +132,6 @@ public class TokenItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Token.class)) {
-			case ExtendedpetrinetPackage.TOKEN__ID:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case ExtendedpetrinetPackage.TOKEN__APPEARANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -179,7 +153,7 @@ public class TokenItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExtendedpetrinetPackage.Literals.TOKEN__APPEARANCE,
-				 ExtendedpetrinetFactory.eINSTANCE.createAppearance()));
+				 ExtendedpetrinetFactory.eINSTANCE.createAppearanceLabel()));
 	}
 
 	/**

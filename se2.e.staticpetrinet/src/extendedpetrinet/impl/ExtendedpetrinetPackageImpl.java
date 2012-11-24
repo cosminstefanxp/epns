@@ -4,8 +4,8 @@ package extendedpetrinet.impl;
 
 import animations.AnimationsPackage;
 
-import extendedpetrinet.Animations;
-import extendedpetrinet.Appearance;
+import extendedpetrinet.AnimationLabel;
+import extendedpetrinet.AppearanceLabel;
 import extendedpetrinet.Arc;
 import extendedpetrinet.ExtendedPetriNet;
 import extendedpetrinet.ExtendedpetrinetFactory;
@@ -88,14 +88,14 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass animationsEClass = null;
+	private EClass animationLabelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass appearanceEClass = null;
+	private EClass appearanceLabelEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -248,6 +248,15 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPlace_Appearance() {
+		return (EReference)placeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIdentity() {
 		return identityEClass;
 	}
@@ -311,8 +320,35 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getToken_ID() {
-		return (EAttribute)tokenEClass.getEStructuralFeatures().get(0);
+	public EClass getAnimationLabel() {
+		return animationLabelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAnimationLabel_Structure() {
+		return (EReference)animationLabelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAppearanceLabel() {
+		return appearanceLabelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAppearanceLabel_Text() {
+		return (EAttribute)appearanceLabelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -321,43 +357,7 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 	 * @generated
 	 */
 	public EReference getToken_Appearance() {
-		return (EReference)tokenEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAnimations() {
-		return animationsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAnimations_Structure() {
-		return (EReference)animationsEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAppearance() {
-		return appearanceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAppearance_Text() {
-		return (EAttribute)appearanceEClass.getEStructuralFeatures().get(0);
+		return (EReference)tokenEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -399,6 +399,7 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 		createEReference(placeEClass, PLACE__ANIMATIONS);
 		createEReference(placeEClass, PLACE__TOKENS);
 		createEAttribute(placeEClass, PLACE__GEO_LABEL);
+		createEReference(placeEClass, PLACE__APPEARANCE);
 
 		identityEClass = createEClass(IDENTITY);
 		createEAttribute(identityEClass, IDENTITY__TEXT);
@@ -410,14 +411,13 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 		createEAttribute(interactiveInputEClass, INTERACTIVE_INPUT__TEXT);
 
 		tokenEClass = createEClass(TOKEN);
-		createEAttribute(tokenEClass, TOKEN__ID);
 		createEReference(tokenEClass, TOKEN__APPEARANCE);
 
-		animationsEClass = createEClass(ANIMATIONS);
-		createEReference(animationsEClass, ANIMATIONS__STRUCTURE);
+		animationLabelEClass = createEClass(ANIMATION_LABEL);
+		createEReference(animationLabelEClass, ANIMATION_LABEL__STRUCTURE);
 
-		appearanceEClass = createEClass(APPEARANCE);
-		createEAttribute(appearanceEClass, APPEARANCE__TEXT);
+		appearanceLabelEClass = createEClass(APPEARANCE_LABEL);
+		createEAttribute(appearanceLabelEClass, APPEARANCE_LABEL__TEXT);
 	}
 
 	/**
@@ -459,8 +459,9 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 		identityEClass.getESuperTypes().add(thePnmlcoremodelPackage.getAttribute());
 		ignoreAnimationEClass.getESuperTypes().add(thePnmlcoremodelPackage.getAttribute());
 		interactiveInputEClass.getESuperTypes().add(thePnmlcoremodelPackage.getAttribute());
-		animationsEClass.getESuperTypes().add(theStructuredpntypemodelPackage.getStructuredLabel());
-		appearanceEClass.getESuperTypes().add(thePnmlcoremodelPackage.getLabel());
+		tokenEClass.getESuperTypes().add(thePnmlcoremodelPackage.getObject());
+		animationLabelEClass.getESuperTypes().add(theStructuredpntypemodelPackage.getStructuredLabel());
+		appearanceLabelEClass.getESuperTypes().add(thePnmlcoremodelPackage.getLabel());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(extendedPetriNetEClass, ExtendedPetriNet.class, "ExtendedPetriNet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -471,9 +472,10 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 
 		initEClass(placeEClass, Place.class, "Place", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPlace_InteractiveInput(), this.getInteractiveInput(), null, "interactiveInput", null, 1, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlace_Animations(), this.getAnimations(), null, "animations", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlace_Animations(), this.getAnimationLabel(), null, "animations", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlace_Tokens(), this.getToken(), null, "tokens", null, 0, -1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlace_GeoLabel(), ecorePackage.getEString(), "geoLabel", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlace_Appearance(), this.getAppearanceLabel(), null, "appearance", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(identityEClass, Identity.class, "Identity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIdentity_Text(), ecorePackage.getEInt(), "text", null, 0, 1, Identity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -485,14 +487,13 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 		initEAttribute(getInteractiveInput_Text(), ecorePackage.getEBoolean(), "text", null, 0, 1, InteractiveInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tokenEClass, Token.class, "Token", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getToken_ID(), ecorePackage.getEInt(), "ID", null, 0, 1, Token.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getToken_Appearance(), this.getAppearance(), null, "appearance", null, 0, 1, Token.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getToken_Appearance(), this.getAppearanceLabel(), null, "appearance", null, 0, 1, Token.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(animationsEClass, Animations.class, "Animations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnimations_Structure(), theAnimationsPackage.getAnimation(), null, "structure", null, 1, 1, Animations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(animationLabelEClass, AnimationLabel.class, "AnimationLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAnimationLabel_Structure(), theAnimationsPackage.getAnimation(), null, "structure", null, 1, 1, AnimationLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(appearanceEClass, Appearance.class, "Appearance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAppearance_Text(), ecorePackage.getEString(), "text", null, 0, 1, Appearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(appearanceLabelEClass, AppearanceLabel.class, "AppearanceLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAppearanceLabel_Text(), ecorePackage.getEString(), "text", null, 0, 1, AppearanceLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

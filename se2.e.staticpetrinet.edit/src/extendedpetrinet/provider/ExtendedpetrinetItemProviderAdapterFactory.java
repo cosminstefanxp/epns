@@ -233,49 +233,49 @@ public class ExtendedpetrinetItemProviderAdapterFactory extends Extendedpetrinet
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link extendedpetrinet.Animations} instances.
+	 * This keeps track of the one adapter used for all {@link extendedpetrinet.AnimationLabel} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AnimationsItemProvider animationsItemProvider;
+	protected AnimationLabelItemProvider animationLabelItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link extendedpetrinet.Animations}.
+	 * This creates an adapter for a {@link extendedpetrinet.AnimationLabel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAnimationsAdapter() {
-		if (animationsItemProvider == null) {
-			animationsItemProvider = new AnimationsItemProvider(this);
+	public Adapter createAnimationLabelAdapter() {
+		if (animationLabelItemProvider == null) {
+			animationLabelItemProvider = new AnimationLabelItemProvider(this);
 		}
 
-		return animationsItemProvider;
+		return animationLabelItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link extendedpetrinet.Appearance} instances.
+	 * This keeps track of the one adapter used for all {@link extendedpetrinet.AppearanceLabel} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AppearanceItemProvider appearanceItemProvider;
+	protected AppearanceLabelItemProvider appearanceLabelItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link extendedpetrinet.Appearance}.
+	 * This creates an adapter for a {@link extendedpetrinet.AppearanceLabel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAppearanceAdapter() {
-		if (appearanceItemProvider == null) {
-			appearanceItemProvider = new AppearanceItemProvider(this);
+	public Adapter createAppearanceLabelAdapter() {
+		if (appearanceLabelItemProvider == null) {
+			appearanceLabelItemProvider = new AppearanceLabelItemProvider(this);
 		}
 
-		return appearanceItemProvider;
+		return appearanceLabelItemProvider;
 	}
 
 	/**
@@ -384,8 +384,8 @@ public class ExtendedpetrinetItemProviderAdapterFactory extends Extendedpetrinet
 		if (ignoreAnimationItemProvider != null) ignoreAnimationItemProvider.dispose();
 		if (interactiveInputItemProvider != null) interactiveInputItemProvider.dispose();
 		if (tokenItemProvider != null) tokenItemProvider.dispose();
-		if (animationsItemProvider != null) animationsItemProvider.dispose();
-		if (appearanceItemProvider != null) appearanceItemProvider.dispose();
+		if (animationLabelItemProvider != null) animationLabelItemProvider.dispose();
+		if (appearanceLabelItemProvider != null) appearanceLabelItemProvider.dispose();
 	}
 
 }

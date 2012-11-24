@@ -85,22 +85,22 @@ public interface ExtendedpetrinetFactory extends EFactory {
 	Token createToken();
 
 	/**
-	 * Returns a new object of class '<em>Animations</em>'.
+	 * Returns a new object of class '<em>Animation Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Animations</em>'.
+	 * @return a new object of class '<em>Animation Label</em>'.
 	 * @generated
 	 */
-	Animations createAnimations();
+	AnimationLabel createAnimationLabel();
 
 	/**
-	 * Returns a new object of class '<em>Appearance</em>'.
+	 * Returns a new object of class '<em>Appearance Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Appearance</em>'.
+	 * @return a new object of class '<em>Appearance Label</em>'.
 	 * @generated
 	 */
-	Appearance createAppearance();
+	AppearanceLabel createAppearanceLabel();
 
 	/**
 	 * Returns the package supported by this factory.

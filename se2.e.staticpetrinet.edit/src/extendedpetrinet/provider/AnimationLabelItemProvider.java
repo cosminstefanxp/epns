@@ -5,7 +5,7 @@ package extendedpetrinet.provider;
 
 import animations.AnimationsFactory;
 
-import extendedpetrinet.Animations;
+import extendedpetrinet.AnimationLabel;
 import extendedpetrinet.ExtendedpetrinetPackage;
 
 import java.util.Collection;
@@ -29,12 +29,12 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.pnml.tools.epnk.structuredpntypemodel.provider.StructuredLabelItemProvider;
 
 /**
- * This is the item provider adapter for a {@link extendedpetrinet.Animations} object.
+ * This is the item provider adapter for a {@link extendedpetrinet.AnimationLabel} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AnimationsItemProvider
+public class AnimationLabelItemProvider
 	extends StructuredLabelItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +48,7 @@ public class AnimationsItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AnimationsItemProvider(AdapterFactory adapterFactory) {
+	public AnimationLabelItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -79,7 +79,7 @@ public class AnimationsItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ExtendedpetrinetPackage.Literals.ANIMATIONS__STRUCTURE);
+			childrenFeatures.add(ExtendedpetrinetPackage.Literals.ANIMATION_LABEL__STRUCTURE);
 		}
 		return childrenFeatures;
 	}
@@ -98,14 +98,14 @@ public class AnimationsItemProvider
 	}
 
 	/**
-	 * This returns Animations.gif.
+	 * This returns AnimationLabel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Animations"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AnimationLabel"));
 	}
 
 	/**
@@ -116,10 +116,10 @@ public class AnimationsItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((Animations)object).getText());
+		String label = crop(((AnimationLabel)object).getText());
 		return label == null || label.length() == 0 ?
-			getString("_UI_Animations_type") :
-			getString("_UI_Animations_type") + " " + label;
+			getString("_UI_AnimationLabel_type") :
+			getString("_UI_AnimationLabel_type") + " " + label;
 	}
 
 	/**
@@ -133,8 +133,8 @@ public class AnimationsItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Animations.class)) {
-			case ExtendedpetrinetPackage.ANIMATIONS__STRUCTURE:
+		switch (notification.getFeatureID(AnimationLabel.class)) {
+			case ExtendedpetrinetPackage.ANIMATION_LABEL__STRUCTURE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -154,32 +154,32 @@ public class AnimationsItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ExtendedpetrinetPackage.Literals.ANIMATIONS__STRUCTURE,
+				(ExtendedpetrinetPackage.Literals.ANIMATION_LABEL__STRUCTURE,
 				 AnimationsFactory.eINSTANCE.createAnimation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ExtendedpetrinetPackage.Literals.ANIMATIONS__STRUCTURE,
+				(ExtendedpetrinetPackage.Literals.ANIMATION_LABEL__STRUCTURE,
 				 AnimationsFactory.eINSTANCE.createSequence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ExtendedpetrinetPackage.Literals.ANIMATIONS__STRUCTURE,
+				(ExtendedpetrinetPackage.Literals.ANIMATION_LABEL__STRUCTURE,
 				 AnimationsFactory.eINSTANCE.createHide()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ExtendedpetrinetPackage.Literals.ANIMATIONS__STRUCTURE,
+				(ExtendedpetrinetPackage.Literals.ANIMATION_LABEL__STRUCTURE,
 				 AnimationsFactory.eINSTANCE.createShow()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ExtendedpetrinetPackage.Literals.ANIMATIONS__STRUCTURE,
+				(ExtendedpetrinetPackage.Literals.ANIMATION_LABEL__STRUCTURE,
 				 AnimationsFactory.eINSTANCE.createMove()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ExtendedpetrinetPackage.Literals.ANIMATIONS__STRUCTURE,
+				(ExtendedpetrinetPackage.Literals.ANIMATION_LABEL__STRUCTURE,
 				 AnimationsFactory.eINSTANCE.createWait()));
 	}
 

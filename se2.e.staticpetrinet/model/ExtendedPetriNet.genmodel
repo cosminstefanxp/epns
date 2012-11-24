@@ -16,6 +16,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/animations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/tokens"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Place/geoLabel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/appearance"/>
     </genClasses>
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//Identity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Identity/text"/>
@@ -27,14 +28,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//InteractiveInput/text"/>
     </genClasses>
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//Token">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Token/ID"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Token/appearance"/>
     </genClasses>
-    <genClasses ecoreClass="ExtendedPetriNet.ecore#//Animations">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Animations/structure"/>
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//AnimationLabel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//AnimationLabel/structure"/>
     </genClasses>
-    <genClasses ecoreClass="ExtendedPetriNet.ecore#//Appearance">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Appearance/text"/>
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//AppearanceLabel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//AppearanceLabel/text"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

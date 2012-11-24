@@ -2,9 +2,10 @@
  */
 package extendedpetrinet.impl;
 
-import extendedpetrinet.AppearanceLabel;
+import animations.Animation;
+
+import extendedpetrinet.AnimationLabel;
 import extendedpetrinet.ExtendedpetrinetPackage;
-import extendedpetrinet.Token;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -13,38 +14,39 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.pnml.tools.epnk.pnmlcoremodel.impl.ObjectImpl;
+
+import org.pnml.tools.epnk.structuredpntypemodel.impl.StructuredLabelImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Token</b></em>'.
+ * An implementation of the model object '<em><b>Animation Label</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link extendedpetrinet.impl.TokenImpl#getAppearance <em>Appearance</em>}</li>
+ *   <li>{@link extendedpetrinet.impl.AnimationLabelImpl#getStructure <em>Structure</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class TokenImpl extends ObjectImpl implements Token {
+public class AnimationLabelImpl extends StructuredLabelImpl implements AnimationLabel {
 	/**
-	 * The cached value of the '{@link #getAppearance() <em>Appearance</em>}' containment reference.
+	 * The cached value of the '{@link #getStructure() <em>Structure</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAppearance()
+	 * @see #getStructure()
 	 * @generated
 	 * @ordered
 	 */
-	protected AppearanceLabel appearance;
+	protected Animation structure;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TokenImpl() {
+	protected AnimationLabelImpl() {
 		super();
 	}
 
@@ -55,7 +57,7 @@ public class TokenImpl extends ObjectImpl implements Token {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ExtendedpetrinetPackage.Literals.TOKEN;
+		return ExtendedpetrinetPackage.Literals.ANIMATION_LABEL;
 	}
 
 	/**
@@ -63,8 +65,8 @@ public class TokenImpl extends ObjectImpl implements Token {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AppearanceLabel getAppearance() {
-		return appearance;
+	public Animation getStructure() {
+		return structure;
 	}
 
 	/**
@@ -72,11 +74,11 @@ public class TokenImpl extends ObjectImpl implements Token {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAppearance(AppearanceLabel newAppearance, NotificationChain msgs) {
-		AppearanceLabel oldAppearance = appearance;
-		appearance = newAppearance;
+	public NotificationChain basicSetStructure(Animation newStructure, NotificationChain msgs) {
+		Animation oldStructure = structure;
+		structure = newStructure;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.TOKEN__APPEARANCE, oldAppearance, newAppearance);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.ANIMATION_LABEL__STRUCTURE, oldStructure, newStructure);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -87,18 +89,18 @@ public class TokenImpl extends ObjectImpl implements Token {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAppearance(AppearanceLabel newAppearance) {
-		if (newAppearance != appearance) {
+	public void setStructure(Animation newStructure) {
+		if (newStructure != structure) {
 			NotificationChain msgs = null;
-			if (appearance != null)
-				msgs = ((InternalEObject)appearance).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.TOKEN__APPEARANCE, null, msgs);
-			if (newAppearance != null)
-				msgs = ((InternalEObject)newAppearance).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.TOKEN__APPEARANCE, null, msgs);
-			msgs = basicSetAppearance(newAppearance, msgs);
+			if (structure != null)
+				msgs = ((InternalEObject)structure).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.ANIMATION_LABEL__STRUCTURE, null, msgs);
+			if (newStructure != null)
+				msgs = ((InternalEObject)newStructure).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.ANIMATION_LABEL__STRUCTURE, null, msgs);
+			msgs = basicSetStructure(newStructure, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.TOKEN__APPEARANCE, newAppearance, newAppearance));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.ANIMATION_LABEL__STRUCTURE, newStructure, newStructure));
 	}
 
 	/**
@@ -109,8 +111,8 @@ public class TokenImpl extends ObjectImpl implements Token {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.TOKEN__APPEARANCE:
-				return basicSetAppearance(null, msgs);
+			case ExtendedpetrinetPackage.ANIMATION_LABEL__STRUCTURE:
+				return basicSetStructure(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -123,8 +125,8 @@ public class TokenImpl extends ObjectImpl implements Token {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.TOKEN__APPEARANCE:
-				return getAppearance();
+			case ExtendedpetrinetPackage.ANIMATION_LABEL__STRUCTURE:
+				return getStructure();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -137,8 +139,8 @@ public class TokenImpl extends ObjectImpl implements Token {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.TOKEN__APPEARANCE:
-				setAppearance((AppearanceLabel)newValue);
+			case ExtendedpetrinetPackage.ANIMATION_LABEL__STRUCTURE:
+				setStructure((Animation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -152,8 +154,8 @@ public class TokenImpl extends ObjectImpl implements Token {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.TOKEN__APPEARANCE:
-				setAppearance((AppearanceLabel)null);
+			case ExtendedpetrinetPackage.ANIMATION_LABEL__STRUCTURE:
+				setStructure((Animation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -167,10 +169,10 @@ public class TokenImpl extends ObjectImpl implements Token {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.TOKEN__APPEARANCE:
-				return appearance != null;
+			case ExtendedpetrinetPackage.ANIMATION_LABEL__STRUCTURE:
+				return structure != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //TokenImpl
+} //AnimationLabelImpl

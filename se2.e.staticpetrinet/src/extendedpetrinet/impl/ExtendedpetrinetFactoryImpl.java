@@ -63,8 +63,8 @@ public class ExtendedpetrinetFactoryImpl extends EFactoryImpl implements Extende
 			case ExtendedpetrinetPackage.IGNORE_ANIMATION: return createIgnoreAnimation();
 			case ExtendedpetrinetPackage.INTERACTIVE_INPUT: return createInteractiveInput();
 			case ExtendedpetrinetPackage.TOKEN: return createToken();
-			case ExtendedpetrinetPackage.ANIMATIONS: return createAnimations();
-			case ExtendedpetrinetPackage.APPEARANCE: return createAppearance();
+			case ExtendedpetrinetPackage.ANIMATION_LABEL: return createAnimationLabel();
+			case ExtendedpetrinetPackage.APPEARANCE_LABEL: return createAppearanceLabel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -145,9 +145,9 @@ public class ExtendedpetrinetFactoryImpl extends EFactoryImpl implements Extende
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Animations createAnimations() {
-		AnimationsImpl animations = new AnimationsImpl();
-		return animations;
+	public AnimationLabel createAnimationLabel() {
+		AnimationLabelImpl animationLabel = new AnimationLabelImpl();
+		return animationLabel;
 	}
 
 	/**
@@ -155,9 +155,9 @@ public class ExtendedpetrinetFactoryImpl extends EFactoryImpl implements Extende
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Appearance createAppearance() {
-		AppearanceImpl appearance = new AppearanceImpl();
-		return appearance;
+	public AppearanceLabel createAppearanceLabel() {
+		AppearanceLabelImpl appearanceLabel = new AppearanceLabelImpl();
+		return appearanceLabel;
 	}
 
 	/**

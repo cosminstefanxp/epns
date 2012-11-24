@@ -2,7 +2,8 @@
  */
 package extendedpetrinet.impl;
 
-import extendedpetrinet.Animations;
+import extendedpetrinet.AnimationLabel;
+import extendedpetrinet.AppearanceLabel;
 import extendedpetrinet.ExtendedpetrinetPackage;
 import extendedpetrinet.InteractiveInput;
 import extendedpetrinet.Place;
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link extendedpetrinet.impl.PlaceImpl#getAnimations <em>Animations</em>}</li>
  *   <li>{@link extendedpetrinet.impl.PlaceImpl#getTokens <em>Tokens</em>}</li>
  *   <li>{@link extendedpetrinet.impl.PlaceImpl#getGeoLabel <em>Geo Label</em>}</li>
+ *   <li>{@link extendedpetrinet.impl.PlaceImpl#getAppearance <em>Appearance</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,7 +60,7 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected Animations animations;
+	protected AnimationLabel animations;
 
 	/**
 	 * The cached value of the '{@link #getTokens() <em>Tokens</em>}' containment reference list.
@@ -89,6 +91,16 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * @ordered
 	 */
 	protected String geoLabel = GEO_LABEL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAppearance() <em>Appearance</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAppearance()
+	 * @generated
+	 * @ordered
+	 */
+	protected AppearanceLabel appearance;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,7 +169,7 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Animations getAnimations() {
+	public AnimationLabel getAnimations() {
 		return animations;
 	}
 
@@ -166,8 +178,8 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAnimations(Animations newAnimations, NotificationChain msgs) {
-		Animations oldAnimations = animations;
+	public NotificationChain basicSetAnimations(AnimationLabel newAnimations, NotificationChain msgs) {
+		AnimationLabel oldAnimations = animations;
 		animations = newAnimations;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.PLACE__ANIMATIONS, oldAnimations, newAnimations);
@@ -181,7 +193,7 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAnimations(Animations newAnimations) {
+	public void setAnimations(AnimationLabel newAnimations) {
 		if (newAnimations != animations) {
 			NotificationChain msgs = null;
 			if (animations != null)
@@ -233,6 +245,49 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AppearanceLabel getAppearance() {
+		return appearance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAppearance(AppearanceLabel newAppearance, NotificationChain msgs) {
+		AppearanceLabel oldAppearance = appearance;
+		appearance = newAppearance;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.PLACE__APPEARANCE, oldAppearance, newAppearance);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAppearance(AppearanceLabel newAppearance) {
+		if (newAppearance != appearance) {
+			NotificationChain msgs = null;
+			if (appearance != null)
+				msgs = ((InternalEObject)appearance).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.PLACE__APPEARANCE, null, msgs);
+			if (newAppearance != null)
+				msgs = ((InternalEObject)newAppearance).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.PLACE__APPEARANCE, null, msgs);
+			msgs = basicSetAppearance(newAppearance, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.PLACE__APPEARANCE, newAppearance, newAppearance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -242,6 +297,8 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				return basicSetAnimations(null, msgs);
 			case ExtendedpetrinetPackage.PLACE__TOKENS:
 				return ((InternalEList<?>)getTokens()).basicRemove(otherEnd, msgs);
+			case ExtendedpetrinetPackage.PLACE__APPEARANCE:
+				return basicSetAppearance(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -262,6 +319,8 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				return getTokens();
 			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
 				return getGeoLabel();
+			case ExtendedpetrinetPackage.PLACE__APPEARANCE:
+				return getAppearance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -279,7 +338,7 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				setInteractiveInput((InteractiveInput)newValue);
 				return;
 			case ExtendedpetrinetPackage.PLACE__ANIMATIONS:
-				setAnimations((Animations)newValue);
+				setAnimations((AnimationLabel)newValue);
 				return;
 			case ExtendedpetrinetPackage.PLACE__TOKENS:
 				getTokens().clear();
@@ -287,6 +346,9 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				return;
 			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
 				setGeoLabel((String)newValue);
+				return;
+			case ExtendedpetrinetPackage.PLACE__APPEARANCE:
+				setAppearance((AppearanceLabel)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -304,13 +366,16 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				setInteractiveInput((InteractiveInput)null);
 				return;
 			case ExtendedpetrinetPackage.PLACE__ANIMATIONS:
-				setAnimations((Animations)null);
+				setAnimations((AnimationLabel)null);
 				return;
 			case ExtendedpetrinetPackage.PLACE__TOKENS:
 				getTokens().clear();
 				return;
 			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
 				setGeoLabel(GEO_LABEL_EDEFAULT);
+				return;
+			case ExtendedpetrinetPackage.PLACE__APPEARANCE:
+				setAppearance((AppearanceLabel)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -332,6 +397,8 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				return tokens != null && !tokens.isEmpty();
 			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
 				return GEO_LABEL_EDEFAULT == null ? geoLabel != null : !GEO_LABEL_EDEFAULT.equals(geoLabel);
+			case ExtendedpetrinetPackage.PLACE__APPEARANCE:
+				return appearance != null;
 		}
 		return super.eIsSet(featureID);
 	}

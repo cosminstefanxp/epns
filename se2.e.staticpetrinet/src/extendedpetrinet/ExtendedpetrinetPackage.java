@@ -288,13 +288,22 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	int PLACE__GEO_LABEL = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACE__APPEARANCE = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Place</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLACE_FEATURE_COUNT = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 4;
+	int PLACE_FEATURE_COUNT = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link extendedpetrinet.impl.IdentityImpl <em>Identity</em>}' class.
@@ -472,13 +481,49 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	int TOKEN = 6;
 
 	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TOKEN__ID = 0;
+	int TOKEN__ID = PnmlcoremodelPackage.OBJECT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN__NAME = PnmlcoremodelPackage.OBJECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Toolspecific</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN__TOOLSPECIFIC = PnmlcoremodelPackage.OBJECT__TOOLSPECIFIC;
+
+	/**
+	 * The feature id for the '<em><b>Graphics</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN__GRAPHICS = PnmlcoremodelPackage.OBJECT__GRAPHICS;
+
+	/**
+	 * The feature id for the '<em><b>Unknown</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOKEN__UNKNOWN = PnmlcoremodelPackage.OBJECT__UNKNOWN;
 
 	/**
 	 * The feature id for the '<em><b>Appearance</b></em>' containment reference.
@@ -487,7 +532,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOKEN__APPEARANCE = 1;
+	int TOKEN__APPEARANCE = PnmlcoremodelPackage.OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Token</em>' class.
@@ -496,17 +541,17 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOKEN_FEATURE_COUNT = 2;
+	int TOKEN_FEATURE_COUNT = PnmlcoremodelPackage.OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link extendedpetrinet.impl.AnimationsImpl <em>Animations</em>}' class.
+	 * The meta object id for the '{@link extendedpetrinet.impl.AnimationLabelImpl <em>Animation Label</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see extendedpetrinet.impl.AnimationsImpl
-	 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getAnimations()
+	 * @see extendedpetrinet.impl.AnimationLabelImpl
+	 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getAnimationLabel()
 	 * @generated
 	 */
-	int ANIMATIONS = 7;
+	int ANIMATION_LABEL = 7;
 
 	/**
 	 * The feature id for the '<em><b>Toolspecific</b></em>' containment reference list.
@@ -515,7 +560,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANIMATIONS__TOOLSPECIFIC = StructuredpntypemodelPackage.STRUCTURED_LABEL__TOOLSPECIFIC;
+	int ANIMATION_LABEL__TOOLSPECIFIC = StructuredpntypemodelPackage.STRUCTURED_LABEL__TOOLSPECIFIC;
 
 	/**
 	 * The feature id for the '<em><b>Graphics</b></em>' containment reference.
@@ -524,7 +569,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANIMATIONS__GRAPHICS = StructuredpntypemodelPackage.STRUCTURED_LABEL__GRAPHICS;
+	int ANIMATION_LABEL__GRAPHICS = StructuredpntypemodelPackage.STRUCTURED_LABEL__GRAPHICS;
 
 	/**
 	 * The feature id for the '<em><b>Unknown</b></em>' containment reference list.
@@ -533,7 +578,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANIMATIONS__UNKNOWN = StructuredpntypemodelPackage.STRUCTURED_LABEL__UNKNOWN;
+	int ANIMATION_LABEL__UNKNOWN = StructuredpntypemodelPackage.STRUCTURED_LABEL__UNKNOWN;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -542,7 +587,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANIMATIONS__TEXT = StructuredpntypemodelPackage.STRUCTURED_LABEL__TEXT;
+	int ANIMATION_LABEL__TEXT = StructuredpntypemodelPackage.STRUCTURED_LABEL__TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Structure</b></em>' containment reference.
@@ -551,26 +596,26 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANIMATIONS__STRUCTURE = StructuredpntypemodelPackage.STRUCTURED_LABEL_FEATURE_COUNT + 0;
+	int ANIMATION_LABEL__STRUCTURE = StructuredpntypemodelPackage.STRUCTURED_LABEL_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Animations</em>' class.
+	 * The number of structural features of the '<em>Animation Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANIMATIONS_FEATURE_COUNT = StructuredpntypemodelPackage.STRUCTURED_LABEL_FEATURE_COUNT + 1;
+	int ANIMATION_LABEL_FEATURE_COUNT = StructuredpntypemodelPackage.STRUCTURED_LABEL_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link extendedpetrinet.impl.AppearanceImpl <em>Appearance</em>}' class.
+	 * The meta object id for the '{@link extendedpetrinet.impl.AppearanceLabelImpl <em>Appearance Label</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see extendedpetrinet.impl.AppearanceImpl
-	 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getAppearance()
+	 * @see extendedpetrinet.impl.AppearanceLabelImpl
+	 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getAppearanceLabel()
 	 * @generated
 	 */
-	int APPEARANCE = 8;
+	int APPEARANCE_LABEL = 8;
 
 	/**
 	 * The feature id for the '<em><b>Toolspecific</b></em>' containment reference list.
@@ -579,7 +624,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__TOOLSPECIFIC = PnmlcoremodelPackage.LABEL__TOOLSPECIFIC;
+	int APPEARANCE_LABEL__TOOLSPECIFIC = PnmlcoremodelPackage.LABEL__TOOLSPECIFIC;
 
 	/**
 	 * The feature id for the '<em><b>Graphics</b></em>' containment reference.
@@ -588,7 +633,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__GRAPHICS = PnmlcoremodelPackage.LABEL__GRAPHICS;
+	int APPEARANCE_LABEL__GRAPHICS = PnmlcoremodelPackage.LABEL__GRAPHICS;
 
 	/**
 	 * The feature id for the '<em><b>Unknown</b></em>' containment reference list.
@@ -597,7 +642,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__UNKNOWN = PnmlcoremodelPackage.LABEL__UNKNOWN;
+	int APPEARANCE_LABEL__UNKNOWN = PnmlcoremodelPackage.LABEL__UNKNOWN;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -606,17 +651,16 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE__TEXT = PnmlcoremodelPackage.LABEL_FEATURE_COUNT + 0;
+	int APPEARANCE_LABEL__TEXT = PnmlcoremodelPackage.LABEL_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Appearance</em>' class.
+	 * The number of structural features of the '<em>Appearance Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE_FEATURE_COUNT = PnmlcoremodelPackage.LABEL_FEATURE_COUNT + 1;
-
+	int APPEARANCE_LABEL_FEATURE_COUNT = PnmlcoremodelPackage.LABEL_FEATURE_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link extendedpetrinet.ExtendedPetriNet <em>Extended Petri Net</em>}'.
@@ -715,6 +759,17 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	EAttribute getPlace_GeoLabel();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link extendedpetrinet.Place#getAppearance <em>Appearance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Appearance</em>'.
+	 * @see extendedpetrinet.Place#getAppearance()
+	 * @see #getPlace()
+	 * @generated
+	 */
+	EReference getPlace_Appearance();
+
+	/**
 	 * Returns the meta object for class '{@link extendedpetrinet.Identity <em>Identity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -788,15 +843,46 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	EClass getToken();
 
 	/**
-	 * Returns the meta object for the attribute '{@link extendedpetrinet.Token#getID <em>ID</em>}'.
+	 * Returns the meta object for class '{@link extendedpetrinet.AnimationLabel <em>Animation Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>ID</em>'.
-	 * @see extendedpetrinet.Token#getID()
-	 * @see #getToken()
+	 * @return the meta object for class '<em>Animation Label</em>'.
+	 * @see extendedpetrinet.AnimationLabel
 	 * @generated
 	 */
-	EAttribute getToken_ID();
+	EClass getAnimationLabel();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link extendedpetrinet.AnimationLabel#getStructure <em>Structure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Structure</em>'.
+	 * @see extendedpetrinet.AnimationLabel#getStructure()
+	 * @see #getAnimationLabel()
+	 * @generated
+	 */
+	EReference getAnimationLabel_Structure();
+
+	/**
+	 * Returns the meta object for class '{@link extendedpetrinet.AppearanceLabel <em>Appearance Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Appearance Label</em>'.
+	 * @see extendedpetrinet.AppearanceLabel
+	 * @generated
+	 */
+	EClass getAppearanceLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link extendedpetrinet.AppearanceLabel#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see extendedpetrinet.AppearanceLabel#getText()
+	 * @see #getAppearanceLabel()
+	 * @generated
+	 */
+	EAttribute getAppearanceLabel_Text();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link extendedpetrinet.Token#getAppearance <em>Appearance</em>}'.
@@ -808,48 +894,6 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getToken_Appearance();
-
-	/**
-	 * Returns the meta object for class '{@link extendedpetrinet.Animations <em>Animations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Animations</em>'.
-	 * @see extendedpetrinet.Animations
-	 * @generated
-	 */
-	EClass getAnimations();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link extendedpetrinet.Animations#getStructure <em>Structure</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Structure</em>'.
-	 * @see extendedpetrinet.Animations#getStructure()
-	 * @see #getAnimations()
-	 * @generated
-	 */
-	EReference getAnimations_Structure();
-
-	/**
-	 * Returns the meta object for class '{@link extendedpetrinet.Appearance <em>Appearance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Appearance</em>'.
-	 * @see extendedpetrinet.Appearance
-	 * @generated
-	 */
-	EClass getAppearance();
-
-	/**
-	 * Returns the meta object for the attribute '{@link extendedpetrinet.Appearance#getText <em>Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see extendedpetrinet.Appearance#getText()
-	 * @see #getAppearance()
-	 * @generated
-	 */
-	EAttribute getAppearance_Text();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -952,6 +996,14 @@ public interface ExtendedpetrinetPackage extends EPackage {
 		EAttribute PLACE__GEO_LABEL = eINSTANCE.getPlace_GeoLabel();
 
 		/**
+		 * The meta object literal for the '<em><b>Appearance</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLACE__APPEARANCE = eINSTANCE.getPlace_Appearance();
+
+		/**
 		 * The meta object literal for the '{@link extendedpetrinet.impl.IdentityImpl <em>Identity</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1016,12 +1068,40 @@ public interface ExtendedpetrinetPackage extends EPackage {
 		EClass TOKEN = eINSTANCE.getToken();
 
 		/**
-		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * The meta object literal for the '{@link extendedpetrinet.impl.AnimationLabelImpl <em>Animation Label</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see extendedpetrinet.impl.AnimationLabelImpl
+		 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getAnimationLabel()
+		 * @generated
+		 */
+		EClass ANIMATION_LABEL = eINSTANCE.getAnimationLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Structure</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TOKEN__ID = eINSTANCE.getToken_ID();
+		EReference ANIMATION_LABEL__STRUCTURE = eINSTANCE.getAnimationLabel_Structure();
+
+		/**
+		 * The meta object literal for the '{@link extendedpetrinet.impl.AppearanceLabelImpl <em>Appearance Label</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see extendedpetrinet.impl.AppearanceLabelImpl
+		 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getAppearanceLabel()
+		 * @generated
+		 */
+		EClass APPEARANCE_LABEL = eINSTANCE.getAppearanceLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPEARANCE_LABEL__TEXT = eINSTANCE.getAppearanceLabel_Text();
 
 		/**
 		 * The meta object literal for the '<em><b>Appearance</b></em>' containment reference feature.
@@ -1030,42 +1110,6 @@ public interface ExtendedpetrinetPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TOKEN__APPEARANCE = eINSTANCE.getToken_Appearance();
-
-		/**
-		 * The meta object literal for the '{@link extendedpetrinet.impl.AnimationsImpl <em>Animations</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see extendedpetrinet.impl.AnimationsImpl
-		 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getAnimations()
-		 * @generated
-		 */
-		EClass ANIMATIONS = eINSTANCE.getAnimations();
-
-		/**
-		 * The meta object literal for the '<em><b>Structure</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ANIMATIONS__STRUCTURE = eINSTANCE.getAnimations_Structure();
-
-		/**
-		 * The meta object literal for the '{@link extendedpetrinet.impl.AppearanceImpl <em>Appearance</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see extendedpetrinet.impl.AppearanceImpl
-		 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getAppearance()
-		 * @generated
-		 */
-		EClass APPEARANCE = eINSTANCE.getAppearance();
-
-		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute APPEARANCE__TEXT = eINSTANCE.getAppearance_Text();
 
 	}
 

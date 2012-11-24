@@ -11,11 +11,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="Place" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Place">
     <eStructuralFeatures xsi:type="ecore:EReference" name="interactiveInput" lowerBound="1"
         eType="#//InteractiveInput" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="animations" eType="#//Animations"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="animations" eType="#//AnimationLabel"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tokens" upperBound="-1"
         eType="#//Token" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="geoLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appearance" eType="#//AppearanceLabel"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Identity" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
@@ -27,18 +29,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="InteractiveInput" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Token">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="appearance" eType="#//Appearance"
+  <eClassifiers xsi:type="ecore:EClass" name="Token" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Object">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appearance" eType="#//AppearanceLabel"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Animations" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLStructuredPNTypeModel.ecore#//StructuredLabel">
+  <eClassifiers xsi:type="ecore:EClass" name="AnimationLabel" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLStructuredPNTypeModel.ecore#//StructuredLabel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="structure" lowerBound="1"
         eType="ecore:EClass ../../se2.e.animations/model/Animations.ecore#//Animation"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Appearance" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Label">
+  <eClassifiers xsi:type="ecore:EClass" name="AppearanceLabel" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Label">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

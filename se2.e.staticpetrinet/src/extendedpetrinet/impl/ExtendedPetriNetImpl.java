@@ -52,7 +52,7 @@ public class ExtendedPetriNetImpl extends PetriNetTypeImpl implements ExtendedPe
 	 */
 	@Override
 	public String toString() {
-		return "Extended PetriNet";
+		return "ePNS PetriNet";
 	}
 
 } //ExtendedPetriNetImpl

@@ -3,7 +3,7 @@
 package extendedpetrinet.provider;
 
 
-import extendedpetrinet.Appearance;
+import extendedpetrinet.AppearanceLabel;
 import extendedpetrinet.ExtendedpetrinetPackage;
 
 import java.util.Collection;
@@ -27,12 +27,12 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.pnml.tools.epnk.pnmlcoremodel.provider.LabelItemProvider;
 
 /**
- * This is the item provider adapter for a {@link extendedpetrinet.Appearance} object.
+ * This is the item provider adapter for a {@link extendedpetrinet.AppearanceLabel} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AppearanceItemProvider
+public class AppearanceLabelItemProvider
 	extends LabelItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +46,7 @@ public class AppearanceItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AppearanceItemProvider(AdapterFactory adapterFactory) {
+	public AppearanceLabelItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -77,9 +77,9 @@ public class AppearanceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Appearance_text_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Appearance_text_feature", "_UI_Appearance_type"),
-				 ExtendedpetrinetPackage.Literals.APPEARANCE__TEXT,
+				 getString("_UI_AppearanceLabel_text_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AppearanceLabel_text_feature", "_UI_AppearanceLabel_type"),
+				 ExtendedpetrinetPackage.Literals.APPEARANCE_LABEL__TEXT,
 				 true,
 				 false,
 				 false,
@@ -89,14 +89,14 @@ public class AppearanceItemProvider
 	}
 
 	/**
-	 * This returns Appearance.gif.
+	 * This returns AppearanceLabel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Appearance"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AppearanceLabel"));
 	}
 
 	/**
@@ -107,10 +107,10 @@ public class AppearanceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Appearance)object).getText();
+		String label = ((AppearanceLabel)object).getText();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Appearance_type") :
-			getString("_UI_Appearance_type") + " " + label;
+			getString("_UI_AppearanceLabel_type") :
+			getString("_UI_AppearanceLabel_type") + " " + label;
 	}
 
 	/**
@@ -124,8 +124,8 @@ public class AppearanceItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Appearance.class)) {
-			case ExtendedpetrinetPackage.APPEARANCE__TEXT:
+		switch (notification.getFeatureID(AppearanceLabel.class)) {
+			case ExtendedpetrinetPackage.APPEARANCE_LABEL__TEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

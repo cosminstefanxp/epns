@@ -105,12 +105,12 @@ public class ExtendedpetrinetAdapterFactory extends AdapterFactoryImpl {
 				return createTokenAdapter();
 			}
 			@Override
-			public Adapter caseAnimations(Animations object) {
-				return createAnimationsAdapter();
+			public Adapter caseAnimationLabel(AnimationLabel object) {
+				return createAnimationLabelAdapter();
 			}
 			@Override
-			public Adapter caseAppearance(Appearance object) {
-				return createAppearanceAdapter();
+			public Adapter caseAppearanceLabel(AppearanceLabel object) {
+				return createAppearanceLabelAdapter();
 			}
 			@Override
 			public Adapter casePetriNetType(PetriNetType object) {
@@ -271,30 +271,30 @@ public class ExtendedpetrinetAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link extendedpetrinet.Animations <em>Animations</em>}'.
+	 * Creates a new adapter for an object of class '{@link extendedpetrinet.AnimationLabel <em>Animation Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see extendedpetrinet.Animations
+	 * @see extendedpetrinet.AnimationLabel
 	 * @generated
 	 */
-	public Adapter createAnimationsAdapter() {
+	public Adapter createAnimationLabelAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link extendedpetrinet.Appearance <em>Appearance</em>}'.
+	 * Creates a new adapter for an object of class '{@link extendedpetrinet.AppearanceLabel <em>Appearance Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see extendedpetrinet.Appearance
+	 * @see extendedpetrinet.AppearanceLabel
 	 * @generated
 	 */
-	public Adapter createAppearanceAdapter() {
+	public Adapter createAppearanceLabelAdapter() {
 		return null;
 	}
 

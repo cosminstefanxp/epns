@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link extendedpetrinet.Place#getAnimations <em>Animations</em>}</li>
  *   <li>{@link extendedpetrinet.Place#getTokens <em>Tokens</em>}</li>
  *   <li>{@link extendedpetrinet.Place#getGeoLabel <em>Geo Label</em>}</li>
+ *   <li>{@link extendedpetrinet.Place#getAppearance <em>Appearance</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,12 +60,12 @@ public interface Place extends org.pnml.tools.epnk.pnmlcoremodel.Place {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Animations</em>' containment reference.
-	 * @see #setAnimations(Animations)
+	 * @see #setAnimations(AnimationLabel)
 	 * @see extendedpetrinet.ExtendedpetrinetPackage#getPlace_Animations()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Animations getAnimations();
+	AnimationLabel getAnimations();
 
 	/**
 	 * Sets the value of the '{@link extendedpetrinet.Place#getAnimations <em>Animations</em>}' containment reference.
@@ -74,7 +75,7 @@ public interface Place extends org.pnml.tools.epnk.pnmlcoremodel.Place {
 	 * @see #getAnimations()
 	 * @generated
 	 */
-	void setAnimations(Animations value);
+	void setAnimations(AnimationLabel value);
 
 	/**
 	 * Returns the value of the '<em><b>Tokens</b></em>' containment reference list.
@@ -117,5 +118,31 @@ public interface Place extends org.pnml.tools.epnk.pnmlcoremodel.Place {
 	 * @generated
 	 */
 	void setGeoLabel(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Appearance</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Appearance</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Appearance</em>' containment reference.
+	 * @see #setAppearance(AppearanceLabel)
+	 * @see extendedpetrinet.ExtendedpetrinetPackage#getPlace_Appearance()
+	 * @model containment="true"
+	 * @generated
+	 */
+	AppearanceLabel getAppearance();
+
+	/**
+	 * Sets the value of the '{@link extendedpetrinet.Place#getAppearance <em>Appearance</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Appearance</em>' containment reference.
+	 * @see #getAppearance()
+	 * @generated
+	 */
+	void setAppearance(AppearanceLabel value);
 
 } // Place

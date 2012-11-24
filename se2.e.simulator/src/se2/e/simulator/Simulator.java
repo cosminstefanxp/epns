@@ -2,9 +2,11 @@ package se2.e.simulator;
 
 import se2.e.geometry.Geometry;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 
@@ -40,6 +42,8 @@ public class Simulator implements Engine3DListener {
 
 	/** The engine. */
 	private Engine3D engine;
+	
+	List<TokenMovement> initialMovements;
 
 	/**
 	 * Instantiates a new simulator.
@@ -59,9 +63,11 @@ public class Simulator implements Engine3DListener {
 	 * Start simulation.
 	 */
 	public void startSimulation() {
+		initialMovements = rpn.init(selectedPetri);
 		engine = Engine3DFactory.getEngine();
 		// TODO: add input places labels...
-		engine.init(this.geometry, this.appearance, Collections.<String> emptySet());
+		Set<String> inputPlaces = this.rpn.getInputPlaces();
+		engine.init(this.geometry, this.appearance, inputPlaces);
 		engine.setEngine3DListener(this);
 
 		/* TO BE REMOVED Test for input place without 3d engine */
@@ -93,8 +99,7 @@ public class Simulator implements Engine3DListener {
 	 */
 	@Override
 	public void onStartSimulation() {
-		// fire transitions
-		List<TokenMovement> initialMovements = rpn.init(selectedPetri);
+		
 		for (TokenMovement tokenMovement : initialMovements) {
 			engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation());
 		}

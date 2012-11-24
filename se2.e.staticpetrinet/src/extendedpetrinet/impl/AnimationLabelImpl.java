@@ -182,7 +182,7 @@ public class AnimationLabelImpl extends StructuredLabelImpl implements Animation
      * Method for parsing the text of an animation label. 
      * 
      * @generated NOT
-     * @author Juan, Pablo and María
+     * @author Juan, María and Pablo.
      */
 	@Override
 	public EObject parse(String input) {

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -265,6 +267,17 @@ public class RuntimePetriNet {
 			}		
 		}
 		tokensMap.get(placeForLabel).add(droppedToken);
+	}
+
+	public Set<String> getInputPlaces() {
+		Set<String> inputPlacesLabels = new TreeSet<String>();
+		for(Place p : tokensMap.keySet()) {
+			System.out.println("PLACE " + p.getGeoLabel() + " " +p.getInteractiveInput());
+			if(p.getInteractiveInput() != null && p.getInteractiveInput().isText()){
+				inputPlacesLabels.add(p.getGeoLabel());
+			}
+		}
+		return inputPlacesLabels;
 	}
 
 }

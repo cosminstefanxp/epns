@@ -1,8 +1,8 @@
 package se2.e.simulator.runtime.petrinet;
 
-
 /**
  * The Class RuntimeToken.
+ * 
  * @author Ruxandra, Marius
  */
 public class RuntimeToken {
@@ -20,6 +20,11 @@ public class RuntimeToken {
 	 */
 	public String getLabel() {
 		return label;
+	}
+
+	@Override
+	public String toString() {
+		return "RuntimeToken[label=" + label + "]";
 	}
 
 	/**

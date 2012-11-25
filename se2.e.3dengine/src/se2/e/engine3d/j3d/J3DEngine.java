@@ -145,7 +145,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		// Manually create the viewing platform so that we can customize it
 		ViewingPlatform viewingPlatform = new ViewingPlatform();
 
-		// Set the view position back far enough so that we can see things
+		// Set the view position back far enough so that we can see thingsDid not find
 		TransformGroup viewTransform = viewingPlatform.getViewPlatformTransform();
 		Transform3D t3d = new Transform3D();
 		// Compute initial values for viewer
@@ -295,8 +295,13 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 */
 	@Override
 	public void startAnimation(RuntimeToken token, Animation animation, String geometryLabel) {
+		log.info("Starting new animation for token " + token.getLabel() + " on " + geometryLabel + ": " + animation);
 		// Get any existing branch representation of the token
 		DynamicBranch branch = tokenRepresentations.get(token);
+		if (branch != null)
+			log.info("Found dynamic branch for token " + token);
+		else
+			log.info("Existing dynamic branch not found. Creating new one for " + token);
 
 		// Build the RuntimeAnimation
 		RuntimeAnimation<?> rtAnimation = RuntimeAnimationFactory.getRuntimeAnimation(branch, animation, token, this,
@@ -307,6 +312,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		if (!rtAnimation.isAttachedToRoot() && rtAnimation.getTargetBranch() != null) {
 			sceneRoot.addChild(rtAnimation.getTargetBranch().getBranchGroup());
 			rtAnimation.setAttachedToRoot(true);
+			tokenRepresentations.put(token, rtAnimation.getTargetBranch());
 		}
 	}
 

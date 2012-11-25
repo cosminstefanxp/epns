@@ -68,7 +68,8 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 	 * @author cosmin
 	 */
 	protected void onAnimationFinished() {
-		this.targetBranch.getBranchGroup().detach();
+		// Don't detach any more, as the detach will be done when token is destroyed
+		// this.targetBranch.getBranchGroup().detach();
 		animationListener.animationFinished(token);
 	}
 
@@ -91,9 +92,11 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 		this.attachedToRoot = false;
 
 		// Connect the behavior to the branch group
+		this.targetBranch.getBranchGroup().detach();
+		if (targetBranch.getBehaviorNode() != null)
+			this.getTargetBranch().getBranchGroup().removeChild(this.targetBranch.getBehaviorNode());
 		this.targetBranch.setBehaviorNode(this);
 		this.targetBranch.getBranchGroup().addChild(this);
-
 	}
 
 	/**

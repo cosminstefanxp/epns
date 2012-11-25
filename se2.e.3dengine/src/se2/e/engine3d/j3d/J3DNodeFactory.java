@@ -396,6 +396,7 @@ public class J3DNodeFactory {
 				.getAppearanceInfo(appearanceLabel);
 		BranchGroup branchGroup = new BranchGroup();
 		branchGroup.setCapability(BranchGroup.ALLOW_DETACH);
+		branchGroup.setCapability(BranchGroup.ALLOW_CHILDREN_WRITE);
 		TransformGroup tg = null;
 
 		if (appearanceInfo instanceof appearance.Shape) {

@@ -146,16 +146,12 @@ public class TrackEditPart extends ConnectionNodeEditPart implements
 		
 		/**
 		 * @generated NOT
-		 * Authors : Jerome and Georgios
+		 * @author Jerome and Georgios
 		 */
-
 		@Override
-		/*add the right interpolator that Anders will provide*/
+		// TODO : change the interpolator when anders will have finished
 		public PointList getSmoothPoints(boolean calculateAppoxPoints) {
-			if (getSmoothness() > 0) {
-				return QuadraticBezier.allPoints(this.getPoints());
-			}
-			return super.getSmoothPoints(calculateAppoxPoints);
+			return QuadraticBezier.allPoints(this.getPoints());
 		}
 	}
 	

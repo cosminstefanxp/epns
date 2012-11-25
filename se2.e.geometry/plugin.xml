@@ -12,5 +12,65 @@
             class="se2.e.geometry.GeometryPackage"
             genModel="model/geometry.genmodel"/>
    </extension>
+            
+            
+            
+            
+   <extension
+         point="org.eclipse.emf.validation.constraintBindings">
+         
+      <clientContext
+            default="false"
+            id="se2.e.geometry.validation.GeometryValidationContext">
+
+         <selector class="se2.e.geometry.validation.GeometryValidationContext"/> 
+		           
+      </clientContext>
+      <binding
+            context="se2.e.geometry.validation.GeometryValidationContext"
+            category="se2.e.geometry.validation"/>
+   </extension> 
+            
+            
+            
+            
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+         
+         <category
+           name="ePNS Geometry Validation"
+           id="se2.e.geometry.validation">
+           Validation of ePNS Geometry constraints.
+        </category>
+         
+        <constraintProvider
+            cache="true"
+            mode="Batch">
+         <package
+               namespaceUri="http://se2.e.geometry">
+         </package >
+
+         
+           <constraints categories="se2.e.geometry.validation">    
+              <constraint
+		           lang="Java"
+		           class="se2.e.geometry.validation.TrackWithDiffStartAndEndPosOnly"
+		           severity="ERROR"
+		           mode="Batch"
+		           name="The Track is not valid."
+		           id="se2.e.geometry.validation.TrackWithDiffStartAndEndPosOnly"
+		           statusCode="007">
+                   <target class="Track:http://se2.e.geometry"/>
+                   <description> 
+                      A track must have different start and end potision on the graphical editor.
+                   </description>
+                   <message>
+                      A track must have different start and end potision on the graphical editor.
+                   </message>
+             </constraint>            
+         </constraints>
+      </constraintProvider>
+            
+   </extension>
 
 </plugin>

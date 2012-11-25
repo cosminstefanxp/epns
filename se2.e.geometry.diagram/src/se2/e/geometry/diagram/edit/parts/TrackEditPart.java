@@ -1,6 +1,7 @@
 package se2.e.geometry.diagram.edit.parts;
 
 import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
@@ -9,6 +10,8 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+
+import experiment.QuadraticBezier;
 
 import se2.e.geometry.diagram.edit.policies.TrackItemSemanticEditPolicy;
 
@@ -133,14 +136,29 @@ public class TrackEditPart extends ConnectionNodeEditPart implements
 
 		}
 
+		
 		/**
 		 * @generated
 		 */
 		public WrappingLabel getFigureTrackLabelFigure() {
 			return fFigureTrackLabelFigure;
 		}
+		
+		/**
+		 * @generated NOT
+		 * Authors : Jerome and Georgios
+		 */
 
+		@Override
+		/*add the right interpolator that Anders will provide*/
+		public PointList getSmoothPoints(boolean calculateAppoxPoints) {
+			if (getSmoothness() > 0) {
+				return QuadraticBezier.allPoints(this.getPoints());
+			}
+			return super.getSmoothPoints(calculateAppoxPoints);
+		}
 	}
+	
 
 	/**
 	 * @generated

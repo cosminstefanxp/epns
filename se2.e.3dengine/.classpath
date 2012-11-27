@@ -14,5 +14,6 @@
 	<classpathentry kind="lib" path="lib/ext/vecmath.jar"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/ext/Loader3DS1_2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,7 +1,10 @@
 package se2.e.engine3d.j3d;
 
+import java.awt.geom.Point2D;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.media.j3d.AmbientLight;
@@ -10,10 +13,14 @@ import javax.media.j3d.BoundingSphere;
 import javax.media.j3d.BranchGroup;
 import javax.media.j3d.Canvas3D;
 import javax.media.j3d.ColoringAttributes;
+import javax.media.j3d.GeometryArray;
 import javax.media.j3d.DirectionalLight;
+
 import javax.media.j3d.LineArray;
 import javax.media.j3d.LineAttributes;
 import javax.media.j3d.Node;
+import javax.media.j3d.QuadArray;
+import javax.media.j3d.Shape3D;
 import javax.media.j3d.Texture;
 import javax.media.j3d.TextureAttributes;
 import javax.media.j3d.Transform3D;
@@ -22,6 +29,7 @@ import javax.vecmath.AxisAngle4d;
 import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
+import javax.vecmath.Point3f;
 import javax.vecmath.Vector3d;
 import javax.vecmath.Vector3f;
 
@@ -30,7 +38,9 @@ import se2.e.geometry.GeometryObject;
 import se2.e.geometry.Position;
 import se2.e.geometry.SimplePosition;
 import se2.e.geometry.Track;
+import se2.e.utilities.PathInterpolator;
 import se2.e.utilities.Vector2D;
+import se2.e.utilities.path.LinearPathInterpolator;
 import se2.e.utilities.Where;
 import appearance.AppearanceInfo;
 import appearance.Model3D;
@@ -38,6 +48,7 @@ import appearance.Object3D;
 import appearance.Surface;
 import appearance.SurfaceColor;
 
+import com.microcrowd.loader.java3d.max3ds.Loader3DS;
 import com.sun.j3d.loaders.IncorrectFormatException;
 import com.sun.j3d.loaders.ParsingErrorException;
 import com.sun.j3d.loaders.Scene;
@@ -56,6 +67,8 @@ public class J3DNodeFactory {
 
 	/** The Constant DRAWING_PLANE_Z. */
 	private static final double DRAWING_PLANE_Z = 0d;
+	
+	private static final double INTERPOLATION_DIST = 0.1d;
 
 	/** The loader. */
 	private GeometryAndAppearanceLoader loader;
@@ -163,7 +176,69 @@ public class J3DNodeFactory {
 					| ObjectFile.STRIPIFY);
 
 			try {
-				s = f.load(filepath);
+				if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("obj")) {
+					s = f.load(filepath);
+				}if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("3ds")) {
+					Loader3DS loader = new Loader3DS();
+					s = loader.load(filepath);
+				}
+				else {	
+					Logger.getAnonymousLogger().info("UNKNOWN FILE EXTENSION!");
+				}
+				transformGroup.addChild(s.getSceneGroup()); 
+				
+				//color only the first element of the 3D model
+				Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
+				if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("obj")) {
+					javax.media.j3d.Shape3D sh = (javax.media.j3d.Shape3D) s.getSceneGroup().getChild(0);
+					s.getSceneGroup().removeChild(0);			
+					sh.setAppearance(app);
+					s.getSceneGroup().addChild(sh);
+					//color all the elements in the 3D model
+//					Enumeration children = s.getSceneGroup().getAllChildren();
+//					while (children.hasMoreElements())
+//					{
+//						javax.media.j3d.Shape3D sh;// = (javax.media.j3d.Shape3D) s.getSceneGroup().getChild(0);
+//						sh = (javax.media.j3d.Shape3D) children.nextElement();
+//						s.getSceneGroup().removeChild(sh);			
+//						sh.setAppearance(app);
+//						s.getSceneGroup().addChild(sh);
+//					}
+				}
+
+
+				
+				//rotate
+				Transform3D transforms = new Transform3D();
+				Transform3D rotateX = new Transform3D();
+				Transform3D rotateY = new Transform3D();
+				Transform3D rotateZ = new Transform3D();
+
+				rotateX.rotX(((appearance.Model3D) shape).getXRotation());
+				rotateY.rotY(((appearance.Model3D) shape).getYRotation());
+				rotateZ.rotZ(((appearance.Model3D) shape).getZRotation());
+				transforms.mul(transforms, rotateX);
+				transforms.mul(transforms, rotateY);
+				transforms.mul(transforms, rotateZ);
+				//scale
+				transforms.setScale(((appearance.Model3D) shape).getScale());
+
+				
+				transformGroup.setTransform(transforms);
+				TransformGroup nodeTrans = new TransformGroup();
+				nodeTrans.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+				nodeTrans.addChild(transformGroup);
+				
+				BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0,
+						15.0), 2000.0);
+				Color3f ambientColor = new Color3f(1.0f, 1.0f, 1.0f);
+				AmbientLight ambientLightNode = new AmbientLight(ambientColor);
+				ambientLightNode.setInfluencingBounds(bounds);
+				nodeTrans.addChild(ambientLightNode);
+				DirectionalLight light1  = new DirectionalLight (ambientColor, new Vector3f (0.0f, 0.0f, -1f));
+		    	light1.setInfluencingBounds (bounds);
+		    	nodeTrans.addChild (light1);
+				return nodeTrans;
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IncorrectFormatException e) {
@@ -171,57 +246,10 @@ public class J3DNodeFactory {
 			} catch (ParsingErrorException e) {
 				e.printStackTrace();
 			}
-			
-			transformGroup.addChild(s.getSceneGroup()); 
-			
-			//color only the first element of the 3D model
-			Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
-			javax.media.j3d.Shape3D sh = (javax.media.j3d.Shape3D) s.getSceneGroup().getChild(0);
-			s.getSceneGroup().removeChild(0);			
-			sh.setAppearance(app);
-			s.getSceneGroup().addChild(sh);
 
-			//color all the elements in the 3D model
-//			Enumeration children = s.getSceneGroup().getAllChildren();
-//			while (children.hasMoreElements())
-//			{
-//				javax.media.j3d.Shape3D sh;// = (javax.media.j3d.Shape3D) s.getSceneGroup().getChild(0);
-//				sh = (javax.media.j3d.Shape3D) children.nextElement();
-//				s.getSceneGroup().removeChild(sh);			
-//				sh.setAppearance(app);
-//				s.getSceneGroup().addChild(sh);
-//			}
+
 			
-			//rotate
-			Transform3D transforms = new Transform3D();
-			Transform3D rotateX = new Transform3D();
-			Transform3D rotateY = new Transform3D();
-			Transform3D rotateZ = new Transform3D();
 			
-			rotateX.rotX(((appearance.Model3D) shape).getXRotation());
-			rotateY.rotY(((appearance.Model3D) shape).getYRotation());
-			rotateZ.rotZ(((appearance.Model3D) shape).getZRotation());
-			transforms.mul(transforms, rotateX);
-			transforms.mul(transforms, rotateY);
-			transforms.mul(transforms, rotateZ);
-			//scale
-			transforms.setScale(((appearance.Model3D) shape).getScale());
-			
-			transformGroup.setTransform(transforms);
-			TransformGroup nodeTrans = new TransformGroup();
-			nodeTrans.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-			nodeTrans.addChild(transformGroup);
-			
-			BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0,
-					15.0), 2000.0);
-			Color3f ambientColor = new Color3f(1.0f, 1.0f, 1.0f);
-			AmbientLight ambientLightNode = new AmbientLight(ambientColor);
-			ambientLightNode.setInfluencingBounds(bounds);
-			nodeTrans.addChild(ambientLightNode);
-			DirectionalLight light1  = new DirectionalLight (ambientColor, new Vector3f (0.0f, 0.0f, -1f));
-	    	light1.setInfluencingBounds (bounds);
-	    	nodeTrans.addChild (light1);
-			return nodeTrans;
 
 		} else {
 			ColorCube model = new ColorCube(0.5f);
@@ -301,6 +329,91 @@ public class J3DNodeFactory {
 		g.addChild(new javax.media.j3d.Shape3D(lineArr, app));
 		return g;
 	}
+	
+	public Node getGeometryTransformGroup_new(String geometryLabel) {
+		TransformGroup g = new TransformGroup();
+		Track track = loader.getTrackFromLabel(geometryLabel);
+		double distance = 0;
+		PathInterpolator pathInterpolator = new LinearPathInterpolator(loader.getTrackPoints(geometryLabel));
+		
+		Where start = pathInterpolator.findPosition(0);
+		Vector2D forward=Vector2D.polar(start.getHeading());
+		Vector2D right=forward.normal();
+		Vector2D startV=start.getPosition();
+		
+		Vector2D forwardRight=startV.add(forward.multiply(1.0d)).add(right.multiply(1.0d));
+		Vector2D forwardLeft=startV.add(forward.multiply(1.0d)).add(right.multiply(-1.0d));
+		Vector2D backRight=startV.add(right.multiply(1.0d));
+		Vector2D backLeft=startV.add(right.multiply(-1.0d));
+		
+		List<Point3d> points = new ArrayList<Point3d>();
+		Point3d p1 = new Point3d(backRight.getX(), backRight.getY(), DRAWING_PLANE_Z);
+		Point3d p2 = new Point3d(backLeft.getX(), backLeft.getY(), DRAWING_PLANE_Z);
+		points.add(p1);
+		points.add(p2);
+		
+		p1 = new Point3d(forwardRight.getX(), forwardRight.getY(), DRAWING_PLANE_Z);
+		p2 = new Point3d(forwardLeft.getX(), forwardLeft.getY(), DRAWING_PLANE_Z);
+
+		points.add(p1);
+		points.add(p2);
+		while (pathInterpolator.getLength() > distance) {
+			//duplicate forward points from before so that there are no gaps between
+			p1 = new Point3d(forwardRight.getX(), forwardRight.getY(), DRAWING_PLANE_Z);
+			p2 = new Point3d(forwardLeft.getX(), forwardLeft.getY(), DRAWING_PLANE_Z);
+			points.add(p1);
+			points.add(p2);
+			
+			
+			distance = distance + INTERPOLATION_DIST;
+			Where dir = pathInterpolator.findPosition(distance);
+			forward=Vector2D.polar(dir.getHeading());
+			right=forward.normal();
+			startV=start.getPosition();
+			
+			
+			
+			forwardRight=startV.add(forward.multiply(1.0d)).add(right.multiply(1.0d));
+			forwardLeft=startV.add(forward.multiply(1.0d)).add(right.multiply(-1.0d));
+			p1 = new Point3d(forwardRight.getX(), forwardRight.getY(), DRAWING_PLANE_Z);
+			p2 = new Point3d(forwardLeft.getX(), forwardLeft.getY(), DRAWING_PLANE_Z);
+			points.add(p1);
+			points.add(p2);
+		}
+				
+		Point3d[] myCoords = new Point3d[points.size()];
+		for(int i = 0; i < points.size(); i++){
+			myCoords[i] = points.get(i);
+		}
+		
+		QuadArray myQuads = new QuadArray(
+			    myCoords.length,
+			    GeometryArray.COORDINATES |
+			    GeometryArray.NORMALS );
+		myQuads.setCoordinates( 0, myCoords );
+		Appearance myAppear = new Appearance();
+		boolean colorSet = false;
+		if (track.getAppearanceLabel() != null) {
+			AppearanceInfo color = loader.getAppearanceInfo(track
+					.getAppearanceLabel());
+			if (color != null && color instanceof Surface) {
+				myAppear = buildSurfaceAppearance((appearance.Surface) color);
+				colorSet = true;
+				
+			}
+		}
+		if (colorSet == false) {
+			ColoringAttributes ca = new ColoringAttributes();
+			ca.setColor(new Color3f(0.5f, 0.5f, 0.5f));
+			myAppear.setColoringAttributes(ca);
+		}
+		Shape3D myShape = new Shape3D( myQuads, myAppear );
+		g.addChild(myShape);
+		return g;
+		
+	}
+	
+	
 
 	/**
 	 * Returns a dynamic branch that contains the representation for a

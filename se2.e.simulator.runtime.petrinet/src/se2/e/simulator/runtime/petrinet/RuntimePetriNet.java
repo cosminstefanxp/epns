@@ -52,11 +52,11 @@ public class RuntimePetriNet {
 		List<TokenMovement> movements = new ArrayList<TokenMovement>();
 		List<RuntimeToken> tempTokensExt = new ArrayList<RuntimeToken>();
 		for (Token token : tempTokens) {
-			RuntimeToken rt = new RuntimeToken(token.getAppearance().getText());
+			RuntimeToken rt = new RuntimeToken(token.getText());
 			if(place.getAnimations()!= null)
-				movements.add(new TokenMovement(rt, place.getGeoLabel(), place.getAnimations().getStructure(), false));
+				movements.add(new TokenMovement(rt, place.getGeoLabel().getText(), place.getAnimations().getStructure(), false));
 			else
-				movements.add(new TokenMovement(rt, place.getGeoLabel(), null, false));
+				movements.add(new TokenMovement(rt, place.getGeoLabel().getText(), null, false));
 			tempTokensExt.add(rt);
 		}
 		tokensMap.put(place, tempTokensExt);
@@ -207,9 +207,9 @@ public class RuntimePetriNet {
 						
 						
 						if(dest.getAnimations()!= null)
-							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), dest.getAnimations().getStructure(), false));
+							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel().getText(), dest.getAnimations().getStructure(), false));
 						else
-							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), null, false));
+							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel().getText(), null, false));
 						
 						
 					}
@@ -243,10 +243,10 @@ public class RuntimePetriNet {
 				
 				if(dest.getAnimations() != null) {
 					System.out.println("ANIMATION");
-					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), dest.getAnimations().getStructure(),false));
+					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel().getText(), dest.getAnimations().getStructure(),false));
 				}
 				else {
-					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel(), null, false));
+					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel().getText(), null, false));
 					System.out.println("NO ANIMATION");
 				}
 			}
@@ -365,7 +365,7 @@ public class RuntimePetriNet {
 		for(Place p : tokensMap.keySet()) {
 			System.out.println("PLACE " + p.getGeoLabel() + " " +p.getInteractiveInput());
 			if(p.getInteractiveInput() != null && p.getInteractiveInput().isText()){
-				inputPlacesLabels.add(p.getGeoLabel());
+				inputPlacesLabels.add(p.getGeoLabel().getText());
 			}
 		}
 		return inputPlacesLabels;

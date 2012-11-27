@@ -58,10 +58,6 @@ public class Model3DItemProvider
 			super.getPropertyDescriptors(object);
 
 			addFilePropertyDescriptor(object);
-			addScalePropertyDescriptor(object);
-			addXRotationPropertyDescriptor(object);
-			addYRotationPropertyDescriptor(object);
-			addZRotationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,94 +80,6 @@ public class Model3DItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Scale feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addScalePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Model3D_scale_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Model3D_scale_feature", "_UI_Model3D_type"),
-				 AppearancePackage.Literals.MODEL3_D__SCALE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the XRotation feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addXRotationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Model3D_xRotation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Model3D_xRotation_feature", "_UI_Model3D_type"),
-				 AppearancePackage.Literals.MODEL3_D__XROTATION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the YRotation feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addYRotationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Model3D_yRotation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Model3D_yRotation_feature", "_UI_Model3D_type"),
-				 AppearancePackage.Literals.MODEL3_D__YROTATION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the ZRotation feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addZRotationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Model3D_zRotation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Model3D_zRotation_feature", "_UI_Model3D_type"),
-				 AppearancePackage.Literals.MODEL3_D__ZROTATION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -214,10 +122,6 @@ public class Model3DItemProvider
 
 		switch (notification.getFeatureID(Model3D.class)) {
 			case AppearancePackage.MODEL3_D__FILE:
-			case AppearancePackage.MODEL3_D__SCALE:
-			case AppearancePackage.MODEL3_D__XROTATION:
-			case AppearancePackage.MODEL3_D__YROTATION:
-			case AppearancePackage.MODEL3_D__ZROTATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

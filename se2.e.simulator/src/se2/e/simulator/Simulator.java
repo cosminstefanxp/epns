@@ -14,6 +14,7 @@ import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import se2.e.simulator.runtime.petrinet.TokenMovement;
 import appearance.AppearanceModel;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Simulator.
  * 
@@ -27,6 +28,7 @@ public class Simulator implements Engine3DListener {
 	/** The geometry. */
 	private Geometry geometry;
 
+	/** The appearance. */
 	AppearanceModel appearance;
 
 	/** The rpn. */
@@ -35,19 +37,26 @@ public class Simulator implements Engine3DListener {
 	/** The engine. */
 	private Engine3D engine;
 	
+	/** The track width. */
+	private double trackWidth;
+	
+	/** The initial movements. */
 	List<TokenMovement> initialMovements;
 
 	/**
 	 * Instantiates a new simulator.
-	 * 
+	 *
 	 * @param geometry the geometry
 	 * @param selectedPetri the selected petri
+	 * @param appearance the appearance
+	 * @param trackWidth the track width
 	 */
-	public Simulator(Geometry geometry, PetriNetDoc selectedPetri, AppearanceModel appearance) {
+	public Simulator(Geometry geometry, PetriNetDoc selectedPetri, AppearanceModel appearance, double trackWidth) {
 		rpn = new RuntimePetriNet();
 		this.selectedPetri = selectedPetri;
 		this.geometry = geometry;
 		this.appearance = appearance;
+		this.trackWidth = trackWidth;
 		System.out.println("Constructor Simulator");
 	}
 
@@ -57,14 +66,10 @@ public class Simulator implements Engine3DListener {
 	public void startSimulation() {
 		initialMovements = rpn.init(selectedPetri);
 		engine = Engine3DFactory.getEngine();
-		// TODO: add input places labels...
+		
 		Set<String> inputPlaces = this.rpn.getInputPlaces();
-		engine.init(this.geometry, this.appearance, inputPlaces);
+		engine.init(this.geometry, this.appearance, inputPlaces, trackWidth);
 		engine.setEngine3DListener(this);
-
-		/* TO BE REMOVED Test for input place without 3d engine */
-		// rpn.dropTokenOnPlace("Signal");
-		// List<TokenMovement> tokenMovements = rpn.fireTransitions();
 
 	}
 
@@ -119,6 +124,9 @@ public class Simulator implements Engine3DListener {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see se2.e.engine3d.Engine3DListener#onStopSimulation()
+	 */
 	@Override
 	public void onStopSimulation() {
 

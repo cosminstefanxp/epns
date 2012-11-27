@@ -81,6 +81,14 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 		// Move the object to the new position
 		Transform3D t = new Transform3D();
 		t.setTranslation(new Vector3d(currentPosition.getPosition().getX(), currentPosition.getY(), 0));
+		Transform3D rotz = new Transform3D();
+		
+		rotz.rotZ(currentPosition.getOrientation().getAngle());
+		t.mul(t, rotz);
+		
+		//Transform3D orig = new Transform3D();
+		//rotateY.rotY(currentPosition.getOrientation().getAngle());
+		//t.mul(t, rotateY);
 		this.targetBranch.getTransformGroup().setTransform(t);
 
 		// Check for finishing conditions

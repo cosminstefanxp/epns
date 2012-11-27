@@ -17,12 +17,13 @@ public interface Engine3D {
 
 	/**
 	 * Inits the engine.
-	 * 
+	 *
 	 * @param geometry the geometry
 	 * @param appearance the appearance config
 	 * @param inputPlacesLabels the input places labels
+	 * @param trackWidth the track width
 	 */
-	public void init(Geometry geometry, AppearanceModel appearance, Set<String> inputPlacesLabels);
+	public void init(Geometry geometry, AppearanceModel appearance, Set<String> inputPlacesLabels, double trackWidth);
 
 	/**
 	 * Starts an animation.

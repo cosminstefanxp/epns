@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package se2.e.engine3d.j3d;
 
 import java.awt.geom.Point2D;
@@ -65,11 +68,13 @@ import com.sun.j3d.utils.image.TextureLoader;
  */
 public class J3DNodeFactory {
 
+	/** The Constant TRACK_WIDTH. */
 	private static final double TRACK_WIDTH = 3.0d;
 
 	/** The Constant DRAWING_PLANE_Z. */
 	private static final double DRAWING_PLANE_Z = 0d;
 	
+	/** The Constant INTERPOLATION_DIST. */
 	private static final double INTERPOLATION_DIST = 10.0d;
 
 	/** The loader. */
@@ -81,7 +86,10 @@ public class J3DNodeFactory {
 	/** The engine. */
 	private J3DEngine engine;
 	
+	/** The track width. */
+	private double trackWidth;
 	
+	/** The logger. */
 	private static Logger logger = Logger.getAnonymousLogger();
 
 	/**
@@ -95,11 +103,12 @@ public class J3DNodeFactory {
 	 *            the canvas
 	 */
 	public J3DNodeFactory(GeometryAndAppearanceLoader loader, J3DEngine engine,
-			Canvas3D canvas) {
+			Canvas3D canvas, double trackWidth) {
 		super();
 		this.loader = loader;
 		this.canvas = canvas;
 		this.engine = engine;
+		this.trackWidth = trackWidth;
 	}
 
 	/**
@@ -190,14 +199,12 @@ public class J3DNodeFactory {
 		nodeTrans.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 		if (shape instanceof appearance.Shape3D) {
 			Object3D type = ((appearance.Shape3D) shape).getType();
-			// System.out.println("TYPE::::" + type);
 			if (type == Object3D.CUBE) 
 			{
 				ColorCube model = new ColorCube(5f);
 				nodeTrans.addChild(model);
 			} else if (type == Object3D.SPHERE) 
 			{
-				System.out.println("+++SFERA!!!!!!!");
 				Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
 				Sphere model;
 				if (app != null)

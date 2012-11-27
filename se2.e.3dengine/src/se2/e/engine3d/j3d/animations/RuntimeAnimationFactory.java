@@ -42,7 +42,7 @@ public class RuntimeAnimationFactory {
 
 			// If there's no target branch, create one now for the token's appearance
 			if (targetBranch == null)
-				targetBranch = engine.getNodeFactory().getTokenBranch(token.getLabel());
+				targetBranch = engine.getNodeFactory().getTokenBranch(token.getLabel(), null);
 			return new RuntimeMoveAnimation(targetBranch, (Move) animation, token, engine,
 					engine.getGeometryAndAppearanceLoader(), geometryLabel);
 		}

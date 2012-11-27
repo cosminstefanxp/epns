@@ -189,11 +189,11 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 * @author cosmin, marius (some fixes after update of loader and dynamicBranchFactory class)
 	 */
 	@Override
-	public void init(Geometry geometry, AppearanceModel appearance, Set<String> inputPlacesLabels) {
+	public void init(Geometry geometry, AppearanceModel appearance, Set<String> inputPlacesLabels, double trackWidth) {
 
 		// Load the geometry and appearance
 		this.loader = new GeometryAndAppearanceLoader(geometry, appearance);
-		this.nodeFactory = new J3DNodeFactory(loader, this, canvas);
+		this.nodeFactory = new J3DNodeFactory(loader, this, canvas, trackWidth);
 
 		// Load the universe
 		universe = createUniverse(canvas);

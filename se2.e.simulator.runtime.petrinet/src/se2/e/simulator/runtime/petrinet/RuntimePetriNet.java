@@ -54,9 +54,9 @@ public class RuntimePetriNet {
 		for (Token token : tempTokens) {
 			RuntimeToken rt = new RuntimeToken(token.getText());
 			if(place.getAnimations()!= null)
-				movements.add(new TokenMovement(rt, place.getGeoLabel().getText(), place.getAnimations().getStructure(), false));
+				movements.add(new TokenMovement(rt, place.getGeometryLabel().getText(), place.getAnimations().getStructure(), false));
 			else
-				movements.add(new TokenMovement(rt, place.getGeoLabel().getText(), null, false));
+				movements.add(new TokenMovement(rt, place.getGeometryLabel().getText(), null, false));
 			tempTokensExt.add(rt);
 		}
 		tokensMap.put(place, tempTokensExt);
@@ -207,9 +207,9 @@ public class RuntimePetriNet {
 						
 						
 						if(dest.getAnimations()!= null)
-							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel().getText(), dest.getAnimations().getStructure(), false));
+							tokensMovement.add(new TokenMovement(rt, dest.getGeometryLabel().getText(), dest.getAnimations().getStructure(), false));
 						else
-							tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel().getText(), null, false));
+							tokensMovement.add(new TokenMovement(rt, dest.getGeometryLabel().getText(), null, false));
 						
 						
 					}
@@ -243,10 +243,10 @@ public class RuntimePetriNet {
 				
 				if(dest.getAnimations() != null) {
 					System.out.println("ANIMATION");
-					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel().getText(), dest.getAnimations().getStructure(),false));
+					tokensMovement.add(new TokenMovement(rt, dest.getGeometryLabel().getText(), dest.getAnimations().getStructure(),false));
 				}
 				else {
-					tokensMovement.add(new TokenMovement(rt, dest.getGeoLabel().getText(), null, false));
+					tokensMovement.add(new TokenMovement(rt, dest.getGeometryLabel().getText(), null, false));
 					System.out.println("NO ANIMATION");
 				}
 			}
@@ -352,7 +352,7 @@ public class RuntimePetriNet {
 			InteractiveInput x = place.getInteractiveInput();
 			if(x != null)
 				isInteractive = x.isText();
-			if(place.getGeoLabel().getText().equals(geometryLabel) && isInteractive) {
+			if(place.getGeometryLabel().getText().equals(geometryLabel) && isInteractive) {
 				placeForLabel = place;
 				break;
 			}		
@@ -363,9 +363,9 @@ public class RuntimePetriNet {
 	public Set<String> getInputPlaces() {
 		Set<String> inputPlacesLabels = new TreeSet<String>();
 		for(Place p : tokensMap.keySet()) {
-			System.out.println("PLACE " + p.getGeoLabel().getText() + " " +p.getInteractiveInput());
+			System.out.println("PLACE " + p.getGeometryLabel().getText() + " " +p.getInteractiveInput());
 			if(p.getInteractiveInput() != null && p.getInteractiveInput().isText()){
-				inputPlacesLabels.add(p.getGeoLabel().getText());
+				inputPlacesLabels.add(p.getGeometryLabel().getText());
 			}
 		}
 		return inputPlacesLabels;

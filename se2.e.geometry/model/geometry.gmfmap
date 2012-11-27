@@ -77,4 +77,65 @@
     <palette
         href="geometry.gmftool#//@palette"/>
   </diagram>
+  <audits
+      id="1"
+      name="ePNS geometry constraints"
+      description="Geometry constraints rules for ePNS">
+    <audits
+        name=""
+        description="Track should not have the same startign and ending point"
+        id="1"
+        useInLiveMode="true"
+        message="Track drawing error">
+      <rule
+          body="self.startPosition&lt;>self.endPosition"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="geometry.ecore#//Track"/>
+      </target>
+    </audits>
+    <childContainers
+        id="2"
+        name="label attribute constraints">
+      <audits
+          name="- SimplePosition unique label "
+          description="It does not allow same label names among Track and SimplePosition labels. This is to prevent confusion when Track and SimplePosition geometry objects are associated to Places"
+          id="2"
+          useInLiveMode="true"
+          message="The name of the label should be unique among all geometry object' labels">
+        <rule
+            body="Track.allInstances()->select(m : Track | m &lt;> self and m.label = self.label)->isEmpty() and  SimplePosition.allInstances()->isUnique(label)"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="geometry.ecore#//SimplePosition"/>
+        </target>
+      </audits>
+      <audits
+          name="- Track unique label"
+          id="3"
+          useInLiveMode="true">
+        <rule
+            body="SimplePosition.allInstances()->select(m : SimplePosition | m &lt;> self and m.label = self.label)->isEmpty()  and Track.allInstances()->isUnique(label)"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="geometry.ecore#//Track"/>
+        </target>
+      </audits>
+      <audits
+          name="- Track mandatory label"
+          id="4">
+        <rule
+            body="true"/>
+        <target
+            xsi:type="gmfmap:DomainAttributeTarget"
+            nullAsError="true">
+          <attribute
+              href="geometry.ecore#//Track/label"/>
+        </target>
+      </audits>
+    </childContainers>
+  </audits>
 </gmfmap:Mapping>

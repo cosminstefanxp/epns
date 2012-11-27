@@ -4,6 +4,77 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel">
+  <audits>
+    <categories
+        id="1"
+        name="ePNS geometry constraints"
+        description="Geometry constraints rules for ePNS"
+        path="//@audits/@categories.0"
+        audits="//@audits/@rules.0"/>
+    <categories
+        id="2"
+        name="label attribute constraints"
+        path="//@audits/@categories.0 //@audits/@categories.1"
+        audits="//@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3"/>
+    <rules
+        name=""
+        description="Track should not have the same startign and ending point"
+        id="1"
+        rule="//@expressionProviders/@providers.0/@expressions.0"
+        message="Track drawing error"
+        useInLiveMode="true"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="geometry.genmodel#//geometry/Track"/>
+      </target>
+    </rules>
+    <rules
+        name="- SimplePosition unique label "
+        description="It does not allow same label names among Track and SimplePosition labels. This is to prevent confusion when Track and SimplePosition geometry objects are associated to Places"
+        id="2"
+        rule="//@expressionProviders/@providers.0/@expressions.1"
+        message="The name of the label should be unique among all geometry object' labels"
+        useInLiveMode="true"
+        category="//@audits/@categories.1">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="geometry.genmodel#//geometry/SimplePosition"/>
+      </target>
+    </rules>
+    <rules
+        name="- Track unique label"
+        id="3"
+        rule="//@expressionProviders/@providers.0/@expressions.2"
+        useInLiveMode="true"
+        category="//@audits/@categories.1">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="geometry.genmodel#//geometry/Track"/>
+      </target>
+    </rules>
+    <rules
+        name="- Track mandatory label"
+        id="4"
+        rule="//@expressionProviders/@providers.0/@expressions.3"
+        category="//@audits/@categories.1">
+      <target
+          xsi:type="gmfgen:GenDomainAttributeTarget"
+          contextSelector="//@audits/@clientContexts.0"
+          nullAsError="true">
+        <attribute
+            href="geometry.genmodel#//geometry/Track/label"/>
+      </target>
+    </rules>
+    <clientContexts
+        ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target"/>
+  </audits>
   <diagram
       visualID="1000"
       editPartClassName="GeometryEditPart"
@@ -218,45 +289,6 @@
     <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>
   </plugin>
   <editor/>
-  <navigator>
-    <childReferences
-        child="//@diagram"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.0"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.1"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@links.0"
-        groupName="links"
-        groupIcon="icons/linksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.1"
-        referenceType="out_target"
-        groupName="target"
-        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.1"
-        child="//@diagram/@links.0"
-        referenceType="in_source"
-        groupName="incoming links"
-        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.1"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.1"
-        child="//@diagram/@links.0"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
-  </navigator>
   <diagramUpdater/>
   <propertySheet>
     <tabs
@@ -279,6 +311,23 @@
   </propertySheet>
   <domainGenModel
       href="geometry.genmodel#/"/>
+  <expressionProviders>
+    <providers
+        xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="self.startPosition&lt;>self.endPosition"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="Track.allInstances()->select(m : Track | m &lt;> self and m.label = self.label)->isEmpty() and  SimplePosition.allInstances()->isUnique(label)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="SimplePosition.allInstances()->select(m : SimplePosition | m &lt;> self and m.label = self.label)->isEmpty()  and Track.allInstances()->isUnique(label)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="true"/>
+    </providers>
+  </expressionProviders>
   <labelParsers
       extensibleViaService="true">
     <implementations

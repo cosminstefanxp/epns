@@ -29,7 +29,7 @@ public class TrackWithDiffStartAndEndPosOnly extends AbstractModelConstraint{
 	
 	
 	private boolean isTrackValid(Object obj){
-		
+		System.err.println("CONSTRAINT CALLED");
 		double startPointX, startPointY, endPointX, endPointY;
 		if(obj instanceof Track){
 			

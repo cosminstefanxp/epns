@@ -10,6 +10,7 @@ import javax.media.j3d.BoundingSphere;
 import javax.media.j3d.BranchGroup;
 import javax.media.j3d.Canvas3D;
 import javax.media.j3d.ColoringAttributes;
+import javax.media.j3d.DirectionalLight;
 import javax.media.j3d.LineArray;
 import javax.media.j3d.LineAttributes;
 import javax.media.j3d.Node;
@@ -17,9 +18,12 @@ import javax.media.j3d.Texture;
 import javax.media.j3d.TextureAttributes;
 import javax.media.j3d.Transform3D;
 import javax.media.j3d.TransformGroup;
+import javax.vecmath.AxisAngle4d;
+import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
+import javax.vecmath.Vector3f;
 
 import se2.e.engine3d.GeometryAndAppearanceLoader;
 import se2.e.geometry.GeometryObject;
@@ -173,35 +177,65 @@ public class J3DNodeFactory {
 			//transformGroup.setTransform(scale);
 			//transformGroup.addChild(s.getSceneGroup());
 			
-			//3d models and 
-			
-			Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
-//			javax.media.j3d.Shape3D sh = (javax.media.j3d.Shape3D) s.getSceneGroup().getChild(0);
-//			s.getSceneGroup().removeChild(0);			
-//			sh.setAppearance(app);
-//			s.getSceneGroup().addChild(sh);
-
-			
-			
-			Enumeration children = s.getSceneGroup().getAllChildren();
-			while (children.hasMoreElements())
-			{
-				javax.media.j3d.Shape3D sh;// = (javax.media.j3d.Shape3D) s.getSceneGroup().getChild(0);
-				sh = (javax.media.j3d.Shape3D) children.nextElement();
-				s.getSceneGroup().removeChild(sh);			
-				sh.setAppearance(app);
-				s.getSceneGroup().addChild(sh);
-			}
-			
 			transformGroup.addChild(s.getSceneGroup());
+			
+			//3d models  
+			
+			//color only the first element of the 3D model
+			Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
+			javax.media.j3d.Shape3D sh = (javax.media.j3d.Shape3D) s.getSceneGroup().getChild(0);
+			s.getSceneGroup().removeChild(0);			
+			sh.setAppearance(app);
+			s.getSceneGroup().addChild(sh);
+
+			//color all the elements in the 3D model
+//			Enumeration children = s.getSceneGroup().getAllChildren();
+//			while (children.hasMoreElements())
+//			{
+//				javax.media.j3d.Shape3D sh;// = (javax.media.j3d.Shape3D) s.getSceneGroup().getChild(0);
+//				sh = (javax.media.j3d.Shape3D) children.nextElement();
+//				s.getSceneGroup().removeChild(sh);			
+//				sh.setAppearance(app);
+//				s.getSceneGroup().addChild(sh);
+//			}
+			
+			Transform3D transforms = new Transform3D();
+			Transform3D rotateX = new Transform3D();
+			Transform3D rotateY = new Transform3D();
+			Transform3D rotateZ = new Transform3D();
+//			rotate.setRotation(new AxisAngle4d(1.0, 0, 0, ((appearance.Model3D) shape).getXRotation()));
+//			rotate.setRotation(new AxisAngle4d(0, 1.0, 0, ((appearance.Model3D) shape).getYRotation()));
+//			rotate.setRotation(new AxisAngle4d(0, 0, 1.0, ((appearance.Model3D) shape).getZRotation()));
+//			rotateX.rotX(90D);
+			
+			rotateX.rotX(((appearance.Model3D) shape).getXRotation());
+			rotateY.rotY(((appearance.Model3D) shape).getYRotation());
+			rotateZ.rotZ(((appearance.Model3D) shape).getZRotation());
+			transforms.mul(transforms, rotateX);
+			transforms.mul(transforms, rotateY);
+			transforms.mul(transforms, rotateZ);
+			transforms.setScale(((appearance.Model3D) shape).getScale());
+			
+			
+			
+			
+			
+			
+			transformGroup.setTransform(transforms);
+			TransformGroup nodeTrans = new TransformGroup();
+			nodeTrans.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+			nodeTrans.addChild(transformGroup);
 			
 			BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0,
 					15.0), 2000.0);
 			Color3f ambientColor = new Color3f(1.0f, 1.0f, 1.0f);
 			AmbientLight ambientLightNode = new AmbientLight(ambientColor);
 			ambientLightNode.setInfluencingBounds(bounds);
-			transformGroup.addChild(ambientLightNode);
-			
+			nodeTrans.addChild(ambientLightNode);
+			DirectionalLight light1  = new DirectionalLight (ambientColor, new Vector3f (0.0f, 0.0f, -1f));
+	    	light1.setInfluencingBounds (bounds);
+	    	nodeTrans.addChild (light1);
+			return nodeTrans;
 
 		} else {
 			ColorCube model = new ColorCube(0.5f);

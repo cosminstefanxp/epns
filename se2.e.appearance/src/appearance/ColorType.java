@@ -57,7 +57,7 @@ public enum ColorType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DARK_GRAY(3, "Dark Gray", "Dark Gray"),
+	DARK_GRAY(3, "DarkGray", "DarkGray"),
 
 	/**
 	 * The '<em><b>Gray</b></em>' literal object.
@@ -87,7 +87,7 @@ public enum ColorType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LIGHT_GRAY(6, "Light Gray", "Light Gray"),
+	LIGHT_GRAY(6, "LightGray", "LightGray"),
 
 	/**
 	 * The '<em><b>Magenta</b></em>' literal object.

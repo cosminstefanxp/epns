@@ -229,6 +229,42 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getModel3D_Scale() {
+		return (EAttribute)model3DEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModel3D_XRotation() {
+		return (EAttribute)model3DEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModel3D_YRotation() {
+		return (EAttribute)model3DEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModel3D_ZRotation() {
+		return (EAttribute)model3DEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getShape3D() {
 		return shape3DEClass;
 	}
@@ -352,6 +388,10 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 
 		model3DEClass = createEClass(MODEL3_D);
 		createEAttribute(model3DEClass, MODEL3_D__FILE);
+		createEAttribute(model3DEClass, MODEL3_D__SCALE);
+		createEAttribute(model3DEClass, MODEL3_D__XROTATION);
+		createEAttribute(model3DEClass, MODEL3_D__YROTATION);
+		createEAttribute(model3DEClass, MODEL3_D__ZROTATION);
 
 		shape3DEClass = createEClass(SHAPE3_D);
 		createEAttribute(shape3DEClass, SHAPE3_D__TYPE);
@@ -416,6 +456,10 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 
 		initEClass(model3DEClass, Model3D.class, "Model3D", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModel3D_File(), ecorePackage.getEString(), "file", null, 0, 1, Model3D.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModel3D_Scale(), ecorePackage.getEDouble(), "scale", "1", 0, 1, Model3D.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModel3D_XRotation(), ecorePackage.getEDouble(), "xRotation", "0", 0, 1, Model3D.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModel3D_YRotation(), ecorePackage.getEDouble(), "yRotation", "0", 0, 1, Model3D.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModel3D_ZRotation(), ecorePackage.getEDouble(), "zRotation", "0", 0, 1, Model3D.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(shape3DEClass, Shape3D.class, "Shape3D", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getShape3D_Type(), this.getObject3D(), "type", null, 0, 1, Shape3D.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

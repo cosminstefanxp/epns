@@ -33,6 +33,10 @@
     <genClasses image="false" ecoreClass="Appearance.ecore#//Surface"/>
     <genClasses ecoreClass="Appearance.ecore#//Model3D">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//Model3D/file"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//Model3D/scale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//Model3D/xRotation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//Model3D/yRotation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//Model3D/zRotation"/>
     </genClasses>
     <genClasses ecoreClass="Appearance.ecore#//Shape3D">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//Shape3D/type"/>

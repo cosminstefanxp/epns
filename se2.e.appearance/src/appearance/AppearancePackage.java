@@ -187,13 +187,49 @@ public interface AppearancePackage extends EPackage {
 	int MODEL3_D__FILE = SHAPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Scale</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL3_D__SCALE = SHAPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>XRotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL3_D__XROTATION = SHAPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>YRotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL3_D__YROTATION = SHAPE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>ZRotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL3_D__ZROTATION = SHAPE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Model3 D</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL3_D_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 1;
+	int MODEL3_D_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link appearance.impl.Shape3DImpl <em>Shape3 D</em>}' class.
@@ -439,6 +475,50 @@ public interface AppearancePackage extends EPackage {
 	EAttribute getModel3D_File();
 
 	/**
+	 * Returns the meta object for the attribute '{@link appearance.Model3D#getScale <em>Scale</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scale</em>'.
+	 * @see appearance.Model3D#getScale()
+	 * @see #getModel3D()
+	 * @generated
+	 */
+	EAttribute getModel3D_Scale();
+
+	/**
+	 * Returns the meta object for the attribute '{@link appearance.Model3D#getXRotation <em>XRotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>XRotation</em>'.
+	 * @see appearance.Model3D#getXRotation()
+	 * @see #getModel3D()
+	 * @generated
+	 */
+	EAttribute getModel3D_XRotation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link appearance.Model3D#getYRotation <em>YRotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>YRotation</em>'.
+	 * @see appearance.Model3D#getYRotation()
+	 * @see #getModel3D()
+	 * @generated
+	 */
+	EAttribute getModel3D_YRotation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link appearance.Model3D#getZRotation <em>ZRotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>ZRotation</em>'.
+	 * @see appearance.Model3D#getZRotation()
+	 * @see #getModel3D()
+	 * @generated
+	 */
+	EAttribute getModel3D_ZRotation();
+
+	/**
 	 * Returns the meta object for class '{@link appearance.Shape3D <em>Shape3 D</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -627,6 +707,38 @@ public interface AppearancePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODEL3_D__FILE = eINSTANCE.getModel3D_File();
+
+		/**
+		 * The meta object literal for the '<em><b>Scale</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODEL3_D__SCALE = eINSTANCE.getModel3D_Scale();
+
+		/**
+		 * The meta object literal for the '<em><b>XRotation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODEL3_D__XROTATION = eINSTANCE.getModel3D_XRotation();
+
+		/**
+		 * The meta object literal for the '<em><b>YRotation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODEL3_D__YROTATION = eINSTANCE.getModel3D_YRotation();
+
+		/**
+		 * The meta object literal for the '<em><b>ZRotation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODEL3_D__ZROTATION = eINSTANCE.getModel3D_ZRotation();
 
 		/**
 		 * The meta object literal for the '{@link appearance.impl.Shape3DImpl <em>Shape3 D</em>}' class.

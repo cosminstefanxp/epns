@@ -57,8 +57,8 @@ public class QuadraticBezierPathInterpolator extends BasePathInterpolator {
 		if (positions.length % 2 == 0) {
 			points.add(positions[positions.length - 1]);
 			}
-		for (int i = 1; i < points.size(); i++) {
-			addStep(points.get(i - 1), points.get(i));
+		for (int i = 0; i < points.size()-1; i++) {
+			addStep(points.get(i), points.get(i+1));
 			}
 		}
 	

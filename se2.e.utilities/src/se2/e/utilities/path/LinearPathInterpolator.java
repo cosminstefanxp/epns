@@ -22,8 +22,8 @@ public class LinearPathInterpolator extends BasePathInterpolator {
 	 */
 	public LinearPathInterpolator(Vector2D... positions) {
 		assert(positions != null && positions.length >= 2);
-		for (int i = 1; i < positions.length; i++) {
-			addStep(positions[i - 1], positions[i]);
+		for (int i = 0; i < positions.length-1; i++) {
+			addStep(positions[i], positions[i+1]);
 			}
 		}
 	

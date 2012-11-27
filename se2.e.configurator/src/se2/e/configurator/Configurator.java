@@ -2,14 +2,11 @@
  */
 package se2.e.configurator;
 
-import appearance.AppearanceModel;
-
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 
 import se2.e.geometry.Geometry;
+import appearance.AppearanceModel;
 
 /**
  * <!-- begin-user-doc -->

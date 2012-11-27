@@ -2,25 +2,17 @@
  */
 package se2.e.configurator.impl;
 
-import appearance.AppearanceModel;
-
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 
 import se2.e.configurator.Configurator;
 import se2.e.configurator.ConfiguratorPackage;
-
 import se2.e.geometry.Geometry;
+import appearance.AppearanceModel;
 
 /**
  * <!-- begin-user-doc -->
@@ -271,7 +263,6 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

@@ -149,8 +149,10 @@ public class J3DNodeFactory {
 	public TransformGroup buildTransformGroupForShape(appearance.Shape shape,
 			TransformGroup transformGroup) {
 		if (transformGroup == null)
+		{
 			transformGroup = new TransformGroup();
-		transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+			transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+		}
 		if (shape instanceof appearance.Shape3D) {
 			Object3D type = ((appearance.Shape3D) shape).getType();
 			// System.out.println("TYPE::::" + type);
@@ -311,8 +313,6 @@ public class J3DNodeFactory {
 			if (color != null && color instanceof Surface) {
 				app = buildSurfaceAppearance((appearance.Surface) color);
 				colorSet = true;
-				// FIXME: what about track width? should we take the line width
-				// from the user?
 			}
 		}
 		if (colorSet == false) {
@@ -483,7 +483,7 @@ public class J3DNodeFactory {
 	 * <p>
 	 * If the geometry is a Track, the representation is placed at the beginning
 	 * of the track. If the geometry is a SimplePosition, the representation is
-	 * placed at the corresponding position.//FIXME cum adica?
+	 * placed at the corresponding position.
 	 * </p>
 	 * <p>
 	 * If the destination DynamicBranch is not provided, the generated Dynamic
@@ -503,13 +503,13 @@ public class J3DNodeFactory {
 			String geometryLabel, DynamicBranch destinationBranch) {
 
 		TransformGroup tg = null, destinationTransformGroup = null;
-		BranchGroup branchGroup;
+		BranchGroup destinationBranchGroup;
 		if (destinationBranch == null) {
 			destinationTransformGroup = new TransformGroup();
-			branchGroup = new BranchGroup();
+			destinationBranchGroup = new BranchGroup();
 		} else {
 			destinationTransformGroup = destinationBranch.getTransformGroup();
-			branchGroup = destinationBranch.getBranchGroup();
+			destinationBranchGroup = destinationBranch.getBranchGroup();
 		}
 		AppearanceInfo appearanceInfo = this.loader
 				.getAppearanceInfo(appearanceLabel);
@@ -525,12 +525,12 @@ public class J3DNodeFactory {
 					null);
 			tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 			tg.setPickable(true);
-			branchGroup.addChild(tg);
+			destinationBranchGroup.addChild(tg);
 		}
 		tg.setTransform(trans3d);
 		destinationTransformGroup.addChild(tg);
 		return destinationBranch;
-		//TODO: clean code from above
+		//TODO: clean code above
 
 	}
 
@@ -548,46 +548,38 @@ public class J3DNodeFactory {
 	 * @author Marius
 	 */
 	public DynamicBranch getTokenBranch(String appearanceLabel, DynamicBranch destinationBranch) {
+        TransformGroup tg;
 
-		BranchGroup branchGroup = new BranchGroup();;
-		TransformGroup tg;
-		//if destinationBranch is null, create a new one
-		//daca dest branch contine un tr group, il folosesc pe ala
-		if (destinationBranch == null)
-		{
-			tg = null;
-			destinationBranch = new DynamicBranch(branchGroup, tg);
-		}
-		else if (destinationBranch.getTransformGroup()!= null)
-		{
-			//use existing transform group
-			tg = destinationBranch.getTransformGroup();
-		}
-		else
-		{
-			//create new one
-			tg = new TransformGroup();
-		}
-		AppearanceInfo appearanceInfo = this.loader
-				.getAppearanceInfo(appearanceLabel);
-		branchGroup.setCapability(BranchGroup.ALLOW_DETACH);
-		branchGroup.setCapability(BranchGroup.ALLOW_CHILDREN_WRITE);
+        // if destinationBranch is null, create a new one
+        if (destinationBranch == null) {
+            BranchGroup branchGroup = new BranchGroup();
+            branchGroup.setCapability(BranchGroup.ALLOW_DETACH);
+            branchGroup.setCapability(BranchGroup.ALLOW_CHILDREN_WRITE);
+            tg = new TransformGroup();
+            tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+            branchGroup.addChild(tg);
 
-		if (appearanceInfo instanceof appearance.Shape) {
-			tg = buildTransformGroupForShape((appearance.Shape) appearanceInfo,
-					null);
-			branchGroup.addChild(tg);
-		} else {
-			ColorCube model = new ColorCube(0.5f);
-			tg = new TransformGroup();
-			tg.addChild(model);
-			// tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-			branchGroup.addChild(tg);
-		}
+            destinationBranch = new DynamicBranch(branchGroup, tg);
+        } else if (destinationBranch.getTransformGroup() != null) {
+            // use existing transform group
+            tg = destinationBranch.getTransformGroup();
+        } else {
+            // create new one
+            tg = new TransformGroup();
+            tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+            destinationBranch.getBranchGroup().addChild(tg);
+        }
+        AppearanceInfo appearanceInfo = this.loader.getAppearanceInfo(appearanceLabel);
 
-		DynamicBranch branch = new DynamicBranch(branchGroup, tg);
-		return branch;
-	}
+        if (appearanceInfo instanceof appearance.Shape) {
+            tg = buildTransformGroupForShape((appearance.Shape) appearanceInfo, tg);
+        } else {
+            ColorCube model = new ColorCube(0.5f);
+            tg.addChild(model);
+        }
+
+        return destinationBranch;
+    }
 	
 	private void generate(Where start)
 	{

@@ -1,11 +1,12 @@
 package experiment;
 
+import static java.lang.Math.abs;
+
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 
 import se2.e.utilities.Vector2D;
 import se2.e.utilities.path.QuadraticBezierPathInterpolator;
-import static java.lang.Math.*;
 
 public class QuadraticBezierFromPath {
 

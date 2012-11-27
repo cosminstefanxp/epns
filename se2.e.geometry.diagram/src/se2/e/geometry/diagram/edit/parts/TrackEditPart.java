@@ -12,6 +12,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import experiment.QuadraticBezier;
+import experiment.QuadraticBezierFromPath;
 
 import se2.e.geometry.diagram.edit.policies.TrackItemSemanticEditPolicy;
 
@@ -151,7 +152,8 @@ public class TrackEditPart extends ConnectionNodeEditPart implements
 		@Override
 		// TODO : change the interpolator when anders will have finished
 		public PointList getSmoothPoints(boolean calculateAppoxPoints) {
-			return QuadraticBezier.allPoints(this.getPoints());
+			//return QuadraticBezier.allPoints(this.getPoints());
+			return QuadraticBezierFromPath.allPoints(this.getPoints());
 		}
 	}
 	

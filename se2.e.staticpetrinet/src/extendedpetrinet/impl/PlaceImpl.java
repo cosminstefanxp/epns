@@ -3,8 +3,9 @@
 package extendedpetrinet.impl;
 
 import extendedpetrinet.AnimationLabel;
-import extendedpetrinet.AppearanceLabel;
 import extendedpetrinet.ExtendedpetrinetPackage;
+import extendedpetrinet.GeometryLabel;
+import extendedpetrinet.InputPlaceAppearanceLabel;
 import extendedpetrinet.InteractiveInput;
 import extendedpetrinet.Place;
 import extendedpetrinet.Token;
@@ -34,8 +35,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link extendedpetrinet.impl.PlaceImpl#getInteractiveInput <em>Interactive Input</em>}</li>
  *   <li>{@link extendedpetrinet.impl.PlaceImpl#getAnimations <em>Animations</em>}</li>
  *   <li>{@link extendedpetrinet.impl.PlaceImpl#getTokens <em>Tokens</em>}</li>
- *   <li>{@link extendedpetrinet.impl.PlaceImpl#getGeoLabel <em>Geo Label</em>}</li>
  *   <li>{@link extendedpetrinet.impl.PlaceImpl#getAppearance <em>Appearance</em>}</li>
+ *   <li>{@link extendedpetrinet.impl.PlaceImpl#getGeoLabel <em>Geo Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,26 +74,6 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	protected EList<Token> tokens;
 
 	/**
-	 * The default value of the '{@link #getGeoLabel() <em>Geo Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGeoLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String GEO_LABEL_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getGeoLabel() <em>Geo Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGeoLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected String geoLabel = GEO_LABEL_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getAppearance() <em>Appearance</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,7 +81,17 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected AppearanceLabel appearance;
+	protected InputPlaceAppearanceLabel appearance;
+
+	/**
+	 * The cached value of the '{@link #getGeoLabel() <em>Geo Label</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGeoLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected GeometryLabel geoLabel;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,7 +215,7 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getGeoLabel() {
+	public GeometryLabel getGeoLabel() {
 		return geoLabel;
 	}
 
@@ -233,11 +224,14 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGeoLabel(String newGeoLabel) {
-		String oldGeoLabel = geoLabel;
+	public NotificationChain basicSetGeoLabel(GeometryLabel newGeoLabel, NotificationChain msgs) {
+		GeometryLabel oldGeoLabel = geoLabel;
 		geoLabel = newGeoLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.PLACE__GEO_LABEL, oldGeoLabel, geoLabel));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.PLACE__GEO_LABEL, oldGeoLabel, newGeoLabel);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -245,7 +239,26 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AppearanceLabel getAppearance() {
+	public void setGeoLabel(GeometryLabel newGeoLabel) {
+		if (newGeoLabel != geoLabel) {
+			NotificationChain msgs = null;
+			if (geoLabel != null)
+				msgs = ((InternalEObject)geoLabel).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.PLACE__GEO_LABEL, null, msgs);
+			if (newGeoLabel != null)
+				msgs = ((InternalEObject)newGeoLabel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.PLACE__GEO_LABEL, null, msgs);
+			msgs = basicSetGeoLabel(newGeoLabel, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.PLACE__GEO_LABEL, newGeoLabel, newGeoLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InputPlaceAppearanceLabel getAppearance() {
 		return appearance;
 	}
 
@@ -254,8 +267,8 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAppearance(AppearanceLabel newAppearance, NotificationChain msgs) {
-		AppearanceLabel oldAppearance = appearance;
+	public NotificationChain basicSetAppearance(InputPlaceAppearanceLabel newAppearance, NotificationChain msgs) {
+		InputPlaceAppearanceLabel oldAppearance = appearance;
 		appearance = newAppearance;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.PLACE__APPEARANCE, oldAppearance, newAppearance);
@@ -269,7 +282,7 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAppearance(AppearanceLabel newAppearance) {
+	public void setAppearance(InputPlaceAppearanceLabel newAppearance) {
 		if (newAppearance != appearance) {
 			NotificationChain msgs = null;
 			if (appearance != null)
@@ -299,6 +312,8 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				return ((InternalEList<?>)getTokens()).basicRemove(otherEnd, msgs);
 			case ExtendedpetrinetPackage.PLACE__APPEARANCE:
 				return basicSetAppearance(null, msgs);
+			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
+				return basicSetGeoLabel(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -317,10 +332,10 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				return getAnimations();
 			case ExtendedpetrinetPackage.PLACE__TOKENS:
 				return getTokens();
-			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
-				return getGeoLabel();
 			case ExtendedpetrinetPackage.PLACE__APPEARANCE:
 				return getAppearance();
+			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
+				return getGeoLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -344,11 +359,11 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				getTokens().clear();
 				getTokens().addAll((Collection<? extends Token>)newValue);
 				return;
-			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
-				setGeoLabel((String)newValue);
-				return;
 			case ExtendedpetrinetPackage.PLACE__APPEARANCE:
-				setAppearance((AppearanceLabel)newValue);
+				setAppearance((InputPlaceAppearanceLabel)newValue);
+				return;
+			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
+				setGeoLabel((GeometryLabel)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -371,11 +386,11 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 			case ExtendedpetrinetPackage.PLACE__TOKENS:
 				getTokens().clear();
 				return;
-			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
-				setGeoLabel(GEO_LABEL_EDEFAULT);
-				return;
 			case ExtendedpetrinetPackage.PLACE__APPEARANCE:
-				setAppearance((AppearanceLabel)null);
+				setAppearance((InputPlaceAppearanceLabel)null);
+				return;
+			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
+				setGeoLabel((GeometryLabel)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -395,28 +410,12 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				return animations != null;
 			case ExtendedpetrinetPackage.PLACE__TOKENS:
 				return tokens != null && !tokens.isEmpty();
-			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
-				return GEO_LABEL_EDEFAULT == null ? geoLabel != null : !GEO_LABEL_EDEFAULT.equals(geoLabel);
 			case ExtendedpetrinetPackage.PLACE__APPEARANCE:
 				return appearance != null;
+			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
+				return geoLabel != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (geoLabel: ");
-		result.append(geoLabel);
-		result.append(')');
-		return result.toString();
 	}
 
 } //PlaceImpl

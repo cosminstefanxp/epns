@@ -109,8 +109,12 @@ public class ExtendedpetrinetAdapterFactory extends AdapterFactoryImpl {
 				return createAnimationLabelAdapter();
 			}
 			@Override
-			public Adapter caseAppearanceLabel(AppearanceLabel object) {
-				return createAppearanceLabelAdapter();
+			public Adapter caseInputPlaceAppearanceLabel(InputPlaceAppearanceLabel object) {
+				return createInputPlaceAppearanceLabelAdapter();
+			}
+			@Override
+			public Adapter caseGeometryLabel(GeometryLabel object) {
+				return createGeometryLabelAdapter();
 			}
 			@Override
 			public Adapter casePetriNetType(PetriNetType object) {
@@ -285,16 +289,30 @@ public class ExtendedpetrinetAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link extendedpetrinet.AppearanceLabel <em>Appearance Label</em>}'.
+	 * Creates a new adapter for an object of class '{@link extendedpetrinet.InputPlaceAppearanceLabel <em>Input Place Appearance Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see extendedpetrinet.AppearanceLabel
+	 * @see extendedpetrinet.InputPlaceAppearanceLabel
 	 * @generated
 	 */
-	public Adapter createAppearanceLabelAdapter() {
+	public Adapter createInputPlaceAppearanceLabelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link extendedpetrinet.GeometryLabel <em>Geometry Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see extendedpetrinet.GeometryLabel
+	 * @generated
+	 */
+	public Adapter createGeometryLabelAdapter() {
 		return null;
 	}
 

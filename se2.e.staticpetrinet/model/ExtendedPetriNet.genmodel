@@ -15,8 +15,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/interactiveInput"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/animations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/tokens"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Place/geoLabel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/appearance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/geoLabel"/>
     </genClasses>
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//Identity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Identity/text"/>
@@ -28,13 +28,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//InteractiveInput/text"/>
     </genClasses>
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//Token">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Token/appearance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Token/text"/>
     </genClasses>
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//AnimationLabel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//AnimationLabel/structure"/>
     </genClasses>
-    <genClasses ecoreClass="ExtendedPetriNet.ecore#//AppearanceLabel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//AppearanceLabel/text"/>
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//InputPlaceAppearanceLabel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//InputPlaceAppearanceLabel/text"/>
+    </genClasses>
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//GeometryLabel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//GeometryLabel/text"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

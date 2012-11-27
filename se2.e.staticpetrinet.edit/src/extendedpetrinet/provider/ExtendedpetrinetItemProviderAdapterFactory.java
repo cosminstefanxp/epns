@@ -256,26 +256,49 @@ public class ExtendedpetrinetItemProviderAdapterFactory extends Extendedpetrinet
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link extendedpetrinet.AppearanceLabel} instances.
+	 * This keeps track of the one adapter used for all {@link extendedpetrinet.InputPlaceAppearanceLabel} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AppearanceLabelItemProvider appearanceLabelItemProvider;
+	protected InputPlaceAppearanceLabelItemProvider inputPlaceAppearanceLabelItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link extendedpetrinet.AppearanceLabel}.
+	 * This creates an adapter for a {@link extendedpetrinet.InputPlaceAppearanceLabel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAppearanceLabelAdapter() {
-		if (appearanceLabelItemProvider == null) {
-			appearanceLabelItemProvider = new AppearanceLabelItemProvider(this);
+	public Adapter createInputPlaceAppearanceLabelAdapter() {
+		if (inputPlaceAppearanceLabelItemProvider == null) {
+			inputPlaceAppearanceLabelItemProvider = new InputPlaceAppearanceLabelItemProvider(this);
 		}
 
-		return appearanceLabelItemProvider;
+		return inputPlaceAppearanceLabelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link extendedpetrinet.GeometryLabel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GeometryLabelItemProvider geometryLabelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link extendedpetrinet.GeometryLabel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGeometryLabelAdapter() {
+		if (geometryLabelItemProvider == null) {
+			geometryLabelItemProvider = new GeometryLabelItemProvider(this);
+		}
+
+		return geometryLabelItemProvider;
 	}
 
 	/**
@@ -385,7 +408,8 @@ public class ExtendedpetrinetItemProviderAdapterFactory extends Extendedpetrinet
 		if (interactiveInputItemProvider != null) interactiveInputItemProvider.dispose();
 		if (tokenItemProvider != null) tokenItemProvider.dispose();
 		if (animationLabelItemProvider != null) animationLabelItemProvider.dispose();
-		if (appearanceLabelItemProvider != null) appearanceLabelItemProvider.dispose();
+		if (inputPlaceAppearanceLabelItemProvider != null) inputPlaceAppearanceLabelItemProvider.dispose();
+		if (geometryLabelItemProvider != null) geometryLabelItemProvider.dispose();
 	}
 
 }

@@ -129,8 +129,7 @@ public class ExtendedpetrinetSwitch<T> extends Switch<T> {
 			case ExtendedpetrinetPackage.TOKEN: {
 				Token token = (Token)theEObject;
 				T result = caseToken(token);
-				if (result == null) result = caseObject(token);
-				if (result == null) result = caseID(token);
+				if (result == null) result = caseLabel(token);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -142,10 +141,18 @@ public class ExtendedpetrinetSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ExtendedpetrinetPackage.APPEARANCE_LABEL: {
-				AppearanceLabel appearanceLabel = (AppearanceLabel)theEObject;
-				T result = caseAppearanceLabel(appearanceLabel);
-				if (result == null) result = caseLabel(appearanceLabel);
+			case ExtendedpetrinetPackage.INPUT_PLACE_APPEARANCE_LABEL: {
+				InputPlaceAppearanceLabel inputPlaceAppearanceLabel = (InputPlaceAppearanceLabel)theEObject;
+				T result = caseInputPlaceAppearanceLabel(inputPlaceAppearanceLabel);
+				if (result == null) result = caseLabel(inputPlaceAppearanceLabel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExtendedpetrinetPackage.GEOMETRY_LABEL: {
+				GeometryLabel geometryLabel = (GeometryLabel)theEObject;
+				T result = caseGeometryLabel(geometryLabel);
+				if (result == null) result = caseAttribute(geometryLabel);
+				if (result == null) result = caseLabel(geometryLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -274,17 +281,32 @@ public class ExtendedpetrinetSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Appearance Label</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Input Place Appearance Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Appearance Label</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Input Place Appearance Label</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAppearanceLabel(AppearanceLabel object) {
+	public T caseInputPlaceAppearanceLabel(InputPlaceAppearanceLabel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Geometry Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Geometry Label</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGeometryLabel(GeometryLabel object) {
 		return null;
 	}
 

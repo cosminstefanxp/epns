@@ -2,8 +2,8 @@
  */
 package extendedpetrinet.impl;
 
-import extendedpetrinet.AppearanceLabel;
 import extendedpetrinet.ExtendedpetrinetPackage;
+import extendedpetrinet.InputPlaceAppearanceLabel;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -15,18 +15,18 @@ import org.pnml.tools.epnk.pnmlcoremodel.impl.LabelImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Appearance Label</b></em>'.
+ * An implementation of the model object '<em><b>Input Place Appearance Label</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link extendedpetrinet.impl.AppearanceLabelImpl#getText <em>Text</em>}</li>
+ *   <li>{@link extendedpetrinet.impl.InputPlaceAppearanceLabelImpl#getText <em>Text</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AppearanceLabelImpl extends LabelImpl implements AppearanceLabel {
+public class InputPlaceAppearanceLabelImpl extends LabelImpl implements InputPlaceAppearanceLabel {
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -52,7 +52,7 @@ public class AppearanceLabelImpl extends LabelImpl implements AppearanceLabel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AppearanceLabelImpl() {
+	protected InputPlaceAppearanceLabelImpl() {
 		super();
 	}
 
@@ -63,7 +63,7 @@ public class AppearanceLabelImpl extends LabelImpl implements AppearanceLabel {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ExtendedpetrinetPackage.Literals.APPEARANCE_LABEL;
+		return ExtendedpetrinetPackage.Literals.INPUT_PLACE_APPEARANCE_LABEL;
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class AppearanceLabelImpl extends LabelImpl implements AppearanceLabel {
 		String oldText = text;
 		text = newText;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.APPEARANCE_LABEL__TEXT, oldText, text));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.INPUT_PLACE_APPEARANCE_LABEL__TEXT, oldText, text));
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class AppearanceLabelImpl extends LabelImpl implements AppearanceLabel {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.APPEARANCE_LABEL__TEXT:
+			case ExtendedpetrinetPackage.INPUT_PLACE_APPEARANCE_LABEL__TEXT:
 				return getText();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -109,7 +109,7 @@ public class AppearanceLabelImpl extends LabelImpl implements AppearanceLabel {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.APPEARANCE_LABEL__TEXT:
+			case ExtendedpetrinetPackage.INPUT_PLACE_APPEARANCE_LABEL__TEXT:
 				setText((String)newValue);
 				return;
 		}
@@ -124,7 +124,7 @@ public class AppearanceLabelImpl extends LabelImpl implements AppearanceLabel {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.APPEARANCE_LABEL__TEXT:
+			case ExtendedpetrinetPackage.INPUT_PLACE_APPEARANCE_LABEL__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
 		}
@@ -139,7 +139,7 @@ public class AppearanceLabelImpl extends LabelImpl implements AppearanceLabel {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.APPEARANCE_LABEL__TEXT:
+			case ExtendedpetrinetPackage.INPUT_PLACE_APPEARANCE_LABEL__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 		}
 		return super.eIsSet(featureID);
@@ -161,4 +161,4 @@ public class AppearanceLabelImpl extends LabelImpl implements AppearanceLabel {
 		return result.toString();
 	}
 
-} //AppearanceLabelImpl
+} //InputPlaceAppearanceLabelImpl

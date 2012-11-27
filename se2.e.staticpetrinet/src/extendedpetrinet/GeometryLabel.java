@@ -6,24 +6,23 @@ import org.pnml.tools.epnk.pnmlcoremodel.Attribute;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Interactive Input</b></em>'.
+ * A representation of the model object '<em><b>Geometry Label</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link extendedpetrinet.InteractiveInput#isText <em>Text</em>}</li>
+ *   <li>{@link extendedpetrinet.GeometryLabel#getText <em>Text</em>}</li>
  * </ul>
  * </p>
  *
- * @see extendedpetrinet.ExtendedpetrinetPackage#getInteractiveInput()
+ * @see extendedpetrinet.ExtendedpetrinetPackage#getGeometryLabel()
  * @model
  * @generated
  */
-public interface InteractiveInput extends Attribute {
+public interface GeometryLabel extends Attribute {
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Text</em>' attribute isn't clear,
@@ -31,21 +30,21 @@ public interface InteractiveInput extends Attribute {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Text</em>' attribute.
-	 * @see #setText(boolean)
-	 * @see extendedpetrinet.ExtendedpetrinetPackage#getInteractiveInput_Text()
-	 * @model default="false"
+	 * @see #setText(String)
+	 * @see extendedpetrinet.ExtendedpetrinetPackage#getGeometryLabel_Text()
+	 * @model
 	 * @generated
 	 */
-	boolean isText();
+	String getText();
 
 	/**
-	 * Sets the value of the '{@link extendedpetrinet.InteractiveInput#isText <em>Text</em>}' attribute.
+	 * Sets the value of the '{@link extendedpetrinet.GeometryLabel#getText <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Text</em>' attribute.
-	 * @see #isText()
+	 * @see #getText()
 	 * @generated
 	 */
-	void setText(boolean value);
+	void setText(String value);
 
-} // InteractiveInput
+} // GeometryLabel

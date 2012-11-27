@@ -4,7 +4,7 @@ package extendedpetrinet.provider;
 
 
 import extendedpetrinet.ExtendedpetrinetPackage;
-import extendedpetrinet.Token;
+import extendedpetrinet.GeometryLabel;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,7 +15,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -24,16 +23,17 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.pnml.tools.epnk.pnmlcoremodel.provider.LabelItemProvider;
+
+import org.pnml.tools.epnk.pnmlcoremodel.provider.AttributeItemProvider;
 
 /**
- * This is the item provider adapter for a {@link extendedpetrinet.Token} object.
+ * This is the item provider adapter for a {@link extendedpetrinet.GeometryLabel} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TokenItemProvider
-	extends LabelItemProvider
+public class GeometryLabelItemProvider
+	extends AttributeItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -46,7 +46,7 @@ public class TokenItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TokenItemProvider(AdapterFactory adapterFactory) {
+	public GeometryLabelItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -77,9 +77,9 @@ public class TokenItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Token_text_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Token_text_feature", "_UI_Token_type"),
-				 ExtendedpetrinetPackage.Literals.TOKEN__TEXT,
+				 getString("_UI_GeometryLabel_text_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeometryLabel_text_feature", "_UI_GeometryLabel_type"),
+				 ExtendedpetrinetPackage.Literals.GEOMETRY_LABEL__TEXT,
 				 true,
 				 false,
 				 false,
@@ -89,14 +89,14 @@ public class TokenItemProvider
 	}
 
 	/**
-	 * This returns Token.gif.
+	 * This returns GeometryLabel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Token"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GeometryLabel"));
 	}
 
 	/**
@@ -107,10 +107,10 @@ public class TokenItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Token)object).getText();
+		String label = ((GeometryLabel)object).getText();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Token_type") :
-			getString("_UI_Token_type") + " " + label;
+			getString("_UI_GeometryLabel_type") :
+			getString("_UI_GeometryLabel_type") + " " + label;
 	}
 
 	/**
@@ -124,8 +124,8 @@ public class TokenItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Token.class)) {
-			case ExtendedpetrinetPackage.TOKEN__TEXT:
+		switch (notification.getFeatureID(GeometryLabel.class)) {
+			case ExtendedpetrinetPackage.GEOMETRY_LABEL__TEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

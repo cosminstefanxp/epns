@@ -116,5 +116,5 @@ public class ExtendedPetriNetItemProvider
 	public ResourceLocator getResourceLocator() {
 		return ExtendedPetriNetEditPlugin.INSTANCE;
 	}
-
+	
 }

@@ -64,7 +64,8 @@ public class ExtendedpetrinetFactoryImpl extends EFactoryImpl implements Extende
 			case ExtendedpetrinetPackage.INTERACTIVE_INPUT: return createInteractiveInput();
 			case ExtendedpetrinetPackage.TOKEN: return createToken();
 			case ExtendedpetrinetPackage.ANIMATION_LABEL: return createAnimationLabel();
-			case ExtendedpetrinetPackage.APPEARANCE_LABEL: return createAppearanceLabel();
+			case ExtendedpetrinetPackage.INPUT_PLACE_APPEARANCE_LABEL: return createInputPlaceAppearanceLabel();
+			case ExtendedpetrinetPackage.GEOMETRY_LABEL: return createGeometryLabel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -155,9 +156,19 @@ public class ExtendedpetrinetFactoryImpl extends EFactoryImpl implements Extende
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AppearanceLabel createAppearanceLabel() {
-		AppearanceLabelImpl appearanceLabel = new AppearanceLabelImpl();
-		return appearanceLabel;
+	public InputPlaceAppearanceLabel createInputPlaceAppearanceLabel() {
+		InputPlaceAppearanceLabelImpl inputPlaceAppearanceLabel = new InputPlaceAppearanceLabelImpl();
+		return inputPlaceAppearanceLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GeometryLabel createGeometryLabel() {
+		GeometryLabelImpl geometryLabel = new GeometryLabelImpl();
+		return geometryLabel;
 	}
 
 	/**

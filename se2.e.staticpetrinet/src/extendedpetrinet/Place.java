@@ -15,8 +15,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link extendedpetrinet.Place#getInteractiveInput <em>Interactive Input</em>}</li>
  *   <li>{@link extendedpetrinet.Place#getAnimations <em>Animations</em>}</li>
  *   <li>{@link extendedpetrinet.Place#getTokens <em>Tokens</em>}</li>
- *   <li>{@link extendedpetrinet.Place#getGeoLabel <em>Geo Label</em>}</li>
  *   <li>{@link extendedpetrinet.Place#getAppearance <em>Appearance</em>}</li>
+ *   <li>{@link extendedpetrinet.Place#getGeoLabel <em>Geo Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,30 +94,30 @@ public interface Place extends org.pnml.tools.epnk.pnmlcoremodel.Place {
 	EList<Token> getTokens();
 
 	/**
-	 * Returns the value of the '<em><b>Geo Label</b></em>' attribute.
+	 * Returns the value of the '<em><b>Geo Label</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Geo Label</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Geo Label</em>' attribute.
-	 * @see #setGeoLabel(String)
+	 * @return the value of the '<em>Geo Label</em>' containment reference.
+	 * @see #setGeoLabel(GeometryLabel)
 	 * @see extendedpetrinet.ExtendedpetrinetPackage#getPlace_GeoLabel()
-	 * @model
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	String getGeoLabel();
+	GeometryLabel getGeoLabel();
 
 	/**
-	 * Sets the value of the '{@link extendedpetrinet.Place#getGeoLabel <em>Geo Label</em>}' attribute.
+	 * Sets the value of the '{@link extendedpetrinet.Place#getGeoLabel <em>Geo Label</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Geo Label</em>' attribute.
+	 * @param value the new value of the '<em>Geo Label</em>' containment reference.
 	 * @see #getGeoLabel()
 	 * @generated
 	 */
-	void setGeoLabel(String value);
+	void setGeoLabel(GeometryLabel value);
 
 	/**
 	 * Returns the value of the '<em><b>Appearance</b></em>' containment reference.
@@ -128,12 +128,12 @@ public interface Place extends org.pnml.tools.epnk.pnmlcoremodel.Place {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Appearance</em>' containment reference.
-	 * @see #setAppearance(AppearanceLabel)
+	 * @see #setAppearance(InputPlaceAppearanceLabel)
 	 * @see extendedpetrinet.ExtendedpetrinetPackage#getPlace_Appearance()
 	 * @model containment="true"
 	 * @generated
 	 */
-	AppearanceLabel getAppearance();
+	InputPlaceAppearanceLabel getAppearance();
 
 	/**
 	 * Sets the value of the '{@link extendedpetrinet.Place#getAppearance <em>Appearance</em>}' containment reference.
@@ -143,6 +143,6 @@ public interface Place extends org.pnml.tools.epnk.pnmlcoremodel.Place {
 	 * @see #getAppearance()
 	 * @generated
 	 */
-	void setAppearance(AppearanceLabel value);
+	void setAppearance(InputPlaceAppearanceLabel value);
 
 } // Place

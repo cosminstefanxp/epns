@@ -94,13 +94,22 @@ public interface ExtendedpetrinetFactory extends EFactory {
 	AnimationLabel createAnimationLabel();
 
 	/**
-	 * Returns a new object of class '<em>Appearance Label</em>'.
+	 * Returns a new object of class '<em>Input Place Appearance Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Appearance Label</em>'.
+	 * @return a new object of class '<em>Input Place Appearance Label</em>'.
 	 * @generated
 	 */
-	AppearanceLabel createAppearanceLabel();
+	InputPlaceAppearanceLabel createInputPlaceAppearanceLabel();
+
+	/**
+	 * Returns a new object of class '<em>Geometry Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Geometry Label</em>'.
+	 * @generated
+	 */
+	GeometryLabel createGeometryLabel();
 
 	/**
 	 * Returns the package supported by this factory.

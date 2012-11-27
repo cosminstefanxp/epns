@@ -3,29 +3,30 @@
 package extendedpetrinet.impl;
 
 import extendedpetrinet.ExtendedpetrinetPackage;
-import extendedpetrinet.Token;
+import extendedpetrinet.GeometryLabel;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.pnml.tools.epnk.pnmlcoremodel.impl.LabelImpl;
+
+import org.pnml.tools.epnk.pnmlcoremodel.impl.AttributeImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Token</b></em>'.
+ * An implementation of the model object '<em><b>Geometry Label</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link extendedpetrinet.impl.TokenImpl#getText <em>Text</em>}</li>
+ *   <li>{@link extendedpetrinet.impl.GeometryLabelImpl#getText <em>Text</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class TokenImpl extends LabelImpl implements Token {
+public class GeometryLabelImpl extends AttributeImpl implements GeometryLabel {
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -35,6 +36,7 @@ public class TokenImpl extends LabelImpl implements Token {
 	 * @ordered
 	 */
 	protected static final String TEXT_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -44,12 +46,13 @@ public class TokenImpl extends LabelImpl implements Token {
 	 * @ordered
 	 */
 	protected String text = TEXT_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TokenImpl() {
+	protected GeometryLabelImpl() {
 		super();
 	}
 
@@ -60,7 +63,7 @@ public class TokenImpl extends LabelImpl implements Token {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ExtendedpetrinetPackage.Literals.TOKEN;
+		return ExtendedpetrinetPackage.Literals.GEOMETRY_LABEL;
 	}
 
 	/**
@@ -81,7 +84,7 @@ public class TokenImpl extends LabelImpl implements Token {
 		String oldText = text;
 		text = newText;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.TOKEN__TEXT, oldText, text));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.GEOMETRY_LABEL__TEXT, oldText, text));
 	}
 
 	/**
@@ -92,7 +95,7 @@ public class TokenImpl extends LabelImpl implements Token {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.TOKEN__TEXT:
+			case ExtendedpetrinetPackage.GEOMETRY_LABEL__TEXT:
 				return getText();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -106,7 +109,7 @@ public class TokenImpl extends LabelImpl implements Token {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.TOKEN__TEXT:
+			case ExtendedpetrinetPackage.GEOMETRY_LABEL__TEXT:
 				setText((String)newValue);
 				return;
 		}
@@ -121,7 +124,7 @@ public class TokenImpl extends LabelImpl implements Token {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.TOKEN__TEXT:
+			case ExtendedpetrinetPackage.GEOMETRY_LABEL__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
 		}
@@ -136,7 +139,7 @@ public class TokenImpl extends LabelImpl implements Token {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.TOKEN__TEXT:
+			case ExtendedpetrinetPackage.GEOMETRY_LABEL__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 		}
 		return super.eIsSet(featureID);
@@ -158,4 +161,4 @@ public class TokenImpl extends LabelImpl implements Token {
 		return result.toString();
 	}
 
-} //TokenImpl
+} //GeometryLabelImpl

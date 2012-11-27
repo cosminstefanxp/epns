@@ -27,10 +27,10 @@ import se2.e.geometry.Position;
 import se2.e.geometry.SimplePosition;
 import se2.e.geometry.Track;
 import se2.e.utilities.Vector2D;
+import se2.e.utilities.Where;
 import appearance.AppearanceInfo;
 import appearance.Model3D;
 import appearance.Object3D;
-import appearance.Shape3D;
 import appearance.Surface;
 import appearance.SurfaceColor;
 
@@ -436,5 +436,15 @@ public class J3DNodeFactory {
 		DynamicBranch branch = new DynamicBranch(branchGroup, tg);
 		return branch;
 	}
-
+	
+	private void generate(Where start)
+	{
+		Vector2D forward=Vector2D.polar(start.getHeading());
+		Vector2D right=forward.normal();
+		Vector2D startV=start.getPosition();
+		Vector2D forwardRight=startV.add(forward.multiply(1.0d)).add(right.multiply(1.0d));
+		Vector2D forwardLeft=startV.add(forward.multiply(1.0d)).add(right.multiply(-1.0d));
+		Vector2D backRight=startV.add(right.multiply(1.0d));
+		Vector2D backLeft=startV.add(right.multiply(-1.0d));
+	}
 }

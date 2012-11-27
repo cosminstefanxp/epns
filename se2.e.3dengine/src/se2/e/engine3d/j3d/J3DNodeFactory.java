@@ -171,15 +171,8 @@ public class J3DNodeFactory {
 			} catch (ParsingErrorException e) {
 				e.printStackTrace();
 			}
-			//Transform3D scale = new Transform3D();
-			//transformGroup.getTransform(scale);
-			//scale.setScale(100); // useless... :|
-			//transformGroup.setTransform(scale);
-			//transformGroup.addChild(s.getSceneGroup());
 			
-			transformGroup.addChild(s.getSceneGroup());
-			
-			//3d models  
+			transformGroup.addChild(s.getSceneGroup()); 
 			
 			//color only the first element of the 3D model
 			Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
@@ -199,14 +192,11 @@ public class J3DNodeFactory {
 //				s.getSceneGroup().addChild(sh);
 //			}
 			
+			//rotate
 			Transform3D transforms = new Transform3D();
 			Transform3D rotateX = new Transform3D();
 			Transform3D rotateY = new Transform3D();
 			Transform3D rotateZ = new Transform3D();
-//			rotate.setRotation(new AxisAngle4d(1.0, 0, 0, ((appearance.Model3D) shape).getXRotation()));
-//			rotate.setRotation(new AxisAngle4d(0, 1.0, 0, ((appearance.Model3D) shape).getYRotation()));
-//			rotate.setRotation(new AxisAngle4d(0, 0, 1.0, ((appearance.Model3D) shape).getZRotation()));
-//			rotateX.rotX(90D);
 			
 			rotateX.rotX(((appearance.Model3D) shape).getXRotation());
 			rotateY.rotY(((appearance.Model3D) shape).getYRotation());
@@ -214,12 +204,8 @@ public class J3DNodeFactory {
 			transforms.mul(transforms, rotateX);
 			transforms.mul(transforms, rotateY);
 			transforms.mul(transforms, rotateZ);
+			//scale
 			transforms.setScale(((appearance.Model3D) shape).getScale());
-			
-			
-			
-			
-			
 			
 			transformGroup.setTransform(transforms);
 			TransformGroup nodeTrans = new TransformGroup();

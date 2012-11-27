@@ -135,6 +135,34 @@ public class J3DNodeFactory {
 		return app;
 
 	}
+	
+	
+	/**
+	 * Gets the transform3d for the specified shape.
+	 *
+	 * @param shape the shape
+	 * @return the transform3 d
+	 * @author marius
+	 */
+	private Transform3D getTransform3D(appearance.Shape shape)
+	{
+		//rotate
+		Transform3D transforms = new Transform3D();
+		Transform3D rotateX = new Transform3D();
+		Transform3D rotateY = new Transform3D();
+		Transform3D rotateZ = new Transform3D();
+
+		rotateX.rotX(((appearance.Model3D) shape).getXRotation());
+		rotateY.rotY(((appearance.Model3D) shape).getYRotation());
+		rotateZ.rotZ(((appearance.Model3D) shape).getZRotation());
+		transforms.mul(transforms, rotateX);
+		transforms.mul(transforms, rotateY);
+		transforms.mul(transforms, rotateZ);
+		//scale
+		transforms.setScale(((appearance.Model3D) shape).getScale());
+		
+		return transforms;
+	}
 
 	/**
 	 * Gets a Transform Group containing the representation for a specific
@@ -158,13 +186,17 @@ public class J3DNodeFactory {
 			transformGroup = new TransformGroup();
 			transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 		}
+		TransformGroup nodeTrans = new TransformGroup();
+		nodeTrans.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 		if (shape instanceof appearance.Shape3D) {
 			Object3D type = ((appearance.Shape3D) shape).getType();
 			// System.out.println("TYPE::::" + type);
-			if (type == Object3D.CUBE) {
+			if (type == Object3D.CUBE) 
+			{
 				ColorCube model = new ColorCube(5f);
-				transformGroup.addChild(model);
-			} else if (type == Object3D.SPHERE) {
+				nodeTrans.addChild(model);
+			} else if (type == Object3D.SPHERE) 
+			{
 				System.out.println("+++SFERA!!!!!!!");
 				Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
 				Sphere model;
@@ -172,31 +204,32 @@ public class J3DNodeFactory {
 					model = new Sphere(5, app);
 				else
 					model = new Sphere(5);
-				transformGroup.addChild(model);
+				nodeTrans.addChild(model);
 			}
-		} else if (shape instanceof appearance.Model3D) {
+		} 
+		else if (shape instanceof appearance.Model3D) 
+		{
 			String filepath = ((Model3D) shape).getFile();
-
 			Scene s = null;
 			ObjectFile f = new ObjectFile();
-			f.setFlags(ObjectFile.RESIZE | ObjectFile.TRIANGULATE
-					| ObjectFile.STRIPIFY);
+			f.setFlags(ObjectFile.RESIZE | ObjectFile.TRIANGULATE| ObjectFile.STRIPIFY);
 
 			try {
-				if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("obj")) {
+				if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("obj"))
 					s = f.load(filepath);
-				}if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("3ds")) {
+				if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("3ds")) 
+				{
 					Loader3DS loader = new Loader3DS();
 					s = loader.load(filepath);
 				}
-				else {	
+				else 
 					logger.info("UNKNOWN FILE EXTENSION!");
-				}
-				transformGroup.addChild(s.getSceneGroup()); 
+				nodeTrans.addChild(s.getSceneGroup()); 
 				
 				//color only the first element of the 3D model
 				Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
-				if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("obj")) {
+				if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("obj")) 
+				{
 					javax.media.j3d.Shape3D sh = (javax.media.j3d.Shape3D) s.getSceneGroup().getChild(0);
 					s.getSceneGroup().removeChild(0);			
 					sh.setAppearance(app);
@@ -213,39 +246,9 @@ public class J3DNodeFactory {
 //					}
 				}
 
-
-				
-				//rotate
 				Transform3D transforms = new Transform3D();
-				Transform3D rotateX = new Transform3D();
-				Transform3D rotateY = new Transform3D();
-				Transform3D rotateZ = new Transform3D();
-
-				rotateX.rotX(((appearance.Model3D) shape).getXRotation());
-				rotateY.rotY(((appearance.Model3D) shape).getYRotation());
-				rotateZ.rotZ(((appearance.Model3D) shape).getZRotation());
-				transforms.mul(transforms, rotateX);
-				transforms.mul(transforms, rotateY);
-				transforms.mul(transforms, rotateZ);
-				//scale
-				transforms.setScale(((appearance.Model3D) shape).getScale());
-
-				
-				transformGroup.setTransform(transforms);
-				TransformGroup nodeTrans = new TransformGroup();
-				nodeTrans.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-				nodeTrans.addChild(transformGroup);
-				
-				BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0,
-						15.0), 2000.0);
-				Color3f ambientColor = new Color3f(1.0f, 1.0f, 1.0f);
-				AmbientLight ambientLightNode = new AmbientLight(ambientColor);
-				ambientLightNode.setInfluencingBounds(bounds);
-				nodeTrans.addChild(ambientLightNode);
-				DirectionalLight light1  = new DirectionalLight (ambientColor, new Vector3f (0.0f, 0.0f, -1f));
-		    	light1.setInfluencingBounds (bounds);
-		    	nodeTrans.addChild (light1);
-				return nodeTrans;
+				transforms = getTransform3D((appearance.Shape) shape);
+				nodeTrans.setTransform(transforms);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IncorrectFormatException e) {
@@ -254,15 +257,23 @@ public class J3DNodeFactory {
 				e.printStackTrace();
 			}
 
-
-			
-			
-
 		} else {
 			ColorCube model = new ColorCube(0.5f);
 			transformGroup.addChild(model);
 		}
-
+		
+		//(Un)comment the following lines to (add)/remove the lightning on the object
+		
+		BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 15.0),2000.0);
+		Color3f ambientColor = new Color3f(1.0f, 1.0f, 1.0f);
+		AmbientLight ambientLightNode = new AmbientLight(ambientColor);
+		ambientLightNode.setInfluencingBounds(bounds);
+		nodeTrans.addChild(ambientLightNode);
+		DirectionalLight light1 = new DirectionalLight(ambientColor,new Vector3f(0.0f, 0.0f, -1f));
+		light1.setInfluencingBounds(bounds);
+		nodeTrans.addChild(light1);
+		transformGroup.addChild(nodeTrans);
+		
 		return transformGroup;
 	}
 
@@ -522,16 +533,26 @@ public class J3DNodeFactory {
 	 * @author Marius
 	 */
 	public DynamicBranch getGeometryBranch(String appearanceLabel,
-			String geometryLabel, DynamicBranch destinationBranch) {
-
-		TransformGroup tg = null, destinationTransformGroup = null;
+			String geometryLabel, DynamicBranch destinationBranch) 
+	{
+		TransformGroup destinationTransformGroup = null;
 		BranchGroup destinationBranchGroup;
-		if (destinationBranch == null) {
-			destinationTransformGroup = new TransformGroup();
+		
+		if (destinationBranch == null) 
+		{
+			destinationTransformGroup = new TransformGroup();	
 			destinationBranchGroup = new BranchGroup();
-		} else {
+			destinationBranchGroup.addChild(destinationTransformGroup);
+		} 
+		else if (destinationBranch.getTransformGroup() != null)
+		{
 			destinationTransformGroup = destinationBranch.getTransformGroup();
-			destinationBranchGroup = destinationBranch.getBranchGroup();
+		}
+		else
+		{
+			destinationTransformGroup = new TransformGroup();
+			destinationTransformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+			destinationBranch.getBranchGroup().addChild(destinationTransformGroup);
 		}
 		AppearanceInfo appearanceInfo = this.loader
 				.getAppearanceInfo(appearanceLabel);
@@ -543,14 +564,12 @@ public class J3DNodeFactory {
 				DRAWING_PLANE_Z));
 		if (appearanceInfo instanceof appearance.Shape) {
 
-			tg = buildTransformGroupForShape((appearance.Shape) appearanceInfo,
+			destinationTransformGroup = buildTransformGroupForShape((appearance.Shape) appearanceInfo,
 					null);
-			tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-			tg.setPickable(true);
-			destinationBranchGroup.addChild(tg);
+			
+			destinationTransformGroup.setPickable(true);
 		}
-		tg.setTransform(trans3d);
-		destinationTransformGroup.addChild(tg);
+		destinationTransformGroup.setTransform(trans3d);
 		return destinationBranch;
 		//TODO: clean code above
 
@@ -573,7 +592,8 @@ public class J3DNodeFactory {
         TransformGroup tg;
 
         // if destinationBranch is null, create a new one
-        if (destinationBranch == null) {
+        if (destinationBranch == null) 
+        {
             BranchGroup branchGroup = new BranchGroup();
             branchGroup.setCapability(BranchGroup.ALLOW_DETACH);
             branchGroup.setCapability(BranchGroup.ALLOW_CHILDREN_WRITE);
@@ -582,10 +602,12 @@ public class J3DNodeFactory {
             branchGroup.addChild(tg);
 
             destinationBranch = new DynamicBranch(branchGroup, tg);
-        } else if (destinationBranch.getTransformGroup() != null) {
+        } else if (destinationBranch.getTransformGroup() != null) 
+        {
             // use existing transform group
             tg = destinationBranch.getTransformGroup();
-        } else {
+        } else 
+        {
             // create new one
             tg = new TransformGroup();
             tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);

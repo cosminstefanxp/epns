@@ -352,7 +352,7 @@ public class RuntimePetriNet {
 			InteractiveInput x = place.getInteractiveInput();
 			if(x != null)
 				isInteractive = x.isText();
-			if(place.getGeoLabel().equals(geometryLabel) && isInteractive) {
+			if(place.getGeoLabel().getText().equals(geometryLabel) && isInteractive) {
 				placeForLabel = place;
 				break;
 			}		
@@ -363,7 +363,7 @@ public class RuntimePetriNet {
 	public Set<String> getInputPlaces() {
 		Set<String> inputPlacesLabels = new TreeSet<String>();
 		for(Place p : tokensMap.keySet()) {
-			System.out.println("PLACE " + p.getGeoLabel() + " " +p.getInteractiveInput());
+			System.out.println("PLACE " + p.getGeoLabel().getText() + " " +p.getInteractiveInput());
 			if(p.getInteractiveInput() != null && p.getInteractiveInput().isText()){
 				inputPlacesLabels.add(p.getGeoLabel().getText());
 			}

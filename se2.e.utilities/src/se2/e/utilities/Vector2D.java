@@ -51,17 +51,35 @@ public class Vector2D {
 		return result;
 		}
 	
-	public void add(Vector2D other) {
+	public Vector2D add(Vector2D other) {
 		this.x += other.x;
 		this.y += other.y;
+		return this;
 		}
 	
-	public void subtract(Vector2D other) {
+	public Vector2D subtract(Vector2D other) {
 		this.x -= other.x;
 		this.y -= other.y;
+		return this;
+		}
+	
+	public Vector2D multiply(double factor) {
+		this.x *= factor;
+		this.y *= factor;
+		return this;
+		}
+	
+	public Vector2D divide(double divisor) {
+		this.x /= divisor;
+		this.y /= divisor;
+		return this;
 		}
 	
 	public Vector2D normal() {
+		return polar(getAngle() - PI/2.0);
+		}
+	
+	public Vector2D unity() {
 		return polar(getAngle());
 		}
 	

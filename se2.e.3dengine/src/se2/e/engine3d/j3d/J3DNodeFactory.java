@@ -1,6 +1,7 @@
 package se2.e.engine3d.j3d;
 
 import java.io.FileNotFoundException;
+import java.util.Enumeration;
 import java.util.logging.Logger;
 
 import javax.media.j3d.AmbientLight;
@@ -166,20 +167,41 @@ public class J3DNodeFactory {
 			} catch (ParsingErrorException e) {
 				e.printStackTrace();
 			}
-			Transform3D scale = new Transform3D();
-			transformGroup.getTransform(scale);
-			scale.setScale(100); // useless... :|
-			transformGroup.setTransform(scale);
-			transformGroup.addChild(s.getSceneGroup());
+			//Transform3D scale = new Transform3D();
+			//transformGroup.getTransform(scale);
+			//scale.setScale(100); // useless... :|
+			//transformGroup.setTransform(scale);
+			//transformGroup.addChild(s.getSceneGroup());
+			
+			//3d models and 
+			
+			Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
+//			javax.media.j3d.Shape3D sh = (javax.media.j3d.Shape3D) s.getSceneGroup().getChild(0);
+//			s.getSceneGroup().removeChild(0);			
+//			sh.setAppearance(app);
+//			s.getSceneGroup().addChild(sh);
 
+			
+			
+			Enumeration children = s.getSceneGroup().getAllChildren();
+			while (children.hasMoreElements())
+			{
+				javax.media.j3d.Shape3D sh;// = (javax.media.j3d.Shape3D) s.getSceneGroup().getChild(0);
+				sh = (javax.media.j3d.Shape3D) children.nextElement();
+				s.getSceneGroup().removeChild(sh);			
+				sh.setAppearance(app);
+				s.getSceneGroup().addChild(sh);
+			}
+			
+			transformGroup.addChild(s.getSceneGroup());
+			
 			BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0,
 					15.0), 2000.0);
 			Color3f ambientColor = new Color3f(1.0f, 1.0f, 1.0f);
 			AmbientLight ambientLightNode = new AmbientLight(ambientColor);
 			ambientLightNode.setInfluencingBounds(bounds);
 			transformGroup.addChild(ambientLightNode);
-			// TODO: maybe add texture on 3d models too (??with Appearance app =
-			// buildSurfaceAppearance(shape.getShapeSurface());)
+			
 
 		} else {
 			ColorCube model = new ColorCube(0.5f);

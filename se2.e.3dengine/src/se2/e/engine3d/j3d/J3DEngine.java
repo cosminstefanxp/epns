@@ -6,9 +6,7 @@ import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -23,6 +21,7 @@ import javax.media.j3d.View;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
@@ -38,6 +37,7 @@ import animations.Animation;
 import appearance.AppearanceModel;
 
 import com.sun.j3d.utils.behaviors.vp.OrbitBehavior;
+import com.sun.j3d.utils.geometry.Primitive;
 import com.sun.j3d.utils.universe.SimpleUniverse;
 import com.sun.j3d.utils.universe.Viewer;
 import com.sun.j3d.utils.universe.ViewingPlatform;
@@ -79,9 +79,6 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	/** The logger. */
 	private Logger log = Logger.getLogger("J3DEngine");
 
-	/** The running animations. */
-	private List<RuntimeAnimation<?>> runningAnimations;
-
 	/** The token representations. */
 	private HashMap<RuntimeToken, DynamicBranch> tokenRepresentations;
 
@@ -90,6 +87,8 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 
 	/** The paused. */
 	private boolean paused = false;
+
+	private JPanel canvasPanel;
 
 	/**
 	 * Instantiates a new Java 3D engine.
@@ -105,33 +104,39 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		cp.setLayout(new BorderLayout());
 		cp.add(canvas, BorderLayout.CENTER);
 
-		// Initialize the buttons
-		JPanel panel = new JPanel();
-		getContentPane().add(panel, BorderLayout.NORTH);
+		canvasPanel = new JPanel();
+		getContentPane().add(canvasPanel, BorderLayout.NORTH);
 
 		btnStart = new JButton("Start");
 		btnStart.addActionListener(this);
-		panel.add(btnStart);
+		canvasPanel.add(btnStart);
 
 		btnStop = new JButton("Stop");
 		btnStop.addActionListener(this);
 		btnStop.setEnabled(false);
-		panel.add(btnStop);
+		canvasPanel.add(btnStop);
 
 		btnPause = new JButton("Pause");
 		btnPause.addActionListener(this);
 		btnPause.setEnabled(false);
-		panel.add(btnPause);
+		canvasPanel.add(btnPause);
 
 		// Configure this JFrame
 		this.setLocation(200, 200);
 		this.setSize(640, 480);
 		this.setTitle("Petri Net Simulator");
-		// this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
 		// Show the JFrame
 		this.setVisible(true);
+	}
 
+	@Override
+	public void dispose() {
+		log.info("Disposing window...");
+		cleanupFull();
+
+		super.dispose();
 	}
 
 	/**
@@ -198,7 +203,6 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		universe.addBranchGraph(sceneRoot);
 
 		// Initialize other objects
-		runningAnimations = new ArrayList<RuntimeAnimation<?>>();
 		tokenRepresentations = new HashMap<RuntimeToken, DynamicBranch>();
 
 		log.info("J3D Engine initialized...");
@@ -259,6 +263,8 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 * (non-Javadoc)
 	 * 
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 * 
+	 * @author cosmin
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -266,10 +272,12 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		// If the user clicked the Start Button
 		if (e.getSource() == btnStart) {
 			log.info("Starting engine 3D...");
+			paused = false;
 			if (this.engineListener != null) {
 				engineListener.onStartSimulation();
 				btnStart.setEnabled(false);
 				btnPause.setEnabled(true);
+				btnStop.setEnabled(true);
 			}
 		}
 
@@ -283,7 +291,47 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 				btnPause.setText("Pause");
 		}
 
-		// TODO: Add implementation for Stop
+		// If the user clicked the Stop button
+		if (e.getSource() == btnStop) {
+			log.info("Stop button clicked...");
+			btnStop.setEnabled(false);
+			btnPause.setEnabled(false);
+			btnStart.setEnabled(true);
+
+			cleanupOnStop();
+		}
+	}
+
+	/**
+	 * Cleanup on stop.
+	 * 
+	 * @author cosmin
+	 */
+	private void cleanupOnStop() {
+
+		for (DynamicBranch branch : tokenRepresentations.values())
+			branch.getBranchGroup().detach();
+
+		this.tokenRepresentations.clear();
+
+	}
+
+	/**
+	 * Cleanup full.
+	 * 
+	 * @author cosmin
+	 */
+	private void cleanupFull() {
+		cleanupOnStop();
+
+		Viewer.clearViewerMap();
+		Primitive.clearGeometryCache();
+		canvasPanel.removeAll();
+		canvasPanel = null;
+
+		sceneRoot = null;
+		canvas = null;
+		universe.cleanup();
 	}
 
 	/*
@@ -306,7 +354,6 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		// Build the RuntimeAnimation
 		RuntimeAnimation<?> rtAnimation = RuntimeAnimationFactory.getRuntimeAnimation(branch, animation, token, this,
 				geometryLabel);
-		runningAnimations.add(rtAnimation);
 
 		// Attach the Animation branch to the Scene graph, if needed and if not already attached
 		if (!rtAnimation.isAttachedToRoot() && rtAnimation.getTargetBranch() != null) {
@@ -382,6 +429,8 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 * (non-Javadoc)
 	 * 
 	 * @see se2.e.engine3d.Engine3D#destroyRepresentation(se2.e.simulator.runtime.petrinet.RuntimeToken)
+	 * 
+	 * @author cosmin
 	 */
 	@Override
 	public void destroyRepresentation(RuntimeToken token) {

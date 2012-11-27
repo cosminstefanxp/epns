@@ -165,6 +165,7 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 	 * Process stimulus.
 	 * 
 	 * @param inCriteria the in criteria
+	 * @author cosmin
 	 */
 	@Override
 	public void processStimulus(@SuppressWarnings("rawtypes") Enumeration inCriteria) {

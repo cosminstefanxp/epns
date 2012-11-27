@@ -110,6 +110,11 @@ public class PositionListener extends EContentAdapter {
 					
 					// What exists in the model
 					View view = (View) eNotifier.eContainer();
+					
+					// If that's not a track, we return!
+					if (!(view.getElement() instanceof TrackImpl))
+						return;
+					
 					TrackImpl arcModel = (TrackImpl) view.getElement();
 					// Nb of relative positions existing in the model
 					int nbRelativepositions = arcModel.getIntermediatePositions().size();

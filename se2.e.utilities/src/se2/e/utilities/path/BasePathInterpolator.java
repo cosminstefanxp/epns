@@ -13,6 +13,7 @@ public class BasePathInterpolator implements PathInterpolator {
 	
 	protected void addStep(Vector2D start, Vector2D end) {
 		Step step = new Step(length, start, end);
+		steps.add(step);
 		length += step.getLength();
 		steps.add(step);
 		}

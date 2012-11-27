@@ -27,4 +27,12 @@ public class LinearPathInterpolator extends BasePathInterpolator {
 			}
 		}
 	
+	public LinearPathInterpolator(List<Vector2D> positions) {
+		assert(positions != null && positions.size() >= 2);
+		for (int i = 1; i < positions.size(); i++) {
+			addStep(positions.get(i - 1), positions.get(i));
+			}
+		}
+		
 	}
+

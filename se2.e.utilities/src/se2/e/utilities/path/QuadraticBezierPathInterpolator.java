@@ -33,7 +33,7 @@ public class QuadraticBezierPathInterpolator extends BasePathInterpolator {
 		Vector2D pt0 = intermediate(start, center, end, t0);
 		Vector2D pt1 = intermediate(start, center, end, t1);
 		Vector2D pm = intermediate(start, center, end, m);
-		Vector2D delta = new Vector2D(pt0).add(pt1).divide(2.0); 
+		Vector2D delta = Vector2D.subtract(pm, pt0.add(pt1).divide(2.0)); 
 		if (delta.longerThan(1.0)) {
 			intermediate(start,center,end,points,t0,(t0+m)/2.0f,m);
 			points.add(pm);
@@ -60,6 +60,10 @@ public class QuadraticBezierPathInterpolator extends BasePathInterpolator {
 		for (int i = 0; i < points.size()-1; i++) {
 			addStep(points.get(i), points.get(i+1));
 			}
+		}
+	
+	public QuadraticBezierPathInterpolator(List<Vector2D> positions) {
+		this(positions.toArray(new Vector2D[0]));
 		}
 	
 	public List<Vector2D> getIntermediatePoints() {

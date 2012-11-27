@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Utilities
-Bundle-SymbolicName: se2.e.utilities
-Bundle-Version: 1.0.0.qualifier
-Export-Package: se2.e.utilities,
- se2.e.utilities.path
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6

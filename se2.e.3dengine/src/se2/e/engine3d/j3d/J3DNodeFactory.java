@@ -65,10 +65,12 @@ import com.sun.j3d.utils.image.TextureLoader;
  */
 public class J3DNodeFactory {
 
+	private static final double TRACK_WIDTH = 3.0d;
+
 	/** The Constant DRAWING_PLANE_Z. */
 	private static final double DRAWING_PLANE_Z = 0d;
 	
-	private static final double INTERPOLATION_DIST = 0.1d;
+	private static final double INTERPOLATION_DIST = 10.0d;
 
 	/** The loader. */
 	private GeometryAndAppearanceLoader loader;
@@ -78,6 +80,9 @@ public class J3DNodeFactory {
 
 	/** The engine. */
 	private J3DEngine engine;
+	
+	
+	private static Logger logger = Logger.getAnonymousLogger();
 
 	/**
 	 * Instantiates a new geometry node factory.
@@ -185,7 +190,7 @@ public class J3DNodeFactory {
 					s = loader.load(filepath);
 				}
 				else {	
-					Logger.getAnonymousLogger().info("UNKNOWN FILE EXTENSION!");
+					logger.info("UNKNOWN FILE EXTENSION!");
 				}
 				transformGroup.addChild(s.getSceneGroup()); 
 				
@@ -273,7 +278,7 @@ public class J3DNodeFactory {
 	 * 
 	 * @author cosmin, marius
 	 */
-	public Node getGeometryTransformGroup(String geometryLabel) {
+	public Node getGeometryTransformGroup_old(String geometryLabel) {
 
 		// Get the track points
 		Vector2D[] trackPoints = loader.getTrackPoints(geometryLabel);
@@ -330,67 +335,82 @@ public class J3DNodeFactory {
 		return g;
 	}
 	
-	public Node getGeometryTransformGroup_new(String geometryLabel) {
+	public Node getGeometryTransformGroup(String geometryLabel) {
 		TransformGroup g = new TransformGroup();
 		Track track = loader.getTrackFromLabel(geometryLabel);
 		double distance = 0;
 		PathInterpolator pathInterpolator = new LinearPathInterpolator(loader.getTrackPoints(geometryLabel));
+		Where start = pathInterpolator.start();
+		start = pathInterpolator.findPosition(distance);
 		
-		Where start = pathInterpolator.findPosition(0);
 		Vector2D forward=Vector2D.polar(start.getHeading());
 		Vector2D right=forward.normal();
 		Vector2D startV=start.getPosition();
+	
+		//compute the forword vector
+		forward.multiply(INTERPOLATION_DIST);
 		
-		Vector2D forwardRight=startV.add(forward.multiply(1.0d)).add(right.multiply(1.0d));
-		Vector2D forwardLeft=startV.add(forward.multiply(1.0d)).add(right.multiply(-1.0d));
-		Vector2D backRight=startV.add(right.multiply(1.0d));
-		Vector2D backLeft=startV.add(right.multiply(-1.0d));
+		//cumpute the four points
+		Vector2D forwardRight=Vector2D.add(startV,forward).add(new Vector2D(right).multiply(TRACK_WIDTH));
+		Vector2D forwardLeft = Vector2D.add(startV,forward).add(new Vector2D(right).multiply(-TRACK_WIDTH));
+		Vector2D backRight = Vector2D.add(startV,new Vector2D(right).multiply(TRACK_WIDTH));
+		Vector2D backLeft = Vector2D.add(startV,new Vector2D(right).multiply(-TRACK_WIDTH));
 		
+		
+		//list of quad points
 		List<Point3d> points = new ArrayList<Point3d>();
+		
+		//THE QUAD WILL BE DRAWN COUNTER-CLOCKWISE
+		
+		//compute the two backpoints and put them as back-left back-right
 		Point3d p1 = new Point3d(backRight.getX(), backRight.getY(), DRAWING_PLANE_Z);
 		Point3d p2 = new Point3d(backLeft.getX(), backLeft.getY(), DRAWING_PLANE_Z);
+		points.add(p2);
+		points.add(p1);
+		
+		//compute the two forward points and put them as front-right front-right
+		p1 = new Point3d(forwardRight.getX(), forwardRight.getY(), DRAWING_PLANE_Z);
+		p2 = new Point3d(forwardLeft.getX(), forwardLeft.getY(), DRAWING_PLANE_Z);
 		points.add(p1);
 		points.add(p2);
 		
-		p1 = new Point3d(forwardRight.getX(), forwardRight.getY(), DRAWING_PLANE_Z);
-		p2 = new Point3d(forwardLeft.getX(), forwardLeft.getY(), DRAWING_PLANE_Z);
-
-		points.add(p1);
-		points.add(p2);
 		while (pathInterpolator.getLength() > distance) {
-			//duplicate forward points from before so that there are no gaps between
-			p1 = new Point3d(forwardRight.getX(), forwardRight.getY(), DRAWING_PLANE_Z);
-			p2 = new Point3d(forwardLeft.getX(), forwardLeft.getY(), DRAWING_PLANE_Z);
-			points.add(p1);
+			//add the back-points for the quad
 			points.add(p2);
+			points.add(p1);
 			
-			
+			//compute the new forward and right vectors 
 			distance = distance + INTERPOLATION_DIST;
-			Where dir = pathInterpolator.findPosition(distance);
-			forward=Vector2D.polar(dir.getHeading());
+			Where current = pathInterpolator.findPosition(distance);
+			forward=Vector2D.polar(current.getHeading());
 			right=forward.normal();
-			startV=start.getPosition();
+			startV=current.getPosition();
+			forward.multiply(INTERPOLATION_DIST);
 			
+			//compute the new forward position
+			forwardRight=Vector2D.add(startV,forward).add(new Vector2D(right).multiply(TRACK_WIDTH));
+			forwardLeft = Vector2D.add(startV,forward).add(new Vector2D(right).multiply(-TRACK_WIDTH));
 			
-			
-			forwardRight=startV.add(forward.multiply(1.0d)).add(right.multiply(1.0d));
-			forwardLeft=startV.add(forward.multiply(1.0d)).add(right.multiply(-1.0d));
+			//add the front-points for the quad
 			p1 = new Point3d(forwardRight.getX(), forwardRight.getY(), DRAWING_PLANE_Z);
 			p2 = new Point3d(forwardLeft.getX(), forwardLeft.getY(), DRAWING_PLANE_Z);
 			points.add(p1);
 			points.add(p2);
 		}
 				
+		logger.info("Number of quads: " + points.size()/4);
 		Point3d[] myCoords = new Point3d[points.size()];
+		
+		//put the list in an array so it can e sent to the quad array
 		for(int i = 0; i < points.size(); i++){
 			myCoords[i] = points.get(i);
 		}
-		
 		QuadArray myQuads = new QuadArray(
 			    myCoords.length,
-			    GeometryArray.COORDINATES |
-			    GeometryArray.NORMALS );
-		myQuads.setCoordinates( 0, myCoords );
+			    GeometryArray.COORDINATES );
+		myQuads.setCoordinates(0, myCoords );
+		
+		//set the appearance of the quads
 		Appearance myAppear = new Appearance();
 		boolean colorSet = false;
 		if (track.getAppearanceLabel() != null) {
@@ -407,7 +427,9 @@ public class J3DNodeFactory {
 			ca.setColor(new Color3f(0.5f, 0.5f, 0.5f));
 			myAppear.setColoringAttributes(ca);
 		}
-		Shape3D myShape = new Shape3D( myQuads, myAppear );
+		
+		//transform the quad to a Shape3d and added it to the TransformGroup
+		Shape3D myShape = new Shape3D( myQuads, myAppear);
 		g.addChild(myShape);
 		return g;
 		
@@ -586,9 +608,9 @@ public class J3DNodeFactory {
 		Vector2D forward=Vector2D.polar(start.getHeading());
 		Vector2D right=forward.normal();
 		Vector2D startV=start.getPosition();
-		Vector2D forwardRight=startV.add(forward.multiply(1.0d)).add(right.multiply(1.0d));
-		Vector2D forwardLeft=startV.add(forward.multiply(1.0d)).add(right.multiply(-1.0d));
-		Vector2D backRight=startV.add(right.multiply(1.0d));
-		Vector2D backLeft=startV.add(right.multiply(-1.0d));
+		Vector2D forwardRight=startV.add(forward.multiply(TRACK_WIDTH)).add(right.multiply(TRACK_WIDTH));
+		Vector2D forwardLeft=startV.add(forward.multiply(TRACK_WIDTH)).add(right.multiply(-TRACK_WIDTH));
+		Vector2D backRight=startV.add(right.multiply(TRACK_WIDTH));
+		Vector2D backLeft=startV.add(right.multiply(-TRACK_WIDTH));
 	}
 }

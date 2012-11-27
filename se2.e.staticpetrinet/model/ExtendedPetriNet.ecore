@@ -17,8 +17,8 @@
         eType="#//Token" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="appearance" eType="#//InputPlaceAppearanceLabel"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="geoLabel" lowerBound="1"
-        eType="#//GeometryLabel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="geometryLabel" eType="#//GeometryLabel"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Identity" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"

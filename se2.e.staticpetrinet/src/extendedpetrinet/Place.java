@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link extendedpetrinet.Place#getAnimations <em>Animations</em>}</li>
  *   <li>{@link extendedpetrinet.Place#getTokens <em>Tokens</em>}</li>
  *   <li>{@link extendedpetrinet.Place#getAppearance <em>Appearance</em>}</li>
- *   <li>{@link extendedpetrinet.Place#getGeoLabel <em>Geo Label</em>}</li>
+ *   <li>{@link extendedpetrinet.Place#getGeometryLabel <em>Geometry Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,32 +94,6 @@ public interface Place extends org.pnml.tools.epnk.pnmlcoremodel.Place {
 	EList<Token> getTokens();
 
 	/**
-	 * Returns the value of the '<em><b>Geo Label</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Geo Label</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Geo Label</em>' containment reference.
-	 * @see #setGeoLabel(GeometryLabel)
-	 * @see extendedpetrinet.ExtendedpetrinetPackage#getPlace_GeoLabel()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	GeometryLabel getGeoLabel();
-
-	/**
-	 * Sets the value of the '{@link extendedpetrinet.Place#getGeoLabel <em>Geo Label</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Geo Label</em>' containment reference.
-	 * @see #getGeoLabel()
-	 * @generated
-	 */
-	void setGeoLabel(GeometryLabel value);
-
-	/**
 	 * Returns the value of the '<em><b>Appearance</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -144,5 +118,31 @@ public interface Place extends org.pnml.tools.epnk.pnmlcoremodel.Place {
 	 * @generated
 	 */
 	void setAppearance(InputPlaceAppearanceLabel value);
+
+	/**
+	 * Returns the value of the '<em><b>Geometry Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Geometry Label</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Geometry Label</em>' containment reference.
+	 * @see #setGeometryLabel(GeometryLabel)
+	 * @see extendedpetrinet.ExtendedpetrinetPackage#getPlace_GeometryLabel()
+	 * @model containment="true"
+	 * @generated
+	 */
+	GeometryLabel getGeometryLabel();
+
+	/**
+	 * Sets the value of the '{@link extendedpetrinet.Place#getGeometryLabel <em>Geometry Label</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Geometry Label</em>' containment reference.
+	 * @see #getGeometryLabel()
+	 * @generated
+	 */
+	void setGeometryLabel(GeometryLabel value);
 
 } // Place

@@ -247,8 +247,8 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlace_GeoLabel() {
-		return (EReference)placeEClass.getEStructuralFeatures().get(4);
+	public EReference getPlace_Appearance() {
+		return (EReference)placeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -256,8 +256,8 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlace_Appearance() {
-		return (EReference)placeEClass.getEStructuralFeatures().get(3);
+	public EReference getPlace_GeometryLabel() {
+		return (EReference)placeEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -425,7 +425,7 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 		createEReference(placeEClass, PLACE__ANIMATIONS);
 		createEReference(placeEClass, PLACE__TOKENS);
 		createEReference(placeEClass, PLACE__APPEARANCE);
-		createEReference(placeEClass, PLACE__GEO_LABEL);
+		createEReference(placeEClass, PLACE__GEOMETRY_LABEL);
 
 		identityEClass = createEClass(IDENTITY);
 		createEAttribute(identityEClass, IDENTITY__TEXT);
@@ -505,7 +505,7 @@ public class ExtendedpetrinetPackageImpl extends EPackageImpl implements Extende
 		initEReference(getPlace_Animations(), this.getAnimationLabel(), null, "animations", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlace_Tokens(), this.getToken(), null, "tokens", null, 0, -1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlace_Appearance(), this.getInputPlaceAppearanceLabel(), null, "appearance", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlace_GeoLabel(), this.getGeometryLabel(), null, "geoLabel", null, 1, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlace_GeometryLabel(), this.getGeometryLabel(), null, "geometryLabel", null, 0, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(identityEClass, Identity.class, "Identity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIdentity_Text(), ecorePackage.getEInt(), "text", null, 0, 1, Identity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -16,7 +16,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/animations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/tokens"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/appearance"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/geoLabel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Place/geometryLabel"/>
     </genClasses>
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//Identity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Identity/text"/>

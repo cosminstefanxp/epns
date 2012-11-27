@@ -288,13 +288,13 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	int PLACE__APPEARANCE = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Geo Label</b></em>' containment reference.
+	 * The feature id for the '<em><b>Geometry Label</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLACE__GEO_LABEL = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 4;
+	int PLACE__GEOMETRY_LABEL = PnmlcoremodelPackage.PLACE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Place</em>' class.
@@ -785,17 +785,6 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	EReference getPlace_Tokens();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link extendedpetrinet.Place#getGeoLabel <em>Geo Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Geo Label</em>'.
-	 * @see extendedpetrinet.Place#getGeoLabel()
-	 * @see #getPlace()
-	 * @generated
-	 */
-	EReference getPlace_GeoLabel();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link extendedpetrinet.Place#getAppearance <em>Appearance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -805,6 +794,17 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPlace_Appearance();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link extendedpetrinet.Place#getGeometryLabel <em>Geometry Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Geometry Label</em>'.
+	 * @see extendedpetrinet.Place#getGeometryLabel()
+	 * @see #getPlace()
+	 * @generated
+	 */
+	EReference getPlace_GeometryLabel();
 
 	/**
 	 * Returns the meta object for class '{@link extendedpetrinet.Identity <em>Identity</em>}'.
@@ -1046,20 +1046,20 @@ public interface ExtendedpetrinetPackage extends EPackage {
 		EReference PLACE__TOKENS = eINSTANCE.getPlace_Tokens();
 
 		/**
-		 * The meta object literal for the '<em><b>Geo Label</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PLACE__GEO_LABEL = eINSTANCE.getPlace_GeoLabel();
-
-		/**
 		 * The meta object literal for the '<em><b>Appearance</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PLACE__APPEARANCE = eINSTANCE.getPlace_Appearance();
+
+		/**
+		 * The meta object literal for the '<em><b>Geometry Label</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLACE__GEOMETRY_LABEL = eINSTANCE.getPlace_GeometryLabel();
 
 		/**
 		 * The meta object literal for the '{@link extendedpetrinet.impl.IdentityImpl <em>Identity</em>}' class.

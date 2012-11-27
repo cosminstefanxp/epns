@@ -4,14 +4,17 @@ package se2.e.configurator.impl;
 
 import appearance.AppearanceModel;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 
 import se2.e.configurator.Configurator;
@@ -29,6 +32,7 @@ import se2.e.geometry.Geometry;
  *   <li>{@link se2.e.configurator.impl.ConfiguratorImpl#getGeometry <em>Geometry</em>}</li>
  *   <li>{@link se2.e.configurator.impl.ConfiguratorImpl#getAppearance <em>Appearance</em>}</li>
  *   <li>{@link se2.e.configurator.impl.ConfiguratorImpl#getPetrinet <em>Petrinet</em>}</li>
+ *   <li>{@link se2.e.configurator.impl.ConfiguratorImpl#getDefaultTrackWidth <em>Default Track Width</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,6 +68,26 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 	 * @ordered
 	 */
 	protected PetriNetDoc petrinet;
+
+	/**
+	 * The default value of the '{@link #getDefaultTrackWidth() <em>Default Track Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultTrackWidth()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double DEFAULT_TRACK_WIDTH_EDEFAULT = 1.0;
+
+	/**
+	 * The cached value of the '{@link #getDefaultTrackWidth() <em>Default Track Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultTrackWidth()
+	 * @generated
+	 * @ordered
+	 */
+	protected double defaultTrackWidth = DEFAULT_TRACK_WIDTH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,6 +227,27 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getDefaultTrackWidth() {
+		return defaultTrackWidth;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultTrackWidth(double newDefaultTrackWidth) {
+		double oldDefaultTrackWidth = defaultTrackWidth;
+		defaultTrackWidth = newDefaultTrackWidth;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfiguratorPackage.CONFIGURATOR__DEFAULT_TRACK_WIDTH, oldDefaultTrackWidth, defaultTrackWidth));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -215,6 +260,8 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 			case ConfiguratorPackage.CONFIGURATOR__PETRINET:
 				if (resolve) return getPetrinet();
 				return basicGetPetrinet();
+			case ConfiguratorPackage.CONFIGURATOR__DEFAULT_TRACK_WIDTH:
+				return getDefaultTrackWidth();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -224,6 +271,7 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -235,6 +283,9 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 				return;
 			case ConfiguratorPackage.CONFIGURATOR__PETRINET:
 				setPetrinet((PetriNetDoc)newValue);
+				return;
+			case ConfiguratorPackage.CONFIGURATOR__DEFAULT_TRACK_WIDTH:
+				setDefaultTrackWidth((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -257,6 +308,9 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 			case ConfiguratorPackage.CONFIGURATOR__PETRINET:
 				setPetrinet((PetriNetDoc)null);
 				return;
+			case ConfiguratorPackage.CONFIGURATOR__DEFAULT_TRACK_WIDTH:
+				setDefaultTrackWidth(DEFAULT_TRACK_WIDTH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -275,8 +329,23 @@ public class ConfiguratorImpl extends EObjectImpl implements Configurator {
 				return appearance != null;
 			case ConfiguratorPackage.CONFIGURATOR__PETRINET:
 				return petrinet != null;
+			case ConfiguratorPackage.CONFIGURATOR__DEFAULT_TRACK_WIDTH:
+				return defaultTrackWidth != DEFAULT_TRACK_WIDTH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @not generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		return result.toString();
 	}
 
 } //ConfiguratorImpl

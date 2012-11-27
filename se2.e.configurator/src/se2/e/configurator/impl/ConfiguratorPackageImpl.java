@@ -4,12 +4,14 @@ package se2.e.configurator.impl;
 
 import appearance.AppearancePackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.pnml.tools.epnk.pnmlcoremodel.PnmlcoremodelPackage;
 
 import se2.e.configurator.Configurator;
@@ -82,6 +84,7 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 		AppearancePackage.eINSTANCE.eClass();
 		GeometryPackage.eINSTANCE.eClass();
 		PnmlcoremodelPackage.eINSTANCE.eClass();
+		XMLTypePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theConfiguratorPackage.createPackageContents();
@@ -139,6 +142,15 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getConfigurator_DefaultTrackWidth() {
+		return (EAttribute)configuratorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ConfiguratorFactory getConfiguratorFactory() {
 		return (ConfiguratorFactory)getEFactoryInstance();
 	}
@@ -166,6 +178,7 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 		createEReference(configuratorEClass, CONFIGURATOR__GEOMETRY);
 		createEReference(configuratorEClass, CONFIGURATOR__APPEARANCE);
 		createEReference(configuratorEClass, CONFIGURATOR__PETRINET);
+		createEAttribute(configuratorEClass, CONFIGURATOR__DEFAULT_TRACK_WIDTH);
 	}
 
 	/**
@@ -195,6 +208,7 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 		GeometryPackage theGeometryPackage = (GeometryPackage)EPackage.Registry.INSTANCE.getEPackage(GeometryPackage.eNS_URI);
 		AppearancePackage theAppearancePackage = (AppearancePackage)EPackage.Registry.INSTANCE.getEPackage(AppearancePackage.eNS_URI);
 		PnmlcoremodelPackage thePnmlcoremodelPackage = (PnmlcoremodelPackage)EPackage.Registry.INSTANCE.getEPackage(PnmlcoremodelPackage.eNS_URI);
+		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -207,6 +221,7 @@ public class ConfiguratorPackageImpl extends EPackageImpl implements Configurato
 		initEReference(getConfigurator_Geometry(), theGeometryPackage.getGeometry(), null, "geometry", null, 1, 1, Configurator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfigurator_Appearance(), theAppearancePackage.getAppearanceModel(), null, "appearance", null, 1, 1, Configurator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfigurator_Petrinet(), thePnmlcoremodelPackage.getPetriNetDoc(), null, "petrinet", null, 1, 1, Configurator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigurator_DefaultTrackWidth(), theXMLTypePackage.getDouble(), "defaultTrackWidth", "1.0", 0, 1, Configurator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

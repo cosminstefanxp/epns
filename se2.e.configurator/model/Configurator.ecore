@@ -8,5 +8,7 @@
         eType="ecore:EClass ../../se2.e.appearance/model/Appearance.ecore#//AppearanceModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="petrinet" lowerBound="1"
         eType="ecore:EClass ../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//PetriNetDoc"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultTrackWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"
+        defaultValueLiteral="1.0"/>
   </eClassifiers>
 </ecore:EPackage>

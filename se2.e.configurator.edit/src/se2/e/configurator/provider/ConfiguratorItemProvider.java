@@ -18,8 +18,11 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import se2.e.configurator.Configurator;
 import se2.e.configurator.ConfiguratorPackage;
 
 /**
@@ -60,6 +63,7 @@ public class ConfiguratorItemProvider
 			addGeometryPropertyDescriptor(object);
 			addAppearancePropertyDescriptor(object);
 			addPetrinetPropertyDescriptor(object);
+			addDefaultTrackWidthPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -131,6 +135,28 @@ public class ConfiguratorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Default Track Width feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDefaultTrackWidthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Configurator_defaultTrackWidth_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Configurator_defaultTrackWidth_feature", "_UI_Configurator_type"),
+				 ConfiguratorPackage.Literals.CONFIGURATOR__DEFAULT_TRACK_WIDTH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Configurator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,7 +175,8 @@ public class ConfiguratorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Configurator_type");
+		Configurator configurator = (Configurator)object;
+		return getString("_UI_Configurator_type") + " " + configurator.getDefaultTrackWidth();
 	}
 
 	/**
@@ -162,6 +189,12 @@ public class ConfiguratorItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Configurator.class)) {
+			case ConfiguratorPackage.CONFIGURATOR__DEFAULT_TRACK_WIDTH:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

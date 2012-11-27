@@ -4,6 +4,7 @@ package se2.e.configurator;
 
 import appearance.AppearanceModel;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
@@ -21,6 +22,7 @@ import se2.e.geometry.Geometry;
  *   <li>{@link se2.e.configurator.Configurator#getGeometry <em>Geometry</em>}</li>
  *   <li>{@link se2.e.configurator.Configurator#getAppearance <em>Appearance</em>}</li>
  *   <li>{@link se2.e.configurator.Configurator#getPetrinet <em>Petrinet</em>}</li>
+ *   <li>{@link se2.e.configurator.Configurator#getDefaultTrackWidth <em>Default Track Width</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,5 +108,32 @@ public interface Configurator extends EObject {
 	 * @generated
 	 */
 	void setPetrinet(PetriNetDoc value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Track Width</b></em>' attribute.
+	 * The default value is <code>"1.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Track Width</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Track Width</em>' attribute.
+	 * @see #setDefaultTrackWidth(double)
+	 * @see se2.e.configurator.ConfiguratorPackage#getConfigurator_DefaultTrackWidth()
+	 * @model default="1.0" dataType="org.eclipse.emf.ecore.xml.type.Double"
+	 * @generated
+	 */
+	double getDefaultTrackWidth();
+
+	/**
+	 * Sets the value of the '{@link se2.e.configurator.Configurator#getDefaultTrackWidth <em>Default Track Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Track Width</em>' attribute.
+	 * @see #getDefaultTrackWidth()
+	 * @generated
+	 */
+	void setDefaultTrackWidth(double value);
 
 } // Configurator

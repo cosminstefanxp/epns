@@ -10,6 +10,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Configurator.ecore#//Configurator/geometry"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Configurator.ecore#//Configurator/appearance"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Configurator.ecore#//Configurator/petrinet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Configurator.ecore#//Configurator/defaultTrackWidth"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

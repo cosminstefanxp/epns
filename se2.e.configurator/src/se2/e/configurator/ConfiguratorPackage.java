@@ -2,6 +2,7 @@
  */
 package se2.e.configurator;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -92,13 +93,22 @@ public interface ConfiguratorPackage extends EPackage {
 	int CONFIGURATOR__PETRINET = 2;
 
 	/**
+	 * The feature id for the '<em><b>Default Track Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATOR__DEFAULT_TRACK_WIDTH = 3;
+
+	/**
 	 * The number of structural features of the '<em>Configurator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATOR_FEATURE_COUNT = 3;
+	int CONFIGURATOR_FEATURE_COUNT = 4;
 
 
 	/**
@@ -143,6 +153,17 @@ public interface ConfiguratorPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getConfigurator_Petrinet();
+
+	/**
+	 * Returns the meta object for the attribute '{@link se2.e.configurator.Configurator#getDefaultTrackWidth <em>Default Track Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Track Width</em>'.
+	 * @see se2.e.configurator.Configurator#getDefaultTrackWidth()
+	 * @see #getConfigurator()
+	 * @generated
+	 */
+	EAttribute getConfigurator_DefaultTrackWidth();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -199,6 +220,14 @@ public interface ConfiguratorPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONFIGURATOR__PETRINET = eINSTANCE.getConfigurator_Petrinet();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Track Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIGURATOR__DEFAULT_TRACK_WIDTH = eINSTANCE.getConfigurator_DefaultTrackWidth();
 
 	}
 

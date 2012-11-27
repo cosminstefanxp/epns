@@ -61,31 +61,8 @@ public class PlaceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addGeoLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Geo Label feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGeoLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Place_geoLabel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Place_geoLabel_feature", "_UI_Place_type"),
-				 ExtendedpetrinetPackage.Literals.PLACE__GEO_LABEL,
-				 true,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -104,6 +81,7 @@ public class PlaceItemProvider
 			childrenFeatures.add(ExtendedpetrinetPackage.Literals.PLACE__ANIMATIONS);
 			childrenFeatures.add(ExtendedpetrinetPackage.Literals.PLACE__TOKENS);
 			childrenFeatures.add(ExtendedpetrinetPackage.Literals.PLACE__APPEARANCE);
+			childrenFeatures.add(ExtendedpetrinetPackage.Literals.PLACE__GEOMETRY_LABEL);
 		}
 		return childrenFeatures;
 	}
@@ -158,13 +136,11 @@ public class PlaceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Place.class)) {
-			case ExtendedpetrinetPackage.PLACE__GEO_LABEL:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case ExtendedpetrinetPackage.PLACE__INTERACTIVE_INPUT:
 			case ExtendedpetrinetPackage.PLACE__ANIMATIONS:
 			case ExtendedpetrinetPackage.PLACE__TOKENS:
 			case ExtendedpetrinetPackage.PLACE__APPEARANCE:
+			case ExtendedpetrinetPackage.PLACE__GEOMETRY_LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -201,6 +177,11 @@ public class PlaceItemProvider
 			(createChildParameter
 				(ExtendedpetrinetPackage.Literals.PLACE__APPEARANCE,
 				 ExtendedpetrinetFactory.eINSTANCE.createInputPlaceAppearanceLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExtendedpetrinetPackage.Literals.PLACE__GEOMETRY_LABEL,
+				 ExtendedpetrinetFactory.eINSTANCE.createGeometryLabel()));
 	}
 
 	/**

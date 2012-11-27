@@ -37,7 +37,7 @@
         </diagram>
         <labelProxy label="//@net.0/@page.0/@object.0/@animations"/>
       </toolspecific>
-      <place id="P1" geoLabel="L1">
+      <place id="P1">
         <graphics>
           <position x="623.5" y="191.5"/>
           <dimension x="40.0" y="40.0"/>
@@ -50,10 +50,11 @@
           <text>move(4.0)</text>
         </animations>
         <tokens>
-          <appearance>
-            <text>S1</text>
-          </appearance>
+          <text>S1</text>
         </tokens>
+        <geoLabel>
+          <text>L1</text>
+        </geoLabel>
       </place>
       <transition id="T1">
         <graphics>
@@ -82,7 +83,7 @@
           <text>1</text>
         </identity>
       </arc>
-      <place id="P2" geoLabel="Sem">
+      <place id="P2">
         <graphics>
           <position x="575.5" y="95.5"/>
           <dimension x="40.0" y="40.0"/>
@@ -90,6 +91,9 @@
         <interactiveInput>
           <text>true</text>
         </interactiveInput>
+        <geoLabel>
+          <text>Sem</text>
+        </geoLabel>
       </place>
       <arc id="A3" source="P2" target="T1">
         <graphics/>

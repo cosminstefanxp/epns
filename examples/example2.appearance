@@ -3,4 +3,7 @@
   <appearanceInfos xsi:type="appearance:Shape3D" label="S1"/>
   <appearanceInfos xsi:type="appearance:SurfaceColor" label="C1" color="Cyan"/>
   <appearanceInfos xsi:type="appearance:Shape3D" label="S2" type="Sphere"/>
+  <appearanceInfos xsi:type="appearance:Model3D" label="S1" file="C:\Users\marius\Desktop\Train.obj" yRotation="1.57">
+    <shapeSurface xsi:type="appearance:SurfaceColor" label="C2" color="Yellow"/>
+  </appearanceInfos>
 </appearance:AppearanceModel>

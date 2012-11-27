@@ -161,14 +161,14 @@ public class J3DNodeFactory {
 		Transform3D rotateY = new Transform3D();
 		Transform3D rotateZ = new Transform3D();
 
-		rotateX.rotX(((appearance.Model3D) shape).getXRotation());
-		rotateY.rotY(((appearance.Model3D) shape).getYRotation());
-		rotateZ.rotZ(((appearance.Model3D) shape).getZRotation());
+		rotateX.rotX(shape.getXRotation());
+		rotateY.rotY(shape.getYRotation());
+		rotateZ.rotZ(shape.getZRotation());
 		transforms.mul(transforms, rotateX);
 		transforms.mul(transforms, rotateY);
 		transforms.mul(transforms, rotateZ);
 		//scale
-		transforms.setScale(((appearance.Model3D) shape).getScale());
+		transforms.setScale(shape.getScale());
 		
 		return transforms;
 	}
@@ -202,7 +202,7 @@ public class J3DNodeFactory {
 			if (type == Object3D.CUBE) 
 			{
 				ColorCube model = new ColorCube(5f);
-				nodeTrans.addChild(model);
+				transformGroup.addChild(model);
 			} else if (type == Object3D.SPHERE) 
 			{
 				Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
@@ -211,7 +211,7 @@ public class J3DNodeFactory {
 					model = new Sphere(5, app);
 				else
 					model = new Sphere(5);
-				nodeTrans.addChild(model);
+				transformGroup.addChild(model);
 			}
 		} 
 		else if (shape instanceof appearance.Model3D) 
@@ -253,9 +253,9 @@ public class J3DNodeFactory {
 //					}
 				}
 
-				Transform3D transforms = new Transform3D();
-				transforms = getTransform3D((appearance.Shape) shape);
-				nodeTrans.setTransform(transforms);
+//				Transform3D transforms = new Transform3D();
+//				transforms = getTransform3D((appearance.Shape) shape);
+//				nodeTrans.setTransform(transforms);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IncorrectFormatException e) {
@@ -268,6 +268,11 @@ public class J3DNodeFactory {
 			ColorCube model = new ColorCube(0.5f);
 			transformGroup.addChild(model);
 		}
+		
+		
+		Transform3D transforms = new Transform3D();
+		transforms = getTransform3D(shape);
+		nodeTrans.setTransform(transforms);
 		
 		//(Un)comment the following lines to (add)/remove the lightning on the object
 		

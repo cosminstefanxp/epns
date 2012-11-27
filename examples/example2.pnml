@@ -52,9 +52,9 @@
         <tokens>
           <text>S1</text>
         </tokens>
-        <geoLabel>
+        <geometryLabel>
           <text>L1</text>
-        </geoLabel>
+        </geometryLabel>
       </place>
       <transition id="T1">
         <graphics>
@@ -91,9 +91,9 @@
         <interactiveInput>
           <text>true</text>
         </interactiveInput>
-        <geoLabel>
+        <geometryLabel>
           <text>Sem</text>
-        </geoLabel>
+        </geometryLabel>
       </place>
       <arc id="A3" source="P2" target="T1">
         <graphics/>

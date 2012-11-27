@@ -530,29 +530,48 @@ public class J3DNodeFactory {
 		tg.setTransform(trans3d);
 		destinationTransformGroup.addChild(tg);
 		return destinationBranch;
+		//TODO: clean code from above
 
 	}
 
 	/**
 	 * Gets the token branch representation for a particular object according to
-	 * the {@link AppearanceInfo} corresponding to the appearanceLabel. It is
-	 * the responsibility of this method to create the Java3D node and connect
+	 * the {@link AppearanceInfo} corresponding to the appearanceLabel.  If a
+	 * {@link DynamicBranch} is given as a parameter, its transform group is
+	 * used as a parent for the nodes of the representations. Otherwise, it is
+	 * the responsibility of this method to create the Java3D nodes and connect
 	 * the {@link TransformGroup} to the {@link BranchGroup}, before putting
 	 * them in the {@link DynamicBranch}.
-	 * 
 	 * @param appearanceLabel
 	 *            the label
 	 * @return the token branch
 	 * @author Marius
 	 */
-	public DynamicBranch getTokenBranch(String appearanceLabel) {
+	public DynamicBranch getTokenBranch(String appearanceLabel, DynamicBranch destinationBranch) {
 
+		BranchGroup branchGroup = new BranchGroup();;
+		TransformGroup tg;
+		//if destinationBranch is null, create a new one
+		//daca dest branch contine un tr group, il folosesc pe ala
+		if (destinationBranch == null)
+		{
+			tg = null;
+			destinationBranch = new DynamicBranch(branchGroup, tg);
+		}
+		else if (destinationBranch.getTransformGroup()!= null)
+		{
+			//use existing transform group
+			tg = destinationBranch.getTransformGroup();
+		}
+		else
+		{
+			//create new one
+			tg = new TransformGroup();
+		}
 		AppearanceInfo appearanceInfo = this.loader
 				.getAppearanceInfo(appearanceLabel);
-		BranchGroup branchGroup = new BranchGroup();
 		branchGroup.setCapability(BranchGroup.ALLOW_DETACH);
 		branchGroup.setCapability(BranchGroup.ALLOW_CHILDREN_WRITE);
-		TransformGroup tg = null;
 
 		if (appearanceInfo instanceof appearance.Shape) {
 			tg = buildTransformGroupForShape((appearance.Shape) appearanceInfo,

@@ -135,7 +135,9 @@ public class J3DNodeFactory {
 		} else if (surface instanceof appearance.Texture) {
 			String file = ((appearance.Texture) surface).getFile();
 			Texture tex = new TextureLoader(file, engine).getTexture();
+			tex.setEnable(true);
 			app.setTexture(tex);
+			
 			TextureAttributes texAttr = new TextureAttributes();
 			texAttr.setTextureMode(TextureAttributes.MODULATE);
 			app.setTextureAttributes(texAttr);
@@ -427,14 +429,27 @@ public class J3DNodeFactory {
 		Point3d[] myCoords = new Point3d[points.size()];
 		
 		//put the list in an array so it can e sent to the quad array
+		float[] tcoords = new float[points.size() * 4];
 		for(int i = 0; i < points.size(); i++){
 			myCoords[i] = points.get(i);
 		}
+		
+		for(int i = 0; i < points.size()/4; i++){
+			tcoords [8 * i] = 1;// * (i + 1);
+			tcoords [8 * i + 1] = 0;
+			tcoords [8 * i + 2] = 0;// * (i + 1);
+			tcoords [8 * i + 3] = 0;// * (i + 1);
+			tcoords [8 * i + 4] = 0;
+			tcoords [8 * i + 5] = 1;// * (i + 1);
+			tcoords [8 * i + 6] = 1;
+			tcoords [8 * i + 7] = 1;
+					
+		}
 		QuadArray myQuads = new QuadArray(
 			    myCoords.length,
-			    GeometryArray.COORDINATES );
+			    GeometryArray.COORDINATES | GeometryArray.TEXTURE_COORDINATE_2);
 		myQuads.setCoordinates(0, myCoords );
-		
+		myQuads.setTextureCoordinates(0, tcoords, 0, points.size());
 		//set the appearance of the quads
 		Appearance myAppear = new Appearance();
 		boolean colorSet = false;

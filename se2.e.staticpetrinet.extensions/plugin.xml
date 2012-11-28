@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      
+      <category
+         name="PetriNet Validation"
+         id="org.pnml.tools.epnk.validation">
+      </category>
+         
+      <constraintProvider
+            cache="true"
+            mode="Batch">
+         <package
+               namespaceUri="http://org.pnml.tools/epnk/pnmlcoremodel">
+         </package>
+
+         <constraints categories="org.pnml.tools.epnk.validation">
+
+           <constraint
+                  lang="Java"
+                  class="extensions.constraints.ArcConstraint"
+                  severity="ERROR"
+                  mode="Batch"
+                  name="Arc constraint"
+                  id="extensions.constraints.ArcConstraint"
+                  statusCode="101">
+               <target class="Arc"/>
+               <description>
+                  The source and the target of an arc must be different types of nodes.
+               </description>
+               <message>
+                  The source and target of {0} are of the same type of node.
+               </message>
+            </constraint>
+            
+            <constraint
+                  lang="Java"
+                  class="extensions.constraints.InputArcIdentitiesConstraint"
+                  severity="ERROR"
+                  mode="Batch"
+                  name="Input arcs transition constraint"
+                  id="extensions.constraints.InputArcIdentitiesConstraint"
+                  statusCode="101">
+               <target class="Transition"/>
+               <description>
+                  Every single input arc of a transition must have a different id.
+               </description>
+               <message>
+                  There are two or more input arcs with the same id.
+               </message>
+            </constraint>
+            
+            <constraint
+                  lang="Java"
+                  class="extensions.constraints.InputOutputArcIdentitiesConstraint"
+                  severity="ERROR"
+                  mode="Batch"
+                  name="Input Output arcs transition constraint"
+                  id="extensions.constraints.InputOutputArcIdentitiesConstraint"
+                  statusCode="101">
+               <target class="Transition"/>
+               <description>
+                  Each output arc must have an input arc with the same id. 
+               </description>
+               <message>
+                  There is an output arc without a correponding input arc.
+               </message>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+<!--
+   <extension
+         id="tokens"
+         name="Token graphical extensions"
+         point="org.pnml.tools.epnk.diagram.graphics">
+      <graphicsextension
+            class="extensions.graphics.ePNSPlaceFigure"
+            description="Special graphics for tokens.">
+      </graphicsextension>
+   </extension>
+-->
+</plugin>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="appearance" nsURI="http://appearance/1.0" nsPrefix="appearance">
+  <eClassifiers xsi:type="ecore:EClass" name="AppearanceInfo" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Shape" abstract="true" eSuperTypes="#//AppearanceInfo">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shapeSurface" eType="#//Surface"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xRotation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yRotation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zRotation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Surface" abstract="true" eSuperTypes="#//AppearanceInfo"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Model3D" eSuperTypes="#//Shape">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Shape3D" eSuperTypes="#//Shape">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Object3D"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Texture" eSuperTypes="#//Surface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SurfaceColor" eSuperTypes="#//Surface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//ColorType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Object3D">
+    <eLiterals name="Cube"/>
+    <eLiterals name="Sphere" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AppearanceModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appearanceInfos" upperBound="-1"
+        eType="#//AppearanceInfo" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ColorType">
+    <eLiterals name="Black"/>
+    <eLiterals name="Blue" value="1"/>
+    <eLiterals name="Cyan" value="2"/>
+    <eLiterals name="DarkGray" value="3"/>
+    <eLiterals name="Gray" value="4"/>
+    <eLiterals name="Green" value="5"/>
+    <eLiterals name="LightGray" value="6"/>
+    <eLiterals name="Magenta" value="7"/>
+    <eLiterals name="Orange" value="8"/>
+    <eLiterals name="Pink" value="9"/>
+    <eLiterals name="Red" value="10"/>
+    <eLiterals name="White" value="11"/>
+    <eLiterals name="Yellow" value="12"/>
+  </eClassifiers>
+</ecore:EPackage>

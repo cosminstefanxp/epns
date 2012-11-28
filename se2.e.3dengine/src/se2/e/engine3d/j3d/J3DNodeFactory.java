@@ -44,6 +44,7 @@ import se2.e.geometry.Track;
 import se2.e.utilities.PathInterpolator;
 import se2.e.utilities.Vector2D;
 import se2.e.utilities.path.LinearPathInterpolator;
+import se2.e.utilities.path.QuadraticBezierPathInterpolator;
 import se2.e.utilities.Where;
 import appearance.AppearanceInfo;
 import appearance.Model3D;
@@ -75,7 +76,7 @@ public class J3DNodeFactory {
 	private static final double DRAWING_PLANE_Z = 0d;
 	
 	/** The Constant INTERPOLATION_DIST. */
-	private static final double INTERPOLATION_DIST = 10.0d;
+	private static final double INTERPOLATION_DIST = 1.0d;
 
 	/** The loader. */
 	private GeometryAndAppearanceLoader loader;
@@ -362,11 +363,18 @@ public class J3DNodeFactory {
 		return g;
 	}
 	
+	/**
+	 * Gets the geometry transform group.
+	 *
+	 * @param geometryLabel the geometry label
+	 * @return the geometry transform group
+	 * @author ruxandra
+	 */
 	public Node getGeometryTransformGroup(String geometryLabel) {
 		TransformGroup g = new TransformGroup();
 		Track track = loader.getTrackFromLabel(geometryLabel);
 		double distance = 0;
-		PathInterpolator pathInterpolator = new LinearPathInterpolator(loader.getTrackPoints(geometryLabel));
+		PathInterpolator pathInterpolator = new QuadraticBezierPathInterpolator(loader.getTrackPoints(geometryLabel));
 		Where start = pathInterpolator.start();
 		start = pathInterpolator.findPosition(distance);
 		

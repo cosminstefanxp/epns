@@ -14,10 +14,13 @@ import java.util.List;
 import se2.e.utilities.PathInterpolator;
 import se2.e.utilities.Vector2D;
 import se2.e.utilities.Where;
+import se2.e.utilities.path.BezierPathInterpolator;
 import se2.e.utilities.path.LinearPathInterpolator;
 import se2.e.utilities.path.QuadraticBezierPathInterpolator;
 
 public class GeometryCanvas extends Canvas implements MouseListener, MouseMotionListener {
+	private static final long serialVersionUID = 1L;
+
 	private Point whereMouseIs = null;
 	private List<Vector2D> positions = new ArrayList<Vector2D>();
 	private PathInterpolator interpolator = null;
@@ -40,10 +43,22 @@ public class GeometryCanvas extends Canvas implements MouseListener, MouseMotion
 		graphics.setColor(Color.BLACK);
 		for (Vector2D position : positions) graphics.drawRect((int)position.getX() - 1, (int)position.getY() - 1, 2, 2); 
 		if (interpolator != null) {
-			graphics.setColor(Color.RED);
-			for (double distance = 0.0; distance < interpolator.getLength(); distance += 4.0) {
+			for (double distance = 0.0; distance < interpolator.getLength(); distance += 10.0) {
 				Where where = interpolator.findPosition(distance);
+				graphics.setColor(Color.ORANGE);
+				graphics.drawLine(where.getStartX(), where.getStartY(), where.getEndX(30.0), where.getEndY(30.0));
+				graphics.setColor(Color.RED);
 				graphics.drawArc((int)where.getX() - 1, (int)where.getY() - 1, 2, 2, 0, 360);
+				}
+			graphics.setColor(Color.GREEN);
+			int x = 0;
+			int y = 0;
+			for (Vector2D point : interpolator.getIntermediatePoints()) {
+				if (x != 0 || y != 0) {
+					graphics.drawLine(x, y, point.x(), point.y());
+					}
+				x = point.x();
+				y = point.y();
 				}
 			}
 		}
@@ -64,8 +79,10 @@ public class GeometryCanvas extends Canvas implements MouseListener, MouseMotion
 	public void mouseClicked(MouseEvent e) {
 		Vector2D position = Vector2D.cartesian(e.getX(), e.getY());
 		positions.add(position);
-		// if (positions.size() >= 2) interpolator = new LinearPathInterpolator(positions);
-		if (positions.size() >= 2) interpolator = new QuadraticBezierPathInterpolator(positions);
+		// if (positions.size() > 1) interpolator = new LinearPathInterpolator(positions);
+		// if (positions.size() > 1) interpolator = new QuadraticBezierPathInterpolator(positions);
+		if (positions.size() > 1) interpolator = new BezierPathInterpolator(positions);
+		repaint();
 		}
 
 	@Override

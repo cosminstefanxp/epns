@@ -76,75 +76,98 @@
           </edges>
         </diagram>
       </toolspecific>
-      <place id="P1" geoLabel="L1">
+      <place id="P1">
         <graphics>
           <position x="54.5" y="129.5"/>
           <dimension x="40.0" y="40.0"/>
           <line shape="line" color="#b0b0b0" width="1.0"/>
           <fill color="#ffffff"/>
         </graphics>
-        <interactiveInput/>
+        <interactiveInput>
+          <text>false</text>
+        </interactiveInput>
         <animations>
           <structure xsi:type="animations:Move" speed="3.0"/>
           <text>move(3.0, L1)</text>
         </animations>
         <tokens>
-          <appearance>
-            <text>S2</text>
-          </appearance>
+          <text>T1</text>
         </tokens>
+        <geometryLabel>
+          <text>L1</text>
+        </geometryLabel>
       </place>
-      <place id="P2" geoLabel="L2">
+      <place id="P2">
         <graphics>
           <position x="274.5" y="187.5"/>
           <dimension x="40.0" y="40.0"/>
           <line shape="line" color="#b0b0b0" width="1.0"/>
           <fill color="#ffffff"/>
         </graphics>
-        <interactiveInput/>
+        <interactiveInput>
+          <text>false</text>
+        </interactiveInput>
         <animations>
           <structure xsi:type="animations:Move" speed="3.0"/>
           <text>move(3.0, L2)</text>
         </animations>
+        <geometryLabel>
+          <text>L2</text>
+        </geometryLabel>
       </place>
-      <place id="P3" geoLabel="L3">
+      <place id="P3">
         <graphics>
           <position x="274.5" y="74.5"/>
           <dimension x="40.0" y="40.0"/>
           <line shape="line" color="#b0b0b0" width="1.0"/>
           <fill color="#ffffff"/>
         </graphics>
-        <interactiveInput/>
+        <interactiveInput>
+          <text>false</text>
+        </interactiveInput>
         <animations>
           <structure xsi:type="animations:Move" speed="3.0"/>
           <text>move(3.0, L3)</text>
         </animations>
+        <geometryLabel>
+          <text>L3</text>
+        </geometryLabel>
       </place>
-      <place id="P4" geoLabel="L4">
+      <place id="P4">
         <graphics>
           <position x="564.5" y="79.5"/>
           <dimension x="40.0" y="40.0"/>
           <line shape="line" color="#b0b0b0" width="1.0"/>
           <fill color="#ffffff"/>
         </graphics>
-        <interactiveInput/>
+        <interactiveInput>
+          <text>false</text>
+        </interactiveInput>
         <animations>
           <structure xsi:type="animations:Move" speed="3.0"/>
           <text>move(3.0, L4)</text>
         </animations>
+        <geometryLabel>
+          <text>L4</text>
+        </geometryLabel>
       </place>
-      <place id="P5" geoLabel="L5">
+      <place id="P5">
         <graphics>
           <position x="564.5" y="189.5"/>
           <dimension x="40.0" y="40.0"/>
           <line shape="line" color="#b0b0b0" width="1.0"/>
           <fill color="#ffffff"/>
         </graphics>
-        <interactiveInput/>
+        <interactiveInput>
+          <text>false</text>
+        </interactiveInput>
         <animations>
           <structure xsi:type="animations:Move" speed="3.0"/>
           <text>move(3.0, L5)</text>
         </animations>
+        <geometryLabel>
+          <text>L5</text>
+        </geometryLabel>
       </place>
       <transition id="T1">
         <graphics>

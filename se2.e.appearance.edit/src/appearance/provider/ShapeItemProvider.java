@@ -64,6 +64,7 @@ public class ShapeItemProvider
 			addXRotationPropertyDescriptor(object);
 			addYRotationPropertyDescriptor(object);
 			addZRotationPropertyDescriptor(object);
+			addElevationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -157,6 +158,28 @@ public class ShapeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Elevation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addElevationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Shape_elevation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Shape_elevation_feature", "_UI_Shape_type"),
+				 AppearancePackage.Literals.SHAPE__ELEVATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -216,6 +239,7 @@ public class ShapeItemProvider
 			case AppearancePackage.SHAPE__XROTATION:
 			case AppearancePackage.SHAPE__YROTATION:
 			case AppearancePackage.SHAPE__ZROTATION:
+			case AppearancePackage.SHAPE__ELEVATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AppearancePackage.SHAPE__SHAPE_SURFACE:

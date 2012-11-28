@@ -149,13 +149,22 @@ public interface AppearancePackage extends EPackage {
 	int SHAPE__ZROTATION = APPEARANCE_INFO_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Elevation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__ELEVATION = APPEARANCE_INFO_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Shape</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE_FEATURE_COUNT = APPEARANCE_INFO_FEATURE_COUNT + 5;
+	int SHAPE_FEATURE_COUNT = APPEARANCE_INFO_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link appearance.impl.SurfaceImpl <em>Surface</em>}' class.
@@ -250,6 +259,15 @@ public interface AppearancePackage extends EPackage {
 	int MODEL3_D__ZROTATION = SHAPE__ZROTATION;
 
 	/**
+	 * The feature id for the '<em><b>Elevation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL3_D__ELEVATION = SHAPE__ELEVATION;
+
+	/**
 	 * The feature id for the '<em><b>File</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -330,6 +348,15 @@ public interface AppearancePackage extends EPackage {
 	 * @ordered
 	 */
 	int SHAPE3_D__ZROTATION = SHAPE__ZROTATION;
+
+	/**
+	 * The feature id for the '<em><b>Elevation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE3_D__ELEVATION = SHAPE__ELEVATION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -559,6 +586,17 @@ public interface AppearancePackage extends EPackage {
 	EAttribute getShape_ZRotation();
 
 	/**
+	 * Returns the meta object for the attribute '{@link appearance.Shape#getElevation <em>Elevation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Elevation</em>'.
+	 * @see appearance.Shape#getElevation()
+	 * @see #getShape()
+	 * @generated
+	 */
+	EAttribute getShape_Elevation();
+
+	/**
 	 * Returns the meta object for class '{@link appearance.Surface <em>Surface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -782,6 +820,14 @@ public interface AppearancePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SHAPE__ZROTATION = eINSTANCE.getShape_ZRotation();
+
+		/**
+		 * The meta object literal for the '<em><b>Elevation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SHAPE__ELEVATION = eINSTANCE.getShape_Elevation();
 
 		/**
 		 * The meta object literal for the '{@link appearance.impl.SurfaceImpl <em>Surface</em>}' class.

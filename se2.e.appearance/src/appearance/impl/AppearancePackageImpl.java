@@ -238,6 +238,15 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getShape_Elevation() {
+		return (EAttribute)shapeEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSurface() {
 		return surfaceEClass;
 	}
@@ -387,6 +396,7 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 		createEAttribute(shapeEClass, SHAPE__XROTATION);
 		createEAttribute(shapeEClass, SHAPE__YROTATION);
 		createEAttribute(shapeEClass, SHAPE__ZROTATION);
+		createEAttribute(shapeEClass, SHAPE__ELEVATION);
 
 		surfaceEClass = createEClass(SURFACE);
 
@@ -455,6 +465,7 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 		initEAttribute(getShape_XRotation(), ecorePackage.getEDouble(), "xRotation", "0", 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getShape_YRotation(), ecorePackage.getEDouble(), "yRotation", "0", 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getShape_ZRotation(), ecorePackage.getEDouble(), "zRotation", "0", 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getShape_Elevation(), ecorePackage.getEDouble(), "elevation", "0", 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(surfaceEClass, Surface.class, "Surface", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

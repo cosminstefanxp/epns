@@ -33,6 +33,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//Shape/xRotation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//Shape/yRotation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//Shape/zRotation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Appearance.ecore#//Shape/elevation"/>
     </genClasses>
     <genClasses image="false" ecoreClass="Appearance.ecore#//Surface"/>
     <genClasses ecoreClass="Appearance.ecore#//Model3D">

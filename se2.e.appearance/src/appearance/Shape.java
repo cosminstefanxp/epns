@@ -16,6 +16,7 @@ package appearance;
  *   <li>{@link appearance.Shape#getXRotation <em>XRotation</em>}</li>
  *   <li>{@link appearance.Shape#getYRotation <em>YRotation</em>}</li>
  *   <li>{@link appearance.Shape#getZRotation <em>ZRotation</em>}</li>
+ *   <li>{@link appearance.Shape#getElevation <em>Elevation</em>}</li>
  * </ul>
  * </p>
  *
@@ -157,5 +158,32 @@ public interface Shape extends AppearanceInfo {
 	 * @generated
 	 */
 	void setZRotation(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Elevation</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Elevation</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Elevation</em>' attribute.
+	 * @see #setElevation(double)
+	 * @see appearance.AppearancePackage#getShape_Elevation()
+	 * @model default="0"
+	 * @generated
+	 */
+	double getElevation();
+
+	/**
+	 * Sets the value of the '{@link appearance.Shape#getElevation <em>Elevation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Elevation</em>' attribute.
+	 * @see #getElevation()
+	 * @generated
+	 */
+	void setElevation(double value);
 
 } // Shape

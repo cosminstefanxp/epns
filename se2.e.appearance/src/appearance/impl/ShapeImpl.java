@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link appearance.impl.ShapeImpl#getXRotation <em>XRotation</em>}</li>
  *   <li>{@link appearance.impl.ShapeImpl#getYRotation <em>YRotation</em>}</li>
  *   <li>{@link appearance.impl.ShapeImpl#getZRotation <em>ZRotation</em>}</li>
+ *   <li>{@link appearance.impl.ShapeImpl#getElevation <em>Elevation</em>}</li>
  * </ul>
  * </p>
  *
@@ -121,6 +122,26 @@ public abstract class ShapeImpl extends AppearanceInfoImpl implements Shape {
 	 * @ordered
 	 */
 	protected double zRotation = ZROTATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getElevation() <em>Elevation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElevation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double ELEVATION_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getElevation() <em>Elevation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElevation()
+	 * @generated
+	 * @ordered
+	 */
+	protected double elevation = ELEVATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -273,6 +294,27 @@ public abstract class ShapeImpl extends AppearanceInfoImpl implements Shape {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getElevation() {
+		return elevation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setElevation(double newElevation) {
+		double oldElevation = elevation;
+		elevation = newElevation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AppearancePackage.SHAPE__ELEVATION, oldElevation, elevation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -300,6 +342,8 @@ public abstract class ShapeImpl extends AppearanceInfoImpl implements Shape {
 				return getYRotation();
 			case AppearancePackage.SHAPE__ZROTATION:
 				return getZRotation();
+			case AppearancePackage.SHAPE__ELEVATION:
+				return getElevation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -326,6 +370,9 @@ public abstract class ShapeImpl extends AppearanceInfoImpl implements Shape {
 				return;
 			case AppearancePackage.SHAPE__ZROTATION:
 				setZRotation((Double)newValue);
+				return;
+			case AppearancePackage.SHAPE__ELEVATION:
+				setElevation((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -354,6 +401,9 @@ public abstract class ShapeImpl extends AppearanceInfoImpl implements Shape {
 			case AppearancePackage.SHAPE__ZROTATION:
 				setZRotation(ZROTATION_EDEFAULT);
 				return;
+			case AppearancePackage.SHAPE__ELEVATION:
+				setElevation(ELEVATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -376,6 +426,8 @@ public abstract class ShapeImpl extends AppearanceInfoImpl implements Shape {
 				return yRotation != YROTATION_EDEFAULT;
 			case AppearancePackage.SHAPE__ZROTATION:
 				return zRotation != ZROTATION_EDEFAULT;
+			case AppearancePackage.SHAPE__ELEVATION:
+				return elevation != ELEVATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -398,6 +450,8 @@ public abstract class ShapeImpl extends AppearanceInfoImpl implements Shape {
 		result.append(yRotation);
 		result.append(", zRotation: ");
 		result.append(zRotation);
+		result.append(", elevation: ");
+		result.append(elevation);
 		result.append(')');
 		return result.toString();
 	}

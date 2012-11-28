@@ -186,6 +186,8 @@ public class J3DNodeFactory {
 	 *            Group should be created
 	 * @return the node containing the representation for the appearance, or
 	 *         null, if there is no appearance with the given label.
+	 *         
+	 * @author marius        
 	 * 
 	 */
 	public TransformGroup buildTransformGroupForShape(appearance.Shape shape,
@@ -202,7 +204,7 @@ public class J3DNodeFactory {
 			if (type == Object3D.CUBE) 
 			{
 				ColorCube model = new ColorCube(5f);
-				transformGroup.addChild(model);
+				nodeTrans.addChild(model);
 			} else if (type == Object3D.SPHERE) 
 			{
 				Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
@@ -211,7 +213,7 @@ public class J3DNodeFactory {
 					model = new Sphere(5, app);
 				else
 					model = new Sphere(5);
-				transformGroup.addChild(model);
+				nodeTrans.addChild(model);
 			}
 		} 
 		else if (shape instanceof appearance.Model3D) 

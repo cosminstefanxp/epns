@@ -6,7 +6,7 @@
   <geoObjects xsi:type="geometry:TrackPosition">
     <position x="276.0" y="120.0"/>
   </geoObjects>
-  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.0" endPosition="//@geoObjects.1" appearanceLabel="C1" label="L1">
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.0" endPosition="//@geoObjects.1" appearanceLabel="T1" label="L1">
     <intermediatePositions x="222.0" y="54.0"/>
     <intermediatePositions x="174.0" y="66.0"/>
     <intermediatePositions x="138.0" y="102.0"/>

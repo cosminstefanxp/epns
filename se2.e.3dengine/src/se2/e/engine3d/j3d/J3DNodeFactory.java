@@ -168,7 +168,7 @@ public class J3DNodeFactory {
 		rotateX.rotX(shape.getXRotation());
 		rotateY.rotY(shape.getYRotation());
 		rotateZ.rotZ(shape.getZRotation());
-		//elevate.setTranslation(new Vector3f(0f,0f,5f));
+		elevate.setTranslation(new Vector3d(0d,0d,shape.getElevation()));
 		
 		transforms.mul(transforms, elevate);
 		transforms.mul(transforms, rotateX);

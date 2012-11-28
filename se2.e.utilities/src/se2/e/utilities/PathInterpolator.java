@@ -1,5 +1,7 @@
 package se2.e.utilities;
 
+import java.util.List;
+
 /**
  * 
  * @author anders
@@ -33,16 +35,13 @@ public interface PathInterpolator {
 	 */
 	Where start();
 	
-//	/**
-//	 * Find the new position after having followed the path for a distance.
-//	 * 
-//	 * If the distance is longer than the path length,
-//	 * the position of the end point will be set.
-//	 * 
-//	 * @param delta the distance from the position.
-//	 * @param position the position to update.
-//	 * @throws IllegalArgumentException if distance is less than zero.
-//	 */
-//	void movePosition(double delta, Where position);
-//	
-  }
+  	/**
+  	 * Create a list of points of the path with a distance close to one (pixel).
+  	 * 
+  	 * For use with the geometry editor.
+  	 * 
+  	 * @return list of Vector2D points.
+  	 */
+	List<Vector2D> getIntermediatePoints();
+	
+	}

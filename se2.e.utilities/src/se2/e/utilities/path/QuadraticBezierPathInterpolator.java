@@ -3,9 +3,7 @@ package se2.e.utilities.path;
 import java.util.ArrayList;
 import java.util.List;
 
-import se2.e.utilities.PathInterpolator;
 import se2.e.utilities.Vector2D;
-import se2.e.utilities.Where;
 
 public class QuadraticBezierPathInterpolator extends BasePathInterpolator {
 	private List<Vector2D> points = new ArrayList<Vector2D>();

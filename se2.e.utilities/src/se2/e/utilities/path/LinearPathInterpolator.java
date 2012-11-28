@@ -33,6 +33,6 @@ public class LinearPathInterpolator extends BasePathInterpolator {
 			addStep(positions.get(i - 1), positions.get(i));
 			}
 		}
-		
+
 	}
 

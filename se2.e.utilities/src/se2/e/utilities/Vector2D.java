@@ -27,6 +27,18 @@ public class Vector2D {
 		this.y = y;
 		}
 	
+	/**
+	 * Copy the values of a template vector into this vector.
+	 * 
+	 * @param template vector to copy from.
+	 * @return this vector after copying the values.
+	 */
+	public Vector2D copy(Vector2D template) {
+		this.x = template.x;
+		this.y = template.y;
+		return this;
+		}
+	
 	public static Vector2D cartesian(double x, double y) {
 		return new Vector2D(x, y);
 		}
@@ -39,21 +51,68 @@ public class Vector2D {
 		return polar(angle, 1.0);
 		}
 	
+	/**
+	 * Create a new 2D vector as the sum of two other 2D vectors.
+	 * 
+	 * The two addend vectors (a and b) will not be altered.
+	 * 
+	 * @param a first addend vector.
+	 * @param b second addend vector.
+	 * @return sum vector of a and b.
+	 */
 	public static Vector2D add(Vector2D a, Vector2D b) {
 		Vector2D result = new Vector2D(a);
 		result.add(b);
 		return result;
 		}
 	
+	/**
+	 * Create a new 2D vector as the difference between two other 2D vectors.
+	 * 
+	 * The minuend and subtrahend vectors (a and b) will not be altered.
+	 * 
+	 * @param a minuend vector
+	 * @param b subtrahend vector
+	 * @return difference vector of a and b
+	 */
 	public static Vector2D subtract(Vector2D a, Vector2D b) {
-		Vector2D result = new Vector2D(a);
-		result.subtract(b);
-		return result;
+		return new Vector2D(a).subtract(b);
 		}
 	
+	/**
+	 * Add another 2D vector to this vector.
+	 * 
+	 * The other vector will not be changed.
+	 * 
+	 * @param other vector to add.
+	 * @return this vector after addition.
+	 */
 	public Vector2D add(Vector2D other) {
 		this.x += other.x;
 		this.y += other.y;
+		return this;
+		}
+	
+	/**
+	 * Add another 2D vector sized a factor.
+	 * 
+	 * This method is ment for vector polynominals.
+	 * The addend vector will not be altered.
+	 * 
+	 * @param factor factor to multiply the addend vector with befor addition.
+	 * @param addend vector to add.
+	 * @return this vector after the factorized add.
+	 */
+	public Vector2D factorAdd(double factor, Vector2D addend) {
+		this.x += factor*addend.x;
+		this.y += factor*addend.y;
+		return this;
+		}
+	
+	public Vector2D deltaAdd(double distance, Vector2D addend) {
+		double length = getLength();
+		this.x += distance*addend.x/length;
+		this.y += distance*addend.y/length;
 		return this;
 		}
 	
@@ -84,6 +143,22 @@ public class Vector2D {
 		}
 	
 	public double getX() { return x; }
+	
+	/**
+	 * Conveinience method for pixel canvas drawing.
+	 * 
+	 * @return x as an integer.
+	 */
+	public int x() { return (int)(round(x)); }
+	public int x(double factor) { return (int)(round(factor*x)); }
+	
+	/**
+	 * Conveinience method for pixel canvas drawing.
+	 * 
+	 * @return y as an integer.
+	 */
+	public int y() { return (int)(round(y)); }
+	public int y(double factor) { return (int)(round(factor*y)); }
 	
 	public double deltaX(double distance) {
 		double length = getLength();
@@ -133,10 +208,16 @@ public class Vector2D {
 	public boolean longerThan(double distance) {
 		return x*x + y*y > distance*distance;
 		}
+	
+	public double distance(Vector2D other) {
+		double dx = x - other.x;
+		double dy = y - other.y;
+		return sqrt(dx*dx + dy*dy);
+		}
 
 	@Override
 	public String toString() {
-		return "Vector2D [x=" + x + ", y=" + y + "]";
-	}
+		return "("+x+"; "+y+")";
+		}
 	
 	}

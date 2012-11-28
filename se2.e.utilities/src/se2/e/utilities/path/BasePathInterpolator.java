@@ -7,7 +7,7 @@ import se2.e.utilities.PathInterpolator;
 import se2.e.utilities.Vector2D;
 import se2.e.utilities.Where;
 
-public class BasePathInterpolator implements PathInterpolator {
+public abstract class BasePathInterpolator implements PathInterpolator {
 	protected List<Step> steps = new ArrayList<Step>();
 	protected double length = 0.0;
 	
@@ -15,7 +15,7 @@ public class BasePathInterpolator implements PathInterpolator {
 		Step step = new Step(length, start, end);
 		steps.add(step);
 		length += step.getLength();
-		steps.add(step);
+		//steps.add(step);
 		}
 	
 	@Override
@@ -25,10 +25,21 @@ public class BasePathInterpolator implements PathInterpolator {
 	public Where findPosition(double distance) {
 		for (Step step : steps) {
 			if (!step.isWithin(distance)) continue;
-			//System.out.println("Using step: "+step);
-			return step.findPosition(distance);
+			return step.findWhere(distance);
 			}
-		return steps.get(steps.size()-1).findPosition(length);
+		return steps.get(steps.size()-1).findWhere(length);
+		}
+
+	@Override
+	public List<Vector2D> getIntermediatePoints() {
+		List<Vector2D> points = new ArrayList<Vector2D>();
+		for (double distance = 0.0; distance <= length; distance += 1.0) {
+			for (Step step : steps) {
+				if (!step.isWithin(distance)) continue;
+				points.add(step.findPosition(distance));
+				}
+			}
+		return points;
 		}
 
 	@Override
@@ -51,7 +62,12 @@ public class BasePathInterpolator implements PathInterpolator {
 			return false;
 			}
 		
-		public Where findPosition(double distance) {
+		public Vector2D findPosition(double distance) {
+			double partial = distance - baseDistance;
+			return new Vector2D(originPoint).deltaAdd(partial, next);
+			}
+		
+		public Where findWhere(double distance) {
 			double partial = distance - baseDistance;
 			Where position = new Where(0, 0, 0);
 			position.getPosition().setX(originPoint.getX() + next.deltaX(partial));

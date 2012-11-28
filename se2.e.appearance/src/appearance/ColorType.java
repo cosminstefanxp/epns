@@ -2,6 +2,7 @@
  */
 package appearance;
 
+import java.awt.Color;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -427,6 +428,31 @@ public enum ColorType implements Enumerator {
 			case RED_VALUE: return RED;
 			case WHITE_VALUE: return WHITE;
 			case YELLOW_VALUE: return YELLOW;
+		}
+		return null;
+	}
+	
+	/*
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 * @author Juan, María and Pablo.
+	 */
+	public Color getColorCode() {
+		switch (value) {
+			case BLACK_VALUE: return Color.BLACK;
+			case BLUE_VALUE: return Color.BLUE;
+			case CYAN_VALUE: return Color.CYAN;
+			case DARK_GRAY_VALUE: return Color.DARK_GRAY;
+			case GRAY_VALUE: return Color.GRAY;
+			case GREEN_VALUE: return Color.GREEN;
+			case LIGHT_GRAY_VALUE: return Color.LIGHT_GRAY;
+			case MAGENTA_VALUE: return Color.MAGENTA;
+			case ORANGE_VALUE: return Color.ORANGE;
+			case PINK_VALUE: return Color.PINK;
+			case RED_VALUE: return Color.RED;
+			case WHITE_VALUE: return Color.WHITE;
+			case YELLOW_VALUE: return Color.YELLOW;
 		}
 		return null;
 	}

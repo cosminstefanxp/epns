@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Browser
+Bundle-SymbolicName: se2.e.appearance.browser; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.resources,
+ se2.e.appearance;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

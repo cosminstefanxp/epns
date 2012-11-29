@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<geometry:Geometry xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:geometry="http://geometry/1.0">
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="612.0" y="228.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="121.0" y="240.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.0" endPosition="//@geoObjects.1" appearanceLabel="Track" label="T1">
+    <intermediatePositions x="666.0" y="126.0"/>
+    <intermediatePositions x="387.0" y="33.0"/>
+    <intermediatePositions x="190.0" y="106.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="Green" label="Sem">
+    <position x="444.0" y="312.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="276.0" y="432.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="444.0" y="288.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.1" endPosition="//@geoObjects.5" appearanceLabel="Track" label="T2">
+    <intermediatePositions x="154.0" y="358.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.5" endPosition="//@geoObjects.0" appearanceLabel="Track" label="T3">
+    <intermediatePositions x="546.0" y="270.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.4" endPosition="//@geoObjects.0" appearanceLabel="Track" label="T5">
+    <intermediatePositions x="546.0" y="426.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.1" endPosition="//@geoObjects.4" appearanceLabel="Track" label="T4">
+    <intermediatePositions x="121.0" y="390.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="Blink" label="A">
+    <position x="263.0" y="468.0"/>
+  </geoObjects>
+</geometry:Geometry>

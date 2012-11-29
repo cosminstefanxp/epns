@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:geometry="http://geometry/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_cVOLEDpjEeKmMtGMSuH8Ng" type="Geometry" name="example3.geometry_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_fw9SIDpjEeKmMtGMSuH8Ng" type="2002">
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_fw9SITpjEeKmMtGMSuH8Ng"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_fw9SIjpjEeKmMtGMSuH8Ng" fontName="Segoe UI"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_fw9SIzpjEeKmMtGMSuH8Ng"/>
+    <element xmi:type="geometry:TrackPosition" href="example3.geometry#//@geoObjects.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fw9SJDpjEeKmMtGMSuH8Ng" x="612" y="228"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_gWOiYDpjEeKmMtGMSuH8Ng" type="2002">
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_gWOiYTpjEeKmMtGMSuH8Ng"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_gWOiYjpjEeKmMtGMSuH8Ng" fontName="Segoe UI"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_gWOiYzpjEeKmMtGMSuH8Ng"/>
+    <element xmi:type="geometry:TrackPosition" href="example3.geometry#//@geoObjects.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gWOiZDpjEeKmMtGMSuH8Ng" x="121" y="240"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_tCxtgDpjEeKmMtGMSuH8Ng" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_tCxthTpjEeKmMtGMSuH8Ng" type="5001"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_tCxtgTpjEeKmMtGMSuH8Ng"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_tCxtgjpjEeKmMtGMSuH8Ng" fontName="Segoe UI"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_tCxtgzpjEeKmMtGMSuH8Ng"/>
+    <element xmi:type="geometry:SimplePosition" href="example3.geometry#//@geoObjects.3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tCxthDpjEeKmMtGMSuH8Ng" x="444" y="312"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_wy6XQDpjEeKmMtGMSuH8Ng" type="2002">
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_wy6XQTpjEeKmMtGMSuH8Ng"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_wy6XQjpjEeKmMtGMSuH8Ng" fontName="Segoe UI"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_wy6XQzpjEeKmMtGMSuH8Ng"/>
+    <element xmi:type="geometry:TrackPosition" href="example3.geometry#//@geoObjects.4"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wy6XRDpjEeKmMtGMSuH8Ng" x="276" y="432"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_BtozADpkEeKmMtGMSuH8Ng" type="2002">
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_BtozATpkEeKmMtGMSuH8Ng"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_BtozAjpkEeKmMtGMSuH8Ng" fontName="Segoe UI"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_BtozAzpkEeKmMtGMSuH8Ng"/>
+    <element xmi:type="geometry:TrackPosition" href="example3.geometry#//@geoObjects.5"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BtozBDpkEeKmMtGMSuH8Ng" x="444" y="288"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_LN1E8DpmEeK_N-6huEM0Eg" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_LN1E9TpmEeK_N-6huEM0Eg" type="5001"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_LN1E8TpmEeK_N-6huEM0Eg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_LN1E8jpmEeK_N-6huEM0Eg" fontName="Segoe UI"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_LN1E8zpmEeK_N-6huEM0Eg"/>
+    <element xmi:type="geometry:SimplePosition" href="example3.geometry#//@geoObjects.10"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LN1E9DpmEeK_N-6huEM0Eg" x="263" y="468"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_cVOLETpjEeKmMtGMSuH8Ng"/>
+  <element xmi:type="geometry:Geometry" href="example3.geometry#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_hKeCwDpjEeKmMtGMSuH8Ng" type="4001" source="_fw9SIDpjEeKmMtGMSuH8Ng" target="_gWOiYDpjEeKmMtGMSuH8Ng">
+    <children xmi:type="notation:DecorationNode" xmi:id="_hKnMsDpjEeKmMtGMSuH8Ng" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_hKnMsTpjEeKmMtGMSuH8Ng" y="40"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_hKeCwTpjEeKmMtGMSuH8Ng"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_hKeCwjpjEeKmMtGMSuH8Ng" fontName="Segoe UI"/>
+    <element xmi:type="geometry:Track" href="example3.geometry#//@geoObjects.2"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hKeCwzpjEeKmMtGMSuH8Ng" points="[3, -6, 494, -18]$[54, -102, 545, -114]$[-225, -195, 266, -207]$[-422, -122, 69, -134]$[-488, 6, 3, -6]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_DstHwDpkEeKmMtGMSuH8Ng" type="4001" source="_gWOiYDpjEeKmMtGMSuH8Ng" target="_BtozADpkEeKmMtGMSuH8Ng">
+    <children xmi:type="notation:DecorationNode" xmi:id="_DstHxDpkEeKmMtGMSuH8Ng" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_DstHxTpkEeKmMtGMSuH8Ng" y="40"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_DstHwTpkEeKmMtGMSuH8Ng"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_DstHwjpkEeKmMtGMSuH8Ng" fontName="Segoe UI"/>
+    <element xmi:type="geometry:Track" href="example3.geometry#//@geoObjects.6"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DstHwzpkEeKmMtGMSuH8Ng" points="[2, 10, -303, -8]$[33, 118, -272, 100]$[299, 20, -6, 2]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ds24wDpkEeKmMtGMSuH8Ng" id="(0.16666666666666666,0.16666666666666666)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_G0D6QDpkEeKmMtGMSuH8Ng" type="4001" source="_BtozADpkEeKmMtGMSuH8Ng" target="_fw9SIDpjEeKmMtGMSuH8Ng">
+    <children xmi:type="notation:DecorationNode" xmi:id="_G0D6RDpkEeKmMtGMSuH8Ng" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_G0D6RTpkEeKmMtGMSuH8Ng" y="40"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_G0D6QTpkEeKmMtGMSuH8Ng"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_G0D6QjpkEeKmMtGMSuH8Ng" fontName="Segoe UI"/>
+    <element xmi:type="geometry:Track" href="example3.geometry#//@geoObjects.7"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_G0D6QzpkEeKmMtGMSuH8Ng" points="[6, -2, -162, 58]$[102, -18, -66, 42]$[162, -57, -6, 3]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_P7FwMDpkEeKmMtGMSuH8Ng" type="4001" source="_wy6XQDpjEeKmMtGMSuH8Ng" target="_fw9SIDpjEeKmMtGMSuH8Ng">
+    <children xmi:type="notation:DecorationNode" xmi:id="_P7FwNDpkEeKmMtGMSuH8Ng" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P7FwNTpkEeKmMtGMSuH8Ng" y="40"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_P7FwMTpkEeKmMtGMSuH8Ng"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_P7FwMjpkEeKmMtGMSuH8Ng" fontName="Segoe UI"/>
+    <element xmi:type="geometry:Track" href="example3.geometry#//@geoObjects.8"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P7FwMzpkEeKmMtGMSuH8Ng" points="[6, -6, -330, 198]$[270, -6, -66, 198]$[334, -198, -2, 6]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_ShNd4DpkEeKmMtGMSuH8Ng" type="4001" source="_gWOiYDpjEeKmMtGMSuH8Ng" target="_wy6XQDpjEeKmMtGMSuH8Ng">
+    <children xmi:type="notation:DecorationNode" xmi:id="_ShNd5DpkEeKmMtGMSuH8Ng" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ShXO4DpkEeKmMtGMSuH8Ng" y="40"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_ShNd4TpkEeKmMtGMSuH8Ng"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ShNd4jpkEeKmMtGMSuH8Ng" fontName="Segoe UI"/>
+    <element xmi:type="geometry:Track" href="example3.geometry#//@geoObjects.9"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ShNd4zpkEeKmMtGMSuH8Ng" points="[0, 6, -151, -184]$[0, 150, -151, -40]$[149, 189, -2, -1]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ShXO4TpkEeKmMtGMSuH8Ng" id="(0.16666666666666666,0.3333333333333333)"/>
+  </edges>
+</notation:Diagram>

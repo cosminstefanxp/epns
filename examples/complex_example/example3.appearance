@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appearance:AppearanceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:appearance="http://appearance/1.0">
+  <appearanceInfos xsi:type="appearance:Texture" label="Track" file="C:\Users\Student\Desktop\railway.jpg"/>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="Green" type="Sphere">
+    <shapeSurface xsi:type="appearance:SurfaceColor" label="Green" color="Green"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="Red" type="Sphere">
+    <shapeSurface xsi:type="appearance:SurfaceColor" color="Red"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="T1" type="Sphere">
+    <shapeSurface xsi:type="appearance:SurfaceColor" color="Cyan"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="T2" type="Sphere">
+    <shapeSurface xsi:type="appearance:SurfaceColor" color="Orange"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="Blink"/>
+</appearance:AppearanceModel>

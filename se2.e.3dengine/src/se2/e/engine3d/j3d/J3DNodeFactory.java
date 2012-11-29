@@ -524,6 +524,7 @@ public class J3DNodeFactory {
 			tg = new TransformGroup();
 			tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 			branchGroup.addChild(tg);
+			tg.setPickable(interactiveInput);
 			if (interactiveInput)
 				return new DynamicInputBranch(branchGroup, tg,
 						geometryLabel, engine, canvas);

@@ -595,6 +595,7 @@ public class J3DNodeFactory {
 			destinationTransformGroup = new TransformGroup();
 			destinationTransformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 			destinationBranch.getBranchGroup().addChild(destinationTransformGroup);
+			destinationBranch.setTransformGroup(destinationTransformGroup);
 		}
 		AppearanceInfo appearanceInfo = this.loader
 				.getAppearanceInfo(appearanceLabel);
@@ -613,7 +614,6 @@ public class J3DNodeFactory {
 		}
 		destinationTransformGroup.setTransform(trans3d);
 		return destinationBranch;
-		//TODO: clean code above
 
 	}
 

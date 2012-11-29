@@ -98,14 +98,14 @@ public class BezierPathInterpolator implements PathInterpolator {
 	public static int binomialCoefficient(int n, int k) {
 		if (k == 0) return 1;
 		if (n == 0) return 0;
-		int numerator = 1;
-		int denominator = 1;
+		long numerator = 1;
+		long denominator = 1;
 		for (int i = 1; i <= k; i++) {
 			numerator *= n - (k - i);
 			denominator *= i;
 			}
-		if (numerator % denominator != 0) throw new RuntimeException("binominal abnominal");
-		return numerator/denominator;
+		if (numerator % denominator != 0) throw new RuntimeException("binominal abnominal n="+n+", k="+k);
+		return (int)(numerator/denominator);
 		}
 	
 	public static double bernstein(int i, int n, double t) {

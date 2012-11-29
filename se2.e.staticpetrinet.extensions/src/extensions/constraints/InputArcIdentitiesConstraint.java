@@ -12,6 +12,11 @@ import org.pnml.tools.epnk.pnmlcoremodel.Transition;
 
 import extendedpetrinet.Arc;
 
+/**
+ * InputArcIdentitiesConstraint class
+ * 
+ * @author Juan, María and Pablo.
+ */
 public class InputArcIdentitiesConstraint extends AbstractModelConstraint {
 
 	@Override

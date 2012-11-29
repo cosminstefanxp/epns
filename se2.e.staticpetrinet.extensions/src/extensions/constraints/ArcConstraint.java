@@ -10,7 +10,11 @@ import org.pnml.tools.epnk.pnmlcoremodel.Transition;
 import extendedpetrinet.Arc;
 import extendedpetrinet.Place;
 
-
+/**
+ * ArcConstraint class
+ * 
+ * @author Juan, María and Pablo.
+ */
 public class ArcConstraint extends AbstractModelConstraint {
 
 	@Override

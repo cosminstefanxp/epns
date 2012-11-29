@@ -349,18 +349,12 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		if (branch != null)
 			log.info("Found dynamic branch for token " + token);
 		else
-			log.info("Existing dynamic branch not found. Creating new one for " + token);
+			log.info("Existing dynamic branch not found for token " + token);
 
 		// Build the RuntimeAnimation
-		RuntimeAnimation<?> rtAnimation = RuntimeAnimationFactory.getRuntimeAnimation(branch, animation, token, this,
-				geometryLabel);
+		RuntimeAnimationFactory.buildRuntimeAnimation(branch, animation, token, this, geometryLabel);
+		// There is no need to attach the animation to the root, as it will attach by itself
 
-		// Attach the Animation branch to the Scene graph, if needed and if not already attached
-		if (!rtAnimation.isAttachedToRoot() && rtAnimation.getTargetBranch() != null) {
-			sceneRoot.addChild(rtAnimation.getTargetBranch().getBranchGroup());
-			rtAnimation.setAttachedToRoot(true);
-			tokenRepresentations.put(token, rtAnimation.getTargetBranch());
-		}
 	}
 
 	/*
@@ -450,5 +444,20 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	@Override
 	public boolean isPaused() {
 		return paused;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see se2.e.engine3d.j3d.animations.RuntimeAnimationListener#attachToRoot(se2.e.engine3d.j3d.DynamicBranch)
+	 */
+	@Override
+	public void attachToRoot(RuntimeAnimation<?> animation) {
+		// Attach the Animation branch to the Scene graph, if needed
+		if (animation.getTargetBranch() != null) {
+			sceneRoot.addChild(animation.getTargetBranch().getBranchGroup());
+		}
+		tokenRepresentations.put(animation.getToken(), animation.getTargetBranch());
+
 	}
 }

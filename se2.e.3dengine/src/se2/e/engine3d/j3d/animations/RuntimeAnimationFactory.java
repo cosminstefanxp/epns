@@ -10,6 +10,7 @@ import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import animations.Animation;
 import animations.Move;
 import animations.Sequence;
+import animations.Show;
 import animations.Wait;
 
 /**
@@ -29,7 +30,7 @@ public class RuntimeAnimationFactory {
 	 * @return the runtime animation
 	 * @author cosmin
 	 */
-	public static RuntimeAnimation<?> getRuntimeAnimation(DynamicBranch targetBranch, Animation animation,
+	public static RuntimeAnimation<?> buildRuntimeAnimation(DynamicBranch targetBranch, Animation animation,
 			RuntimeToken token, J3DEngine engine, String geometryLabel) {
 
 		if (animation instanceof Move) {
@@ -40,26 +41,36 @@ public class RuntimeAnimationFactory {
 				return new RuntimeDummyAnimation(targetBranch, animation, token, engine);
 			}
 
+			return new RuntimeMoveAnimation(targetBranch, (Move) animation, token, engine,
+					engine.getGeometryAndAppearanceLoader(), geometryLabel, engine.getNodeFactory());
+		}
+
+		if (animation instanceof Show) {
+			Logger.getAnonymousLogger().info("Creating RuntimeShowAnimation with: " + animation);
+			// Checks
+			if (geometryLabel == null) {
+				Logger.getAnonymousLogger().severe("No geometry set on place, for Show animation.");
+				return new RuntimeDummyAnimation(targetBranch, animation, token, engine);
+			}
+
 			// If there's no target branch, create one now for the token's appearance
 			if (targetBranch == null)
 				targetBranch = engine.getNodeFactory().getTokenBranch(token.getLabel(), null);
-			return new RuntimeMoveAnimation(targetBranch, (Move) animation, token, engine,
-					engine.getGeometryAndAppearanceLoader(), geometryLabel);
+			else
+			// If there's no transform group for the token, create it now
+			if (targetBranch.getTransformGroup() == null)
+				engine.getNodeFactory().getTokenBranch(token.getLabel(), targetBranch);
+
+			return new RuntimeShowAnimation(targetBranch, (Show) animation, token, engine);
 		}
 
 		if (animation instanceof Wait) {
 			Logger.getAnonymousLogger().info("Creating RuntimeWaitAnimation with: " + animation);
-			// If there's no target branch, create an empty one now, without a geometry
-			if (targetBranch == null)
-				targetBranch = new DynamicBranch(new BranchGroup(), null);
 			return new RuntimeWaitAnimation(targetBranch, (Wait) animation, token, engine);
 		}
 
 		if (animation instanceof Sequence) {
 			Logger.getAnonymousLogger().info("Creating RuntimeSequenceAnimation with: " + animation);
-			// If there's no target branch, create an empty one now, without a geometry
-			if (targetBranch == null)
-				targetBranch = new DynamicBranch(new BranchGroup(), null);
 			return new RuntimeSequenceAnimation(targetBranch, (Sequence) animation, token, engine, geometryLabel);
 		}
 
@@ -67,4 +78,5 @@ public class RuntimeAnimationFactory {
 				"RuntimeAnimationFactory could not create RuntimeAnimation for " + animation);
 		return new RuntimeDummyAnimation(targetBranch, animation, token, engine);
 	}
+
 }

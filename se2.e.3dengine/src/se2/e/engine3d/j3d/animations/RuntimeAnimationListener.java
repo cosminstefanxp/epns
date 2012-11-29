@@ -27,4 +27,12 @@ public interface RuntimeAnimationListener {
 	 * @return true, if is paused
 	 */
 	public boolean isPaused();
+
+	/**
+	 * Attaches the given branch to the root. It is the responsibility of the caller to make sure the dynamic branch
+	 * associated with the animation was not already attached.
+	 *
+	 * @param animation the animation
+	 */
+	public void attachToRoot(RuntimeAnimation<?> animation);
 }

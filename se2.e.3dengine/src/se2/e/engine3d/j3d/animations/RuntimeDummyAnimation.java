@@ -1,7 +1,5 @@
 package se2.e.engine3d.j3d.animations;
 
-import java.util.logging.Logger;
-
 import javax.media.j3d.WakeupCondition;
 
 import se2.e.engine3d.j3d.DynamicBranch;
@@ -26,25 +24,29 @@ public class RuntimeDummyAnimation extends RuntimeAnimation {
 	@SuppressWarnings("unchecked")
 	public RuntimeDummyAnimation(DynamicBranch targetBranch, Object animation, RuntimeToken token,
 			RuntimeAnimationListener listener) {
-		super(targetBranch, animation, token, listener);
+		super(targetBranch, animation, token, listener, false);
+		listener.animationFinished(token);
 	}
 
 	@Override
 	public WakeupCondition init() {
-		Logger.getAnonymousLogger().warning("Starting Dummy Animation...");
-		onAnimationFinished();
+		// Should not run, as this is not attached to the root
+		log.severe("Dummy Behavior should not run!");
 		return null;
 	}
 
 	@Override
 	public WakeupCondition onUpdateAnimation() {
+		// Should not run, as this is not attached to the root
+		log.severe("Dummy Behavior should not run!");
 		return null;
 	}
 
 	@Override
 	protected void onAnimationFinished() {
-		Logger.getAnonymousLogger().info("Finishing Dummy Animation...");
-		super.onAnimationFinished();
+		// Should not run, as this is not attached to the root
+		log.severe("Dummy Behavior should not run!");
+		this.animationListener.animationFinished(getToken());
 	}
 
 }

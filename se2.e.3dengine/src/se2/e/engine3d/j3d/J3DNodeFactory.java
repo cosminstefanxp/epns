@@ -74,7 +74,7 @@ public class J3DNodeFactory {
 	private static final double DRAWING_PLANE_Z = 0d;
 	
 	/** The Constant INTERPOLATION_DIST. */
-	private static final double INTERPOLATION_DIST = 1.0d;
+	private static final double INTERPOLATION_DIST = 5.0d;
 
 	/** The loader. */
 	private GeometryAndAppearanceLoader loader;

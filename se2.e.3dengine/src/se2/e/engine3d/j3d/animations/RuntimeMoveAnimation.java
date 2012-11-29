@@ -9,11 +9,12 @@ import javax.vecmath.Vector3d;
 
 import se2.e.engine3d.GeometryAndAppearanceLoader;
 import se2.e.engine3d.j3d.DynamicBranch;
+import se2.e.engine3d.j3d.J3DNodeFactory;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import se2.e.utilities.PathInterpolator;
 import se2.e.utilities.Vector2D;
 import se2.e.utilities.Where;
-import se2.e.utilities.path.LinearPathInterpolator;
+import se2.e.utilities.path.BezierPathInterpolator;
 import animations.Move;
 
 /**
@@ -52,20 +53,34 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 	 * @author cosmin
 	 */
 	public RuntimeMoveAnimation(DynamicBranch targetBranch, Move animation, RuntimeToken token,
-			RuntimeAnimationListener listener, GeometryAndAppearanceLoader loader, String geometryLabel) {
-		super(targetBranch, animation, token, listener);
+			RuntimeAnimationListener listener, GeometryAndAppearanceLoader loader, String geometryLabel,
+			J3DNodeFactory nodeFactory) {
+		super(targetBranch, animation, token, listener, true);
+
+		// If there's no geometry branch for the token, create it now
+		if (this.getTargetBranch().getTransformGroup() == null)
+			nodeFactory.getTokenBranch(token.getLabel(), this.getTargetBranch());
+
 		this.loader = loader;
 		this.geometryLabel = geometryLabel;
+
+		// Attach itself to the Scene graph
+		listener.attachToRoot(this);
 	}
 
 	@Override
 	public WakeupCondition init() {
 		Vector2D[] trackPoints = loader.getTrackPoints(geometryLabel);
-		this.pathInterpolator = new LinearPathInterpolator(trackPoints);
-		System.out.println("Starting new move animation for: " + Arrays.toString(trackPoints));
-		currentPosition = this.pathInterpolator.start();
+		if (trackPoints == null) {
+			log.severe("No track points for geometry. Cannot execute Move on: " + geometryLabel);
+			return null;
+		}
+		this.pathInterpolator =  new BezierPathInterpolator(trackPoints);
+		log.info("Starting new move animation for: " + Arrays.toString(trackPoints));
 
-		// Place the object on the initial position
+		// Place the object on the initial position by fake calling onUpdateAnimation so that it updates the position to
+		// initial position
+		currentPosition = this.pathInterpolator.start();
 		distance = -animation.getSpeed();
 		WakeupCondition criteria = onUpdateAnimation();
 
@@ -78,18 +93,13 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 		distance += animation.getSpeed();
 		currentPosition = pathInterpolator.findPosition(distance);
 
-		// Move the object to the new position
+		// Move the object to the new position and execute the corresponding rotation
 		Transform3D t = new Transform3D();
 		t.setTranslation(new Vector3d(currentPosition.getPosition().getX(), currentPosition.getY(), 0));
 		Transform3D rotz = new Transform3D();
-		
 		rotz.rotZ(currentPosition.getOrientation().getAngle());
 		t.mul(t, rotz);
-		
-		//Transform3D orig = new Transform3D();
-		//rotateY.rotY(currentPosition.getOrientation().getAngle());
-		//t.mul(t, rotateY);
-		this.targetBranch.getTransformGroup().setTransform(t);
+		this.getTargetBranch().getTransformGroup().setTransform(t);
 
 		// Check for finishing conditions
 		if (pathInterpolator.getLength() < distance) {
@@ -101,8 +111,8 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 
 	@Override
 	protected void onAnimationFinished() {
-		System.out.println("Animation Finished: " + token);
-		super.onAnimationFinished();
+		log.info("Animation Finished for token: " + this.getToken());
+		this.animationListener.animationFinished(this.getToken());
 	}
 
 }

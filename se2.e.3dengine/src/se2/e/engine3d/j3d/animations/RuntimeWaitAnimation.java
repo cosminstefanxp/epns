@@ -1,7 +1,5 @@
 package se2.e.engine3d.j3d.animations;
 
-import java.util.logging.Logger;
-
 import javax.media.j3d.WakeupCondition;
 import javax.media.j3d.WakeupOnElapsedTime;
 
@@ -26,12 +24,15 @@ public class RuntimeWaitAnimation extends RuntimeAnimation<Wait> {
 	 */
 	public RuntimeWaitAnimation(DynamicBranch targetBranch, Wait animation, RuntimeToken token,
 			RuntimeAnimationListener listener) {
-		super(targetBranch, animation, token, listener);
+		super(targetBranch, animation, token, listener, true);
+
+		// Attach itself to the Scene graph
+		listener.attachToRoot(this);
 	}
 
 	@Override
 	public WakeupCondition init() {
-		Logger.getAnonymousLogger().info("Initializing RuntimeWaitAnimation...");
+		log.info("Initializing RuntimeWaitAnimation...");
 		return new WakeupOnElapsedTime((long) animation.getTime());
 	}
 
@@ -43,8 +44,8 @@ public class RuntimeWaitAnimation extends RuntimeAnimation<Wait> {
 
 	@Override
 	protected void onAnimationFinished() {
-		Logger.getAnonymousLogger().info("Finishing Dummy Animation...");
-		super.onAnimationFinished();
+		log.info("Finishing Wait Animation...");
+		this.animationListener.animationFinished(getToken());
 	}
 
 }

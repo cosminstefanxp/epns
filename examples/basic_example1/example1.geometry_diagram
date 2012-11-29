@@ -19,14 +19,14 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_ysPZEi8uEeKAeo2CFa0KLg" fontName="Ubuntu"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_ysPZEy8uEeKAeo2CFa0KLg"/>
     <element xmi:type="geometry:TrackPosition" href="example1.geometry#//@geoObjects.2"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ysPZFC8uEeKAeo2CFa0KLg" x="330" y="183"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ysPZFC8uEeKAeo2CFa0KLg" x="339" y="187"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_y6R1EC8uEeKAeo2CFa0KLg" type="2002">
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_y6R1ES8uEeKAeo2CFa0KLg"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_y6R1Ei8uEeKAeo2CFa0KLg" fontName="Ubuntu"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_y6R1Ey8uEeKAeo2CFa0KLg"/>
     <element xmi:type="geometry:TrackPosition" href="example1.geometry#//@geoObjects.3"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_y6R1FC8uEeKAeo2CFa0KLg" x="48" y="192"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_y6R1FC8uEeKAeo2CFa0KLg" x="60" y="168"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_kPh34C8uEeKAeo2CFa0KLg"/>
   <element xmi:type="geometry:Geometry" href="example1.geometry#/"/>
@@ -46,7 +46,7 @@
     <styles xmi:type="notation:RoutingStyle" xmi:id="_1xZzMS8uEeKAeo2CFa0KLg"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_1xZzMi8uEeKAeo2CFa0KLg" fontName="Ubuntu"/>
     <element xmi:type="geometry:Track" href="example1.geometry#//@geoObjects.5"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1xZzMy8uEeKAeo2CFa0KLg" points="[10, 1, -306, -50]$[310, 50, -6, -1]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1xZzMy8uEeKAeo2CFa0KLg" points="[10, 0, -306, -51]$[274, 19, -42, -32]$[310, 46, -6, -5]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1xeEoC8uEeKAeo2CFa0KLg" id="(0.16666666666666666,0.4166666666666667)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_29snMC8uEeKAeo2CFa0KLg" type="4001" source="_yNuREC8uEeKAeo2CFa0KLg" target="_y6R1EC8uEeKAeo2CFa0KLg">
@@ -56,7 +56,7 @@
     <styles xmi:type="notation:RoutingStyle" xmi:id="_29snMS8uEeKAeo2CFa0KLg"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_29snMi8uEeKAeo2CFa0KLg" fontName="Ubuntu"/>
     <element xmi:type="geometry:Track" href="example1.geometry#//@geoObjects.6"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_29snMy8uEeKAeo2CFa0KLg" points="[1, 12, -18, -116]$[19, 134, 0, 6]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_29snMy8uEeKAeo2CFa0KLg" points="[-3, 12, -53, -150]$[-16, 84, -66, -78]$[44, 156, -6, -6]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_29vDcC8uEeKAeo2CFa0KLg" id="(0.3333333333333333,0.0)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_5PGpIC8uEeKAeo2CFa0KLg" type="4001" source="_y6R1EC8uEeKAeo2CFa0KLg" target="_ysPZEC8uEeKAeo2CFa0KLg">

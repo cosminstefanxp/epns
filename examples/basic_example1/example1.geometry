@@ -7,20 +7,24 @@
     <position x="324.0" y="62.0"/>
   </geoObjects>
   <geoObjects xsi:type="geometry:TrackPosition">
-    <position x="330.0" y="183.0"/>
+    <position x="339.0" y="187.0"/>
   </geoObjects>
   <geoObjects xsi:type="geometry:TrackPosition">
-    <position x="48.0" y="192.0"/>
+    <position x="60.0" y="168.0"/>
   </geoObjects>
-  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.2" endPosition="//@geoObjects.0" appearanceLabel="Tex" label="L1">
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.2" endPosition="//@geoObjects.0" appearanceLabel="rail" label="L1">
     <intermediatePositions x="114.0" y="138.0"/>
   </geoObjects>
-  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.0" endPosition="//@geoObjects.1" appearanceLabel="Tex" label="L2"/>
-  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.0" endPosition="//@geoObjects.3" appearanceLabel="Tex" label="L3"/>
-  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.3" endPosition="//@geoObjects.2" appearanceLabel="Tex" label="L4">
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.0" endPosition="//@geoObjects.1" appearanceLabel="rail" label="L2">
+    <intermediatePositions x="286.0" y="31.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.0" endPosition="//@geoObjects.3" appearanceLabel="rail" label="L3">
+    <intermediatePositions x="-4.0" y="96.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.3" endPosition="//@geoObjects.2" appearanceLabel="rail" label="L4">
     <intermediatePositions x="138.0" y="222.0"/>
   </geoObjects>
-  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.1" endPosition="//@geoObjects.2" appearanceLabel="Tex" label="L5">
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.1" endPosition="//@geoObjects.2" appearanceLabel="rail" label="L5">
     <intermediatePositions x="378.0" y="114.0"/>
   </geoObjects>
 </geometry:Geometry>

@@ -27,7 +27,7 @@ public class RuntimeWaitAnimation extends RuntimeAnimation<Wait> {
 		super(targetBranch, animation, token, listener, true);
 
 		// Attach itself to the Scene graph
-		listener.attachToRoot(this);
+		this.attachToRoot();
 	}
 
 	@Override
@@ -38,6 +38,7 @@ public class RuntimeWaitAnimation extends RuntimeAnimation<Wait> {
 
 	@Override
 	public WakeupCondition onUpdateAnimation() {
+		log.info("Wait time expired...");
 		onAnimationFinished();
 		return null;
 	}

@@ -21,6 +21,9 @@ public class DynamicBranch {
 	/** The behavior node. */
 	private Behavior behaviorNode;
 
+	/** Whether this branch group is attached to root. */
+	private boolean attachedToRoot;
+
 	/**
 	 * Gets the behavior node.
 	 * 
@@ -64,14 +67,23 @@ public class DynamicBranch {
 	/**
 	 * Instantiates a new dynamic branch.
 	 * 
-	 * @param transformGroup the transform group
 	 * @param branchGroup the branch group
+	 * @param transformGroup the transform group
 	 */
 	public DynamicBranch(BranchGroup branchGroup, TransformGroup transformGroup) {
 		super();
 		this.transformGroup = transformGroup;
 		this.branchGroup = branchGroup;
 		this.behaviorNode = null;
+		this.attachedToRoot = false;
+	}
+
+	public boolean isAttachedToRoot() {
+		return attachedToRoot;
+	}
+
+	public void setAttachedToRoot(boolean attachedToRoot) {
+		this.attachedToRoot = attachedToRoot;
 	}
 
 }

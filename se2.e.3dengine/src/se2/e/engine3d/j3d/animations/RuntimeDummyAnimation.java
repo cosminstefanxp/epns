@@ -25,6 +25,7 @@ public class RuntimeDummyAnimation extends RuntimeAnimation {
 	public RuntimeDummyAnimation(DynamicBranch targetBranch, Object animation, RuntimeToken token,
 			RuntimeAnimationListener listener) {
 		super(targetBranch, animation, token, listener, false);
+		log.warning("Initializing Dummy Behavior...");
 		listener.animationFinished(token);
 	}
 

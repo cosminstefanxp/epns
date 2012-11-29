@@ -9,11 +9,14 @@ import javax.media.j3d.BranchGroup;
 import javax.media.j3d.WakeupCondition;
 import javax.vecmath.Point3d;
 
+import animations.Animation;
+
 import se2.e.engine3d.j3d.DynamicBranch;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 
 /**
- * The Class RuntimeAnimation.
+ * The Class RuntimeAnimation implementing the generic implementation for a representation of an {@link Animation} in
+ * the 3D Engine.
  * 
  * @param <T> the generic type
  * @author cosmin
@@ -31,7 +34,6 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 
 	/** The listener. */
 	protected RuntimeAnimationListener animationListener;
-
 
 	/** The Constant log. */
 	protected static final Logger log = Logger.getLogger(RuntimeAnimation.class.getSimpleName());
@@ -85,8 +87,8 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 		this.animationListener = animationListener;
 
 		// Connect the behavior to the branch group, possibly replacing the existing one
-		if (attachBehavior && this.targetBranch != null) {
-			this.targetBranch.getBranchGroup().detach();
+		if (attachBehavior) {
+			this.detachFromRoot();
 			if (this.targetBranch.getBehaviorNode() != null)
 				this.targetBranch.getBranchGroup().removeChild(this.targetBranch.getBehaviorNode());
 			this.targetBranch.setBehaviorNode(this);
@@ -128,6 +130,26 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 		WakeupCondition criteria = onUpdateAnimation();
 		if (criteria != null)
 			wakeupOn(criteria);
+	}
+
+	/**
+	 * Attaches the branch associated with this animation to the root.
+	 */
+	protected void attachToRoot() {
+		if (!targetBranch.isAttachedToRoot()) {
+			targetBranch.setAttachedToRoot(true);
+			animationListener.attachToRoot(this);
+		}
+	}
+
+	/**
+	 * Detach the branch associated with this animation from the root.
+	 */
+	protected void detachFromRoot() {
+		if (targetBranch.isAttachedToRoot()) {
+			this.targetBranch.getBranchGroup().detach();
+			targetBranch.setAttachedToRoot(false);
+		}
 	}
 
 	/**
@@ -174,7 +196,6 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 	public RuntimeToken getToken() {
 		return token;
 	}
-
 
 	/**
 	 * Builds an empty branch group.

@@ -431,7 +431,10 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		log.info("Destroying token representation for: " + token);
 		DynamicBranch tokenBranch = tokenRepresentations.get(token);
 		if (tokenBranch != null) {
-			tokenBranch.getBranchGroup().detach();
+			if (tokenBranch.isAttachedToRoot()) {
+				tokenBranch.getBranchGroup().detach();
+				tokenBranch.setAttachedToRoot(false);
+			}
 			tokenRepresentations.remove(token);
 		}
 	}

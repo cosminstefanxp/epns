@@ -58,14 +58,16 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 		super(targetBranch, animation, token, listener, true);
 
 		// If there's no geometry branch for the token, create it now
-		if (this.getTargetBranch().getTransformGroup() == null)
+		if (this.getTargetBranch().getTransformGroup() == null) {
+			this.detachFromRoot();
 			nodeFactory.getTokenBranch(token.getLabel(), this.getTargetBranch());
+		}
 
 		this.loader = loader;
 		this.geometryLabel = geometryLabel;
 
 		// Attach itself to the Scene graph
-		listener.attachToRoot(this);
+		this.attachToRoot();
 	}
 
 	@Override
@@ -75,7 +77,7 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 			log.severe("No track points for geometry. Cannot execute Move on: " + geometryLabel);
 			return null;
 		}
-		this.pathInterpolator =  new BezierPathInterpolator(trackPoints);
+		this.pathInterpolator = new BezierPathInterpolator(trackPoints);
 		log.info("Starting new move animation for: " + Arrays.toString(trackPoints));
 
 		// Place the object on the initial position by fake calling onUpdateAnimation so that it updates the position to

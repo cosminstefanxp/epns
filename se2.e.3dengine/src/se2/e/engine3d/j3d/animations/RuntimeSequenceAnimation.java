@@ -39,12 +39,17 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> impleme
 	 */
 	public RuntimeSequenceAnimation(DynamicBranch targetBranch, Sequence animation, RuntimeToken token,
 			J3DEngine engine, String geometryLabel) {
-		super(targetBranch, animation, token, engine, true);
+		super(targetBranch, animation, token, engine, false);
 		this.engine = engine;
 		this.geometryLabel = geometryLabel;
 
-		// Attach itself to the Scene graph
-		engine.attachToRoot(this);
+		// Start the first animation
+		currentAnimationIndex = 0;
+
+		// Register itself as RuntimeAnimationListener for children animations
+		currentRuntimeAnimation = RuntimeAnimationFactory.buildRuntimeAnimation(getTargetBranch(), animation
+				.getComponents().get(0), getToken(), engine, geometryLabel);
+		currentRuntimeAnimation.setAnimationListener(this);
 	}
 
 	/*
@@ -54,15 +59,7 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> impleme
 	 */
 	@Override
 	public WakeupCondition init() {
-		Logger.getAnonymousLogger().info("Initializing RuntimeSequenceAnimation...");
-
-		// Start the first animation
-		currentAnimationIndex = 0;
-
-		// Register itself as RuntimeAnimationListener for children animations
-		currentRuntimeAnimation = RuntimeAnimationFactory.buildRuntimeAnimation(getTargetBranch(), animation
-				.getComponents().get(0), getToken(), engine, geometryLabel);
-		currentRuntimeAnimation.setAnimationListener(this);
+		Logger.getAnonymousLogger().warning("Initializing Sequence Behavior. Should not reach this point.");
 
 		return null;
 	}
@@ -74,7 +71,8 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> impleme
 	 */
 	@Override
 	public WakeupCondition onUpdateAnimation() {
-		return currentRuntimeAnimation.onUpdateAnimation();
+		Logger.getAnonymousLogger().warning("Sequence OnUpdateAnimation... Should not reach this point.");
+		return null;
 	}
 
 	/*
@@ -84,15 +82,7 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> impleme
 	 */
 	@Override
 	protected void onAnimationFinished() {
-		Logger.getAnonymousLogger().info("Finished Sequence Animation: " + currentRuntimeAnimation);
-		// If there are more animations, start the next one
-		if (currentAnimationIndex < animation.getComponents().size() - 1) {
-			currentAnimationIndex++;
-			currentRuntimeAnimation = RuntimeAnimationFactory.buildRuntimeAnimation(getTargetBranch(), animation
-					.getComponents().get(currentAnimationIndex), getToken(), engine, geometryLabel);
-			currentRuntimeAnimation.setAnimationListener(this);
-		} else
-			this.animationListener.animationFinished(getToken());
+		Logger.getAnonymousLogger().warning("Sequence OnAnimationFinished... Should not reach this point.");
 	}
 
 	/*
@@ -103,7 +93,17 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> impleme
 	 */
 	@Override
 	public void animationFinished(RuntimeToken token) {
-		onAnimationFinished();
+		log.info("Finished Animation in Sequence: " + currentRuntimeAnimation);
+		// If there are more animations, start the next one
+		if (currentAnimationIndex < animation.getComponents().size() - 1) {
+			currentAnimationIndex++;
+			currentRuntimeAnimation = RuntimeAnimationFactory.buildRuntimeAnimation(getTargetBranch(), animation
+					.getComponents().get(currentAnimationIndex), getToken(), engine, geometryLabel);
+			currentRuntimeAnimation.setAnimationListener(this);
+		} else {
+			log.info("Sequence Animation finished for token: " + getToken());
+			this.animationListener.animationFinished(getToken());
+		}
 	}
 
 	/*

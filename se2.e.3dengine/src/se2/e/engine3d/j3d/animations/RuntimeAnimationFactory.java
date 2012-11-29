@@ -2,8 +2,6 @@ package se2.e.engine3d.j3d.animations;
 
 import java.util.logging.Logger;
 
-import javax.media.j3d.BranchGroup;
-
 import se2.e.engine3d.j3d.DynamicBranch;
 import se2.e.engine3d.j3d.J3DEngine;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;

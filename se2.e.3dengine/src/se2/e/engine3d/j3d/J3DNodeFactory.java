@@ -43,6 +43,7 @@ import se2.e.geometry.SimplePosition;
 import se2.e.geometry.Track;
 import se2.e.utilities.PathInterpolator;
 import se2.e.utilities.Vector2D;
+import se2.e.utilities.path.BezierPathInterpolator;
 import se2.e.utilities.path.LinearPathInterpolator;
 import se2.e.utilities.path.QuadraticBezierPathInterpolator;
 import se2.e.utilities.Where;
@@ -381,7 +382,7 @@ public class J3DNodeFactory {
 		TransformGroup g = new TransformGroup();
 		Track track = loader.getTrackFromLabel(geometryLabel);
 		double distance = 0;
-		PathInterpolator pathInterpolator = new QuadraticBezierPathInterpolator(loader.getTrackPoints(geometryLabel));
+		PathInterpolator pathInterpolator = new BezierPathInterpolator(loader.getTrackPoints(geometryLabel));
 		Where start = pathInterpolator.start();
 		start = pathInterpolator.findPosition(distance);
 		

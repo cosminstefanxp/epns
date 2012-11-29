@@ -514,28 +514,32 @@ public class J3DNodeFactory {
 
 		if (sp != null)
 			// it is a simple position object
-			appearanceInfo = this.loader.getAppearanceInfo(sp
-					.getAppearanceLabel());
+			appearanceInfo = this.loader.getAppearanceInfo(sp.getAppearanceLabel());
 		else if (t != null)
 			// it is a track object
-			appearanceInfo = this.loader.getAppearanceInfo(t
-					.getAppearanceLabel());
+			appearanceInfo = this.loader.getAppearanceInfo(t.getAppearanceLabel());
+		
+		if (appearanceInfo == null)
+		{
+			tg = new TransformGroup();
+			tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+			branchGroup.addChild(tg);
+			if (interactiveInput)
+				return new DynamicInputBranch(branchGroup, tg,
+						geometryLabel, engine, canvas);
+			return new DynamicBranch(branchGroup, tg);
+		}
 
 		if (appearanceInfo instanceof appearance.Shape)
-			tg = buildTransformGroupForShape((appearance.Shape) appearanceInfo,
-					null);
+			tg = buildTransformGroupForShape((appearance.Shape) appearanceInfo,	null);
 
-		Position position = this.loader.getSimplePositionObject(geometryLabel)
-				.getPosition();
-		tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+		Position position = this.loader.getSimplePositionObject(geometryLabel).getPosition();
+		
 		Transform3D trans3d = new Transform3D();
-		trans3d.setTranslation(new Vector3d(position.getX(), position.getY(),
-				DRAWING_PLANE_Z));
+		trans3d.setTranslation(new Vector3d(position.getX(), position.getY(),DRAWING_PLANE_Z));
 		tg.setTransform(trans3d);
 		tg.setPickable(interactiveInput);
 		branchGroup.addChild(tg);
-//		DynamicBranch branch = new DynamicInputBranch(branchGroup, tg,
-//				geometryLabel, engine, canvas);
 		DynamicBranch branch = null;
 		if (interactiveInput)
 			branch = new DynamicInputBranch(branchGroup, tg,
@@ -583,6 +587,7 @@ public class J3DNodeFactory {
 		if (destinationBranch == null) 
 		{
 			destinationTransformGroup = new TransformGroup();	
+			destinationTransformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 			destinationBranchGroup = new BranchGroup();
 			destinationBranchGroup.addChild(destinationTransformGroup);
 		} 

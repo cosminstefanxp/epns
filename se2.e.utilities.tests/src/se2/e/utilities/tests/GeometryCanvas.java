@@ -40,15 +40,21 @@ public class GeometryCanvas extends Canvas implements MouseListener, MouseMotion
 			graphics.drawLine(whereMouseIs.x, whereMouseIs.y - 3, whereMouseIs.x, whereMouseIs.y + 3);
 			graphics.drawLine(whereMouseIs.x - 3, whereMouseIs.y, whereMouseIs.x + 3, whereMouseIs.y);
 			}
+		graphics.setColor(Color.LIGHT_GRAY);
+		for (int i = 1; i < positions.size(); i++) { 
+			Vector2D p0 = positions.get(i - 1);
+			Vector2D p1 = positions.get(i);
+			graphics.drawLine(p0.x(), p0.y(), p1.x(), p1.y());
+			}
 		graphics.setColor(Color.BLACK);
-		for (Vector2D position : positions) graphics.drawRect((int)position.getX() - 1, (int)position.getY() - 1, 2, 2); 
+		for (Vector2D position : positions) graphics.drawRect(position.x() - 1, position.y() - 1, 2, 2); 
 		if (interpolator != null) {
 			for (double distance = 0.0; distance < interpolator.getLength(); distance += 10.0) {
 				Where where = interpolator.findPosition(distance);
 				graphics.setColor(Color.ORANGE);
 				graphics.drawLine(where.getStartX(), where.getStartY(), where.getEndX(30.0), where.getEndY(30.0));
 				graphics.setColor(Color.RED);
-				graphics.drawArc((int)where.getX() - 1, (int)where.getY() - 1, 2, 2, 0, 360);
+				graphics.drawArc(where.getStartX() - 1, where.getStartY() - 1, 2, 2, 0, 360);
 				}
 			graphics.setColor(Color.GREEN);
 			int x = 0;

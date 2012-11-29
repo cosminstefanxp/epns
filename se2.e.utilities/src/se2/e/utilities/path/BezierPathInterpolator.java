@@ -96,6 +96,15 @@ public class BezierPathInterpolator implements PathInterpolator {
 		return power(t*t, p/2)*power(t, p%2);
 		}	
 	
+	/**
+	 * Calculates the binominal coefficient of two numbers.
+	 * 
+	 * Works with n and k up to at least 40.
+	 * 
+	 * @param n n.
+	 * @param k k.
+	 * @return the binominal coefficient of n over k.
+	 */
 	public static long binomialCoefficient(int n, int k) {
 		if (k == 0) return 1;
 		if (n == 0) return 0;

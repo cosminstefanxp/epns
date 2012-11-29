@@ -237,7 +237,7 @@ public class J3DNodeFactory {
 			try {
 				if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("obj"))
 					s = f.load(filepath);
-				if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("3ds")) 
+				else if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("3ds")) 
 				{
 					Loader3DS loader = new Loader3DS();
 					s = loader.load(filepath);
@@ -657,6 +657,7 @@ public class J3DNodeFactory {
             tg = new TransformGroup();
             tg.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
             destinationBranch.getBranchGroup().addChild(tg);
+            destinationBranch.setTransformGroup(tg);
         }
         AppearanceInfo appearanceInfo = this.loader.getAppearanceInfo(appearanceLabel);
 

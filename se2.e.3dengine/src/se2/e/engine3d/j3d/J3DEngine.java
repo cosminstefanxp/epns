@@ -91,6 +91,10 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	/** The paused. */
 	private boolean paused = false;
 
+	/** The running. */
+	private boolean running = false;
+
+	/** The canvas panel. */
 	private JPanel canvasPanel;
 
 	/**
@@ -280,6 +284,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		if (e.getSource() == btnStart) {
 			log.info("Starting engine 3D...");
 			paused = false;
+			running = true;
 			if (this.engineListener != null) {
 				engineListener.onStartSimulation();
 				btnStart.setEnabled(false);
@@ -292,6 +297,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		if (e.getSource() == btnPause) {
 			log.info("Pause/Resume button clicked...");
 			paused = !paused;
+			running = !running;
 			if (paused)
 				btnPause.setText("Resume");
 			else
@@ -305,7 +311,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 			btnPause.setEnabled(false);
 			btnStart.setEnabled(true);
 			btnPause.setText("Pause");
-
+			running = false;
 			cleanupOnStop();
 		}
 	}
@@ -422,9 +428,11 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 * @param geomLabel the geom label
 	 */
 	public void userInteraction(String geomLabel) {
-		log.info("User interaction on: " + geomLabel);
-		// Notify the engine listener
-		engineListener.onUserInteraction(geomLabel);
+		// Notify the engine listener if not paused or stopped
+		if (running) {
+			log.info("User interaction on: " + geomLabel);
+			engineListener.onUserInteraction(geomLabel);
+		}
 	}
 
 	/*

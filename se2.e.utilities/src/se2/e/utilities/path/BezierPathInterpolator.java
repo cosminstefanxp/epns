@@ -1,6 +1,7 @@
 package se2.e.utilities.path;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import se2.e.utilities.PathInterpolator;
@@ -16,6 +17,11 @@ public class BezierPathInterpolator implements PathInterpolator {
 	public BezierPathInterpolator(List<Vector2D> positions) {
 		this.positions = positions;
 		this.length = findBezierLength(positions);
+		}
+	
+	public BezierPathInterpolator(Vector2D... positions) {
+		this.positions = Arrays.asList(positions);
+		this.length = findBezierLength(this.positions);
 		}
 	
 	@Override

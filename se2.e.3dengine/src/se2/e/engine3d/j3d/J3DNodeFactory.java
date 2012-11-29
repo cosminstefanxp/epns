@@ -70,9 +70,6 @@ import com.sun.j3d.utils.image.TextureLoader;
  */
 public class J3DNodeFactory {
 
-	/** The Constant TRACK_WIDTH. */
-	private static final double TRACK_WIDTH = 3.0d;
-
 	/** The Constant DRAWING_PLANE_Z. */
 	private static final double DRAWING_PLANE_Z = 0d;
 	
@@ -394,10 +391,10 @@ public class J3DNodeFactory {
 		forward.multiply(INTERPOLATION_DIST);
 		
 		//cumpute the four points
-		Vector2D forwardRight=Vector2D.add(startV,forward).add(new Vector2D(right).multiply(TRACK_WIDTH));
-		Vector2D forwardLeft = Vector2D.add(startV,forward).add(new Vector2D(right).multiply(-TRACK_WIDTH));
-		Vector2D backRight = Vector2D.add(startV,new Vector2D(right).multiply(TRACK_WIDTH));
-		Vector2D backLeft = Vector2D.add(startV,new Vector2D(right).multiply(-TRACK_WIDTH));
+		Vector2D forwardRight=Vector2D.add(startV,forward).add(new Vector2D(right).multiply(this.trackWidth));
+		Vector2D forwardLeft = Vector2D.add(startV,forward).add(new Vector2D(right).multiply(-this.trackWidth));
+		Vector2D backRight = Vector2D.add(startV,new Vector2D(right).multiply(this.trackWidth));
+		Vector2D backLeft = Vector2D.add(startV,new Vector2D(right).multiply(-this.trackWidth));
 		
 		
 		//list of quad points
@@ -431,8 +428,8 @@ public class J3DNodeFactory {
 			forward.multiply(INTERPOLATION_DIST);
 			
 			//compute the new forward position
-			forwardRight=Vector2D.add(startV,forward).add(new Vector2D(right).multiply(TRACK_WIDTH));
-			forwardLeft = Vector2D.add(startV,forward).add(new Vector2D(right).multiply(-TRACK_WIDTH));
+			forwardRight=Vector2D.add(startV,forward).add(new Vector2D(right).multiply(this.trackWidth));
+			forwardLeft = Vector2D.add(startV,forward).add(new Vector2D(right).multiply(-this.trackWidth));
 			
 			//add the front-points for the quad
 			p1 = new Point3d(forwardRight.getX(), forwardRight.getY(), DRAWING_PLANE_Z);

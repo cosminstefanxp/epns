@@ -669,14 +669,4 @@ public class J3DNodeFactory {
         return destinationBranch;
     }
 	
-	private void generate(Where start)
-	{
-		Vector2D forward=Vector2D.polar(start.getHeading());
-		Vector2D right=forward.normal();
-		Vector2D startV=start.getPosition();
-		Vector2D forwardRight=startV.add(forward.multiply(TRACK_WIDTH)).add(right.multiply(TRACK_WIDTH));
-		Vector2D forwardLeft=startV.add(forward.multiply(TRACK_WIDTH)).add(right.multiply(-TRACK_WIDTH));
-		Vector2D backRight=startV.add(right.multiply(TRACK_WIDTH));
-		Vector2D backLeft=startV.add(right.multiply(-TRACK_WIDTH));
-	}
 }

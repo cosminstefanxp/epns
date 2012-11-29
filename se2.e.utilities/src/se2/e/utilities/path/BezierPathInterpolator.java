@@ -31,8 +31,8 @@ public class BezierPathInterpolator implements PathInterpolator {
 		if (positions == null || positions.size() == 0)
 			throw new RuntimeException("Trying to find bezier point from nothing");
 		int n = positions.size() - 1; // The order is one less than the number of points.
-		Vector2D B = new Vector2D(positions.get(0)).multiply(bernstein(0, n, t));
-		for (int i = 1; i <= n; i++) B.factorAdd(bernstein(i, n, t), positions.get(i));
+		Vector2D B = new Vector2D(positions.get(0)).multiply(bernsteinBasisPolynomial(0, n, t));
+		for (int i = 1; i <= n; i++) B.factorAdd(bernsteinBasisPolynomial(i, n, t), positions.get(i));
 		return B;
 		}
 	
@@ -116,7 +116,7 @@ public class BezierPathInterpolator implements PathInterpolator {
 		return b;
 		}
 	
-	public static double bernstein(int i, int n, double t) {
+	public static double bernsteinBasisPolynomial(int i, int n, double t) {
 		return binomialCoefficient(n, i)*power(t, i)*power(1 - t, n - i);
 		}
 

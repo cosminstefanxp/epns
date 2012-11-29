@@ -211,16 +211,16 @@ public class J3DNodeFactory {
 			Object3D type = ((appearance.Shape3D) shape).getType();
 			if (type == Object3D.CUBE) 
 			{
-				ColorCube model = new ColorCube(5f);
+				ColorCube model = new ColorCube(1f);
 				nodeTrans.addChild(model);
 			} else if (type == Object3D.SPHERE) 
 			{
 				Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
 				Sphere model;
 				if (app != null)
-					model = new Sphere(5, app);
+					model = new Sphere(1, app);
 				else
-					model = new Sphere(5);
+					model = new Sphere(1);
 				nodeTrans.addChild(model);
 			}
 		} 
@@ -275,7 +275,7 @@ public class J3DNodeFactory {
 			}
 
 		} else {
-			ColorCube model = new ColorCube(0.5f);
+			ColorCube model = new ColorCube(1f);
 			transformGroup.addChild(model);
 		}
 		

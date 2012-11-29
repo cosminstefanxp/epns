@@ -38,7 +38,6 @@ public class RuntimeWaitAnimation extends RuntimeAnimation<Wait> {
 
 	@Override
 	public WakeupCondition onUpdateAnimation() {
-		log.info("Wait time expired...");
 		// If not paused, finish the animation, otherwise wait 1/2 more second and try again
 		if (!animationListener.isPaused()) {
 			onAnimationFinished();

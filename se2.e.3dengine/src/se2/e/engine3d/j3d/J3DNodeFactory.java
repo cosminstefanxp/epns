@@ -507,6 +507,7 @@ public class J3DNodeFactory {
 	public DynamicBranch getGeometryBranch(String geometryLabel,
 			boolean interactiveInput) {
 		BranchGroup branchGroup = new BranchGroup();
+		branchGroup.setCapability(BranchGroup.ALLOW_DETACH);
 		TransformGroup tg = null;
 		SimplePosition sp = this.loader.getSimplePositionObject(geometryLabel);
 		Track t = this.loader.getTrackFromLabel(geometryLabel);

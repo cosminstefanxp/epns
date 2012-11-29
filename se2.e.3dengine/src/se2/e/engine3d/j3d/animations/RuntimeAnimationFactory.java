@@ -46,7 +46,7 @@ public class RuntimeAnimationFactory {
 
 		if (animation instanceof Hide) {
 			Logger.getAnonymousLogger().info("Creating RuntimeHideAnimation with: " + animation);
-			return new RuntimeHideAnimation(targetBranch, (Hide) animation, token, listener);
+			return new RuntimeHideAnimation(targetBranch, (Hide) animation, token, listener, engine, geometryLabel);
 		}
 
 		if (animation instanceof Show) {

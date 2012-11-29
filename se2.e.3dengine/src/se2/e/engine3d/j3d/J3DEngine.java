@@ -199,7 +199,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		this.nodeFactory = new J3DNodeFactory(loader, this, canvas, trackWidth);
 
 		this.placeRepresentations = new HashMap<String, DynamicBranch>();
-		
+
 		// Load the universe
 		universe = createUniverse(canvas);
 
@@ -235,6 +235,11 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		}
 		rootNode.addChild(trackGroup);
 
+		// Compile to perform optimizations on this content branch.
+		rootNode.setCapability(BranchGroup.ALLOW_CHILDREN_EXTEND);
+		rootNode.setCapability(BranchGroup.ALLOW_CHILDREN_WRITE);
+		rootNode.compile();
+
 		// Add representations for the simple positions
 		for (String label : loader.getSimplePositionLabels()) {
 			// Create the node corresponding to simple position and add it to the scene graph
@@ -252,15 +257,11 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 			}
 			// Add the branch to the scene graph
 			if (inputPlaceBranch != null) {
+				inputPlaceBranch.setAttachedToRoot(true);
 				rootNode.addChild(inputPlaceBranch.getBranchGroup());
 				placeRepresentations.put(label, inputPlaceBranch);
 			}
 		}
-
-		// Compile to perform optimizations on this content branch.
-		rootNode.setCapability(BranchGroup.ALLOW_CHILDREN_EXTEND);
-		rootNode.setCapability(BranchGroup.ALLOW_CHILDREN_WRITE);
-		rootNode.compile();
 
 		return rootNode;
 	}
@@ -489,6 +490,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	public void attachPlaceRepresentation(String label, DynamicBranch branch) {
 		if (branch != null) {
 			sceneRoot.addChild(branch.getBranchGroup());
+			branch.setAttachedToRoot(true);
 			placeRepresentations.put(label, branch);
 		}
 	}

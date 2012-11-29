@@ -5,6 +5,7 @@ import javax.media.j3d.WakeupCondition;
 import animations.Hide;
 
 import se2.e.engine3d.j3d.DynamicBranch;
+import se2.e.engine3d.j3d.J3DEngine;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 
 /**
@@ -24,11 +25,26 @@ public class RuntimeHideAnimation extends RuntimeAnimation<Hide> {
 	 * @param listener the listener
 	 */
 	public RuntimeHideAnimation(DynamicBranch targetBranch, Hide animation, RuntimeToken token,
-			RuntimeAnimationListener listener) {
+			RuntimeAnimationListener listener, J3DEngine engine, String geometryLabel) {
 		super(targetBranch, animation, token, listener, false);
+
+		// If this token has a representation, remove it
 		this.detachFromRoot();
 		this.getTargetBranch().getBranchGroup().removeChild(this.getTargetBranch().getTransformGroup());
 		this.getTargetBranch().setTransformGroup(null);
+
+		// If the place is a SimplePosition and has a representation, remove it
+		DynamicBranch branch = engine.getPlaceRepresentation(geometryLabel);
+		if (branch != null) {
+			if (branch.isAttachedToRoot()) {
+				branch.getBranchGroup().detach();
+				branch.setAttachedToRoot(false);
+			}
+
+			if (branch.getTransformGroup() != null)
+				branch.getTransformGroup().removeAllChildren();
+		}
+
 		log.info(this.getClass().getSimpleName() + " finished for token: " + this.getToken());
 		listener.animationFinished(getToken());
 

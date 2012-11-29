@@ -21,6 +21,7 @@ public class RuntimeShowAnimation extends RuntimeAnimation<Show> {
 	 * @param animation the animation
 	 * @param token the token
 	 * @param listener the listener
+	 * @author cosmin
 	 */
 	public RuntimeShowAnimation(DynamicBranch targetBranch, Show animation, RuntimeToken token,
 			RuntimeAnimationListener listener, J3DEngine engine, String geometryLabel) {
@@ -41,6 +42,9 @@ public class RuntimeShowAnimation extends RuntimeAnimation<Show> {
 			branch.getTransformGroup().removeAllChildren();
 		engine.getNodeFactory().getGeometryBranch(animation.getShape(), geometryLabel, branch);
 		engine.attachPlaceRepresentation(geometryLabel, branch);
+		
+		log.info("Show animation finished for :"+getToken());
+		this.animationListener.animationFinished(getToken());
 	}
 
 	/*

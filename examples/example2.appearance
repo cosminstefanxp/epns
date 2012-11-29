@@ -3,7 +3,7 @@
   <appearanceInfos xsi:type="appearance:SurfaceColor" label="C1" color="Cyan"/>
   <appearanceInfos xsi:type="appearance:Shape3D" label="S2" type="Sphere"/>
   <appearanceInfos xsi:type="appearance:Model3D" label="S1" scale="4.0" xRotation="1.57" yRotation="3.14" elevation="3.0" file="C:\Users\marius\Desktop\Train.obj">
-    <shapeSurface xsi:type="appearance:SurfaceColor" label="C2" color="Pink"/>
+    <shapeSurface xsi:type="appearance:SurfaceColor" label="C2" color="Red"/>
   </appearanceInfos>
   <appearanceInfos xsi:type="appearance:Texture" label="T1" file="D:\ews\4.2\se2-32-12\ws\J3DGettingStart\railway.jpg"/>
 </appearance:AppearanceModel>

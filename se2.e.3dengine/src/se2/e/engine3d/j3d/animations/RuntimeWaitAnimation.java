@@ -45,7 +45,7 @@ public class RuntimeWaitAnimation extends RuntimeAnimation<Wait> {
 
 	@Override
 	protected void onAnimationFinished() {
-		log.info("Finishing Wait Animation...");
+		log.info(this.getClass().getSimpleName()+" finished for token: " + this.getToken());
 		this.animationListener.animationFinished(getToken());
 	}
 

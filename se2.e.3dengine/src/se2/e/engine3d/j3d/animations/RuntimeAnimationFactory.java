@@ -6,6 +6,7 @@ import se2.e.engine3d.j3d.DynamicBranch;
 import se2.e.engine3d.j3d.J3DEngine;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import animations.Animation;
+import animations.Hide;
 import animations.Move;
 import animations.Sequence;
 import animations.Show;
@@ -29,18 +30,23 @@ public class RuntimeAnimationFactory {
 	 * @author cosmin
 	 */
 	public static RuntimeAnimation<?> buildRuntimeAnimation(DynamicBranch targetBranch, Animation animation,
-			RuntimeToken token, J3DEngine engine, String geometryLabel) {
+			RuntimeToken token, J3DEngine engine, RuntimeAnimationListener listener, String geometryLabel) {
 
 		if (animation instanceof Move) {
 			Logger.getAnonymousLogger().info("Creating RuntimeMoveAnimation with: " + animation);
 			// Checks
 			if (geometryLabel == null) {
 				Logger.getAnonymousLogger().severe("No geometry set on place, for Move animation.");
-				return new RuntimeDummyAnimation(targetBranch, animation, token, engine);
+				return new RuntimeDummyAnimation(targetBranch, animation, token, listener);
 			}
 
-			return new RuntimeMoveAnimation(targetBranch, (Move) animation, token, engine,
+			return new RuntimeMoveAnimation(targetBranch, (Move) animation, token, listener,
 					engine.getGeometryAndAppearanceLoader(), geometryLabel, engine.getNodeFactory());
+		}
+
+		if (animation instanceof Hide) {
+			Logger.getAnonymousLogger().info("Creating RuntimeHideAnimation with: " + animation);
+			return new RuntimeHideAnimation(targetBranch, (Hide) animation, token, listener);
 		}
 
 		if (animation instanceof Show) {
@@ -48,7 +54,7 @@ public class RuntimeAnimationFactory {
 			// Checks
 			if (geometryLabel == null) {
 				Logger.getAnonymousLogger().severe("No geometry set on place, for Show animation.");
-				return new RuntimeDummyAnimation(targetBranch, animation, token, engine);
+				return new RuntimeDummyAnimation(targetBranch, animation, token, listener);
 			}
 
 			// If there's no target branch, create one now for the token's appearance
@@ -59,22 +65,22 @@ public class RuntimeAnimationFactory {
 			if (targetBranch.getTransformGroup() == null)
 				engine.getNodeFactory().getTokenBranch(token.getLabel(), targetBranch);
 
-			return new RuntimeShowAnimation(targetBranch, (Show) animation, token, engine);
+			return new RuntimeShowAnimation(targetBranch, (Show) animation, token, listener);
 		}
 
 		if (animation instanceof Wait) {
 			Logger.getAnonymousLogger().info("Creating RuntimeWaitAnimation with: " + animation);
-			return new RuntimeWaitAnimation(targetBranch, (Wait) animation, token, engine);
+			return new RuntimeWaitAnimation(targetBranch, (Wait) animation, token, listener);
 		}
 
 		if (animation instanceof Sequence) {
 			Logger.getAnonymousLogger().info("Creating RuntimeSequenceAnimation with: " + animation);
-			return new RuntimeSequenceAnimation(targetBranch, (Sequence) animation, token, engine, geometryLabel);
+			return new RuntimeSequenceAnimation(targetBranch, (Sequence) animation, token, engine, listener, geometryLabel);
 		}
 
 		Logger.getAnonymousLogger().warning(
 				"RuntimeAnimationFactory could not create RuntimeAnimation for " + animation);
-		return new RuntimeDummyAnimation(targetBranch, animation, token, engine);
+		return new RuntimeDummyAnimation(targetBranch, animation, token, listener);
 	}
 
 }

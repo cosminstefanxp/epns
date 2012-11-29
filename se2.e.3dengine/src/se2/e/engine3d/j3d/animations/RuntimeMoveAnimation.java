@@ -113,7 +113,7 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 
 	@Override
 	protected void onAnimationFinished() {
-		log.info("Animation Finished for token: " + this.getToken());
+		log.info(this.getClass().getSimpleName()+" finished for token: " + this.getToken());
 		this.animationListener.animationFinished(this.getToken());
 	}
 

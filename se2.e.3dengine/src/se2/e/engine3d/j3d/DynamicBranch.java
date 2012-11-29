@@ -51,7 +51,7 @@ public class DynamicBranch {
 		return transformGroup;
 	}
 
-	protected void setTransformGroup(TransformGroup transformGroup) {
+	public void setTransformGroup(TransformGroup transformGroup) {
 		this.transformGroup = transformGroup;
 	}
 

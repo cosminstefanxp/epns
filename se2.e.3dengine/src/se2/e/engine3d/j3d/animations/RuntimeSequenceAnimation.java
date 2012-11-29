@@ -38,17 +38,19 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> impleme
 	 * @param geometryLabel the geometry label
 	 */
 	public RuntimeSequenceAnimation(DynamicBranch targetBranch, Sequence animation, RuntimeToken token,
-			J3DEngine engine, String geometryLabel) {
-		super(targetBranch, animation, token, engine, false);
+			J3DEngine engine, RuntimeAnimationListener listener, String geometryLabel) {
+		super(targetBranch, animation, token, listener, false);
 		this.engine = engine;
 		this.geometryLabel = geometryLabel;
+
+		log.info("Starting sequence with animations: " + animation.getComponents());
 
 		// Start the first animation
 		currentAnimationIndex = 0;
 
 		// Register itself as RuntimeAnimationListener for children animations
 		currentRuntimeAnimation = RuntimeAnimationFactory.buildRuntimeAnimation(getTargetBranch(), animation
-				.getComponents().get(0), getToken(), engine, geometryLabel);
+				.getComponents().get(0), getToken(), this.engine, this, geometryLabel);
 		currentRuntimeAnimation.setAnimationListener(this);
 	}
 
@@ -98,7 +100,7 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> impleme
 		if (currentAnimationIndex < animation.getComponents().size() - 1) {
 			currentAnimationIndex++;
 			currentRuntimeAnimation = RuntimeAnimationFactory.buildRuntimeAnimation(getTargetBranch(), animation
-					.getComponents().get(currentAnimationIndex), getToken(), engine, geometryLabel);
+					.getComponents().get(currentAnimationIndex), getToken(), engine, this, geometryLabel);
 			currentRuntimeAnimation.setAnimationListener(this);
 		} else {
 			log.info("Sequence Animation finished for token: " + getToken());
@@ -113,7 +115,7 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> impleme
 	 */
 	@Override
 	public boolean isPaused() {
-		return engine.isPaused();
+		return animationListener.isPaused();
 	}
 
 	/*
@@ -125,7 +127,7 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> impleme
 	 */
 	@Override
 	public void attachToRoot(RuntimeAnimation<?> animation) {
-		engine.attachToRoot(animation);
+		animationListener.attachToRoot(animation);
 	}
 
 }

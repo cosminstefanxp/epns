@@ -352,7 +352,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 			log.info("Existing dynamic branch not found for token " + token);
 
 		// Build the RuntimeAnimation
-		RuntimeAnimationFactory.buildRuntimeAnimation(branch, animation, token, this, geometryLabel);
+		RuntimeAnimationFactory.buildRuntimeAnimation(branch, animation, token, this, this, geometryLabel);
 		// There is no need to attach the animation to the root, as it will attach by itself
 
 	}

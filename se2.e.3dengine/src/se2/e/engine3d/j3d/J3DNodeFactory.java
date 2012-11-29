@@ -612,10 +612,8 @@ public class J3DNodeFactory {
 				DRAWING_PLANE_Z));
 		if (appearanceInfo instanceof appearance.Shape) {
 
-			destinationTransformGroup = buildTransformGroupForShape((appearance.Shape) appearanceInfo,
-					null);
-			
-			destinationTransformGroup.setPickable(true);
+			buildTransformGroupForShape((appearance.Shape) appearanceInfo,
+					destinationTransformGroup);
 		}
 		destinationTransformGroup.setTransform(trans3d);
 		return destinationBranch;

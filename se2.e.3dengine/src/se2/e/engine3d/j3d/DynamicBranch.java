@@ -48,6 +48,10 @@ public class DynamicBranch {
 		return transformGroup;
 	}
 
+	protected void setTransformGroup(TransformGroup transformGroup) {
+		this.transformGroup = transformGroup;
+	}
+
 	/**
 	 * Gets the branch group.
 	 * 

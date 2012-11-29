@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<appearance:AppearanceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:appearance="http://appearance/1.0">
-  <appearanceInfos xsi:type="appearance:Shape3D" label="S1"/>
-  <appearanceInfos xsi:type="appearance:Shape3D" label="S2" type="Sphere"/>
-  <appearanceInfos xsi:type="appearance:Texture" label="Tex" file="C:\Users\Student\Desktop\railway.jpg"/>
-  <appearanceInfos xsi:type="appearance:Model3D" label="T1" scale="7.0" xRotation="1.57" yRotation="3.14" file="C:\Users\Student\Desktop\Train.obj">
-    <shapeSurface xsi:type="appearance:SurfaceColor" label="" color="Green"/>
-  </appearanceInfos>
-</appearance:AppearanceModel>

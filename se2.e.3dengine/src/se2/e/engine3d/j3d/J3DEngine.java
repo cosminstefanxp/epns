@@ -297,6 +297,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 			btnStop.setEnabled(false);
 			btnPause.setEnabled(false);
 			btnStart.setEnabled(true);
+			btnPause.setText("Pause");
 
 			cleanupOnStop();
 		}

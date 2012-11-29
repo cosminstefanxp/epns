@@ -91,29 +91,34 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 
 	@Override
 	public WakeupCondition onUpdateAnimation() {
-		// Compute new update location
-		distance += animation.getSpeed();
-		currentPosition = pathInterpolator.findPosition(distance);
 
-		// Move the object to the new position and execute the corresponding rotation
-		Transform3D t = new Transform3D();
-		t.setTranslation(new Vector3d(currentPosition.getPosition().getX(), currentPosition.getY(), 0));
-		Transform3D rotz = new Transform3D();
-		rotz.rotZ(currentPosition.getOrientation().getAngle());
-		t.mul(t, rotz);
-		this.getTargetBranch().getTransformGroup().setTransform(t);
+		// If not paused
+		if (!animationListener.isPaused()) {
+			// Compute new update location
+			distance += animation.getSpeed();
+			currentPosition = pathInterpolator.findPosition(distance);
 
-		// Check for finishing conditions
-		if (pathInterpolator.getLength() < distance) {
-			onAnimationFinished();
-			return null;
+			// Move the object to the new position and execute the corresponding rotation
+			Transform3D t = new Transform3D();
+			t.setTranslation(new Vector3d(currentPosition.getPosition().getX(), currentPosition.getY(), 0));
+			Transform3D rotz = new Transform3D();
+			rotz.rotZ(currentPosition.getOrientation().getAngle());
+			t.mul(t, rotz);
+			this.getTargetBranch().getTransformGroup().setTransform(t);
+
+			// Check for finishing conditions
+			if (pathInterpolator.getLength() < distance) {
+				onAnimationFinished();
+				return null;
+			}
 		}
+
 		return new WakeupOnElapsedFrames(UPDATE_FRAME_COUNT);
 	}
 
 	@Override
 	protected void onAnimationFinished() {
-		log.info(this.getClass().getSimpleName()+" finished for token: " + this.getToken());
+		log.info(this.getClass().getSimpleName() + " finished for token: " + this.getToken());
 		this.animationListener.animationFinished(this.getToken());
 	}
 

@@ -7,17 +7,17 @@ import org.eclipse.osgi.util.NLS;
  */
 public class Messages extends NLS {
 
-	public static final String NavigatorActionProvider_OpenDiagramActionName = null;
+	public static final String NavigatorActionProvider_OpenDiagramActionName = "";
 
-	public static final String NavigatorGroupName_TrackPosition_2002_incominglinks = null;
+	public static final String NavigatorGroupName_TrackPosition_2002_incominglinks = "";
 
-	public static final String NavigatorGroupName_TrackPosition_2002_outgoinglinks = null;
+	public static final String NavigatorGroupName_TrackPosition_2002_outgoinglinks = "";
 
-	public static final String NavigatorGroupName_Track_4001_target = null;
+	public static final String NavigatorGroupName_Track_4001_target = "";
 
-	public static final String NavigatorGroupName_Track_4001_source = null;
+	public static final String NavigatorGroupName_Track_4001_source = "";
 
-	public static final String NavigatorGroupName_Geometry_1000_links = null;
+	public static final String NavigatorGroupName_Geometry_1000_links = "";
 
 	/**
 	 * @generated

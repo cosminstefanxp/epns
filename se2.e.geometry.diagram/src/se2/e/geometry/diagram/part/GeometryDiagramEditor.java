@@ -99,21 +99,6 @@ public class GeometryDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
-	@SuppressWarnings("rawtypes")
-	public Object getAdapter(Class type) {
-		if (type == IShowInTargetList.class) {
-			return new IShowInTargetList() {
-				public String[] getShowInTargetIds() {
-					return new String[] { ProjectExplorer.VIEW_ID };
-				}
-			};
-		}
-		return super.getAdapter(type);
-	}
-
-	/**
-	 * @generated
-	 */
 	protected IDocumentProvider getDocumentProvider(IEditorInput input) {
 		if (input instanceof IFileEditorInput
 				|| input instanceof URIEditorInput) {
@@ -254,28 +239,8 @@ public class GeometryDiagramEditor extends DiagramDocumentEditor implements
 	 * @generated
 	 */
 	public ShowInContext getShowInContext() {
-		return new ShowInContext(getEditorInput(), getNavigatorSelection());
-	}
-
-	/**
-	 * @generated
-	 */
-	private ISelection getNavigatorSelection() {
-		IDiagramDocument document = getDiagramDocument();
-		if (document == null) {
-			return StructuredSelection.EMPTY;
-		}
-		Diagram diagram = document.getDiagram();
-		if (diagram == null || diagram.eResource() == null) {
-			return StructuredSelection.EMPTY;
-		}
-		IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
-		if (file != null) {
-			GeometryNavigatorItem item = new GeometryNavigatorItem(diagram,
-					file, false);
-			return new StructuredSelection(item);
-		}
-		return StructuredSelection.EMPTY;
+		return new ShowInContext(getEditorInput(), getGraphicalViewer()
+				.getSelection());
 	}
 
 	/**

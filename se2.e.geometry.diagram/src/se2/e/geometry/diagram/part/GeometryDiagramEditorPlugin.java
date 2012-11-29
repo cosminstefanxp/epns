@@ -21,6 +21,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import se2.e.geometry.diagram.edit.policies.GeometryBaseItemSemanticEditPolicy;
+import se2.e.geometry.diagram.expressions.GeometryOCLFactory;
 import se2.e.geometry.diagram.providers.ElementInitializers;
 import se2.e.geometry.provider.GeometryItemProviderAdapterFactory;
 
@@ -68,6 +69,11 @@ public class GeometryDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
+	private GeometryOCLFactory oclFactory;
+
+	/**
+	 * @generated
+	 */
 	public GeometryDiagramEditorPlugin() {
 	}
 
@@ -90,6 +96,7 @@ public class GeometryDiagramEditorPlugin extends AbstractUIPlugin {
 		adapterFactory = null;
 		linkConstraints = null;
 		initializers = null;
+		oclFactory = null;
 		instance = null;
 		super.stop(context);
 	}
@@ -233,6 +240,20 @@ public class GeometryDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	public void setElementInitializers(ElementInitializers i) {
 		this.initializers = i;
+	}
+
+	/**
+	 * @generated
+	 */
+	public GeometryOCLFactory getGeometryOCLFactory() {
+		return oclFactory;
+	}
+
+	/**
+	 * @generated
+	 */
+	public void setGeometryOCLFactory(GeometryOCLFactory f) {
+		this.oclFactory = f;
 	}
 
 	/**

@@ -824,7 +824,7 @@ public class GeometryDocumentProvider extends AbstractDocumentProvider
 		 * @generated
 		 */
 		private ResourceSetModificationListener myResourceSetListener;
-		
+
 		/**
 		 * @generated NOT
 		 */
@@ -833,14 +833,15 @@ public class GeometryDocumentProvider extends AbstractDocumentProvider
 		/**
 		 * @generated NOT
 		 */
-		public ResourceSetInfo(IDiagramDocument document,IEditorInput editorInput) {
+		public ResourceSetInfo(IDiagramDocument document,
+				IEditorInput editorInput) {
 			super(document);
 			myDocument = document;
 			myEditorInput = editorInput;
 			startResourceListening();
 			myResourceSetListener = new ResourceSetModificationListener(this);
 			getResourceSet().eAdapters().add(myResourceSetListener);
-			
+
 			// Position Listener
 			positionListener = new PositionListener();
 			myDocument.getDiagram().eAdapters().add(positionListener);

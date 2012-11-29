@@ -23,9 +23,6 @@ public class GeometrySheetLabelProvider extends BaseLabelProvider implements
 	 */
 	public String getText(Object element) {
 		element = unwrap(element);
-		if (element instanceof GeometryNavigatorGroup) {
-			return ((GeometryNavigatorGroup) element).getGroupName();
-		}
 		IElementType etype = getElementType(getView(element));
 		return etype == null ? "" : etype.getDisplayName();
 	}

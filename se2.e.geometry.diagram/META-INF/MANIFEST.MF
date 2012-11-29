@@ -37,6 +37,9 @@ Require-Bundle: org.eclipse.core.runtime,
  se2.e.geometry;visibility:=reexport,
  se2.e.geometry.edit;visibility:=reexport,
  org.eclipse.gef;visibility:=reexport,
- se2.e.utilities;bundle-version="1.0.0"
+ se2.e.utilities;bundle-version="1.0.0",
+ org.eclipse.ocl.ecore;visibility:=reexport,
+ org.eclipse.emf.validation;visibility:=reexport,
+ org.eclipse.emf.validation.ocl;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

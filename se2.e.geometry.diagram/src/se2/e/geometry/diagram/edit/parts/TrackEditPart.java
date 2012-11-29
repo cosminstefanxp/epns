@@ -137,14 +137,13 @@ public class TrackEditPart extends ConnectionNodeEditPart implements
 
 		}
 
-		
 		/**
 		 * @generated
 		 */
 		public WrappingLabel getFigureTrackLabelFigure() {
 			return fFigureTrackLabelFigure;
 		}
-		
+
 		/**
 		 * @generated NOT
 		 * @author Jerome and Georgios
@@ -156,7 +155,6 @@ public class TrackEditPart extends ConnectionNodeEditPart implements
 			return QuadraticBezierFromPath.allPoints(this.getPoints());
 		}
 	}
-	
 
 	/**
 	 * @generated

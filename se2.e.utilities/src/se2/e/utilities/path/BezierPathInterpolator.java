@@ -1,5 +1,6 @@
 package se2.e.utilities.path;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -95,17 +96,15 @@ public class BezierPathInterpolator implements PathInterpolator {
 		return power(t*t, p/2)*power(t, p%2);
 		}	
 	
-	public static int binomialCoefficient(int n, int k) {
+	public static long binomialCoefficient(int n, int k) {
 		if (k == 0) return 1;
 		if (n == 0) return 0;
-		long numerator = 1;
-		long denominator = 1;
+		long b = 1;
 		for (int i = 1; i <= k; i++) {
-			numerator *= n - (k - i);
-			denominator *= i;
+			b *= (n - k + i);
+			b /= i;
 			}
-		if (numerator % denominator != 0) throw new RuntimeException("binominal abnominal n="+n+", k="+k);
-		return (int)(numerator/denominator);
+		return b;
 		}
 	
 	public static double bernstein(int i, int n, double t) {

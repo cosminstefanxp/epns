@@ -179,7 +179,7 @@ public class AnimationLabelImpl extends StructuredLabelImpl implements Animation
 	}
 	
 	/**
-     * Method for parsing the text of an animation label. 
+     * Method for parsing the text of an animation label. From prototype example.
      * 
      * @generated NOT
      * @author Juan, María and Pablo.

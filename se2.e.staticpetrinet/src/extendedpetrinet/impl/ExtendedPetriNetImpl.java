@@ -29,6 +29,7 @@ public class ExtendedPetriNetImpl extends PetriNetTypeImpl implements ExtendedPe
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
+	 * @author Juan, María and Pablo.
 	 */
 	public ExtendedPetriNetImpl() {
 		super();
@@ -49,6 +50,7 @@ public class ExtendedPetriNetImpl extends PetriNetTypeImpl implements ExtendedPe
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
+	 * @author Juan, María and Pablo.
 	 */
 	@Override
 	public String toString() {

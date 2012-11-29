@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <appearance:AppearanceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:appearance="http://appearance/1.0">
-  <appearanceInfos xsi:type="appearance:SurfaceColor" label="C1" color="Cyan"/>
-  <appearanceInfos xsi:type="appearance:Shape3D" label="S2" type="Sphere"/>
-  <appearanceInfos xsi:type="appearance:Model3D" label="S1" scale="4.0" xRotation="1.57" yRotation="3.14" elevation="3.0" file="C:\Users\marius\Desktop\Train.obj">
-    <shapeSurface xsi:type="appearance:SurfaceColor" label="C2" color="Red"/>
+  <appearanceInfos xsi:type="appearance:SurfaceColor" label="C1" color="Orange"/>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="S2" scale="6.0" type="Sphere">
+    <shapeSurface xsi:type="appearance:SurfaceColor" color="Green"/>
   </appearanceInfos>
-  <appearanceInfos xsi:type="appearance:Texture" label="T1" file="D:\ews\4.2\se2-32-12\ws\J3DGettingStart\railway.jpg"/>
+  <appearanceInfos xsi:type="appearance:Model3D" label="M1" scale="4.0" xRotation="1.57" yRotation="3.14" file="/home/cosmin/se2/se2.e.examples/Train.obj">
+    <shapeSurface xsi:type="appearance:SurfaceColor" label="C2" color="Pink"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Texture" label="T1" file="/home/cosmin/se2/se2.e.examples/railway.jpg"/>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="S1" scale="5.0" elevation="5.0"/>
 </appearance:AppearanceModel>

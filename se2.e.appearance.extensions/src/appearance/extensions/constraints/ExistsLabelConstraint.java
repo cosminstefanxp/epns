@@ -7,6 +7,12 @@ import org.eclipse.emf.validation.IValidationContext;
 
 import appearance.AppearanceInfo;
 
+
+/**
+ * ExistsLabelConstraint class
+ * 
+ * @author Juan, Pablo and María.
+ */
 public class ExistsLabelConstraint extends AbstractModelConstraint {
 
 	@Override

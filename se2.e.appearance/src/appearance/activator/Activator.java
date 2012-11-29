@@ -1,3 +1,4 @@
+/* File from the ePNK project. Modified accordingly to our needs. */
 package appearance.activator;
 
 import org.eclipse.core.runtime.Plugin;
@@ -14,9 +15,7 @@ public class Activator extends Plugin {
 	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
-		EValidator.Registry.INSTANCE.put(
-				AppearancePackage.eINSTANCE,
-				new EValidatorAdapter());
+		EValidator.Registry.INSTANCE.put(AppearancePackage.eINSTANCE, new EValidatorAdapter());
 	}
 
 }

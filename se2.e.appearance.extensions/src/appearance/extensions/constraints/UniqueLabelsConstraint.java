@@ -12,7 +12,11 @@ import org.eclipse.emf.validation.IValidationContext;
 import appearance.AppearanceInfo;
 import appearance.AppearanceModel;
 
-
+/**
+ * UniqueLabelsConstraint class
+ * 
+ * @author Juan, Pablo and María.
+ */
 public class UniqueLabelsConstraint extends AbstractModelConstraint {
 
 	@Override

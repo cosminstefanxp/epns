@@ -1,3 +1,4 @@
+/* File from the ePNK project */
 package appearance.extensions.constraints;
 
 import org.eclipse.emf.validation.model.IClientSelector;

@@ -1,6 +1,4 @@
-/**
- * This file is part of the ePNK project. 
- */
+/* This file is part of the ePNK project. */
 package appearance.activator;
 
 import java.util.Map;

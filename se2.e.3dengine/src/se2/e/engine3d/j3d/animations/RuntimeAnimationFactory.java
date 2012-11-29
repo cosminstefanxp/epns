@@ -57,15 +57,7 @@ public class RuntimeAnimationFactory {
 				return new RuntimeDummyAnimation(targetBranch, animation, token, listener);
 			}
 
-			// If there's no target branch, create one now for the token's appearance
-			if (targetBranch == null)
-				targetBranch = engine.getNodeFactory().getTokenBranch(token.getLabel(), null);
-			else
-			// If there's no transform group for the token, create it now
-			if (targetBranch.getTransformGroup() == null)
-				engine.getNodeFactory().getTokenBranch(token.getLabel(), targetBranch);
-
-			return new RuntimeShowAnimation(targetBranch, (Show) animation, token, listener);
+			return new RuntimeShowAnimation(targetBranch, (Show) animation, token, listener, engine, geometryLabel);
 		}
 
 		if (animation instanceof Wait) {

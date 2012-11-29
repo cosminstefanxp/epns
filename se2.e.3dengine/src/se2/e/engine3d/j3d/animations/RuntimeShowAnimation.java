@@ -1,10 +1,9 @@
 package se2.e.engine3d.j3d.animations;
 
-import java.util.logging.Logger;
-
 import javax.media.j3d.WakeupCondition;
 
 import se2.e.engine3d.j3d.DynamicBranch;
+import se2.e.engine3d.j3d.J3DEngine;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import animations.Show;
 
@@ -24,8 +23,24 @@ public class RuntimeShowAnimation extends RuntimeAnimation<Show> {
 	 * @param listener the listener
 	 */
 	public RuntimeShowAnimation(DynamicBranch targetBranch, Show animation, RuntimeToken token,
-			RuntimeAnimationListener listener) {
+			RuntimeAnimationListener listener, J3DEngine engine, String geometryLabel) {
 		super(targetBranch, animation, token, listener, false);
+
+		// Get the place representation
+		DynamicBranch branch = engine.getPlaceRepresentation(geometryLabel);
+		if (branch == null)
+			branch = new DynamicBranch(RuntimeAnimation.buildEmptyBranchGroup(), null);
+
+		if (branch.isAttachedToRoot()) {
+			branch.getBranchGroup().detach();
+			branch.setAttachedToRoot(false);
+		}
+
+		// Build the representation or replace the existing one
+		if (branch.getTransformGroup() != null)
+			branch.getTransformGroup().removeAllChildren();
+		engine.getNodeFactory().getGeometryBranch(animation.getShape(), geometryLabel, branch);
+		engine.attachPlaceRepresentation(geometryLabel, branch);
 	}
 
 	/*
@@ -35,6 +50,7 @@ public class RuntimeShowAnimation extends RuntimeAnimation<Show> {
 	 */
 	@Override
 	public WakeupCondition onUpdateAnimation() {
+		log.severe("Hide Behavior should not run!");
 		return null;
 	}
 
@@ -45,7 +61,7 @@ public class RuntimeShowAnimation extends RuntimeAnimation<Show> {
 	 */
 	@Override
 	protected void onAnimationFinished() {
-		Logger.getAnonymousLogger().info("Finishing Dummy Animation...");
+		log.severe("Hide Behavior should not run!");
 		this.animationListener.animationFinished(getToken());
 	}
 
@@ -56,7 +72,7 @@ public class RuntimeShowAnimation extends RuntimeAnimation<Show> {
 	 */
 	@Override
 	public WakeupCondition init() {
-		Logger.getAnonymousLogger().warning("Starting Dummy Animation...");
+		log.severe("Show Behavior should not run!");
 		onAnimationFinished();
 		return null;
 	}

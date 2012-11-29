@@ -82,6 +82,9 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	/** The token representations. */
 	private HashMap<RuntimeToken, DynamicBranch> tokenRepresentations;
 
+	/** The place representations. */
+	private HashMap<String, DynamicBranch> placeRepresentations;
+
 	/** The canvas. */
 	private Canvas3D canvas;
 
@@ -195,6 +198,8 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		this.loader = new GeometryAndAppearanceLoader(geometry, appearance);
 		this.nodeFactory = new J3DNodeFactory(loader, this, canvas, trackWidth);
 
+		this.placeRepresentations = new HashMap<String, DynamicBranch>();
+		
 		// Load the universe
 		universe = createUniverse(canvas);
 
@@ -248,6 +253,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 			// Add the branch to the scene graph
 			if (inputPlaceBranch != null) {
 				rootNode.addChild(inputPlaceBranch.getBranchGroup());
+				placeRepresentations.put(label, inputPlaceBranch);
 			}
 		}
 
@@ -462,6 +468,28 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 			sceneRoot.addChild(animation.getTargetBranch().getBranchGroup());
 		}
 		tokenRepresentations.put(animation.getToken(), animation.getTargetBranch());
+	}
 
+	/**
+	 * Gets the place representation for a given label.
+	 * 
+	 * @param label the label
+	 * @return the place representation
+	 */
+	public DynamicBranch getPlaceRepresentation(String label) {
+		return placeRepresentations.get(label);
+	}
+
+	/**
+	 * Attach a place representation to the root.
+	 * 
+	 * @param label the label
+	 * @param branch the branch
+	 */
+	public void attachPlaceRepresentation(String label, DynamicBranch branch) {
+		if (branch != null) {
+			sceneRoot.addChild(branch.getBranchGroup());
+			placeRepresentations.put(label, branch);
+		}
 	}
 }

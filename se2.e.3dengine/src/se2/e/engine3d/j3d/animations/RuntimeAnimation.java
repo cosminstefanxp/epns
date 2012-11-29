@@ -202,7 +202,7 @@ public abstract class RuntimeAnimation<T> extends Behavior {
 	 * 
 	 * @return the branch group
 	 */
-	private static BranchGroup buildEmptyBranchGroup() {
+	protected static BranchGroup buildEmptyBranchGroup() {
 		BranchGroup bg = new BranchGroup();
 		bg.setCapability(BranchGroup.ALLOW_DETACH);
 		return bg;

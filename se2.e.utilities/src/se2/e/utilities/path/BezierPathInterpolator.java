@@ -20,8 +20,7 @@ public class BezierPathInterpolator implements PathInterpolator {
 		}
 	
 	public BezierPathInterpolator(Vector2D... positions) {
-		this.positions = Arrays.asList(positions);
-		this.length = findBezierLength(this.positions);
+		this(Arrays.asList(positions));
 		}
 	
 	@Override

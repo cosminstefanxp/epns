@@ -673,4 +673,29 @@ public class J3DNodeFactory {
         return destinationBranch;
     }
 	
+	
+	/**
+	 * Gets the ground.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @param size half the length of a side
+	 * @return the ground
+	 * @author Ruxandra
+	 */
+	public Node getGround(double x, double y, double size){
+
+		Point3d[] myCoords = new Point3d[4];
+		myCoords[0] = new Point3d(x - size, y - size, DRAWING_PLANE_Z);
+		myCoords[1] = new Point3d(x - size, y + size, DRAWING_PLANE_Z);
+		myCoords[1] = new Point3d(x + size, y + size, DRAWING_PLANE_Z);
+		myCoords[1] = new Point3d(x + size, y - size, DRAWING_PLANE_Z);
+		QuadArray myQuads = new QuadArray(
+			    myCoords.length,
+			    GeometryArray.COORDINATES);
+		Shape3D myShape = new Shape3D( myQuads);
+		TransformGroup g = new TransformGroup();
+		g.addChild(myShape);
+		return g;
+	}
 }

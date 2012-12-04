@@ -75,7 +75,7 @@ public class J3DNodeFactory {
 	private static final double DRAWING_PLANE_Z = 0d;
 	
 	/** The Constant INTERPOLATION_DIST. */
-	private static final double INTERPOLATION_DIST = 5.0d;
+	private static final double INTERPOLATION_DIST = 8.0d;
 
 	/** The loader. */
 	private GeometryAndAppearanceLoader loader;
@@ -287,14 +287,7 @@ public class J3DNodeFactory {
 		
 		//(Un)comment the following lines to (add)/remove the lightning on the object
 		
-		BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 15.0),2000.0);
-		Color3f ambientColor = new Color3f(1.0f, 1.0f, 1.0f);
-		AmbientLight ambientLightNode = new AmbientLight(ambientColor);
-		ambientLightNode.setInfluencingBounds(bounds);
-		nodeTrans.addChild(ambientLightNode);
-		DirectionalLight light1 = new DirectionalLight(ambientColor,new Vector3f(0.0f, 0.0f, -1f));
-		light1.setInfluencingBounds(bounds);
-		nodeTrans.addChild(light1);
+
 		transformGroup.addChild(nodeTrans);
 		
 		return transformGroup;
@@ -685,26 +678,26 @@ public class J3DNodeFactory {
 	 * @author Ruxandra
 	 */
 	public Node getGround(double x, double y, double size){
-
+		logger.info("Creating ground of size "+size+" at "+x+","+y);
 		Point3d[] myCoords = new Point3d[4];
-		myCoords[0] = new Point3d(x - size, y - size, DRAWING_PLANE_Z);
-		myCoords[1] = new Point3d(x - size, y + size, DRAWING_PLANE_Z);
-		myCoords[1] = new Point3d(x + size, y + size, DRAWING_PLANE_Z);
-		myCoords[1] = new Point3d(x + size, y - size, DRAWING_PLANE_Z);
+		myCoords[0] = new Point3d(x - size, y - size, DRAWING_PLANE_Z-0.5);
+		myCoords[3] = new Point3d(x - size, y + size, DRAWING_PLANE_Z-0.5);
+		myCoords[2] = new Point3d(x + size, y + size, DRAWING_PLANE_Z-0.5);
+		myCoords[1] = new Point3d(x + size, y - size, DRAWING_PLANE_Z-0.5);
 		QuadArray myQuads = new QuadArray(
 			    myCoords.length,
 			    GeometryArray.COORDINATES);
+		myQuads.setCoordinates(0, myCoords);
 		
 		TransformGroup g = new TransformGroup();
 		Appearance myAppear = new Appearance();
-		Color3f color = new Color3f(0.2f, 0.5f, 0.2f);
-		ColoringAttributes ca = new ColoringAttributes();
-		ca.setColor(color);
+		ColoringAttributes ca = new ColoringAttributes(0.2f, 0.5f, 0.2f, ColoringAttributes.FASTEST);
 		myAppear.setColoringAttributes(ca);
 		
 		
 		Shape3D myShape = new Shape3D( myQuads, myAppear);
 		g.addChild(myShape);
+		
 		return g;
 	}
 }

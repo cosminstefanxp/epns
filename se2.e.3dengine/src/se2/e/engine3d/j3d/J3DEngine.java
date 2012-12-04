@@ -10,9 +10,13 @@ import java.util.HashMap;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import javax.media.j3d.AmbientLight;
+import javax.media.j3d.Background;
 import javax.media.j3d.BoundingSphere;
+import javax.media.j3d.Bounds;
 import javax.media.j3d.BranchGroup;
 import javax.media.j3d.Canvas3D;
+import javax.media.j3d.DirectionalLight;
 import javax.media.j3d.Group;
 import javax.media.j3d.Node;
 import javax.media.j3d.Transform3D;
@@ -22,8 +26,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
+import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
+import javax.vecmath.Vector3f;
 
 import se2.e.engine3d.Engine3D;
 import se2.e.engine3d.Engine3DListener;
@@ -97,6 +103,10 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	/** The canvas panel. */
 	private JPanel canvasPanel;
 
+	private double simulationXCenter;
+
+	private double simulationYCenter;
+
 	/**
 	 * Instantiates a new Java 3D engine.
 	 * 
@@ -130,7 +140,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 
 		// Configure this JFrame
 		this.setLocation(200, 200);
-		this.setSize(640, 480);
+		this.setSize(800, 600);
 		this.setTitle("Petri Net Simulator");
 		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -156,16 +166,17 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	private SimpleUniverse createUniverse(Canvas3D canvas) {
 		// Manually create the viewing platform so that we can customize it
 		ViewingPlatform viewingPlatform = new ViewingPlatform();
+		Bounds worldBounds = new BoundingSphere(new Point3d(0.0d, 0.0d, 0.0d), 2000);
 
 		// Set the view position back far enough so that we can see thingsDid not find
 		TransformGroup viewTransform = viewingPlatform.getViewPlatformTransform();
 		Transform3D t3d = new Transform3D();
-		// Compute initial values for viewer
-		double xCenter = (loader.maxX + loader.minX) / 2;
-		double yCenter = (loader.maxY + loader.minY) / 2;
-		double zHeight = ((loader.maxX - loader.minX) + (loader.maxY - loader.minY));
+		simulationXCenter = (loader.maxX + loader.minX) / 2;
+		simulationYCenter = (loader.maxY + loader.minY) / 2;
+		double zHeight = ((loader.maxX - loader.minX) + (loader.maxY - loader.minY))*0.73;
 		// double zHeight=1500;
-		t3d.lookAt(new Point3d(xCenter, yCenter, zHeight), new Point3d(xCenter, yCenter, 0), new Vector3d(0, 1, 0));
+		t3d.lookAt(new Point3d(simulationXCenter, simulationYCenter, zHeight), new Point3d(simulationXCenter,
+				simulationYCenter, 0), new Vector3d(0, 1, 0));
 		t3d.invert();
 		viewTransform.setTransform(t3d);
 
@@ -179,11 +190,17 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 
 		// Set the Orbit Behavior to allow moving through the universe
 		OrbitBehavior ob = new OrbitBehavior(canvas, OrbitBehavior.REVERSE_ROTATE | OrbitBehavior.STOP_ZOOM);
-		ob.setTransFactors(10.0d, 10.0d);
-		ob.setZoomFactor(10.0d);
+		ob.setTransFactors(15.0d, 15.0d);
+		ob.setZoomFactor(15.0d);
 		ob.setRotFactors(0.2d, 0.2d);
-		ob.setSchedulingBounds(new BoundingSphere(new Point3d(0.0d, 0.0d, 0.0d), 2000));
+		ob.setSchedulingBounds(worldBounds);
+		ob.setRotationCenter(new Point3d(simulationXCenter, simulationYCenter, 0));
 		viewingPlatform.setViewPlatformBehavior(ob);
+
+		// Set a background color
+		Background background = new Background(new Color3f(0.6f, 0.6f, 1.0f));
+		background.setApplicationBounds(worldBounds);
+		viewingPlatform.addChild(background);
 
 		return new SimpleUniverse(viewingPlatform, viewer);
 	}
@@ -238,6 +255,19 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 				trackGroup.addChild(geometryNode);
 		}
 		rootNode.addChild(trackGroup);
+
+		// Add the ground
+		rootNode.addChild(nodeFactory.getGround(simulationXCenter, simulationYCenter, 1000));
+
+		// Add an ambiental and a directional light
+		Color3f ambientColor = new Color3f(1.0f, 1.0f, 1.0f);
+		Bounds worldBounds = new BoundingSphere(new Point3d(0.0d, 0.0d, 0.0d), 2000);
+		AmbientLight ambientLightNode = new AmbientLight(ambientColor);
+		ambientLightNode.setInfluencingBounds(worldBounds);
+		rootNode.addChild(ambientLightNode);
+		DirectionalLight directionalLight = new DirectionalLight(ambientColor, new Vector3f(0.0f, 0.0f, -1f));
+		directionalLight.setInfluencingBounds(worldBounds);
+		rootNode.addChild(directionalLight);
 
 		// Compile to perform optimizations on this content branch.
 		rootNode.setCapability(BranchGroup.ALLOW_CHILDREN_EXTEND);
@@ -307,6 +337,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		// If the user clicked the Stop button
 		if (e.getSource() == btnStop) {
 			log.info("Stop button clicked...");
+			engineListener.onStopSimulation();
 			btnStop.setEnabled(false);
 			btnPause.setEnabled(false);
 			btnStart.setEnabled(true);

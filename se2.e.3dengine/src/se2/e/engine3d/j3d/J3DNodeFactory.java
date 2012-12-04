@@ -3,6 +3,7 @@
  */
 package se2.e.engine3d.j3d;
 
+import java.awt.Color;
 import java.awt.geom.Point2D;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -693,8 +694,16 @@ public class J3DNodeFactory {
 		QuadArray myQuads = new QuadArray(
 			    myCoords.length,
 			    GeometryArray.COORDINATES);
-		Shape3D myShape = new Shape3D( myQuads);
+		
 		TransformGroup g = new TransformGroup();
+		Appearance myAppear = new Appearance();
+		Color3f color = new Color3f(0.2f, 0.5f, 0.2f);
+		ColoringAttributes ca = new ColoringAttributes();
+		ca.setColor(color);
+		myAppear.setColoringAttributes(ca);
+		
+		
+		Shape3D myShape = new Shape3D( myQuads, myAppear);
 		g.addChild(myShape);
 		return g;
 	}

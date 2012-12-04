@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <appearance:AppearanceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:appearance="http://appearance/1.0">
-  <appearanceInfos xsi:type="appearance:Texture" label="Track" file="C:\Users\Student\Desktop\railway.jpg"/>
-  <appearanceInfos xsi:type="appearance:Shape3D" label="Green" scale="10.0" type="Sphere">
-    <shapeSurface xsi:type="appearance:SurfaceColor" color="Green"/>
-  </appearanceInfos>
-  <appearanceInfos xsi:type="appearance:Shape3D" label="Red" scale="10.0" type="Sphere">
-    <shapeSurface xsi:type="appearance:SurfaceColor" color="Red"/>
-  </appearanceInfos>
-  <appearanceInfos xsi:type="appearance:Model3D" label="T1" scale="7.0" xRotation="1.57" yRotation="3.14" elevation="7.0" file="C:\Users\Student\Desktop\Train.obj">
+  <appearanceInfos xsi:type="appearance:Texture" label="Track" file="C:\Users\marius\Desktop\rail.png"/>
+  <appearanceInfos xsi:type="appearance:Model3D" label="T1" scale="10.0" xRotation="1.57" yRotation="3.14" elevation="8.7" file="C:\Users\marius\Desktop\Train.obj">
     <shapeSurface xsi:type="appearance:SurfaceColor" color="Cyan"/>
   </appearanceInfos>
-  <appearanceInfos xsi:type="appearance:Model3D" label="T2" scale="7.0" xRotation="1.57" yRotation="3.14" elevation="7.0" file="C:\Users\Student\Desktop\Train.obj">
-    <shapeSurface xsi:type="appearance:SurfaceColor" color="Pink"/>
+  <appearanceInfos xsi:type="appearance:Model3D" label="T2" scale="10.0" xRotation="1.57" yRotation="3.14" elevation="8.7" file="C:\Users\marius\Desktop\Train.obj">
+    <shapeSurface xsi:type="appearance:SurfaceColor" color="Red"/>
   </appearanceInfos>
-  <appearanceInfos xsi:type="appearance:Shape3D" label="Blink" scale="10.0"/>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="Blink" scale="10.0" elevation="5.0"/>
+  <appearanceInfos xsi:type="appearance:Model3D" label="Green" scale="10.0" xRotation="1.57" yRotation="3.14" file="C:\Users\marius\Desktop\table13.obj">
+    <shapeSurface xsi:type="appearance:SurfaceColor" color="Green"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Model3D" label="Red" scale="10.0" xRotation="1.57" yRotation="3.14" file="C:\Users\marius\Desktop\table13.obj">
+    <shapeSurface xsi:type="appearance:SurfaceColor" color="Red"/>
+  </appearanceInfos>
 </appearance:AppearanceModel>

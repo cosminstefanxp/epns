@@ -42,7 +42,7 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_LN1E8jpmEeK_N-6huEM0Eg" fontName="Segoe UI"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_LN1E8zpmEeK_N-6huEM0Eg"/>
     <element xmi:type="geometry:SimplePosition" href="example3.geometry#//@geoObjects.10"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LN1E9DpmEeK_N-6huEM0Eg" x="263" y="468"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LN1E9DpmEeK_N-6huEM0Eg" x="288" y="384"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_k0SysDpvEeKjyI3ezBl_FQ" type="2002">
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_k0SysTpvEeKjyI3ezBl_FQ"/>

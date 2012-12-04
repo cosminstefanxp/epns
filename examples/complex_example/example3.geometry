@@ -33,7 +33,7 @@
     <intermediatePositions x="121.0" y="390.0"/>
   </geoObjects>
   <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="Blink" label="A">
-    <position x="263.0" y="468.0"/>
+    <position x="288.0" y="384.0"/>
   </geoObjects>
   <geoObjects xsi:type="geometry:TrackPosition">
     <position x="624.0" y="336.0"/>

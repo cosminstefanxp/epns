@@ -8,10 +8,10 @@
     <shapeSurface xsi:type="appearance:SurfaceColor" color="Red"/>
   </appearanceInfos>
   <appearanceInfos xsi:type="appearance:Shape3D" label="Blink" scale="10.0" elevation="5.0"/>
-  <appearanceInfos xsi:type="appearance:Model3D" label="Green" scale="10.0" xRotation="1.57" yRotation="3.14" file="C:\Users\marius\Desktop\table13.obj">
+  <appearanceInfos xsi:type="appearance:Model3D" label="Green" scale="10.0" xRotation="1.57" yRotation="3.14" file="C:\Users\marius\Desktop\switch.obj">
     <shapeSurface xsi:type="appearance:SurfaceColor" color="Green"/>
   </appearanceInfos>
-  <appearanceInfos xsi:type="appearance:Model3D" label="Red" scale="10.0" xRotation="1.57" yRotation="3.14" file="C:\Users\marius\Desktop\table13.obj">
+  <appearanceInfos xsi:type="appearance:Model3D" label="Red" scale="10.0" xRotation="1.57" yRotation="3.14" file="C:\Users\marius\Desktop\switch.obj">
     <shapeSurface xsi:type="appearance:SurfaceColor" color="Red"/>
   </appearanceInfos>
 </appearance:AppearanceModel>

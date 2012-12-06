@@ -3,6 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Petrinet
 Bundle-SymbolicName: se2.e.simulator.runtime.petrinet
 Bundle-Version: 1.0.0.qualifier
-Import-Package: org.eclipse.emf.common
 Export-Package: se2.e.simulator.runtime.petrinet
-Require-Bundle: se2.e.staticpetrinet;bundle-version="1.0.0"
+Require-Bundle: se2.e.staticpetrinet;bundle-version="1.0.0",
+ org.eclipse.emf;bundle-version="2.6.0"

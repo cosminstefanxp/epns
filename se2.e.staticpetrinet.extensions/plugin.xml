@@ -11,7 +11,7 @@
          
       <constraintProvider
             cache="true"
-            mode="Batch">
+            mode="Live">
          <package
                namespaceUri="http://org.pnml.tools/epnk/pnmlcoremodel">
          </package>
@@ -22,7 +22,7 @@
                   lang="Java"
                   class="extensions.constraints.ArcConstraint"
                   severity="ERROR"
-                  mode="Batch"
+                  mode="Live"
                   name="Arc constraint"
                   id="extensions.constraints.ArcConstraint"
                   statusCode="101">
@@ -39,7 +39,7 @@
                   lang="Java"
                   class="extensions.constraints.InputArcIdentitiesConstraint"
                   severity="ERROR"
-                  mode="Batch"
+                  mode="Live"
                   name="Input arcs transition constraint"
                   id="extensions.constraints.InputArcIdentitiesConstraint"
                   statusCode="101">
@@ -56,7 +56,7 @@
                   lang="Java"
                   class="extensions.constraints.InputOutputArcIdentitiesConstraint"
                   severity="ERROR"
-                  mode="Batch"
+                  mode="Live"
                   name="Input Output arcs transition constraint"
                   id="extensions.constraints.InputOutputArcIdentitiesConstraint"
                   statusCode="101">
@@ -71,15 +71,15 @@
          </constraints>
       </constraintProvider>
    </extension>
-<!--
+
    <extension
          id="tokens"
          name="Token graphical extensions"
          point="org.pnml.tools.epnk.diagram.graphics">
       <graphicsextension
-            class="extensions.graphics.ePNSPlaceFigure"
+            class="extensions.graphics.ePNSGraphicalExtension"
             description="Special graphics for tokens.">
       </graphicsextension>
    </extension>
--->
+
 </plugin>

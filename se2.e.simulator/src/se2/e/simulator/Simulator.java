@@ -10,11 +10,11 @@ import se2.e.engine3d.Engine3DFactory;
 import se2.e.engine3d.Engine3DListener;
 import se2.e.geometry.Geometry;
 import se2.e.simulator.runtime.petrinet.RuntimePetriNet;
+import se2.e.simulator.runtime.petrinet.RuntimePetriNetFactory;
 import se2.e.simulator.runtime.petrinet.RuntimeToken;
 import se2.e.simulator.runtime.petrinet.TokenMovement;
 import appearance.AppearanceModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Simulator.
  * 
@@ -52,7 +52,8 @@ public class Simulator implements Engine3DListener {
 	 * @param trackWidth the track width
 	 */
 	public Simulator(Geometry geometry, PetriNetDoc selectedPetri, AppearanceModel appearance, double trackWidth) {
-		rpn = new RuntimePetriNet();
+		RuntimePetriNetFactory rpnf = new RuntimePetriNetFactory();
+		rpn = rpnf.getRuntimePetriNet();
 		this.selectedPetri = selectedPetri;
 		this.geometry = geometry;
 		this.appearance = appearance;
@@ -60,6 +61,7 @@ public class Simulator implements Engine3DListener {
 		System.out.println("Constructor Simulator");
 	}
 
+	
 	/**
 	 * Start simulation.
 	 */

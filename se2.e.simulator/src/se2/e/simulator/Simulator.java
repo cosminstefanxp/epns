@@ -2,6 +2,7 @@ package se2.e.simulator;
 
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc;
 
@@ -43,6 +44,10 @@ public class Simulator implements Engine3DListener {
 	/** The initial movements. */
 	List<TokenMovement> initialMovements;
 
+	/** The logger. */
+	private static Logger logger = Logger.getAnonymousLogger();
+	
+	
 	/**
 	 * Instantiates a new simulator.
 	 *
@@ -58,23 +63,24 @@ public class Simulator implements Engine3DListener {
 		this.geometry = geometry;
 		this.appearance = appearance;
 		this.trackWidth = trackWidth;
-		System.out.println("Constructor Simulator");
 	}
 
+	public void initializePetriNet(){
+		initialMovements = rpn.init(selectedPetri);
+	}
 	
 	/**
 	 * Start simulation.
 	 */
 	public void startSimulation() {
-		initialMovements = rpn.init(selectedPetri);
+		this.initializePetriNet();
 		engine = Engine3DFactory.getEngine();
-		
 		Set<String> inputPlaces = this.rpn.getInputPlaces();
 		engine.init(this.geometry, this.appearance, inputPlaces, trackWidth);
 		engine.setEngine3DListener(this);
-
 	}
 
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -94,6 +100,7 @@ public class Simulator implements Engine3DListener {
 
 	}
 
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -110,6 +117,7 @@ public class Simulator implements Engine3DListener {
 		}
 	}
 
+	
 	/* (non-Javadoc)
 	 * @see se2.e.engine3d.Engine3DListener#onUserInteraction(java.lang.String)
 	 */
@@ -117,7 +125,9 @@ public class Simulator implements Engine3DListener {
 	public void onUserInteraction(String label) {
 		// drop token on the place with the label label
 		rpn.dropTokenOnPlace(label);
+		
 		List<TokenMovement> tokenMovements = rpn.fireTransitions();
+		logger.info("Fired transitions after dropping the token. Next tokens will be moved: " + tokenMovements);
 		for (TokenMovement tokenMovement : tokenMovements) {
 			if(tokenMovement.isDestroyed())
 				engine.destroyRepresentation(tokenMovement.getToken());
@@ -126,11 +136,14 @@ public class Simulator implements Engine3DListener {
 		}
 	}
 
+	
 	/* (non-Javadoc)
 	 * @see se2.e.engine3d.Engine3DListener#onStopSimulation()
 	 */
 	@Override
 	public void onStopSimulation() {
-
+		rpn = null;
+		this.initializePetriNet();
+		logger.info("Stopped Animation in the Simulator.");
 	}
 }

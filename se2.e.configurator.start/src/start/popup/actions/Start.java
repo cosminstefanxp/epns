@@ -1,7 +1,8 @@
+/*
+ * 
+ */
 package start.popup.actions;
 
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -10,10 +11,9 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
 import se2.e.configurator.Configurator;
+import se2.e.simulator.Simulator;
 
-/**
- * Class Fire TODO
- */
+
 public class Start implements IObjectActionDelegate {
 
 	private Configurator selectedConfig;
@@ -25,14 +25,19 @@ public class Start implements IObjectActionDelegate {
 
 	/**
 	 * @see IActionDelegate#run(IAction)
+	 * if isEnabled returns true, it initializes the simulator
 	 */
 	public void run(IAction action) {
 		if (isEnabled()) {
-			EditingDomain domain = AdapterFactoryEditingDomain.getEditingDomainFor(selectedConfig);	
-			domain.getCommandStack().execute(new StartCommand(domain, selectedConfig));
+			Simulator s = new Simulator(selectedConfig.getGeometry(), selectedConfig.getPetrinet(), selectedConfig.getAppearance(), selectedConfig.getDefaultTrackWidth());
+			s.startSimulation();
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction, org.eclipse.jface.viewers.ISelection)
+	 * 
+	 */
 	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		selectedConfig = null;
@@ -46,6 +51,12 @@ public class Start implements IObjectActionDelegate {
 		action.setEnabled(isEnabled());
 	}
 	
+	
+	/**
+	 * Checks if is enabled. checks whether the selected Config is null
+	 *
+	 * @return true, if is enabled
+	 */
 	public boolean isEnabled() {
 		return selectedConfig != null;
 	}

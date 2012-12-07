@@ -20,13 +20,10 @@ package appearance;
  * @generated
  */
 public interface Model3D extends Shape {
+	
 	/**
 	 * Returns the value of the '<em><b>File</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>File</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>File</em>' attribute.
 	 * @see #setFile(String)
@@ -45,5 +42,17 @@ public interface Model3D extends Shape {
 	 * @generated
 	 */
 	void setFile(String value);
+	
+	/**
+	 * Returns the URI of the IFile whose relative path is referenced 
+	 * by the '<em><b>File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the URI of the IFile whose relative path is referenced 
+	 * by the '<em><b>File</b></em>' attribute.
+	 * @generated NOT
+	 * @author Juan, María and Pablo.
+	 */
+	public String getFileURI();
 
 } // Model3D

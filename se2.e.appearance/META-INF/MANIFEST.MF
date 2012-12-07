@@ -9,6 +9,7 @@ Bundle-Activator: appearance.activator.Activator
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: appearance,
+ appearance.impl,
  appearance.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,

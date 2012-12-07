@@ -45,5 +45,17 @@ public interface Texture extends Surface {
 	 * @generated
 	 */
 	void setFile(String value);
+	
+	/**
+	 * Returns the URI of the IFile whose relative path is referenced 
+	 * by the '<em><b>File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the URI of the IFile whose relative path is referenced 
+	 * by the '<em><b>File</b></em>' attribute.
+	 * @generated NOT
+	 * @author Juan, María and Pablo.
+	 */
+	public String getFileURI();
 
 } // Texture

@@ -5,6 +5,8 @@ package appearance.impl;
 import appearance.AppearancePackage;
 import appearance.Texture;
 
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -83,6 +85,17 @@ public class TextureImpl extends SurfaceImpl implements Texture {
 		file = newFile;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AppearancePackage.TEXTURE__FILE, oldFile, file));
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 * @author Juan, María and Pablo.
+	 */
+	public String getFileURI() {
+		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+		return workspace.getRoot().getLocation().toString() + file;
 	}
 
 	/**

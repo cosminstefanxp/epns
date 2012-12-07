@@ -2,14 +2,14 @@
  */
 package appearance.impl;
 
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import appearance.AppearancePackage;
 import appearance.Model3D;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,7 +43,7 @@ public class Model3DImpl extends ShapeImpl implements Model3D {
 	 * @generated
 	 * @ordered
 	 */
-	protected String file = FILE_EDEFAULT;
+	protected String file = FILE_EDEFAULT;	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,6 +83,17 @@ public class Model3DImpl extends ShapeImpl implements Model3D {
 		file = newFile;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AppearancePackage.MODEL3_D__FILE, oldFile, file));
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 * @author Juan, María and Pablo.
+	 */
+	public String getFileURI() {
+		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+		return workspace.getRoot().getLocation().toString() + file;
 	}
 
 	/**

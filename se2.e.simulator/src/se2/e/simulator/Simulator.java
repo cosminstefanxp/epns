@@ -143,6 +143,8 @@ public class Simulator implements Engine3DListener {
 	@Override
 	public void onStopSimulation() {
 		rpn = null;
+		RuntimePetriNetFactory rpnf = new RuntimePetriNetFactory();
+		rpn = rpnf.getRuntimePetriNet();
 		this.initializePetriNet();
 		logger.info("Stopped Animation in the Simulator.");
 	}

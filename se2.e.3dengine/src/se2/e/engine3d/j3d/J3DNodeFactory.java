@@ -117,6 +117,7 @@ public class J3DNodeFactory {
 	 * @param appearanceInfo
 	 *            the information of how the surface should look like
 	 * @return the appearance
+	 * @author marius
 	 */
 	private Appearance buildSurfaceAppearance(Surface surface) {
 		// String appearanceLabel = surface.getLabel();

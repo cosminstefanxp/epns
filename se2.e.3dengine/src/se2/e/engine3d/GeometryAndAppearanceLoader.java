@@ -154,6 +154,7 @@ public class GeometryAndAppearanceLoader {
 	 * 
 	 * @param label the label
 	 * @return the appearance info
+	 * @author marius
 	 */
 	public AppearanceInfo getAppearanceInfo(String label) {
 		return appearanceInfo.get(label);
@@ -163,6 +164,7 @@ public class GeometryAndAppearanceLoader {
 	 * Gets the track labels.
 	 * 
 	 * @return the track labels
+	 * @author marius
 	 */
 	public Set<String> getTrackLabels() {
 		return trackObjects.keySet();
@@ -172,6 +174,7 @@ public class GeometryAndAppearanceLoader {
 	 * Gets the simple position labels.
 	 * 
 	 * @return the simple position labels
+	 * @author marius
 	 */
 	public Set<String> getSimplePositionLabels() {
 		return simplePositionObjects.keySet();
@@ -181,6 +184,7 @@ public class GeometryAndAppearanceLoader {
 	 * Gets the appearance info labels.
 	 * 
 	 * @return the appearance info labels
+	 * @author marius
 	 */
 	public Set<String> getAppearanceInfoLabels() {
 		return appearanceInfo.keySet();
@@ -191,6 +195,7 @@ public class GeometryAndAppearanceLoader {
 	 *
 	 * @param label the label
 	 * @return the track from label
+	 * @author marius
 	 */
 	public Track getTrackFromLabel(String label){
 		return trackObjectsWithLabels.get(label);

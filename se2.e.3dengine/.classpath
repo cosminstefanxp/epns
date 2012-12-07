@@ -5,13 +5,6 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="SE2 - Java3D Experiments/lib/i386"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/ext/j3dcore.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:platform:/resource/se2.e.3dengine/lib/ext/java3d-1_5_1-api-docs.zip!/java3d-1_5_1-api-docs"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="lib/ext/j3dutils.jar"/>
-	<classpathentry kind="lib" path="lib/ext/vecmath.jar"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/ext/Loader3DS1_2.jar"/>

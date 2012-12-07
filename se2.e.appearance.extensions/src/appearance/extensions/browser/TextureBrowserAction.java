@@ -33,7 +33,6 @@ public class TextureBrowserAction implements IObjectActionDelegate {
 		if (isEnabled()) {
 			EditingDomain domain = AdapterFactoryEditingDomain.getEditingDomainFor(selectedTexture);	
 			domain.getCommandStack().execute(new TextureBrowserCommand(domain,selectedTexture));
-			System.out.println(">>"+((Model3D)selectedTexture).getFileURI());
 		}
 	}
 

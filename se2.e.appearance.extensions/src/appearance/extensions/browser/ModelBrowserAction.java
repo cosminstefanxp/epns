@@ -32,7 +32,6 @@ public class ModelBrowserAction implements IObjectActionDelegate {
 		if (isEnabled()) {
 			EditingDomain domain = AdapterFactoryEditingDomain.getEditingDomainFor(selectedModel);	
 			domain.getCommandStack().execute(new ModelBrowserCommand(domain, selectedModel));
-			System.out.println(">>"+((Model3D)selectedModel).getFileURI());
 		}
 	}
 

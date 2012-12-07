@@ -346,6 +346,15 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAppearanceModel_ID() {
+		return (EAttribute)appearanceModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getObject3D() {
 		return object3DEEnum;
 	}
@@ -414,6 +423,7 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 
 		appearanceModelEClass = createEClass(APPEARANCE_MODEL);
 		createEReference(appearanceModelEClass, APPEARANCE_MODEL__APPEARANCE_INFOS);
+		createEAttribute(appearanceModelEClass, APPEARANCE_MODEL__ID);
 
 		// Create enums
 		object3DEEnum = createEEnum(OBJECT3_D);
@@ -483,6 +493,7 @@ public class AppearancePackageImpl extends EPackageImpl implements AppearancePac
 
 		initEClass(appearanceModelEClass, AppearanceModel.class, "AppearanceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAppearanceModel_AppearanceInfos(), this.getAppearanceInfo(), null, "appearanceInfos", null, 0, -1, AppearanceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAppearanceModel_ID(), ecorePackage.getEString(), "ID", null, 0, 1, AppearanceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(object3DEEnum, Object3D.class, "Object3D");

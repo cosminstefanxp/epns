@@ -17,12 +17,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -61,8 +63,31 @@ public class AppearanceModelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addIDPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the ID feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIDPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AppearanceModel_ID_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AppearanceModel_ID_feature", "_UI_AppearanceModel_type"),
+				 AppearancePackage.Literals.APPEARANCE_MODEL__ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -114,7 +139,10 @@ public class AppearanceModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AppearanceModel_type");
+		String label = ((AppearanceModel)object).getID();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AppearanceModel_type") :
+			getString("_UI_AppearanceModel_type") + " " + label;
 	}
 
 	/**
@@ -129,6 +157,9 @@ public class AppearanceModelItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AppearanceModel.class)) {
+			case AppearancePackage.APPEARANCE_MODEL__ID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case AppearancePackage.APPEARANCE_MODEL__APPEARANCE_INFOS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

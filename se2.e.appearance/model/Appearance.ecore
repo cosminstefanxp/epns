@@ -38,6 +38,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="AppearanceModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="appearanceInfos" upperBound="-1"
         eType="#//AppearanceInfo" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ColorType">
     <eLiterals name="Black"/>

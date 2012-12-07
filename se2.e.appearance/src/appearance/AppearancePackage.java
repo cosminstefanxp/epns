@@ -470,13 +470,22 @@ public interface AppearancePackage extends EPackage {
 	int APPEARANCE_MODEL__APPEARANCE_INFOS = 0;
 
 	/**
+	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPEARANCE_MODEL__ID = 1;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPEARANCE_MODEL_FEATURE_COUNT = 1;
+	int APPEARANCE_MODEL_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link appearance.Object3D <em>Object3 D</em>}' enum.
@@ -712,6 +721,17 @@ public interface AppearancePackage extends EPackage {
 	EReference getAppearanceModel_AppearanceInfos();
 
 	/**
+	 * Returns the meta object for the attribute '{@link appearance.AppearanceModel#getID <em>ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>ID</em>'.
+	 * @see appearance.AppearanceModel#getID()
+	 * @see #getAppearanceModel()
+	 * @generated
+	 */
+	EAttribute getAppearanceModel_ID();
+
+	/**
 	 * Returns the meta object for enum '{@link appearance.Object3D <em>Object3 D</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -928,6 +948,14 @@ public interface AppearancePackage extends EPackage {
 		 * @generated
 		 */
 		EReference APPEARANCE_MODEL__APPEARANCE_INFOS = eINSTANCE.getAppearanceModel_AppearanceInfos();
+
+		/**
+		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPEARANCE_MODEL__ID = eINSTANCE.getAppearanceModel_ID();
 
 		/**
 		 * The meta object literal for the '{@link appearance.Object3D <em>Object3 D</em>}' enum.

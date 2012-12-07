@@ -8,6 +8,34 @@
 <plugin>
    
    <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="appearance.Model3D"
+            id="se2.e.appearance.browser.model3D">
+         <action
+               label="Load File..."
+               class="appearance.extensions.browser.ModelBrowserAction"
+               enablesFor="1"
+               id="se2.e.appearance.browser.newAction">
+         </action>
+      </objectContribution>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="appearance.Texture"
+            id="se2.e.appearance.browser.texture">
+         <action
+               label="Load File..."
+               class="appearance.extensions.browser.TextureBrowserAction"
+               enablesFor="1"
+               id="se2.e.appearance.browser.newAction">
+         </action>
+      </objectContribution>
+   </extension>
+   
+   <extension
          point="org.eclipse.emf.validation.constraintBindings">
          
       <clientContext

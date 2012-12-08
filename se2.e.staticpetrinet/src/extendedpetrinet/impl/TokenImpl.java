@@ -34,7 +34,7 @@ public class TokenImpl extends LabelImpl implements Token {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TEXT_EDEFAULT = "<insert token appearance>";
+	protected static final String TEXT_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -32,7 +32,7 @@ public interface Identity extends Attribute {
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(int)
 	 * @see extendedpetrinet.ExtendedpetrinetPackage#getIdentity_Text()
-	 * @model id="true"
+	 * @model
 	 * @generated
 	 */
 	int getText();

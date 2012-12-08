@@ -15,7 +15,13 @@ import org.eclipse.swt.widgets.Shell;
 import appearance.Model3D;
 import appearance.impl.AppearancePackageImpl;
 
-
+/**
+ * Class ModelBrowserCommand
+ * 
+ * Command that shows a browser to select a file with a 3D model.
+ * 
+ * @author Juan, María and Pablo.
+ */
 public class ModelBrowserCommand extends CompoundCommand{
 
 	private Model3D selectedModel;
@@ -30,8 +36,10 @@ public class ModelBrowserCommand extends CompoundCommand{
 		    @Override
 		    public boolean select(Viewer viewer, Object parentElement, Object element) {
 		        if (element instanceof IFile) {
-		        	return true;
-		  //    ((IFile)element).getFileExtension().equals("deployment");
+		        	String extension = ((IFile)element).getFileExtension();
+		        	if(extension.equalsIgnoreCase("obj") || extension.equalsIgnoreCase("3ds"))
+		        			return true;
+		        	else return false;
 		        } else return true;
 		    }
 		});

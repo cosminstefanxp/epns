@@ -9,13 +9,12 @@ import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
-import appearance.Model3D;
 import appearance.Texture;
 
 /**
  * Class TextureBrowserAction
  * 
- * Shows a browser to select a file with a texture.
+ * Executes a command that shows a browser to select a file with a texture.
  * 
  * @author Juan, María and Pablo.
  */

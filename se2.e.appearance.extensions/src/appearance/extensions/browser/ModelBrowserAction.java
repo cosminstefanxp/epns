@@ -14,7 +14,7 @@ import appearance.Model3D;
 /**
  * Class ModelBrowserAction
  * 
- * Shows a browser to select a file with a 3D model.
+ * Executes a command that shows a browser to select a file with a 3D model.
  * 
  * @author Juan, María and Pablo.
  */

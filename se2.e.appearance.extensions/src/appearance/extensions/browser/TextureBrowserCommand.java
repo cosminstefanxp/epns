@@ -16,7 +16,14 @@ import appearance.Texture;
 import appearance.impl.AppearancePackageImpl;
 
 
-public class TextureBrowserCommand extends CompoundCommand{
+/**
+ * Class TextureBrowserCommand
+ * 
+ * Command that shows a browser to select a file with a texture.
+ * 
+ * @author Juan, María and Pablo.
+ */
+public class TextureBrowserCommand extends CompoundCommand {
 
 	private Texture selectedTexture;
 	
@@ -30,8 +37,10 @@ public class TextureBrowserCommand extends CompoundCommand{
 		    @Override
 		    public boolean select(Viewer viewer, Object parentElement, Object element) {
 		        if (element instanceof IFile) {
-		        	return true;
-		  //    ((IFile)element).getFileExtension().equals("deployment");
+		        	String extension = ((IFile)element).getFileExtension();
+		        	if(extension.equalsIgnoreCase("png") || extension.equalsIgnoreCase("jpg"))
+		        			return true;
+		        	else return false;
 		        } else return true;
 		    }
 		});

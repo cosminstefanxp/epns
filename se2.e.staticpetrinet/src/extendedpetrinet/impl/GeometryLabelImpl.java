@@ -35,7 +35,7 @@ public class GeometryLabelImpl extends AttributeImpl implements GeometryLabel {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TEXT_EDEFAULT = null;
+	protected static final String TEXT_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.

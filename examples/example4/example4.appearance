@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appearance:AppearanceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:appearance="http://appearance/1.0">
+  <appearanceInfos xsi:type="appearance:Model3D" label="RedTrain" scale="10.0" xRotation="1.57" yRotation="3.14" elevation="8.7" file="/examples/Train.obj">
+    <shapeSurface xsi:type="appearance:SurfaceColor" label="RT_color" color="Red"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Model3D" label="BlueTrain" scale="10.0" xRotation="1.57" yRotation="3.14" elevation="8.7" file="/examples/Train.obj">
+    <shapeSurface xsi:type="appearance:SurfaceColor" label="BT_color" color="Blue"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Model3D" label="YellowTrain" scale="10.0" xRotation="1.57" yRotation="3.14" elevation="8.7" file="/examples/Train.obj">
+    <shapeSurface xsi:type="appearance:SurfaceColor" label="YT_color" color="Yellow"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Model3D" label="Car" scale="10.0" xRotation="1.57" yRotation="3.14" file="/examples/Train.obj"/>
+  <appearanceInfos xsi:type="appearance:Texture" label="Track" file="/examples/rail.png"/>
+  <appearanceInfos xsi:type="appearance:Texture" label="Road" file="/examples/road.png"/>
+  <appearanceInfos xsi:type="appearance:Model3D" label="House" scale="10.0" xRotation="1.57" yRotation="3.14" file="/examples/switch.obj">
+    <shapeSurface xsi:type="appearance:SurfaceColor" label="a" color="Cyan"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="BarrierUp" scale="10.0" type="Sphere">
+    <shapeSurface xsi:type="appearance:SurfaceColor" label="BU_color" color="Green"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="BarrierDown" scale="10.0" type="Sphere">
+    <shapeSurface xsi:type="appearance:SurfaceColor" label="BD_color" color="Red"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="Green" scale="10.0" type="Sphere">
+    <shapeSurface xsi:type="appearance:SurfaceColor" label="G_color" color="Green"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="Red" scale="10.0" type="Sphere">
+    <shapeSurface xsi:type="appearance:SurfaceColor" label="R_color" color="Red"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="SwitchT2" scale="10.0" type="Sphere">
+    <shapeSurface xsi:type="appearance:SurfaceColor" label="ST2_color"/>
+  </appearanceInfos>
+  <appearanceInfos xsi:type="appearance:Shape3D" label="SwitchT3" scale="10.0" type="Sphere"/>
+</appearance:AppearanceModel>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurator:Configurator xmlns:configurator="http://configurator/1.0" geometry="example4.geometry#/" appearance="example4.appearance#/" petrinet="example4.pnml#/" defaultTrackWidth="10.0"/>

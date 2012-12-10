@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<geometry:Geometry xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:geometry="http://geometry/1.0">
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="260.0" y="55.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="532.0" y="53.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="680.0" y="205.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="125.0" y="180.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="235.0" y="280.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="555.0" y="280.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="118.0" y="281.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="575.0" y="199.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="178.0" y="424.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.2" endPosition="//@geoObjects.1" appearanceLabel="Track" label="T1">
+    <intermediatePositions x="697.0" y="78.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.1" endPosition="//@geoObjects.0" appearanceLabel="Track" label="T3">
+    <intermediatePositions x="449.0" y="53.0"/>
+    <intermediatePositions x="459.0" y="164.0"/>
+    <intermediatePositions x="404.0" y="14.0"/>
+    <intermediatePositions x="309.0" y="164.0"/>
+    <intermediatePositions x="329.0" y="55.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.0" endPosition="//@geoObjects.3" appearanceLabel="Track" label="T4">
+    <intermediatePositions x="149.0" y="55.0"/>
+    <intermediatePositions x="104.0" y="139.0"/>
+    <intermediatePositions x="119.0" y="159.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.3" endPosition="//@geoObjects.4" appearanceLabel="Track" label="T5">
+    <intermediatePositions x="134.0" y="214.0"/>
+    <intermediatePositions x="197.0" y="270.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.4" endPosition="//@geoObjects.5" appearanceLabel="Track" label="T6">
+    <intermediatePositions x="389.0" y="339.0"/>
+    <intermediatePositions x="399.0" y="280.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.5" endPosition="//@geoObjects.2" appearanceLabel="Track" label="T7">
+    <intermediatePositions x="637.0" y="273.0"/>
+    <intermediatePositions x="669.0" y="241.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.6" endPosition="//@geoObjects.7" appearanceLabel="Road" label="T9">
+    <intermediatePositions x="229.0" y="163.0"/>
+    <intermediatePositions x="455.0" y="154.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:TrackPosition">
+    <position x="445.0" y="430.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.7" endPosition="//@geoObjects.16" appearanceLabel="Road" label="T10">
+    <intermediatePositions x="799.0" y="346.0"/>
+    <intermediatePositions x="534.0" y="430.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.16" endPosition="//@geoObjects.8" appearanceLabel="Road" label="T11">
+    <intermediatePositions x="308.0" y="455.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="House" label="House">
+    <position x="140.0" y="450.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="SwitchT2" label="Switch">
+    <position x="510.0" y="-10.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="BarrierDown" label="Barrier1">
+    <position x="153.0" y="295.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="BarrierUp" label="Barrier2">
+    <position x="700.0" y="275.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="Green" label="TLight">
+    <position x="455.0" y="450.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.1" endPosition="//@geoObjects.0" appearanceLabel="Track" label="T2">
+    <intermediatePositions x="459.0" y="44.0"/>
+    <intermediatePositions x="459.0" y="-76.0"/>
+    <intermediatePositions x="384.0" y="109.0"/>
+    <intermediatePositions x="319.0" y="-76.0"/>
+    <intermediatePositions x="334.0" y="44.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.8" endPosition="//@geoObjects.6" appearanceLabel="Road" label="T8">
+    <intermediatePositions x="44.0" y="364.0"/>
+  </geoObjects>
+</geometry:Geometry>

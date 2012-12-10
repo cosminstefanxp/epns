@@ -102,6 +102,40 @@
                </message>
             </constraint>
             
+            <constraint
+                  lang="Java"
+                  class="appearance.extensions.constraints.FileSetConstraint"
+                  severity="ERROR"
+                  mode="Batch"
+                  name="File attribute set"
+                  id="appearance.extensions.constraints.FileSetConstraint.Model3D"
+                  statusCode="103">
+               <target class="appearance.Model3D"/>
+               <description>
+                  The File attribute of Model3D must be set.
+               </description>
+               <message>
+                  The File attribute of {0} is not set.
+               </message>
+            </constraint>
+            
+            <constraint
+                  lang="Java"
+                  class="appearance.extensions.constraints.FileSetConstraint"
+                  severity="ERROR"
+                  mode="Batch"
+                  name="File attribute set"
+                  id="appearance.extensions.constraints.FileSetConstraint.Texture"
+                  statusCode="104">
+               <target class="appearance.Texture"/>
+               <description>
+                  The File attribute of Texture must be set.
+               </description>
+               <message>
+                  The File attribute of {0} is not set.
+               </message>
+            </constraint>
+            
          </constraints>
       </constraintProvider>
    </extension>

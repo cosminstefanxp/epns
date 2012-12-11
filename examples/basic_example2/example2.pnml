@@ -26,7 +26,21 @@
             <styles xsi:type="notation:DescriptionStyle" description=""/>
             <styles xsi:type="notation:FontStyle" fontColor="0" fontName="Ubuntu" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false"/>
             <styles xsi:type="notation:FillStyle" fillColor="16777215" transparency="-1"/>
-            <layoutConstraint xsi:type="notation:Bounds" x="0" y="0" width="-1" height="-1"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="620" y="150" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.2">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004"/>
+            <styles xsi:type="notation:DescriptionStyle" description=""/>
+            <styles xsi:type="notation:FontStyle" fontColor="0" fontName="Sans" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false"/>
+            <styles xsi:type="notation:FillStyle" fillColor="16777215" transparency="-1"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="640" y="220" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.3">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004"/>
+            <styles xsi:type="notation:DescriptionStyle" description=""/>
+            <styles xsi:type="notation:FontStyle" fontColor="0" fontName="Sans" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false"/>
+            <styles xsi:type="notation:FillStyle" fillColor="16777215" transparency="-1"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="510" y="70" width="-1" height="-1"/>
           </children>
           <styles xsi:type="notation:DiagramStyle" pageX="0" pageY="0" pageWidth="100" pageHeight="100" description=""/>
           <edges visible="true" type="4001" element="A1" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.0" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.2">
@@ -54,6 +68,8 @@
         </diagram>
         <labelProxy label="//@net.0/@page.0/@object.0/@animations"/>
         <labelProxy label="//@net.0/@page.0/@object.0/@tokens.0"/>
+        <labelProxy label="//@net.0/@page.0/@object.0/@geometryLabel"/>
+        <labelProxy label="//@net.0/@page.0/@object.4/@geometryLabel"/>
       </toolspecific>
       <place id="P1">
         <graphics>
@@ -71,12 +87,18 @@
           <graphics>
             <fill color="#ffffff"/>
             <line shape="line" color="#000000" width="1.0"/>
-            <offset x="-623.0" y="-191.0"/>
+            <offset x="-3.0" y="-41.0"/>
             <font family="Ubuntu" size="9pt"/>
           </graphics>
           <text>S1</text>
         </tokens>
         <geometryLabel>
+          <graphics>
+            <fill color="#ffffff"/>
+            <line shape="line" color="#000000" width="1.0"/>
+            <offset x="17.0" y="29.0"/>
+            <font family="Sans" size="9pt"/>
+          </graphics>
           <text>L1</text>
         </geometryLabel>
       </place>
@@ -88,7 +110,6 @@
       </transition>
       <arc id="A1" source="P1" target="T1">
         <graphics/>
-        <ignoreAnimation/>
         <identity>
           <text>1</text>
         </identity>
@@ -102,7 +123,6 @@
           <position x="537.0" y="241.0"/>
           <position x="605.0" y="201.0"/>
         </graphics>
-        <ignoreAnimation/>
         <identity>
           <text>1</text>
         </identity>
@@ -116,6 +136,12 @@
           <text>true</text>
         </interactiveInput>
         <geometryLabel>
+          <graphics>
+            <fill color="#ffffff"/>
+            <line shape="line" color="#000000" width="1.0"/>
+            <offset x="-65.0" y="-25.0"/>
+            <font family="Sans" size="9pt"/>
+          </graphics>
           <text>Sem</text>
         </geometryLabel>
       </place>

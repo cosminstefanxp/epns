@@ -76,7 +76,6 @@ public class ArcItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ExtendedpetrinetPackage.Literals.ARC__IGNORE_ANIMATION);
 			childrenFeatures.add(ExtendedpetrinetPackage.Literals.ARC__IDENTITY);
 		}
 		return childrenFeatures;
@@ -132,7 +131,6 @@ public class ArcItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Arc.class)) {
-			case ExtendedpetrinetPackage.ARC__IGNORE_ANIMATION:
 			case ExtendedpetrinetPackage.ARC__IDENTITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -150,11 +148,6 @@ public class ArcItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExtendedpetrinetPackage.Literals.ARC__IGNORE_ANIMATION,
-				 ExtendedpetrinetFactory.eINSTANCE.createIgnoreAnimation()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -175,7 +175,7 @@ public class PlaceItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExtendedpetrinetPackage.Literals.PLACE__APPEARANCE,
-				 ExtendedpetrinetFactory.eINSTANCE.createInputPlaceAppearanceLabel()));
+				 ExtendedpetrinetFactory.eINSTANCE.createInputPlaceAppearance()));
 
 		newChildDescriptors.add
 			(createChildParameter

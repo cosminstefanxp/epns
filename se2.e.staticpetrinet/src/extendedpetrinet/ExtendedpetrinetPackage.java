@@ -152,22 +152,13 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	int ARC__TARGET = PnmlcoremodelPackage.ARC__TARGET;
 
 	/**
-	 * The feature id for the '<em><b>Ignore Animation</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARC__IGNORE_ANIMATION = PnmlcoremodelPackage.ARC_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Identity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARC__IDENTITY = PnmlcoremodelPackage.ARC_FEATURE_COUNT + 1;
+	int ARC__IDENTITY = PnmlcoremodelPackage.ARC_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Arc</em>' class.
@@ -176,7 +167,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARC_FEATURE_COUNT = PnmlcoremodelPackage.ARC_FEATURE_COUNT + 2;
+	int ARC_FEATURE_COUNT = PnmlcoremodelPackage.ARC_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link extendedpetrinet.impl.PlaceImpl <em>Place</em>}' class.
@@ -361,61 +352,6 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	int IDENTITY_FEATURE_COUNT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link extendedpetrinet.impl.IgnoreAnimationImpl <em>Ignore Animation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see extendedpetrinet.impl.IgnoreAnimationImpl
-	 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getIgnoreAnimation()
-	 * @generated
-	 */
-	int IGNORE_ANIMATION = 4;
-
-	/**
-	 * The feature id for the '<em><b>Toolspecific</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IGNORE_ANIMATION__TOOLSPECIFIC = PnmlcoremodelPackage.ATTRIBUTE__TOOLSPECIFIC;
-
-	/**
-	 * The feature id for the '<em><b>Graphics</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IGNORE_ANIMATION__GRAPHICS = PnmlcoremodelPackage.ATTRIBUTE__GRAPHICS;
-
-	/**
-	 * The feature id for the '<em><b>Unknown</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IGNORE_ANIMATION__UNKNOWN = PnmlcoremodelPackage.ATTRIBUTE__UNKNOWN;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IGNORE_ANIMATION__TEXT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Ignore Animation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IGNORE_ANIMATION_FEATURE_COUNT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link extendedpetrinet.impl.InteractiveInputImpl <em>Interactive Input</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -423,7 +359,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getInteractiveInput()
 	 * @generated
 	 */
-	int INTERACTIVE_INPUT = 5;
+	int INTERACTIVE_INPUT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Toolspecific</b></em>' containment reference list.
@@ -478,7 +414,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getToken()
 	 * @generated
 	 */
-	int TOKEN = 6;
+	int TOKEN = 5;
 
 	/**
 	 * The feature id for the '<em><b>Toolspecific</b></em>' containment reference list.
@@ -533,7 +469,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getAnimationLabel()
 	 * @generated
 	 */
-	int ANIMATION_LABEL = 7;
+	int ANIMATION_LABEL = 6;
 
 	/**
 	 * The feature id for the '<em><b>Toolspecific</b></em>' containment reference list.
@@ -590,14 +526,14 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	int ANIMATION_LABEL_FEATURE_COUNT = StructuredpntypemodelPackage.STRUCTURED_LABEL_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link extendedpetrinet.impl.InputPlaceAppearanceLabelImpl <em>Input Place Appearance Label</em>}' class.
+	 * The meta object id for the '{@link extendedpetrinet.impl.InputPlaceAppearanceImpl <em>Input Place Appearance</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see extendedpetrinet.impl.InputPlaceAppearanceLabelImpl
-	 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getInputPlaceAppearanceLabel()
+	 * @see extendedpetrinet.impl.InputPlaceAppearanceImpl
+	 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getInputPlaceAppearance()
 	 * @generated
 	 */
-	int INPUT_PLACE_APPEARANCE_LABEL = 8;
+	int INPUT_PLACE_APPEARANCE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Toolspecific</b></em>' containment reference list.
@@ -606,7 +542,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PLACE_APPEARANCE_LABEL__TOOLSPECIFIC = PnmlcoremodelPackage.LABEL__TOOLSPECIFIC;
+	int INPUT_PLACE_APPEARANCE__TOOLSPECIFIC = PnmlcoremodelPackage.LABEL__TOOLSPECIFIC;
 
 	/**
 	 * The feature id for the '<em><b>Graphics</b></em>' containment reference.
@@ -615,7 +551,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PLACE_APPEARANCE_LABEL__GRAPHICS = PnmlcoremodelPackage.LABEL__GRAPHICS;
+	int INPUT_PLACE_APPEARANCE__GRAPHICS = PnmlcoremodelPackage.LABEL__GRAPHICS;
 
 	/**
 	 * The feature id for the '<em><b>Unknown</b></em>' containment reference list.
@@ -624,7 +560,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PLACE_APPEARANCE_LABEL__UNKNOWN = PnmlcoremodelPackage.LABEL__UNKNOWN;
+	int INPUT_PLACE_APPEARANCE__UNKNOWN = PnmlcoremodelPackage.LABEL__UNKNOWN;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -633,16 +569,16 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PLACE_APPEARANCE_LABEL__TEXT = PnmlcoremodelPackage.LABEL_FEATURE_COUNT + 0;
+	int INPUT_PLACE_APPEARANCE__TEXT = PnmlcoremodelPackage.LABEL_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Input Place Appearance Label</em>' class.
+	 * The number of structural features of the '<em>Input Place Appearance</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_PLACE_APPEARANCE_LABEL_FEATURE_COUNT = PnmlcoremodelPackage.LABEL_FEATURE_COUNT + 1;
+	int INPUT_PLACE_APPEARANCE_FEATURE_COUNT = PnmlcoremodelPackage.LABEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link extendedpetrinet.impl.GeometryLabelImpl <em>Geometry Label</em>}' class.
@@ -652,7 +588,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getGeometryLabel()
 	 * @generated
 	 */
-	int GEOMETRY_LABEL = 9;
+	int GEOMETRY_LABEL = 8;
 
 	/**
 	 * The feature id for the '<em><b>Toolspecific</b></em>' containment reference list.
@@ -661,7 +597,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEOMETRY_LABEL__TOOLSPECIFIC = PnmlcoremodelPackage.ATTRIBUTE__TOOLSPECIFIC;
+	int GEOMETRY_LABEL__TOOLSPECIFIC = PnmlcoremodelPackage.LABEL__TOOLSPECIFIC;
 
 	/**
 	 * The feature id for the '<em><b>Graphics</b></em>' containment reference.
@@ -670,7 +606,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEOMETRY_LABEL__GRAPHICS = PnmlcoremodelPackage.ATTRIBUTE__GRAPHICS;
+	int GEOMETRY_LABEL__GRAPHICS = PnmlcoremodelPackage.LABEL__GRAPHICS;
 
 	/**
 	 * The feature id for the '<em><b>Unknown</b></em>' containment reference list.
@@ -679,7 +615,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEOMETRY_LABEL__UNKNOWN = PnmlcoremodelPackage.ATTRIBUTE__UNKNOWN;
+	int GEOMETRY_LABEL__UNKNOWN = PnmlcoremodelPackage.LABEL__UNKNOWN;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -688,7 +624,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEOMETRY_LABEL__TEXT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 0;
+	int GEOMETRY_LABEL__TEXT = PnmlcoremodelPackage.LABEL_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Geometry Label</em>' class.
@@ -697,7 +633,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GEOMETRY_LABEL_FEATURE_COUNT = PnmlcoremodelPackage.ATTRIBUTE_FEATURE_COUNT + 1;
+	int GEOMETRY_LABEL_FEATURE_COUNT = PnmlcoremodelPackage.LABEL_FEATURE_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link extendedpetrinet.ExtendedPetriNet <em>Extended Petri Net</em>}'.
@@ -718,17 +654,6 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getArc();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link extendedpetrinet.Arc#getIgnoreAnimation <em>Ignore Animation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Ignore Animation</em>'.
-	 * @see extendedpetrinet.Arc#getIgnoreAnimation()
-	 * @see #getArc()
-	 * @generated
-	 */
-	EReference getArc_IgnoreAnimation();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link extendedpetrinet.Arc#getIdentity <em>Identity</em>}'.
@@ -828,27 +753,6 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	EAttribute getIdentity_Text();
 
 	/**
-	 * Returns the meta object for class '{@link extendedpetrinet.IgnoreAnimation <em>Ignore Animation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ignore Animation</em>'.
-	 * @see extendedpetrinet.IgnoreAnimation
-	 * @generated
-	 */
-	EClass getIgnoreAnimation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link extendedpetrinet.IgnoreAnimation#isText <em>Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see extendedpetrinet.IgnoreAnimation#isText()
-	 * @see #getIgnoreAnimation()
-	 * @generated
-	 */
-	EAttribute getIgnoreAnimation_Text();
-
-	/**
 	 * Returns the meta object for class '{@link extendedpetrinet.InteractiveInput <em>Interactive Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -912,25 +816,25 @@ public interface ExtendedpetrinetPackage extends EPackage {
 	EReference getAnimationLabel_Structure();
 
 	/**
-	 * Returns the meta object for class '{@link extendedpetrinet.InputPlaceAppearanceLabel <em>Input Place Appearance Label</em>}'.
+	 * Returns the meta object for class '{@link extendedpetrinet.InputPlaceAppearance <em>Input Place Appearance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Input Place Appearance Label</em>'.
-	 * @see extendedpetrinet.InputPlaceAppearanceLabel
+	 * @return the meta object for class '<em>Input Place Appearance</em>'.
+	 * @see extendedpetrinet.InputPlaceAppearance
 	 * @generated
 	 */
-	EClass getInputPlaceAppearanceLabel();
+	EClass getInputPlaceAppearance();
 
 	/**
-	 * Returns the meta object for the attribute '{@link extendedpetrinet.InputPlaceAppearanceLabel#getText <em>Text</em>}'.
+	 * Returns the meta object for the attribute '{@link extendedpetrinet.InputPlaceAppearance#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see extendedpetrinet.InputPlaceAppearanceLabel#getText()
-	 * @see #getInputPlaceAppearanceLabel()
+	 * @see extendedpetrinet.InputPlaceAppearance#getText()
+	 * @see #getInputPlaceAppearance()
 	 * @generated
 	 */
-	EAttribute getInputPlaceAppearanceLabel_Text();
+	EAttribute getInputPlaceAppearance_Text();
 
 	/**
 	 * Returns the meta object for class '{@link extendedpetrinet.GeometryLabel <em>Geometry Label</em>}'.
@@ -994,14 +898,6 @@ public interface ExtendedpetrinetPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ARC = eINSTANCE.getArc();
-
-		/**
-		 * The meta object literal for the '<em><b>Ignore Animation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARC__IGNORE_ANIMATION = eINSTANCE.getArc_IgnoreAnimation();
 
 		/**
 		 * The meta object literal for the '<em><b>Identity</b></em>' containment reference feature.
@@ -1080,24 +976,6 @@ public interface ExtendedpetrinetPackage extends EPackage {
 		EAttribute IDENTITY__TEXT = eINSTANCE.getIdentity_Text();
 
 		/**
-		 * The meta object literal for the '{@link extendedpetrinet.impl.IgnoreAnimationImpl <em>Ignore Animation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see extendedpetrinet.impl.IgnoreAnimationImpl
-		 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getIgnoreAnimation()
-		 * @generated
-		 */
-		EClass IGNORE_ANIMATION = eINSTANCE.getIgnoreAnimation();
-
-		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute IGNORE_ANIMATION__TEXT = eINSTANCE.getIgnoreAnimation_Text();
-
-		/**
 		 * The meta object literal for the '{@link extendedpetrinet.impl.InteractiveInputImpl <em>Interactive Input</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1152,14 +1030,14 @@ public interface ExtendedpetrinetPackage extends EPackage {
 		EReference ANIMATION_LABEL__STRUCTURE = eINSTANCE.getAnimationLabel_Structure();
 
 		/**
-		 * The meta object literal for the '{@link extendedpetrinet.impl.InputPlaceAppearanceLabelImpl <em>Input Place Appearance Label</em>}' class.
+		 * The meta object literal for the '{@link extendedpetrinet.impl.InputPlaceAppearanceImpl <em>Input Place Appearance</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see extendedpetrinet.impl.InputPlaceAppearanceLabelImpl
-		 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getInputPlaceAppearanceLabel()
+		 * @see extendedpetrinet.impl.InputPlaceAppearanceImpl
+		 * @see extendedpetrinet.impl.ExtendedpetrinetPackageImpl#getInputPlaceAppearance()
 		 * @generated
 		 */
-		EClass INPUT_PLACE_APPEARANCE_LABEL = eINSTANCE.getInputPlaceAppearanceLabel();
+		EClass INPUT_PLACE_APPEARANCE = eINSTANCE.getInputPlaceAppearance();
 
 		/**
 		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
@@ -1167,7 +1045,7 @@ public interface ExtendedpetrinetPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INPUT_PLACE_APPEARANCE_LABEL__TEXT = eINSTANCE.getInputPlaceAppearanceLabel_Text();
+		EAttribute INPUT_PLACE_APPEARANCE__TEXT = eINSTANCE.getInputPlaceAppearance_Text();
 
 		/**
 		 * The meta object literal for the '{@link extendedpetrinet.impl.GeometryLabelImpl <em>Geometry Label</em>}' class.

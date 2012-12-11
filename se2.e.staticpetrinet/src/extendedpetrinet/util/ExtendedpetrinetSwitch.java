@@ -110,14 +110,6 @@ public class ExtendedpetrinetSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ExtendedpetrinetPackage.IGNORE_ANIMATION: {
-				IgnoreAnimation ignoreAnimation = (IgnoreAnimation)theEObject;
-				T result = caseIgnoreAnimation(ignoreAnimation);
-				if (result == null) result = caseAttribute(ignoreAnimation);
-				if (result == null) result = caseLabel(ignoreAnimation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ExtendedpetrinetPackage.INTERACTIVE_INPUT: {
 				InteractiveInput interactiveInput = (InteractiveInput)theEObject;
 				T result = caseInteractiveInput(interactiveInput);
@@ -141,17 +133,16 @@ public class ExtendedpetrinetSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ExtendedpetrinetPackage.INPUT_PLACE_APPEARANCE_LABEL: {
-				InputPlaceAppearanceLabel inputPlaceAppearanceLabel = (InputPlaceAppearanceLabel)theEObject;
-				T result = caseInputPlaceAppearanceLabel(inputPlaceAppearanceLabel);
-				if (result == null) result = caseLabel(inputPlaceAppearanceLabel);
+			case ExtendedpetrinetPackage.INPUT_PLACE_APPEARANCE: {
+				InputPlaceAppearance inputPlaceAppearance = (InputPlaceAppearance)theEObject;
+				T result = caseInputPlaceAppearance(inputPlaceAppearance);
+				if (result == null) result = caseLabel(inputPlaceAppearance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ExtendedpetrinetPackage.GEOMETRY_LABEL: {
 				GeometryLabel geometryLabel = (GeometryLabel)theEObject;
 				T result = caseGeometryLabel(geometryLabel);
-				if (result == null) result = caseAttribute(geometryLabel);
 				if (result == null) result = caseLabel(geometryLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -221,21 +212,6 @@ public class ExtendedpetrinetSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ignore Animation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ignore Animation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIgnoreAnimation(IgnoreAnimation object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Interactive Input</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -281,17 +257,17 @@ public class ExtendedpetrinetSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Input Place Appearance Label</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Input Place Appearance</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Input Place Appearance Label</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Input Place Appearance</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseInputPlaceAppearanceLabel(InputPlaceAppearanceLabel object) {
+	public T caseInputPlaceAppearance(InputPlaceAppearance object) {
 		return null;
 	}
 

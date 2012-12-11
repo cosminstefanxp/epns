@@ -93,10 +93,6 @@ public class ExtendedpetrinetAdapterFactory extends AdapterFactoryImpl {
 				return createIdentityAdapter();
 			}
 			@Override
-			public Adapter caseIgnoreAnimation(IgnoreAnimation object) {
-				return createIgnoreAnimationAdapter();
-			}
-			@Override
 			public Adapter caseInteractiveInput(InteractiveInput object) {
 				return createInteractiveInputAdapter();
 			}
@@ -109,8 +105,8 @@ public class ExtendedpetrinetAdapterFactory extends AdapterFactoryImpl {
 				return createAnimationLabelAdapter();
 			}
 			@Override
-			public Adapter caseInputPlaceAppearanceLabel(InputPlaceAppearanceLabel object) {
-				return createInputPlaceAppearanceLabelAdapter();
+			public Adapter caseInputPlaceAppearance(InputPlaceAppearance object) {
+				return createInputPlaceAppearanceAdapter();
 			}
 			@Override
 			public Adapter caseGeometryLabel(GeometryLabel object) {
@@ -233,20 +229,6 @@ public class ExtendedpetrinetAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link extendedpetrinet.IgnoreAnimation <em>Ignore Animation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see extendedpetrinet.IgnoreAnimation
-	 * @generated
-	 */
-	public Adapter createIgnoreAnimationAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link extendedpetrinet.InteractiveInput <em>Interactive Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -289,16 +271,16 @@ public class ExtendedpetrinetAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link extendedpetrinet.InputPlaceAppearanceLabel <em>Input Place Appearance Label</em>}'.
+	 * Creates a new adapter for an object of class '{@link extendedpetrinet.InputPlaceAppearance <em>Input Place Appearance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see extendedpetrinet.InputPlaceAppearanceLabel
+	 * @see extendedpetrinet.InputPlaceAppearance
 	 * @generated
 	 */
-	public Adapter createInputPlaceAppearanceLabelAdapter() {
+	public Adapter createInputPlaceAppearanceAdapter() {
 		return null;
 	}
 

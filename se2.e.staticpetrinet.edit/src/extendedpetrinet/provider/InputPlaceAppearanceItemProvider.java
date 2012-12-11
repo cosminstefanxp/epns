@@ -4,7 +4,7 @@ package extendedpetrinet.provider;
 
 
 import extendedpetrinet.ExtendedpetrinetPackage;
-import extendedpetrinet.IgnoreAnimation;
+import extendedpetrinet.InputPlaceAppearance;
 
 import java.util.Collection;
 import java.util.List;
@@ -24,16 +24,16 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.pnml.tools.epnk.pnmlcoremodel.provider.AttributeItemProvider;
+import org.pnml.tools.epnk.pnmlcoremodel.provider.LabelItemProvider;
 
 /**
- * This is the item provider adapter for a {@link extendedpetrinet.IgnoreAnimation} object.
+ * This is the item provider adapter for a {@link extendedpetrinet.InputPlaceAppearance} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class IgnoreAnimationItemProvider
-	extends AttributeItemProvider
+public class InputPlaceAppearanceItemProvider
+	extends LabelItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -46,7 +46,7 @@ public class IgnoreAnimationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IgnoreAnimationItemProvider(AdapterFactory adapterFactory) {
+	public InputPlaceAppearanceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -77,26 +77,26 @@ public class IgnoreAnimationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IgnoreAnimation_text_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IgnoreAnimation_text_feature", "_UI_IgnoreAnimation_type"),
-				 ExtendedpetrinetPackage.Literals.IGNORE_ANIMATION__TEXT,
+				 getString("_UI_InputPlaceAppearance_text_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InputPlaceAppearance_text_feature", "_UI_InputPlaceAppearance_type"),
+				 ExtendedpetrinetPackage.Literals.INPUT_PLACE_APPEARANCE__TEXT,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns IgnoreAnimation.gif.
+	 * This returns InputPlaceAppearance.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IgnoreAnimation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InputPlaceAppearance"));
 	}
 
 	/**
@@ -107,8 +107,10 @@ public class IgnoreAnimationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		IgnoreAnimation ignoreAnimation = (IgnoreAnimation)object;
-		return getString("_UI_IgnoreAnimation_type") + " " + ignoreAnimation.isText();
+		String label = ((InputPlaceAppearance)object).getText();
+		return label == null || label.length() == 0 ?
+			getString("_UI_InputPlaceAppearance_type") :
+			getString("_UI_InputPlaceAppearance_type") + " " + label;
 	}
 
 	/**
@@ -122,8 +124,8 @@ public class IgnoreAnimationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(IgnoreAnimation.class)) {
-			case ExtendedpetrinetPackage.IGNORE_ANIMATION__TEXT:
+		switch (notification.getFeatureID(InputPlaceAppearance.class)) {
+			case ExtendedpetrinetPackage.INPUT_PLACE_APPEARANCE__TEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

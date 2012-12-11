@@ -102,12 +102,12 @@ public interface Place extends org.pnml.tools.epnk.pnmlcoremodel.Place {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Appearance</em>' containment reference.
-	 * @see #setAppearance(InputPlaceAppearanceLabel)
+	 * @see #setAppearance(InputPlaceAppearance)
 	 * @see extendedpetrinet.ExtendedpetrinetPackage#getPlace_Appearance()
 	 * @model containment="true"
 	 * @generated
 	 */
-	InputPlaceAppearanceLabel getAppearance();
+	InputPlaceAppearance getAppearance();
 
 	/**
 	 * Sets the value of the '{@link extendedpetrinet.Place#getAppearance <em>Appearance</em>}' containment reference.
@@ -117,7 +117,7 @@ public interface Place extends org.pnml.tools.epnk.pnmlcoremodel.Place {
 	 * @see #getAppearance()
 	 * @generated
 	 */
-	void setAppearance(InputPlaceAppearanceLabel value);
+	void setAppearance(InputPlaceAppearance value);
 
 	/**
 	 * Returns the value of the '<em><b>Geometry Label</b></em>' containment reference.

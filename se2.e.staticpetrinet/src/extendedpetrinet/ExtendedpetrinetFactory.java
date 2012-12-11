@@ -58,15 +58,6 @@ public interface ExtendedpetrinetFactory extends EFactory {
 	Identity createIdentity();
 
 	/**
-	 * Returns a new object of class '<em>Ignore Animation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ignore Animation</em>'.
-	 * @generated
-	 */
-	IgnoreAnimation createIgnoreAnimation();
-
-	/**
 	 * Returns a new object of class '<em>Interactive Input</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,13 +85,13 @@ public interface ExtendedpetrinetFactory extends EFactory {
 	AnimationLabel createAnimationLabel();
 
 	/**
-	 * Returns a new object of class '<em>Input Place Appearance Label</em>'.
+	 * Returns a new object of class '<em>Input Place Appearance</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Input Place Appearance Label</em>'.
+	 * @return a new object of class '<em>Input Place Appearance</em>'.
 	 * @generated
 	 */
-	InputPlaceAppearanceLabel createInputPlaceAppearanceLabel();
+	InputPlaceAppearance createInputPlaceAppearance();
 
 	/**
 	 * Returns a new object of class '<em>Geometry Label</em>'.

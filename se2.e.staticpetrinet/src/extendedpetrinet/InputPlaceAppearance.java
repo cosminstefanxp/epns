@@ -6,21 +6,21 @@ import org.pnml.tools.epnk.pnmlcoremodel.Label;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Geometry Label</b></em>'.
+ * A representation of the model object '<em><b>Input Place Appearance</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link extendedpetrinet.GeometryLabel#getText <em>Text</em>}</li>
+ *   <li>{@link extendedpetrinet.InputPlaceAppearance#getText <em>Text</em>}</li>
  * </ul>
  * </p>
  *
- * @see extendedpetrinet.ExtendedpetrinetPackage#getGeometryLabel()
+ * @see extendedpetrinet.ExtendedpetrinetPackage#getInputPlaceAppearance()
  * @model
  * @generated
  */
-public interface GeometryLabel extends Label {
+public interface InputPlaceAppearance extends Label {
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -31,14 +31,14 @@ public interface GeometryLabel extends Label {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(String)
-	 * @see extendedpetrinet.ExtendedpetrinetPackage#getGeometryLabel_Text()
+	 * @see extendedpetrinet.ExtendedpetrinetPackage#getInputPlaceAppearance_Text()
 	 * @model
 	 * @generated
 	 */
 	String getText();
 
 	/**
-	 * Sets the value of the '{@link extendedpetrinet.GeometryLabel#getText <em>Text</em>}' attribute.
+	 * Sets the value of the '{@link extendedpetrinet.InputPlaceAppearance#getText <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Text</em>' attribute.
@@ -47,4 +47,4 @@ public interface GeometryLabel extends Label {
 	 */
 	void setText(String value);
 
-} // GeometryLabel
+} // InputPlaceAppearance

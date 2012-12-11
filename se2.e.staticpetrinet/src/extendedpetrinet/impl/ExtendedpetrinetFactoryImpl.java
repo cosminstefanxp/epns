@@ -60,11 +60,10 @@ public class ExtendedpetrinetFactoryImpl extends EFactoryImpl implements Extende
 			case ExtendedpetrinetPackage.ARC: return createArc();
 			case ExtendedpetrinetPackage.PLACE: return createPlace();
 			case ExtendedpetrinetPackage.IDENTITY: return createIdentity();
-			case ExtendedpetrinetPackage.IGNORE_ANIMATION: return createIgnoreAnimation();
 			case ExtendedpetrinetPackage.INTERACTIVE_INPUT: return createInteractiveInput();
 			case ExtendedpetrinetPackage.TOKEN: return createToken();
 			case ExtendedpetrinetPackage.ANIMATION_LABEL: return createAnimationLabel();
-			case ExtendedpetrinetPackage.INPUT_PLACE_APPEARANCE_LABEL: return createInputPlaceAppearanceLabel();
+			case ExtendedpetrinetPackage.INPUT_PLACE_APPEARANCE: return createInputPlaceAppearance();
 			case ExtendedpetrinetPackage.GEOMETRY_LABEL: return createGeometryLabel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -116,16 +115,6 @@ public class ExtendedpetrinetFactoryImpl extends EFactoryImpl implements Extende
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IgnoreAnimation createIgnoreAnimation() {
-		IgnoreAnimationImpl ignoreAnimation = new IgnoreAnimationImpl();
-		return ignoreAnimation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public InteractiveInput createInteractiveInput() {
 		InteractiveInputImpl interactiveInput = new InteractiveInputImpl();
 		return interactiveInput;
@@ -156,9 +145,9 @@ public class ExtendedpetrinetFactoryImpl extends EFactoryImpl implements Extende
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InputPlaceAppearanceLabel createInputPlaceAppearanceLabel() {
-		InputPlaceAppearanceLabelImpl inputPlaceAppearanceLabel = new InputPlaceAppearanceLabelImpl();
-		return inputPlaceAppearanceLabel;
+	public InputPlaceAppearance createInputPlaceAppearance() {
+		InputPlaceAppearanceImpl inputPlaceAppearance = new InputPlaceAppearanceImpl();
+		return inputPlaceAppearance;
 	}
 
 	/**

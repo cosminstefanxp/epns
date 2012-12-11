@@ -5,7 +5,6 @@ package extendedpetrinet.impl;
 import extendedpetrinet.Arc;
 import extendedpetrinet.ExtendedpetrinetPackage;
 import extendedpetrinet.Identity;
-import extendedpetrinet.IgnoreAnimation;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,7 +21,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link extendedpetrinet.impl.ArcImpl#getIgnoreAnimation <em>Ignore Animation</em>}</li>
  *   <li>{@link extendedpetrinet.impl.ArcImpl#getIdentity <em>Identity</em>}</li>
  * </ul>
  * </p>
@@ -30,16 +28,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class ArcImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.ArcImpl implements Arc {
-	/**
-	 * The cached value of the '{@link #getIgnoreAnimation() <em>Ignore Animation</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIgnoreAnimation()
-	 * @generated
-	 * @ordered
-	 */
-	protected IgnoreAnimation ignoreAnimation;
-
 	/**
 	 * The cached value of the '{@link #getIdentity() <em>Identity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -67,49 +55,6 @@ public class ArcImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.ArcImpl impl
 	@Override
 	protected EClass eStaticClass() {
 		return ExtendedpetrinetPackage.Literals.ARC;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IgnoreAnimation getIgnoreAnimation() {
-		return ignoreAnimation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIgnoreAnimation(IgnoreAnimation newIgnoreAnimation, NotificationChain msgs) {
-		IgnoreAnimation oldIgnoreAnimation = ignoreAnimation;
-		ignoreAnimation = newIgnoreAnimation;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.ARC__IGNORE_ANIMATION, oldIgnoreAnimation, newIgnoreAnimation);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIgnoreAnimation(IgnoreAnimation newIgnoreAnimation) {
-		if (newIgnoreAnimation != ignoreAnimation) {
-			NotificationChain msgs = null;
-			if (ignoreAnimation != null)
-				msgs = ((InternalEObject)ignoreAnimation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.ARC__IGNORE_ANIMATION, null, msgs);
-			if (newIgnoreAnimation != null)
-				msgs = ((InternalEObject)newIgnoreAnimation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtendedpetrinetPackage.ARC__IGNORE_ANIMATION, null, msgs);
-			msgs = basicSetIgnoreAnimation(newIgnoreAnimation, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.ARC__IGNORE_ANIMATION, newIgnoreAnimation, newIgnoreAnimation));
 	}
 
 	/**
@@ -163,8 +108,6 @@ public class ArcImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.ArcImpl impl
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.ARC__IGNORE_ANIMATION:
-				return basicSetIgnoreAnimation(null, msgs);
 			case ExtendedpetrinetPackage.ARC__IDENTITY:
 				return basicSetIdentity(null, msgs);
 		}
@@ -179,8 +122,6 @@ public class ArcImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.ArcImpl impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.ARC__IGNORE_ANIMATION:
-				return getIgnoreAnimation();
 			case ExtendedpetrinetPackage.ARC__IDENTITY:
 				return getIdentity();
 		}
@@ -195,9 +136,6 @@ public class ArcImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.ArcImpl impl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.ARC__IGNORE_ANIMATION:
-				setIgnoreAnimation((IgnoreAnimation)newValue);
-				return;
 			case ExtendedpetrinetPackage.ARC__IDENTITY:
 				setIdentity((Identity)newValue);
 				return;
@@ -213,9 +151,6 @@ public class ArcImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.ArcImpl impl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.ARC__IGNORE_ANIMATION:
-				setIgnoreAnimation((IgnoreAnimation)null);
-				return;
 			case ExtendedpetrinetPackage.ARC__IDENTITY:
 				setIdentity((Identity)null);
 				return;
@@ -231,8 +166,6 @@ public class ArcImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.ArcImpl impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ExtendedpetrinetPackage.ARC__IGNORE_ANIMATION:
-				return ignoreAnimation != null;
 			case ExtendedpetrinetPackage.ARC__IDENTITY:
 				return identity != null;
 		}

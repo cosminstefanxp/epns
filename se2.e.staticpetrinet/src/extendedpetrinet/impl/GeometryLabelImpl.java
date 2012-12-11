@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.pnml.tools.epnk.pnmlcoremodel.impl.AttributeImpl;
+import org.pnml.tools.epnk.pnmlcoremodel.impl.LabelImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +26,7 @@ import org.pnml.tools.epnk.pnmlcoremodel.impl.AttributeImpl;
  *
  * @generated
  */
-public class GeometryLabelImpl extends AttributeImpl implements GeometryLabel {
+public class GeometryLabelImpl extends LabelImpl implements GeometryLabel {
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ public class GeometryLabelImpl extends AttributeImpl implements GeometryLabel {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TEXT_EDEFAULT = "";
+	protected static final String TEXT_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.

@@ -11,7 +11,6 @@ package extendedpetrinet;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link extendedpetrinet.Arc#getIgnoreAnimation <em>Ignore Animation</em>}</li>
  *   <li>{@link extendedpetrinet.Arc#getIdentity <em>Identity</em>}</li>
  * </ul>
  * </p>
@@ -21,32 +20,6 @@ package extendedpetrinet;
  * @generated
  */
 public interface Arc extends org.pnml.tools.epnk.pnmlcoremodel.Arc {
-	/**
-	 * Returns the value of the '<em><b>Ignore Animation</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ignore Animation</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ignore Animation</em>' containment reference.
-	 * @see #setIgnoreAnimation(IgnoreAnimation)
-	 * @see extendedpetrinet.ExtendedpetrinetPackage#getArc_IgnoreAnimation()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	IgnoreAnimation getIgnoreAnimation();
-
-	/**
-	 * Sets the value of the '{@link extendedpetrinet.Arc#getIgnoreAnimation <em>Ignore Animation</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ignore Animation</em>' containment reference.
-	 * @see #getIgnoreAnimation()
-	 * @generated
-	 */
-	void setIgnoreAnimation(IgnoreAnimation value);
-
 	/**
 	 * Returns the value of the '<em><b>Identity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

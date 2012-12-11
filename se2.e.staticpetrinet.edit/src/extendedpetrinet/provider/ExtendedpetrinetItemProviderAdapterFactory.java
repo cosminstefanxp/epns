@@ -164,29 +164,6 @@ public class ExtendedpetrinetItemProviderAdapterFactory extends Extendedpetrinet
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link extendedpetrinet.IgnoreAnimation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IgnoreAnimationItemProvider ignoreAnimationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link extendedpetrinet.IgnoreAnimation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIgnoreAnimationAdapter() {
-		if (ignoreAnimationItemProvider == null) {
-			ignoreAnimationItemProvider = new IgnoreAnimationItemProvider(this);
-		}
-
-		return ignoreAnimationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link extendedpetrinet.InteractiveInput} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -256,26 +233,26 @@ public class ExtendedpetrinetItemProviderAdapterFactory extends Extendedpetrinet
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link extendedpetrinet.InputPlaceAppearanceLabel} instances.
+	 * This keeps track of the one adapter used for all {@link extendedpetrinet.InputPlaceAppearance} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InputPlaceAppearanceLabelItemProvider inputPlaceAppearanceLabelItemProvider;
+	protected InputPlaceAppearanceItemProvider inputPlaceAppearanceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link extendedpetrinet.InputPlaceAppearanceLabel}.
+	 * This creates an adapter for a {@link extendedpetrinet.InputPlaceAppearance}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createInputPlaceAppearanceLabelAdapter() {
-		if (inputPlaceAppearanceLabelItemProvider == null) {
-			inputPlaceAppearanceLabelItemProvider = new InputPlaceAppearanceLabelItemProvider(this);
+	public Adapter createInputPlaceAppearanceAdapter() {
+		if (inputPlaceAppearanceItemProvider == null) {
+			inputPlaceAppearanceItemProvider = new InputPlaceAppearanceItemProvider(this);
 		}
 
-		return inputPlaceAppearanceLabelItemProvider;
+		return inputPlaceAppearanceItemProvider;
 	}
 
 	/**
@@ -404,11 +381,10 @@ public class ExtendedpetrinetItemProviderAdapterFactory extends Extendedpetrinet
 		if (arcItemProvider != null) arcItemProvider.dispose();
 		if (placeItemProvider != null) placeItemProvider.dispose();
 		if (identityItemProvider != null) identityItemProvider.dispose();
-		if (ignoreAnimationItemProvider != null) ignoreAnimationItemProvider.dispose();
 		if (interactiveInputItemProvider != null) interactiveInputItemProvider.dispose();
 		if (tokenItemProvider != null) tokenItemProvider.dispose();
 		if (animationLabelItemProvider != null) animationLabelItemProvider.dispose();
-		if (inputPlaceAppearanceLabelItemProvider != null) inputPlaceAppearanceLabelItemProvider.dispose();
+		if (inputPlaceAppearanceItemProvider != null) inputPlaceAppearanceItemProvider.dispose();
 		if (geometryLabelItemProvider != null) geometryLabelItemProvider.dispose();
 	}
 

@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.pnml.tools.epnk.pnmlcoremodel.provider.AttributeItemProvider;
+import org.pnml.tools.epnk.pnmlcoremodel.provider.LabelItemProvider;
 
 /**
  * This is the item provider adapter for a {@link extendedpetrinet.GeometryLabel} object.
@@ -33,7 +33,7 @@ import org.pnml.tools.epnk.pnmlcoremodel.provider.AttributeItemProvider;
  * @generated
  */
 public class GeometryLabelItemProvider
-	extends AttributeItemProvider
+	extends LabelItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

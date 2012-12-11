@@ -8,7 +8,6 @@
       ecorePackage="ExtendedPetriNet.ecore#/">
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//ExtendedPetriNet"/>
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//Arc">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Arc/ignoreAnimation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//Arc/identity"/>
     </genClasses>
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//Place">
@@ -21,9 +20,6 @@
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//Identity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//Identity/text"/>
     </genClasses>
-    <genClasses ecoreClass="ExtendedPetriNet.ecore#//IgnoreAnimation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//IgnoreAnimation/text"/>
-    </genClasses>
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//InteractiveInput">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//InteractiveInput/text"/>
     </genClasses>
@@ -33,8 +29,8 @@
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//AnimationLabel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExtendedPetriNet.ecore#//AnimationLabel/structure"/>
     </genClasses>
-    <genClasses ecoreClass="ExtendedPetriNet.ecore#//InputPlaceAppearanceLabel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//InputPlaceAppearanceLabel/text"/>
+    <genClasses ecoreClass="ExtendedPetriNet.ecore#//InputPlaceAppearance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//InputPlaceAppearance/text"/>
     </genClasses>
     <genClasses ecoreClass="ExtendedPetriNet.ecore#//GeometryLabel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExtendedPetriNet.ecore#//GeometryLabel/text"/>

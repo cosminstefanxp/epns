@@ -2,28 +2,24 @@
  */
 package extendedpetrinet.impl;
 
-import extendedpetrinet.AnimationLabel;
-import extendedpetrinet.ExtendedpetrinetPackage;
-import extendedpetrinet.GeometryLabel;
-import extendedpetrinet.InputPlaceAppearanceLabel;
-import extendedpetrinet.InteractiveInput;
-import extendedpetrinet.Place;
-import extendedpetrinet.Token;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import extendedpetrinet.AnimationLabel;
+import extendedpetrinet.ExtendedpetrinetPackage;
+import extendedpetrinet.GeometryLabel;
+import extendedpetrinet.InputPlaceAppearance;
+import extendedpetrinet.InteractiveInput;
+import extendedpetrinet.Place;
+import extendedpetrinet.Token;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,7 +77,7 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected InputPlaceAppearanceLabel appearance;
+	protected InputPlaceAppearance appearance;
 
 	/**
 	 * The cached value of the '{@link #getGeometryLabel() <em>Geometry Label</em>}' containment reference.
@@ -215,7 +211,7 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InputPlaceAppearanceLabel getAppearance() {
+	public InputPlaceAppearance getAppearance() {
 		return appearance;
 	}
 
@@ -224,8 +220,8 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAppearance(InputPlaceAppearanceLabel newAppearance, NotificationChain msgs) {
-		InputPlaceAppearanceLabel oldAppearance = appearance;
+	public NotificationChain basicSetAppearance(InputPlaceAppearance newAppearance, NotificationChain msgs) {
+		InputPlaceAppearance oldAppearance = appearance;
 		appearance = newAppearance;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtendedpetrinetPackage.PLACE__APPEARANCE, oldAppearance, newAppearance);
@@ -239,7 +235,7 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAppearance(InputPlaceAppearanceLabel newAppearance) {
+	public void setAppearance(InputPlaceAppearance newAppearance) {
 		if (newAppearance != appearance) {
 			NotificationChain msgs = null;
 			if (appearance != null)
@@ -360,7 +356,7 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				getTokens().addAll((Collection<? extends Token>)newValue);
 				return;
 			case ExtendedpetrinetPackage.PLACE__APPEARANCE:
-				setAppearance((InputPlaceAppearanceLabel)newValue);
+				setAppearance((InputPlaceAppearance)newValue);
 				return;
 			case ExtendedpetrinetPackage.PLACE__GEOMETRY_LABEL:
 				setGeometryLabel((GeometryLabel)newValue);
@@ -387,7 +383,7 @@ public class PlaceImpl extends org.pnml.tools.epnk.pnmlcoremodel.impl.PlaceImpl 
 				getTokens().clear();
 				return;
 			case ExtendedpetrinetPackage.PLACE__APPEARANCE:
-				setAppearance((InputPlaceAppearanceLabel)null);
+				setAppearance((InputPlaceAppearance)null);
 				return;
 			case ExtendedpetrinetPackage.PLACE__GEOMETRY_LABEL:
 				setGeometryLabel((GeometryLabel)null);

@@ -18,16 +18,21 @@ public class ePNSArcFigure extends ArcFigure {
 	public ePNSArcFigure(Arc arc) {
 		super(arc);
 		this.arc = arc;
+		setColor();
 	}
 	
 	@Override
 	public void update() {
-		if(arc.getIdentity() != null)
-			this.setForegroundColor(getColor(arc.getIdentity().getText()));
+		setColor();
 		this.repaint();
 	}
+	
+	private void setColor(){
+		if(arc.getIdentity() != null)
+			this.setForegroundColor(getIdentityColor(arc.getIdentity().getText()));
+	}
 
-	private Color getColor(int index){
+	private Color getIdentityColor(int index){
 		Display display = Display.getCurrent();
 		switch(index%12){
 			case 0: return display.getSystemColor(SWT.COLOR_BLUE);

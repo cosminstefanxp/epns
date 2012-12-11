@@ -11,6 +11,52 @@
          
       <constraintProvider
             cache="true"
+            mode="Batch">
+         <package
+               namespaceUri="http://org.pnml.tools/epnk/pnmlcoremodel">
+         </package>
+
+         <constraints categories="org.pnml.tools.epnk.validation">
+            
+            <constraint
+                  lang="Java"
+                  class="extensions.constraints.InputOutputArcIdentitiesConstraint"
+                  severity="ERROR"
+                  mode="Batch"
+                  name="Input Output arcs transition constraint"
+                  id="extensions.constraints.InputOutputArcIdentitiesConstraint"
+                  statusCode="101">
+               <target class="Transition"/>
+               <description>
+                  Each output arc must have an input arc with the same identity. 
+               </description>
+               <message>
+                  There is an output arc in {0} without a corresponding input arc.
+               </message>
+            </constraint>
+            
+            <constraint
+                  lang="Java"
+                  class="extensions.constraints.InputArcIdentitiesConstraint"
+                  severity="ERROR"
+                  mode="Live"
+                  name="Input arcs transition constraint"
+                  id="extensions.constraints.InputArcIdentitiesConstraint"
+                  statusCode="102">
+               <target class="Transition"/>
+               <description>
+                  Every single input arc of a transition must have a different identity.
+               </description>
+               <message>
+                  There are two or more input arcs in {0} with the same identity.
+               </message>
+            </constraint>
+
+         </constraints>
+      </constraintProvider>
+   
+   		<constraintProvider
+            cache="true"
             mode="Live">
          <package
                namespaceUri="http://org.pnml.tools/epnk/pnmlcoremodel">
@@ -25,7 +71,7 @@
                   mode="Live"
                   name="Arc constraint"
                   id="extensions.constraints.ArcConstraint"
-                  statusCode="101">
+                  statusCode="103">
                <target class="Arc"/>
                <description>
                   The source and the target of an arc must be different types of nodes.
@@ -37,48 +83,32 @@
             
             <constraint
                   lang="Java"
-                  class="extensions.constraints.InputArcIdentitiesConstraint"
+                  class="extensions.constraints.InputPlaceAppearanceConstraint"
                   severity="ERROR"
                   mode="Live"
-                  name="Input arcs transition constraint"
-                  id="extensions.constraints.InputArcIdentitiesConstraint"
-                  statusCode="101">
-               <target class="Transition"/>
+                  name="InputPlace appearance constraint"
+                  id="extensions.constraints.InputPlaceAppearanceConstraint"
+                  statusCode="104">
+               <target class="Place"/>
                <description>
-                  Every single input arc of a transition must have a different id.
+                  Only Places with the InputPlace attribute set to true can have InputPlaceAppearance.
                </description>
                <message>
-                  There are two or more input arcs with the same id.
+                  {0} is not an input place and it has an appearance.
                </message>
             </constraint>
             
-            <constraint
-                  lang="Java"
-                  class="extensions.constraints.InputOutputArcIdentitiesConstraint"
-                  severity="ERROR"
-                  mode="Live"
-                  name="Input Output arcs transition constraint"
-                  id="extensions.constraints.InputOutputArcIdentitiesConstraint"
-                  statusCode="101">
-               <target class="Transition"/>
-               <description>
-                  Each output arc must have an input arc with the same id. 
-               </description>
-               <message>
-                  There is an output arc without a correponding input arc.
-               </message>
-            </constraint>
          </constraints>
       </constraintProvider>
    </extension>
 
    <extension
-         id="tokens"
-         name="Token graphical extensions"
+         id="graphics"
+         name="ePNS graphical extensions"
          point="org.pnml.tools.epnk.diagram.graphics">
       <graphicsextension
             class="extensions.graphics.ePNSGraphicalExtension"
-            description="Special graphics for tokens.">
+            description="Special graphics for places and arcs">
       </graphicsextension>
    </extension>
 

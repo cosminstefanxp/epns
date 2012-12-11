@@ -10,13 +10,13 @@
     <position x="680.0" y="205.0"/>
   </geoObjects>
   <geoObjects xsi:type="geometry:TrackPosition">
-    <position x="125.0" y="180.0"/>
+    <position x="115.0" y="155.0"/>
   </geoObjects>
   <geoObjects xsi:type="geometry:TrackPosition">
     <position x="235.0" y="280.0"/>
   </geoObjects>
   <geoObjects xsi:type="geometry:TrackPosition">
-    <position x="555.0" y="280.0"/>
+    <position x="525.0" y="280.0"/>
   </geoObjects>
   <geoObjects xsi:type="geometry:TrackPosition">
     <position x="118.0" y="281.0"/>
@@ -38,9 +38,8 @@
     <intermediatePositions x="329.0" y="55.0"/>
   </geoObjects>
   <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.0" endPosition="//@geoObjects.3" appearanceLabel="Track" label="T4">
-    <intermediatePositions x="149.0" y="55.0"/>
-    <intermediatePositions x="104.0" y="139.0"/>
-    <intermediatePositions x="119.0" y="159.0"/>
+    <intermediatePositions x="146.0" y="48.0"/>
+    <intermediatePositions x="104.0" y="119.0"/>
   </geoObjects>
   <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.3" endPosition="//@geoObjects.4" appearanceLabel="Track" label="T5">
     <intermediatePositions x="134.0" y="214.0"/>
@@ -75,10 +74,10 @@
     <position x="510.0" y="-10.0"/>
   </geoObjects>
   <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="BarrierDown" label="Barrier1">
-    <position x="153.0" y="295.0"/>
+    <position x="135.0" y="290.0"/>
   </geoObjects>
-  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="BarrierUp" label="Barrier2">
-    <position x="700.0" y="275.0"/>
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="BarrierDown" label="Barrier2">
+    <position x="560.0" y="215.0"/>
   </geoObjects>
   <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="Green" label="TLight">
     <position x="455.0" y="450.0"/>

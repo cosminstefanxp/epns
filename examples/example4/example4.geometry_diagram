@@ -26,7 +26,7 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_sbztAkEaEeKeENcGed9p-Q" fontName="Sans"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_sbztA0EaEeKeENcGed9p-Q"/>
     <element xmi:type="geometry:TrackPosition" href="example4.geometry#//@geoObjects.3"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sbztBEEaEeKeENcGed9p-Q" x="125" y="180"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sbztBEEaEeKeENcGed9p-Q" x="115" y="155"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_tC0psEEaEeKeENcGed9p-Q" type="2002">
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_tC0psUEaEeKeENcGed9p-Q"/>
@@ -40,7 +40,7 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_tojM8kEaEeKeENcGed9p-Q" fontName="Sans"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_tojM80EaEeKeENcGed9p-Q"/>
     <element xmi:type="geometry:TrackPosition" href="example4.geometry#//@geoObjects.5"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tojM9EEaEeKeENcGed9p-Q" x="555" y="280"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tojM9EEaEeKeENcGed9p-Q" x="525" y="280"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_w6PAIEEaEeKeENcGed9p-Q" type="2002">
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_w6PnMEEaEeKeENcGed9p-Q"/>
@@ -92,7 +92,7 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_3tKakkEcEeKeENcGed9p-Q" fontName="Sans"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_3tKak0EcEeKeENcGed9p-Q"/>
     <element xmi:type="geometry:SimplePosition" href="example4.geometry#//@geoObjects.21"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3tLBoEEcEeKeENcGed9p-Q" x="153" y="295"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3tLBoEEcEeKeENcGed9p-Q" x="135" y="290"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_6nQNIEEcEeKeENcGed9p-Q" type="2001">
     <children xmi:type="notation:DecorationNode" xmi:id="_6nRbQEEcEeKeENcGed9p-Q" type="5001"/>
@@ -100,7 +100,7 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_6nQNIkEcEeKeENcGed9p-Q" fontName="Sans"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_6nQNI0EcEeKeENcGed9p-Q"/>
     <element xmi:type="geometry:SimplePosition" href="example4.geometry#//@geoObjects.22"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6nQNJEEcEeKeENcGed9p-Q" x="700" y="275"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6nQNJEEcEeKeENcGed9p-Q" x="560" y="215"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_-EGHcEEcEeKeENcGed9p-Q" type="2001">
     <children xmi:type="notation:DecorationNode" xmi:id="_-EHVkEEcEeKeENcGed9p-Q" type="5001"/>
@@ -138,7 +138,7 @@
     <styles xmi:type="notation:RoutingStyle" xmi:id="_acSW8UEbEeKeENcGed9p-Q"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_acSW8kEbEeKeENcGed9p-Q" fontName="Sans"/>
     <element xmi:type="geometry:Track" href="example4.geometry#//@geoObjects.11"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_acSW80EbEeKeENcGed9p-Q" points="[-6, 0, 129, -125]$[-111, 0, 24, -125]$[-156, 84, -21, -41]$[-141, 104, -6, -21]$[-141, 119, -6, -6]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_acSW80EbEeKeENcGed9p-Q" points="[-6, -1, 139, -101]$[-114, -7, 31, -107]$[-156, 64, -11, -36]$[-147, 94, -2, -6]"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_eYtwQEEbEeKeENcGed9p-Q" type="4001" source="_sbztAEEaEeKeENcGed9p-Q" target="_tC0psEEaEeKeENcGed9p-Q">
     <children xmi:type="notation:DecorationNode" xmi:id="_eYtwREEbEeKeENcGed9p-Q" type="6001">

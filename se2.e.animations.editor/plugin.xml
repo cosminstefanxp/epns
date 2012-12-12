@@ -14,7 +14,7 @@
             id="animations.presentation.AnimationsModelWizardID"
             name="%_UI_AnimationsModelWizard_label"
             class="animations.presentation.AnimationsModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="se2.e.ePNS"
             icon="icons/full/obj16/AnimationsModelFile.gif">
          <description>%_UI_AnimationsModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>

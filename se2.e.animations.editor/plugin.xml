@@ -8,8 +8,8 @@
 
    <extension point="org.eclipse.ui.newWizards">
       <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
+            id="se2.e.ePNS"
+            name="ePNS"/>
       <wizard
             id="animations.presentation.AnimationsModelWizardID"
             name="%_UI_AnimationsModelWizard_label"

@@ -9,7 +9,7 @@ import extendedpetrinet.Arc;
 
 /**
  * Arc figure that has a different color depending on the identity of the arc.
- * @author María.
+ * @author Juan, María and Pablo.
  */
 public class ePNSArcFigure extends ArcFigure {
 
@@ -18,18 +18,20 @@ public class ePNSArcFigure extends ArcFigure {
 	public ePNSArcFigure(Arc arc) {
 		super(arc);
 		this.arc = arc;
-		setColor();
 	}
 	
 	@Override
 	public void update() {
-		setColor();
+		setForegroundColor(null);
 		this.repaint();
 	}
 	
-	private void setColor(){
-		if(arc.getIdentity() != null)
-			this.setForegroundColor(getIdentityColor(arc.getIdentity().getText()));
+	@Override
+	public void setForegroundColor(Color fg) {
+		if(arc.getIdentity() == null)
+			super.setForegroundColor(Display.getCurrent().getSystemColor(SWT.COLOR_GRAY));
+		else
+			super.setForegroundColor(getIdentityColor(arc.getIdentity().getText()));
 	}
 
 	private Color getIdentityColor(int index){

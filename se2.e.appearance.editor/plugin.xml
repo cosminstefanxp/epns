@@ -8,13 +8,13 @@
 
    <extension point="org.eclipse.ui.newWizards">
       <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
+            id="se2.e.ePNS"
+            name="ePNS"/>
       <wizard
             id="appearance.presentation.AppearanceModelWizardID"
             name="%_UI_AppearanceModelWizard_label"
             class="appearance.presentation.AppearanceModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="se2.e.ePNS"
             icon="icons/full/obj16/AppearanceModelFile.gif">
          <description>%_UI_AppearanceModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>

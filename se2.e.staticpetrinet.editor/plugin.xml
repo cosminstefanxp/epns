@@ -8,13 +8,13 @@
 
    <extension point="org.eclipse.ui.newWizards">
       <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
+            id="se2.e.ePNS"
+            name="ePNS"/>
       <wizard
             id="extendedpetrinet.presentation.ExtendedpetrinetModelWizardID"
             name="%_UI_ExtendedpetrinetModelWizard_label"
             class="extendedpetrinet.presentation.ExtendedpetrinetModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="se2.e.ePNS"
             icon="icons/full/obj16/ExtendedpetrinetModelFile.gif">
          <description>%_UI_ExtendedpetrinetModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>

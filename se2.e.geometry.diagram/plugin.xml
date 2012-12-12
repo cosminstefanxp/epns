@@ -42,13 +42,17 @@
    <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
       <?gmfgen generated="true"?>
   	  <wizard
-  	     name="%newWizardName"
-  	     icon="icons/obj16/GeometryDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
-  	     class="se2.e.geometry.diagram.part.GeometryCreationWizard"
-  	     id="se2.e.geometry.diagram.part.GeometryCreationWizardID">
+           category="se2.e.ePNS"
+           class="se2.e.geometry.diagram.part.GeometryCreationWizard"
+           icon="icons/obj16/GeometryDiagramFile.gif"
+           id="se2.e.geometry.diagram.part.GeometryCreationWizardID"
+           name="%newWizardName">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
+     <category
+           id="se2.e.ePNS"
+           name="ePNS">
+     </category>
    </extension>
 
    <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">

@@ -26,11 +26,11 @@
   <element xmi:type="geometry:Geometry" href="example2.geometry#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_cq39YC9fEeKJT8AOUf5XNg" type="4001" source="_b5vbYC9fEeKJT8AOUf5XNg" target="_cMpJQC9fEeKJT8AOUf5XNg">
     <children xmi:type="notation:DecorationNode" xmi:id="_cq5LgC9fEeKJT8AOUf5XNg" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_cq5LgS9fEeKJT8AOUf5XNg" y="40"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_cq5LgS9fEeKJT8AOUf5XNg" x="54" y="-12"/>
     </children>
     <styles xmi:type="notation:RoutingStyle" xmi:id="_cq39YS9fEeKJT8AOUf5XNg"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_cq39Yi9fEeKJT8AOUf5XNg" fontName="Ubuntu"/>
     <element xmi:type="geometry:Track" href="example2.geometry#//@geoObjects.2"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cq39Yy9fEeKJT8AOUf5XNg" points="[-5, -6, -17, -18]$[-54, -66, -66, -78]$[-102, -54, -114, -66]$[-138, -18, -150, -30]$[-162, 30, -174, 18]$[-150, 78, -162, 66]$[-126, 102, -138, 90]$[-78, 126, -90, 114]$[-30, 126, -42, 114]$[-18, 102, -30, 90]$[6, 90, -6, 78]$[30, 54, 18, 42]$[30, 42, 18, 30]$[15, 18, 3, 6]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cq39Yy9fEeKJT8AOUf5XNg" points="[-5, -6, -5, -6]$[-62, -76, -62, -76]$[-147, -21, -147, -21]$[-197, -6, -197, -6]$[-182, 114, -182, 114]$[-72, 154, -72, 154]$[-7, 164, -7, 164]$[53, 104, 53, 104]$[3, 6, 3, 6]"/>
   </edges>
 </notation:Diagram>

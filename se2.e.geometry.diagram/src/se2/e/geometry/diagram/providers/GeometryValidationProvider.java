@@ -94,7 +94,7 @@ public class GeometryValidationProvider {
 	/**
 	 * @generated
 	 */
-	public static class Adapter4 extends AbstractModelConstraint {
+	public static class Adapter3 extends AbstractModelConstraint {
 
 		/**
 		 * @generated
@@ -106,7 +106,7 @@ public class GeometryValidationProvider {
 				return ctx.createFailureStatus(new Object[] { formatElement(ctx
 						.getTarget()) });
 			}
-			Object result = GeometryOCLFactory.getExpression(3,
+			Object result = GeometryOCLFactory.getExpression(2,
 					EcorePackage.eINSTANCE.getEString(), null)
 					.evaluate(context);
 			if (result instanceof Boolean && ((Boolean) result).booleanValue()) {

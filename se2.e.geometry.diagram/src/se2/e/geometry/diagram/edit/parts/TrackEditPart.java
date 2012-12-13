@@ -146,7 +146,7 @@ public class TrackEditPart extends ConnectionNodeEditPart implements
 
 		/**
 		 * @generated NOT
-		 * @author Jerome and Georgios
+		 * @author Jerome and Georgios Liassas
 		 */
 		@Override
 		// TODO : change the interpolator when anders will have finished

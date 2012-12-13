@@ -42,17 +42,13 @@
    <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
       <?gmfgen generated="true"?>
   	  <wizard
-           category="se2.e.ePNS"
-           class="se2.e.geometry.diagram.part.GeometryCreationWizard"
-           icon="icons/obj16/GeometryDiagramFile.gif"
-           id="se2.e.geometry.diagram.part.GeometryCreationWizardID"
-           name="%newWizardName">
+  	     name="%newWizardName"
+  	     icon="icons/obj16/GeometryDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="se2.e.geometry.diagram.part.GeometryCreationWizard"
+  	     id="se2.e.geometry.diagram.part.GeometryCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
-     <category
-           id="se2.e.ePNS"
-           name="ePNS">
-     </category>
    </extension>
 
    <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
@@ -412,16 +408,6 @@
       <constraintProvider cache="true">
          <package namespaceUri="http://geometry/1.0"/>
                <constraints categories="1">
-                  <constraint id="1"
-            lang="OCL"
-            name=""
-            mode="Live"
-            severity="ERROR" statusCode="200">
-            <![CDATA[self.startPosition<>self.endPosition]]>
-            <description><![CDATA[Track should not have the same startign and ending point]]></description>
-            <message><![CDATA[Track drawing error]]></message>
-            <target class="geometry.Track"/>
-         </constraint>
                   </constraints>
          <constraints categories="1/2">
                   <constraint id="2"
@@ -445,7 +431,7 @@
             <target class="geometry.Track"/>
          </constraint>
                   <constraint id="4"
-            lang="Java" class="se2.e.geometry.diagram.providers.GeometryValidationProvider$Adapter4"
+            lang="Java" class="se2.e.geometry.diagram.providers.GeometryValidationProvider$Adapter3"
             name="- Track mandatory label"
             mode="Batch"
             severity="ERROR" statusCode="200">
@@ -464,7 +450,6 @@
          <selector class="se2.e.geometry.diagram.providers.GeometryValidationProvider$DefaultCtx"/>
       </clientContext>
       <binding context="se2.e.geometry.diagramDefaultCtx">
-                  <constraint ref="se2.e.geometry.diagram.1"/>
                   <constraint ref="se2.e.geometry.diagram.2"/>
                   <constraint ref="se2.e.geometry.diagram.3"/>
                   <constraint ref="se2.e.geometry.diagram.4"/>

@@ -9,33 +9,17 @@
         id="1"
         name="ePNS geometry constraints"
         description="Geometry constraints rules for ePNS"
-        path="//@audits/@categories.0"
-        audits="//@audits/@rules.0"/>
+        path="//@audits/@categories.0"/>
     <categories
         id="2"
         name="label attribute constraints"
         path="//@audits/@categories.0 //@audits/@categories.1"
-        audits="//@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3"/>
-    <rules
-        name=""
-        description="Track should not have the same startign and ending point"
-        id="1"
-        rule="//@expressionProviders/@providers.0/@expressions.0"
-        message="Track drawing error"
-        useInLiveMode="true"
-        category="//@audits/@categories.0">
-      <target
-          xsi:type="gmfgen:GenDomainElementTarget"
-          contextSelector="//@audits/@clientContexts.0">
-        <element
-            href="geometry.genmodel#//geometry/Track"/>
-      </target>
-    </rules>
+        audits="//@audits/@rules.0 //@audits/@rules.1 //@audits/@rules.2"/>
     <rules
         name="- SimplePosition unique label "
         description="It does not allow same label names among Track and SimplePosition labels. This is to prevent confusion when Track and SimplePosition geometry objects are associated to Places"
         id="2"
-        rule="//@expressionProviders/@providers.0/@expressions.1"
+        rule="//@expressionProviders/@providers.0/@expressions.0"
         message="The name of the label should be unique among all geometry object' labels"
         useInLiveMode="true"
         category="//@audits/@categories.1">
@@ -49,7 +33,7 @@
     <rules
         name="- Track unique label"
         id="3"
-        rule="//@expressionProviders/@providers.0/@expressions.2"
+        rule="//@expressionProviders/@providers.0/@expressions.1"
         useInLiveMode="true"
         category="//@audits/@categories.1">
       <target
@@ -62,7 +46,7 @@
     <rules
         name="- Track mandatory label"
         id="4"
-        rule="//@expressionProviders/@providers.0/@expressions.3"
+        rule="//@expressionProviders/@providers.0/@expressions.2"
         category="//@audits/@categories.1">
       <target
           xsi:type="gmfgen:GenDomainAttributeTarget"
@@ -73,7 +57,7 @@
       </target>
     </rules>
     <clientContexts
-        ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target"/>
+        ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target"/>
   </audits>
   <diagram
       visualID="1000"
@@ -314,9 +298,6 @@
   <expressionProviders>
     <providers
         xsi:type="gmfgen:GenExpressionInterpreter">
-      <expressions
-          xsi:type="gmfgen:GenConstraint"
-          body="self.startPosition&lt;>self.endPosition"/>
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="Track.allInstances()->select(m : Track | m &lt;> self and m.label = self.label)->isEmpty() and  SimplePosition.allInstances()->isUnique(label)"/>

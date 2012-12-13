@@ -37,9 +37,8 @@ public class GeometryOCLFactory {
 	 * @generated
 	 */
 	protected GeometryOCLFactory() {
-		this.expressions = new GeometryAbstractExpression[4];
+		this.expressions = new GeometryAbstractExpression[3];
 		this.expressionBodies = new String[] {
-				"self.startPosition<>self.endPosition", //$NON-NLS-1$
 				"Track.allInstances()->select(m : Track | m <> self and m.label = self.label)->isEmpty() and  SimplePosition.allInstances()->isUnique(label)", //$NON-NLS-1$
 				"SimplePosition.allInstances()->select(m : SimplePosition | m <> self and m.label = self.label)->isEmpty()  and Track.allInstances()->isUnique(label)", //$NON-NLS-1$
 				"true", //$NON-NLS-1$

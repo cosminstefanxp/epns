@@ -81,20 +81,6 @@
       id="1"
       name="ePNS geometry constraints"
       description="Geometry constraints rules for ePNS">
-    <audits
-        name=""
-        description="Track should not have the same startign and ending point"
-        id="1"
-        useInLiveMode="true"
-        message="Track drawing error">
-      <rule
-          body="self.startPosition&lt;>self.endPosition"/>
-      <target
-          xsi:type="gmfmap:DomainElementTarget">
-        <element
-            href="geometry.ecore#//Track"/>
-      </target>
-    </audits>
     <childContainers
         id="2"
         name="label attribute constraints">

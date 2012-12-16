@@ -298,8 +298,6 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 	 * @author Ruxandra
 	 */
 	public void dropTokenOnPlace(String geometryLabel) {
-		RuntimeToken droppedToken = new RuntimeToken(null);
-		droppedToken.setFinished(true);
 		Place placeForLabel = null;
 		for(Place place : tokensMap.keySet()) {
 			boolean isInteractive = false;
@@ -311,6 +309,8 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 				break;
 			}		
 		}
+		RuntimeToken droppedToken = new RuntimeToken(placeForLabel.getAppearance().getText());
+		droppedToken.setFinished(true);
 		tokensMap.get(placeForLabel).add(droppedToken);
 	}
 

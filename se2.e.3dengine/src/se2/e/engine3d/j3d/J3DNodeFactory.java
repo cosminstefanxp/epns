@@ -125,7 +125,8 @@ public class J3DNodeFactory {
 		// this.loader.getAppearanceInfo(appearanceLabel);
 		Appearance app = new Appearance();
 		ColoringAttributes ca = new ColoringAttributes();
-		if (surface instanceof SurfaceColor) {
+		if (surface instanceof SurfaceColor) 
+		{
 			SurfaceColor sc = (SurfaceColor) surface;
 			ca.setColor((float) sc.getColor().getColorCode().getRed() / 255,
 					(float) sc.getColor().getColorCode().getGreen() / 255,
@@ -133,17 +134,29 @@ public class J3DNodeFactory {
 			// ca.setColor(sc.getColor().getColorCode());
 			// ca.setColor(new Color3f(0f, 1f, 0f));
 			app.setColoringAttributes(ca);
-		} else if (surface instanceof appearance.Texture) {
-			String file = ((appearance.Texture) surface).getFile();
-			Texture tex = new TextureLoader(file, engine).getTexture();
-			tex.setEnable(true);
-			app.setTexture(tex);
-			
-			TextureAttributes texAttr = new TextureAttributes();
-			texAttr.setTextureMode(TextureAttributes.MODULATE);
-			app.setTextureAttributes(texAttr);
+		} 
+		else if (surface instanceof appearance.Texture) 
+		{
+			try
+			{
+				
+				String file = ((appearance.Texture) surface).getFile();
+				Texture tex = new TextureLoader(file, engine).getTexture();
+				tex.setEnable(true);
+				app.setTexture(tex);
+				
+				
+				TextureAttributes texAttr = new TextureAttributes();
+				texAttr.setTextureMode(TextureAttributes.MODULATE);
+				app.setTextureAttributes(texAttr);
+			}
+			catch (Exception e)
+			{
+				logger.info("Cannot load texture");
+			}
 		}
 
+		//else return empty appearance
 		return app;
 
 	}
@@ -241,8 +254,8 @@ public class J3DNodeFactory {
 					Loader3DS loader = new Loader3DS();
 					s = loader.load(filepath);
 				}
-				else 
-					logger.info("UNKNOWN FILE EXTENSION!");
+//				else 
+//					logger.info("Cannot load model");
 				nodeTrans.addChild(s.getSceneGroup()); 
 				
 				//color only the first element of the 3D model
@@ -253,7 +266,8 @@ public class J3DNodeFactory {
 					s.getSceneGroup().removeChild(0);			
 					sh.setAppearance(app);
 					s.getSceneGroup().addChild(sh);
-					//color all the elements in the 3D model
+					
+					//un-coment to color all the elements in the 3D model
 //					Enumeration children = s.getSceneGroup().getAllChildren();
 //					while (children.hasMoreElements())
 //					{
@@ -265,18 +279,16 @@ public class J3DNodeFactory {
 //					}
 				}
 
-//				Transform3D transforms = new Transform3D();
-//				transforms = getTransform3D((appearance.Shape) shape);
-//				nodeTrans.setTransform(transforms);
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IncorrectFormatException e) {
-				e.printStackTrace();
-			} catch (ParsingErrorException e) {
-				e.printStackTrace();
+			} 
+			catch (Exception e) 
+			{
+				logger.info("Cannot load model. Loadin default appearance.");
+				ColorCube model = new ColorCube(1f);
+				transformGroup.addChild(model);
 			}
 
-		} else {
+		} 
+		else {
 			ColorCube model = new ColorCube(1f);
 			transformGroup.addChild(model);
 		}

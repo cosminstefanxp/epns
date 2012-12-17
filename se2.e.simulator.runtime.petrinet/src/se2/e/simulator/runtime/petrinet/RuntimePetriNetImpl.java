@@ -297,7 +297,7 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 	 * @param geometryLabel the place's GEOMETRY label
 	 * @author Ruxandra
 	 */
-	public void dropTokenOnPlace(String geometryLabel) {
+	public Place dropTokenOnPlace(String geometryLabel) {
 		Place placeForLabel = null;
 		for(Place place : tokensMap.keySet()) {
 			boolean isInteractive = false;
@@ -309,9 +309,13 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 				break;
 			}		
 		}
+		if(placeForLabel == null)
+			return null;
 		RuntimeToken droppedToken = new RuntimeToken(placeForLabel.getAppearance().getText());
 		droppedToken.setFinished(true);
 		tokensMap.get(placeForLabel).add(droppedToken);
+		return placeForLabel;
+		
 	}
 
 	/* (non-Javadoc)
@@ -327,6 +331,10 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 			}
 		}
 		return inputPlacesLabels;
+	}
+	
+	public HashMap<Place, List<RuntimeToken>>getTokenMap(){
+		return tokensMap;
 	}
 
 }

@@ -1,6 +1,7 @@
 package se2.e.simulator.runtime.petrinet;
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -45,8 +46,9 @@ public interface RuntimePetriNet {
 	 * Drop token on place.
 	 *
 	 * @param geometryLabel the place's GEOMETRY label
+	 * @return true, if successful
 	 */
-	public void dropTokenOnPlace(String geometryLabel);
+	public Place dropTokenOnPlace(String geometryLabel);
 
 	
 	/**
@@ -55,5 +57,12 @@ public interface RuntimePetriNet {
 	 * @return the input places
 	 */
 	public Set<String> getInputPlaces();
+	
+	/**
+	 * Gets the token map.
+	 *
+	 * @return the token map
+	 */
+	public HashMap<Place, List<RuntimeToken>>getTokenMap();
 
 }

@@ -3,23 +3,15 @@
  */
 package se2.e.engine3d.j3d;
 
-import java.awt.Color;
-import java.awt.geom.Point2D;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.logging.Logger;
 
-import javax.media.j3d.AmbientLight;
 import javax.media.j3d.Appearance;
-import javax.media.j3d.BoundingSphere;
 import javax.media.j3d.BranchGroup;
 import javax.media.j3d.Canvas3D;
 import javax.media.j3d.ColoringAttributes;
 import javax.media.j3d.GeometryArray;
-import javax.media.j3d.DirectionalLight;
-
 import javax.media.j3d.LineArray;
 import javax.media.j3d.LineAttributes;
 import javax.media.j3d.Node;
@@ -29,13 +21,9 @@ import javax.media.j3d.Texture;
 import javax.media.j3d.TextureAttributes;
 import javax.media.j3d.Transform3D;
 import javax.media.j3d.TransformGroup;
-import javax.vecmath.AxisAngle4d;
-import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
-import javax.vecmath.Point3f;
 import javax.vecmath.Vector3d;
-import javax.vecmath.Vector3f;
 
 import se2.e.engine3d.GeometryAndAppearanceLoader;
 import se2.e.geometry.GeometryObject;
@@ -44,10 +32,8 @@ import se2.e.geometry.SimplePosition;
 import se2.e.geometry.Track;
 import se2.e.utilities.PathInterpolator;
 import se2.e.utilities.Vector2D;
-import se2.e.utilities.path.BezierPathInterpolator;
-import se2.e.utilities.path.LinearPathInterpolator;
-import se2.e.utilities.path.QuadraticBezierPathInterpolator;
 import se2.e.utilities.Where;
+import se2.e.utilities.path.BezierPathInterpolator;
 import appearance.AppearanceInfo;
 import appearance.Model3D;
 import appearance.Object3D;
@@ -55,8 +41,6 @@ import appearance.Surface;
 import appearance.SurfaceColor;
 
 import com.microcrowd.loader.java3d.max3ds.Loader3DS;
-import com.sun.j3d.loaders.IncorrectFormatException;
-import com.sun.j3d.loaders.ParsingErrorException;
 import com.sun.j3d.loaders.Scene;
 import com.sun.j3d.loaders.objectfile.ObjectFile;
 import com.sun.j3d.utils.geometry.ColorCube;
@@ -140,7 +124,7 @@ public class J3DNodeFactory {
 			try
 			{
 				
-				String file = ((appearance.Texture) surface).getFile();
+				String file = ((appearance.Texture) surface).getFileURI();
 				Texture tex = new TextureLoader(file, engine).getTexture();
 				tex.setEnable(true);
 				app.setTexture(tex);
@@ -241,7 +225,7 @@ public class J3DNodeFactory {
 		} 
 		else if (shape instanceof appearance.Model3D) 
 		{
-			String filepath = ((Model3D) shape).getFile();
+			String filepath = ((Model3D) shape).getFileURI();
 			Scene s = null;
 			ObjectFile f = new ObjectFile();
 			f.setFlags(ObjectFile.RESIZE | ObjectFile.TRIANGULATE| ObjectFile.STRIPIFY);

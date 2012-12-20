@@ -281,7 +281,6 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 					tokensMovements.addAll(movements);
 			}
 		}
-		printPetri();
 		return tokensMovements;
 	}
 

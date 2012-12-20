@@ -1,6 +1,3 @@
-/*
- * 
- */
 package se2.e.engine3d.j3d;
 
 import java.util.ArrayList;
@@ -49,7 +46,7 @@ import com.sun.j3d.utils.image.TextureLoader;
  * A factory for creating nodes containing the representation for various types
  * of objects in Java3D.
  * 
- * @author ruxandra, marius, cosmin
+ * @author marius, ruxandra, cosmin
  */
 public class J3DNodeFactory {
 
@@ -101,32 +98,28 @@ public class J3DNodeFactory {
 	 * @return the appearance
 	 * @author marius
 	 */
-	private Appearance buildSurfaceAppearance(Surface surface) {
-		// String appearanceLabel = surface.getLabel();
-		// AppearanceInfo appearanceInfo =
-		// this.loader.getAppearanceInfo(appearanceLabel);
+	private Appearance buildSurfaceAppearance(Surface surface) 
+	{
 		Appearance app = new Appearance();
 		ColoringAttributes ca = new ColoringAttributes();
+		//if surface is color, set coloring attributes
 		if (surface instanceof SurfaceColor) 
 		{
 			SurfaceColor sc = (SurfaceColor) surface;
 			ca.setColor((float) sc.getColor().getColorCode().getRed() / 255,
 					(float) sc.getColor().getColorCode().getGreen() / 255,
 					(float) sc.getColor().getColorCode().getBlue() / 255);
-			// ca.setColor(sc.getColor().getColorCode());
-			// ca.setColor(new Color3f(0f, 1f, 0f));
 			app.setColoringAttributes(ca);
 		} 
+		//if surface is texture, load and set texture
 		else if (surface instanceof appearance.Texture) 
 		{
 			try
 			{
-				
 				String file = ((appearance.Texture) surface).getFileURI();
 				Texture tex = new TextureLoader(file, engine).getTexture();
 				tex.setEnable(true);
 				app.setTexture(tex);
-				
 				
 				TextureAttributes texAttr = new TextureAttributes();
 				texAttr.setTextureMode(TextureAttributes.MODULATE);
@@ -134,13 +127,13 @@ public class J3DNodeFactory {
 			}
 			catch (Exception e)
 			{
+				//display error message and load default appearance
 				logger.info("Cannot load texture");
 				ColoringAttributes ca2 = new ColoringAttributes();
 				ca2.setColor(0f, 0f, 0f);
 				app.setColoringAttributes(ca2);
 			}
 		}
-
 		//else return empty appearance
 		return app;
 
@@ -148,7 +141,7 @@ public class J3DNodeFactory {
 	
 	
 	/**
-	 * Gets the transform3d for the specified shape.
+	 * Gets the transform3d for a specified shape.
 	 *
 	 * @param shape the shape
 	 * @return the transform3 d
@@ -156,16 +149,19 @@ public class J3DNodeFactory {
 	 */
 	private Transform3D getTransform3D(appearance.Shape shape)
 	{
-		//rotate
+		//instantiate new empty transforms for rotation and elevation
 		Transform3D transforms = new Transform3D();
 		Transform3D rotateX = new Transform3D();
 		Transform3D rotateY = new Transform3D();
 		Transform3D rotateZ = new Transform3D();
 		Transform3D elevate = new Transform3D();
 
+		//rotate
 		rotateX.rotX(shape.getXRotation());
 		rotateY.rotY(shape.getYRotation());
 		rotateZ.rotZ(shape.getZRotation());
+		
+		//elevate
 		elevate.setTranslation(new Vector3d(0d,0d,shape.getElevation()));
 		
 		transforms.mul(transforms, elevate);
@@ -173,10 +169,8 @@ public class J3DNodeFactory {
 		transforms.mul(transforms, rotateY);
 		transforms.mul(transforms, rotateZ);
 		
-		
 		//scale
 		transforms.setScale(shape.getScale());
-		
 		
 		return transforms;
 	}
@@ -199,46 +193,73 @@ public class J3DNodeFactory {
 	 * 
 	 */
 	public TransformGroup buildTransformGroupForShape(appearance.Shape shape,
-			TransformGroup transformGroup) {
+			TransformGroup transformGroup) 
+	{
+		//if third parameter is null, create new transform group
 		if (transformGroup == null)
 		{
 			transformGroup = new TransformGroup();
 			transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 		}
+		//init working transformGroup
 		TransformGroup nodeTrans = new TransformGroup();
 		nodeTrans.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-		if (shape instanceof appearance.Shape3D) {
+		
+		//if shape
+		if (shape instanceof appearance.Shape3D) 
+		{
+			//get shape3D type
 			Object3D type = ((appearance.Shape3D) shape).getType();
 			if (type == Object3D.CUBE) 
 			{
-				Box model = new Box(1f, 1f, 1f, new Appearance());
+				//cube
+				//get appearance
+				Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
+				Box model;
+				if (app != null)
+					//bulid cube with provided appearance
+					model = new Box(1f, 1f, 1f, app);
+				else
+					//build cube with empty appearance
+					model = new Box(1f, 1f, 1f, new Appearance());
 				nodeTrans.addChild(model);
-			} else if (type == Object3D.SPHERE) 
+			}
+			else if (type == Object3D.SPHERE) 
 			{
+				//sphere
 				Appearance app = buildSurfaceAppearance(shape.getShapeSurface());
 				Sphere model;
+				//get appearance
 				if (app != null)
+					//build sphere with provided appearance
 					model = new Sphere(1, app);
 				else
+					//build sphere with empty appearance
 					model = new Sphere(1);
 				nodeTrans.addChild(model);
 			}
 		} 
+		//if model
 		else if (shape instanceof appearance.Model3D) 
 		{
+			//get gile URI
 			String filepath = ((Model3D) shape).getFileURI();
 			Scene s = null;
 			ObjectFile f = new ObjectFile();
 			f.setFlags(ObjectFile.RESIZE | ObjectFile.TRIANGULATE| ObjectFile.STRIPIFY);
 
-			try {
+			try 
+			{
+				//if obj, use default java3d loader
 				if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("obj"))
 					s = f.load(filepath);
 				else if(filepath.substring(filepath.length()-3, filepath.length()).equalsIgnoreCase("3ds")) 
 				{
+					//use Loader3DS loader
 					Loader3DS loader = new Loader3DS();
 					s = loader.load(filepath);
 				}
+				//add to node
 				nodeTrans.addChild(s.getSceneGroup()); 
 				
 				//color only the first element of the 3D model
@@ -249,23 +270,12 @@ public class J3DNodeFactory {
 					s.getSceneGroup().removeChild(0);			
 					sh.setAppearance(app);
 					s.getSceneGroup().addChild(sh);
-					
-					//un-coment to color all the elements in the 3D model
-//					Enumeration children = s.getSceneGroup().getAllChildren();
-//					while (children.hasMoreElements())
-//					{
-//						javax.media.j3d.Shape3D sh;// = (javax.media.j3d.Shape3D) s.getSceneGroup().getChild(0);
-//						sh = (javax.media.j3d.Shape3D) children.nextElement();
-//						s.getSceneGroup().removeChild(sh);			
-//						sh.setAppearance(app);
-//						s.getSceneGroup().addChild(sh);
-//					}
 				}
 
 			} 
 			catch (Exception e) 
 			{
-				//e.printStackTrace();
+				//display error message and add default model (cube)
 				logger.info("Cannot load model. Loading default appearance.");
 				Box model = new Box(1f, 1f, 1f, new Appearance());
 				transformGroup.addChild(model);
@@ -273,17 +283,15 @@ public class J3DNodeFactory {
 
 		} 
 		else {
+			//if fail, add default model (cube)
 			Box model = new Box(1f, 1f, 1f, new Appearance());
 			transformGroup.addChild(model);
 		}
-		
-		
+
+		//add transforms
 		Transform3D transforms = new Transform3D();
 		transforms = getTransform3D(shape);
 		nodeTrans.setTransform(transforms);
-		
-		//(Un)comment the following lines to (add)/remove the lightning on the object
-		
 
 		transformGroup.addChild(nodeTrans);
 		
@@ -313,12 +321,11 @@ public class J3DNodeFactory {
 		//compute the forword vector
 		forward.multiply(INTERPOLATION_DIST);
 		
-		//cumpute the four points
+		//compute the four points
 		Vector2D forwardRight=Vector2D.add(startV,forward).add(new Vector2D(right).multiply(this.trackWidth));
 		Vector2D forwardLeft = Vector2D.add(startV,forward).add(new Vector2D(right).multiply(-this.trackWidth));
 		Vector2D backRight = Vector2D.add(startV,new Vector2D(right).multiply(this.trackWidth));
 		Vector2D backLeft = Vector2D.add(startV,new Vector2D(right).multiply(-this.trackWidth));
-		
 		
 		//list of quad points
 		List<Point3d> points = new ArrayList<Point3d>();
@@ -408,9 +415,7 @@ public class J3DNodeFactory {
 		Shape3D myShape = new Shape3D( myQuads, myAppear);
 		g.addChild(myShape);
 		return g;
-		
 	}
-	
 	
 
 	/**
@@ -428,7 +433,8 @@ public class J3DNodeFactory {
 	 * @author Marius
 	 */
 	public DynamicBranch getGeometryBranch(String geometryLabel,
-			boolean interactiveInput) {
+			boolean interactiveInput) 
+	{
 		BranchGroup branchGroup = new BranchGroup();
 		branchGroup.setCapability(BranchGroup.ALLOW_DETACH);
 		TransformGroup tg = null;
@@ -458,13 +464,20 @@ public class J3DNodeFactory {
 		if (appearanceInfo instanceof appearance.Shape)
 			tg = buildTransformGroupForShape((appearance.Shape) appearanceInfo,	null);
 
+		//get position
 		Position position = this.loader.getSimplePositionObject(geometryLabel).getPosition();
 		
+		//place object at specified position
 		Transform3D trans3d = new Transform3D();
 		trans3d.setTranslation(new Vector3d(position.getX(), position.getY(),DRAWING_PLANE_Z));
 		tg.setTransform(trans3d);
+		
+		//if inputPlace, setPickable
 		tg.setPickable(interactiveInput);
+		
 		branchGroup.addChild(tg);
+
+		//return dynamic input branc or dynamic branch, depending on the interactiveInput parameter
 		DynamicBranch branch = null;
 		if (interactiveInput)
 			branch = new DynamicInputBranch(branchGroup, tg,
@@ -508,7 +521,7 @@ public class J3DNodeFactory {
 	{
 		TransformGroup destinationTransformGroup = null;
 		BranchGroup destinationBranchGroup;
-		
+		//check if destionationBranch is provided and init accordingly
 		if (destinationBranch == null) 
 		{
 			destinationTransformGroup = new TransformGroup();	
@@ -527,20 +540,20 @@ public class J3DNodeFactory {
 			destinationBranch.getBranchGroup().addChild(destinationTransformGroup);
 			destinationBranch.setTransformGroup(destinationTransformGroup);
 		}
-		AppearanceInfo appearanceInfo = this.loader
-				.getAppearanceInfo(appearanceLabel);
-		Position position = this.loader.getSimplePositionObject(geometryLabel)
-				.getPosition();
-
+		
+		//get appearance info
+		AppearanceInfo appearanceInfo = this.loader.getAppearanceInfo(appearanceLabel);
+		
+		//place at specified position
+		Position position = this.loader.getSimplePositionObject(geometryLabel).getPosition();
 		Transform3D trans3d = new Transform3D();
 		trans3d.setTranslation(new Vector3d(position.getX(), position.getY(),
 				DRAWING_PLANE_Z));
-		if (appearanceInfo instanceof appearance.Shape) {
-
-			buildTransformGroupForShape((appearance.Shape) appearanceInfo,
-					destinationTransformGroup);
-		}
+		
+		if (appearanceInfo instanceof appearance.Shape) 
+			buildTransformGroupForShape((appearance.Shape) appearanceInfo,destinationTransformGroup);
 		destinationTransformGroup.setTransform(trans3d);
+		
 		return destinationBranch;
 
 	}
@@ -558,7 +571,8 @@ public class J3DNodeFactory {
 	 * @return the token branch
 	 * @author Marius
 	 */
-	public DynamicBranch getTokenBranch(String appearanceLabel, DynamicBranch destinationBranch) {
+	public DynamicBranch getTokenBranch(String appearanceLabel, DynamicBranch destinationBranch)
+	{
         TransformGroup tg;
 
         // if destinationBranch is null, create a new one
@@ -572,11 +586,13 @@ public class J3DNodeFactory {
             branchGroup.addChild(tg);
 
             destinationBranch = new DynamicBranch(branchGroup, tg);
-        } else if (destinationBranch.getTransformGroup() != null) 
+        } 
+        else if (destinationBranch.getTransformGroup() != null) 
         {
             // use existing transform group
             tg = destinationBranch.getTransformGroup();
-        } else 
+        } 
+        else 
         {
             // create new one
             tg = new TransformGroup();
@@ -586,9 +602,10 @@ public class J3DNodeFactory {
         }
         AppearanceInfo appearanceInfo = this.loader.getAppearanceInfo(appearanceLabel);
 
-        if (appearanceInfo instanceof appearance.Shape) {
+        if (appearanceInfo instanceof appearance.Shape) 
             tg = buildTransformGroupForShape((appearance.Shape) appearanceInfo, tg);
-        } else {
+        else 
+        {
         	Box model = new Box(1f, 1f, 1f, new Appearance());
             tg.addChild(model);
         }

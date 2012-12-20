@@ -9,10 +9,12 @@
   <appearanceInfos xsi:type="appearance:Model3D" label="YellowTrain" scale="10.0" xRotation="1.57" yRotation="3.14" elevation="8.7" file="\examples\models\Train.obj">
     <shapeSurface xsi:type="appearance:SurfaceColor" label="YT_color" color="Yellow"/>
   </appearanceInfos>
+
   <appearanceInfos xsi:type="appearance:Model3D" label="Car" scale="15.0" xRotation="1.57" yRotation="-1.57" elevation="4.0" file="\examples\models\muscle.obj"/>
   <appearanceInfos xsi:type="appearance:Texture" label="Track" file="\examples\models\rail.png"/>
   <appearanceInfos xsi:type="appearance:Texture" label="Road" file="\examples\models\road.png"/>
-  <appearanceInfos xsi:type="appearance:Model3D" label="House" scale="10.0" xRotation="1.57" yRotation="3.14" file="\examples\models\switch.obj">
+  <appearanceInfos xsi:type="appearance:Model3D" label="Switch" scale="10.0" xRotation="1.57" yRotation="3.14" file="\examples\models\switch.obj">
+
     <shapeSurface xsi:type="appearance:SurfaceColor" label="a" color="Cyan"/>
   </appearanceInfos>
   <appearanceInfos xsi:type="appearance:Shape3D" label="BarrierUp" scale="10.0" type="Sphere">
@@ -31,4 +33,6 @@
     <shapeSurface xsi:type="appearance:SurfaceColor" label="ST2_color"/>
   </appearanceInfos>
   <appearanceInfos xsi:type="appearance:Shape3D" label="SwitchT3" scale="10.0" type="Sphere"/>
+  <appearanceInfos xsi:type="appearance:Model3D" label="House" scale="0.5" yRotation="1.57" zRotation="1.57" file="\examples\models\house01.3DS"/>
+  <appearanceInfos xsi:type="appearance:Model3D" label="Bush" file="\examples\models\bush.obj"/>
 </appearance:AppearanceModel>

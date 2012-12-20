@@ -67,7 +67,7 @@
   <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.16" endPosition="//@geoObjects.8" appearanceLabel="Road" label="T11">
     <intermediatePositions x="308.0" y="455.0"/>
   </geoObjects>
-  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="House" label="House">
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="Switch" label="Switch1">
     <position x="140.0" y="450.0"/>
   </geoObjects>
   <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="SwitchT2" label="Switch">
@@ -91,5 +91,17 @@
   </geoObjects>
   <geoObjects xsi:type="geometry:Track" startPosition="//@geoObjects.8" endPosition="//@geoObjects.6" appearanceLabel="Road" label="T8">
     <intermediatePositions x="44.0" y="364.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="House" label="House">
+    <position x="192.0" y="540.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="House" label="House2">
+    <position x="300.0" y="540.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="House" label="House3">
+    <position x="396.0" y="540.0"/>
+  </geoObjects>
+  <geoObjects xsi:type="geometry:SimplePosition" appearanceLabel="House" label="House4">
+    <position x="504.0" y="540.0"/>
   </geoObjects>
 </geometry:Geometry>

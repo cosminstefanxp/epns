@@ -1993,7 +1993,7 @@
             <offset x="4.0" y="46.0"/>
             <font family="Sans" size="9pt"/>
           </graphics>
-          <text>House</text>
+          <text>Switch1</text>
         </geometryLabel>
       </place>
       <place id="P18">

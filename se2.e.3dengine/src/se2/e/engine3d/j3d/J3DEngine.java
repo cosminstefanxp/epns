@@ -278,8 +278,6 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		for (String label : loader.getSimplePositionLabels()) {
 			// Create the node corresponding to simple position and add it to the scene graph
 			DynamicBranch inputPlaceBranch = null; // nodeFactory.getGeometryBranch(label, true);
-			System.out.println("Label: " + label);
-			System.out.println(inputPlacesLabels);
 			// The node corresponds to an interactive input place
 			if (inputPlacesLabels.contains(label)) {
 				log.info("Setting up a new interactive input place: " + label);

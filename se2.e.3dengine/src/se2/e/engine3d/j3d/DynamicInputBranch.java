@@ -14,7 +14,7 @@ import com.sun.j3d.utils.picking.PickResult;
 /**
  * The Class DynamicInputBranch that is a {@link DynamicBranch} that has a user input listener on the representation.
  * 
- * @author ruxy
+ * @author ruxandra
  */
 public class DynamicInputBranch extends DynamicBranch implements MouseListener {
 

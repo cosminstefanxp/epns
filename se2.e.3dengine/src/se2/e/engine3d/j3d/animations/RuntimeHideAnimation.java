@@ -45,7 +45,7 @@ public class RuntimeHideAnimation extends RuntimeAnimation<Hide> {
 				branch.getTransformGroup().removeAllChildren();
 		}
 
-		log.info(this.getClass().getSimpleName() + " finished for token: " + this.getToken());
+		log.fine(this.getClass().getSimpleName() + " finished for token: " + this.getToken());
 		listener.animationFinished(getToken());
 
 	}

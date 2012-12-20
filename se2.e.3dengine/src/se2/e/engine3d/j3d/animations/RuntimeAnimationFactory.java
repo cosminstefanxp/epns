@@ -33,7 +33,7 @@ public class RuntimeAnimationFactory {
 			RuntimeToken token, J3DEngine engine, RuntimeAnimationListener listener, String geometryLabel) {
 
 		if (animation instanceof Move) {
-			Logger.getAnonymousLogger().info("Creating RuntimeMoveAnimation with: " + animation);
+			Logger.getAnonymousLogger().fine("Creating RuntimeMoveAnimation with: " + animation);
 			// Checks
 			if (geometryLabel == null) {
 				Logger.getAnonymousLogger().severe("No geometry set on place, for Move animation.");
@@ -45,12 +45,12 @@ public class RuntimeAnimationFactory {
 		}
 
 		if (animation instanceof Hide) {
-			Logger.getAnonymousLogger().info("Creating RuntimeHideAnimation with: " + animation);
+			Logger.getAnonymousLogger().fine("Creating RuntimeHideAnimation with: " + animation);
 			return new RuntimeHideAnimation(targetBranch, (Hide) animation, token, listener, engine, geometryLabel);
 		}
 
 		if (animation instanceof Show) {
-			Logger.getAnonymousLogger().info("Creating RuntimeShowAnimation with: " + animation);
+			Logger.getAnonymousLogger().fine("Creating RuntimeShowAnimation with: " + animation);
 			// Checks
 			if (geometryLabel == null) {
 				Logger.getAnonymousLogger().severe("No geometry set on place, for Show animation.");
@@ -61,12 +61,12 @@ public class RuntimeAnimationFactory {
 		}
 
 		if (animation instanceof Wait) {
-			Logger.getAnonymousLogger().info("Creating RuntimeWaitAnimation with: " + animation);
+			Logger.getAnonymousLogger().fine("Creating RuntimeWaitAnimation with: " + animation);
 			return new RuntimeWaitAnimation(targetBranch, (Wait) animation, token, listener);
 		}
 
 		if (animation instanceof Sequence) {
-			Logger.getAnonymousLogger().info("Creating RuntimeSequenceAnimation with: " + animation);
+			Logger.getAnonymousLogger().fine("Creating RuntimeSequenceAnimation with: " + animation);
 			return new RuntimeSequenceAnimation(targetBranch, (Sequence) animation, token, engine, listener, geometryLabel);
 		}
 

@@ -43,7 +43,7 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> impleme
 		this.engine = engine;
 		this.geometryLabel = geometryLabel;
 
-		log.info("Starting sequence with animations: " + animation.getComponents());
+		log.fine("Starting sequence with animations: " + animation.getComponents());
 
 		// Start the first animation
 		currentAnimationIndex = 0;
@@ -95,7 +95,7 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> impleme
 	 */
 	@Override
 	public void animationFinished(RuntimeToken token) {
-		log.info("Finished Animation in Sequence: " + currentRuntimeAnimation);
+		log.fine("Finished Animation in Sequence: " + currentRuntimeAnimation);
 		// If there are more animations, start the next one
 		if (currentAnimationIndex < animation.getComponents().size() - 1) {
 			currentAnimationIndex++;
@@ -103,7 +103,7 @@ public class RuntimeSequenceAnimation extends RuntimeAnimation<Sequence> impleme
 					.getComponents().get(currentAnimationIndex), getToken(), engine, this, geometryLabel);
 			currentRuntimeAnimation.setAnimationListener(this);
 		} else {
-			log.info("Sequence Animation finished for token: " + getToken());
+			log.fine("Sequence Animation finished for token: " + getToken());
 			this.animationListener.animationFinished(getToken());
 		}
 	}

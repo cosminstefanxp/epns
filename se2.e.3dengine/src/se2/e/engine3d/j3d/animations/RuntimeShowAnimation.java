@@ -43,7 +43,7 @@ public class RuntimeShowAnimation extends RuntimeAnimation<Show> {
 		engine.getNodeFactory().getGeometryBranch(animation.getShape(), geometryLabel, branch);
 		engine.attachPlaceRepresentation(geometryLabel, branch);
 		
-		log.info("Show animation finished for :"+getToken());
+		log.fine("Show animation finished for :"+getToken());
 		this.animationListener.animationFinished(getToken());
 	}
 

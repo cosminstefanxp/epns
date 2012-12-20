@@ -78,7 +78,7 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 			return null;
 		}
 		this.pathInterpolator = new BezierPathInterpolator(trackPoints);
-		log.info("Starting new move animation for: " + Arrays.toString(trackPoints));
+		log.fine("Starting new move animation for: " + Arrays.toString(trackPoints));
 
 		// Place the object on the initial position by fake calling onUpdateAnimation so that it updates the position to
 		// initial position
@@ -122,7 +122,7 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 
 	@Override
 	protected void onAnimationFinished() {
-		log.info(this.getClass().getSimpleName() + " finished for token: " + this.getToken());
+		log.fine(this.getClass().getSimpleName() + " finished for token: " + this.getToken());
 		this.animationListener.animationFinished(this.getToken());
 	}
 

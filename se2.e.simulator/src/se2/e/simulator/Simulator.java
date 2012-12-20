@@ -132,7 +132,7 @@ public class Simulator implements Engine3DListener {
 		rpn.dropTokenOnPlace(label);
 		
 		List<TokenMovement> tokenMovements = rpn.fireTransitions();
-		logger.info("Fired transitions after dropping the token. Next tokens will be moved: " + tokenMovements);
+		logger.fine("Fired transitions after dropping the token. Next tokens will be moved: " + tokenMovements);
 		for (TokenMovement tokenMovement : tokenMovements) {
 			if(tokenMovement.isDestroyed())
 				engine.destroyRepresentation(tokenMovement.getToken());
@@ -151,6 +151,6 @@ public class Simulator implements Engine3DListener {
 		RuntimePetriNetFactory rpnf = new RuntimePetriNetFactory();
 		rpn = rpnf.getRuntimePetriNet();
 		this.initializePetriNet();
-		logger.info("Stopped Animation in the Simulator.");
+		logger.fine("Stopped Animation in the Simulator.");
 	}
 }

@@ -368,7 +368,7 @@ public class J3DNodeFactory {
 			points.add(p2);
 		}
 				
-		logger.info("Number of quads: " + points.size()/4);
+		logger.fine("Number of quads: " + points.size()/4);
 		Point3d[] myCoords = new Point3d[points.size()];
 		
 		//put the list in an array so it can e sent to the quad array
@@ -625,7 +625,7 @@ public class J3DNodeFactory {
 	 */
 	public Node getGround(double x, double y, double size){
 		
-		logger.info("Creating ground of size "+size+" at "+x+","+y);
+		logger.fine("Creating ground of size "+size+" at "+x+","+y);
 		
 		Point3d[] myCoords = new Point3d[4];
 		

@@ -32,7 +32,7 @@ public class RuntimeWaitAnimation extends RuntimeAnimation<Wait> {
 
 	@Override
 	public WakeupCondition init() {
-		log.info("Initializing RuntimeWaitAnimation...");
+		log.fine("Initializing RuntimeWaitAnimation...");
 		return new WakeupOnElapsedTime((long) animation.getTime());
 	}
 
@@ -48,7 +48,7 @@ public class RuntimeWaitAnimation extends RuntimeAnimation<Wait> {
 
 	@Override
 	protected void onAnimationFinished() {
-		log.info(this.getClass().getSimpleName() + " finished for token: " + this.getToken());
+		log.fine(this.getClass().getSimpleName() + " finished for token: " + this.getToken());
 		this.animationListener.animationFinished(getToken());
 	}
 

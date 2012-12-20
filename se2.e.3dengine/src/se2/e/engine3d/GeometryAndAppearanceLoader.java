@@ -85,7 +85,7 @@ public class GeometryAndAppearanceLoader {
 	 * @author cosmin, marius
 	 */
 	public GeometryAndAppearanceLoader(Geometry geometry, AppearanceModel appearance) {
-		log.info("Loading geometry and appearance configurations...");
+		log.fine("Loading geometry and appearance configurations...");
 		List<GeometryObject> geomObjs = geometry.getGeoObjects();
 		trackObjects = new HashMap<String, Vector2D[]>();
 		simplePositionObjects = new HashMap<String, SimplePosition>();
@@ -109,16 +109,15 @@ public class GeometryAndAppearanceLoader {
 				// EndPoint
 				trackPoints[curIndex++] = buildVector2D(track.getEndPosition().getPosition());
 				updateLimits(track.getEndPosition().getPosition());
-				System.out.println(Arrays.toString(trackPoints));
 				trackObjects.put(track.getLabel(), trackPoints);
 			} else if (geomObj instanceof SimplePosition) {
 				simplePositionObjects.put(((SimplePosition) geomObj).getLabel(), (SimplePosition) geomObj);
 				updateLimits(((SimplePosition) geomObj).getPosition());
 			}
 		}
-		log.info("Loaded trackPoints for geometry: " + trackObjects);
-		log.info("Loaded simplePositionObjects geometry: " + simplePositionObjects);
-		log.info(String.format("Limits - X: (%f,  %f), Y: (%f, %f)", minX, maxX, minY, maxY));
+		log.fine("Loaded trackPoints for geometry: " + trackObjects);
+		log.fine("Loaded simplePositionObjects geometry: " + simplePositionObjects);
+		log.fine(String.format("Limits - X: (%f,  %f), Y: (%f, %f)", minX, maxX, minY, maxY));
 
 		// Load up appearance info
 		List<AppearanceInfo> appInfoObjs = appearance.getAppearanceInfos();
@@ -126,7 +125,7 @@ public class GeometryAndAppearanceLoader {
 		for (AppearanceInfo appInfo : appInfoObjs) {
 			appearanceInfo.put(appInfo.getLabel(), appInfo);
 		}
-		log.info("Loaded appearanceInfo: " + appearanceInfo);
+		log.fine("Loaded appearanceInfo: " + appearanceInfo);
 	}
 
 	/**

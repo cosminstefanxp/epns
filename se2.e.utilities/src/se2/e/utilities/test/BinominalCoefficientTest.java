@@ -81,7 +81,7 @@ public class BinominalCoefficientTest {
 			r = ToolBox.binomialCoefficient(n, k);
 			}
 		finally {
-			System.out.println(""+r+" = C("+n+";"+k+")");
+			//System.out.println(""+r+" = C("+n+";"+k+")");
 			}
 		assertEquals(C, r);
 		}

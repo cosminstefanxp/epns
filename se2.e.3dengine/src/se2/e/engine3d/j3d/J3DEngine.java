@@ -144,7 +144,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 
 	@Override
 	public void dispose() {
-		log.info("Disposing window...");
+		log.fine("Disposing window...");
 		cleanupFull();
 
 		super.dispose();
@@ -225,7 +225,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		// Initialize other objects
 		tokenRepresentations = new HashMap<RuntimeToken, DynamicBranch>();
 
-		log.info("J3D Engine initialized...");
+		log.fine("J3D Engine initialized...");
 	}
 
 	/**
@@ -274,11 +274,11 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 			DynamicBranch inputPlaceBranch = null; // nodeFactory.getGeometryBranch(label, true);
 			// The node corresponds to an interactive input place
 			if (inputPlacesLabels.contains(label)) {
-				log.info("Setting up a new interactive input place: " + label);
+				log.fine("Setting up a new interactive input place: " + label);
 				inputPlaceBranch = nodeFactory.getGeometryBranch(label, true);
 			} // The node doesn't correspond to an interactive input place
 			else {
-				log.info("Setting up a new simple position: " + label);
+				log.fine("Setting up a new simple position: " + label);
 				inputPlaceBranch = nodeFactory.getGeometryBranch(label, false);
 			}
 			// Add the branch to the scene graph
@@ -304,7 +304,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 
 		// If the user clicked the Start/Stop Button
 		if (e.getSource() == btnStartStop) {
-			log.info("Starting/Stopping engine 3D...");
+			log.fine("Starting/Stopping engine 3D...");
 			btnStartStop.setEnabled(false);
 			
 			//Change state
@@ -317,7 +317,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 				btnPauseResume.setEnabled(true);
 			}
 			else{
-				log.info("Stop button clicked...");
+				log.fine("Stop button clicked...");
 				btnStartStop.setText("Start");
 				engineListener.onStopSimulation();
 				btnPauseResume.setEnabled(false);
@@ -329,7 +329,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 
 		// If the user clicked the Pause/Resume button
 		if (e.getSource() == btnPauseResume) {
-			log.info("Pause/Resume button clicked...");
+			log.fine("Pause/Resume button clicked...");
 			paused = !paused;
 			if (paused)
 				btnPauseResume.setText("Resume");
@@ -380,13 +380,13 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 */
 	@Override
 	public void startAnimation(RuntimeToken token, Animation animation, String geometryLabel) {
-		log.info("Starting new animation for token " + token.getLabel() + " on " + geometryLabel + ": " + animation);
+		log.fine("Starting new animation for token " + token.getLabel() + " on " + geometryLabel + ": " + animation);
 		// Get any existing branch representation of the token
 		DynamicBranch branch = tokenRepresentations.get(token);
 		if (branch != null)
-			log.info("Found dynamic branch for token " + token);
+			log.fine("Found dynamic branch for token " + token);
 		else
-			log.info("Existing dynamic branch not found for token " + token);
+			log.fine("Existing dynamic branch not found for token " + token);
 
 		// Build the RuntimeAnimation
 		RuntimeAnimationFactory.buildRuntimeAnimation(branch, animation, token, this, this, geometryLabel);
@@ -440,7 +440,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 * RuntimeToken)
 	 */
 	public void animationFinished(RuntimeToken token) {
-		log.info("Animation finished for: " + token);
+		log.fine("Animation finished for: " + token);
 		// Notify the engine listener
 		engineListener.onAnimationFinished(token);
 	}
@@ -454,7 +454,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	public void userInteraction(String geomLabel) {
 		// Notify the engine listener if not paused or stopped
 		if (running & !paused) {
-			log.info("User interaction on: " + geomLabel);
+			log.fine("User interaction on: " + geomLabel);
 			engineListener.onUserInteraction(geomLabel);
 		}
 	}
@@ -468,7 +468,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 */
 	@Override
 	public void destroyRepresentation(RuntimeToken token) {
-		log.info("Destroying token representation for: " + token);
+		log.fine("Destroying token representation for: " + token);
 		DynamicBranch tokenBranch = tokenRepresentations.get(token);
 		if (tokenBranch != null) {
 			if (tokenBranch.isAttachedToRoot()) {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/se2.e.tester/src" modelPluginID="se2.e.tester"
+    modelName="Tester" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false" usedGenPackages="../../org.pnml.tools.epnk/model/PNMLCoreModel.genmodel#//pnmlcoremodel">
+  <foreignModel>Tester.ecore</foreignModel>
+  <genPackages prefix="Tester" resource="XML" disposableProviderFactory="true" ecorePackage="Tester.ecore#/">
+    <genClasses ecoreClass="Tester.ecore#//Tester">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Tester.ecore#//Tester/petrinet"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

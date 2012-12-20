@@ -189,7 +189,7 @@ public class J3DNodeFactory {
 	 * @return the node containing the representation for the appearance, or
 	 *         null, if there is no appearance with the given label.
 	 *         
-	 * @author marius        
+	 * @author marius, ruxandra        
 	 * 
 	 */
 	public TransformGroup buildTransformGroupForShape(appearance.Shape shape,

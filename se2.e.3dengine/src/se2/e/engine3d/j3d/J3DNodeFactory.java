@@ -239,8 +239,6 @@ public class J3DNodeFactory {
 					Loader3DS loader = new Loader3DS();
 					s = loader.load(filepath);
 				}
-//				else 
-//					logger.info("Cannot load model");
 				nodeTrans.addChild(s.getSceneGroup()); 
 				
 				//color only the first element of the 3D model
@@ -267,7 +265,8 @@ public class J3DNodeFactory {
 			} 
 			catch (Exception e) 
 			{
-				logger.info("Cannot load model. Loadin default appearance.");
+				e.printStackTrace();
+				logger.info("Cannot load model. Loading default appearance.");
 				Box model = new Box(5f, 5f, 5f, new Appearance());
 				transformGroup.addChild(model);
 			}

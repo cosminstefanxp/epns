@@ -55,6 +55,8 @@ public class Simulator implements Engine3DListener {
 	 * @param selectedPetri the selected petri
 	 * @param appearance the appearance
 	 * @param trackWidth the track width
+	 * 
+	 * @author Ruxandra
 	 */
 	public Simulator(Geometry geometry, PetriNetDoc selectedPetri, AppearanceModel appearance, double trackWidth) {
 		RuntimePetriNetFactory rpnf = new RuntimePetriNetFactory();
@@ -65,12 +67,17 @@ public class Simulator implements Engine3DListener {
 		this.trackWidth = trackWidth;
 	}
 
+	/**
+	 * Initialize petri net.
+	 * @author Ruxandra
+	 */
 	public void initializePetriNet(){
 		initialMovements = rpn.init(selectedPetri);
 	}
 	
 	/**
 	 * Start simulation.
+	 * @author Ruxandra
 	 */
 	public void startSimulation() {
 		this.initializePetriNet();
@@ -85,6 +92,7 @@ public class Simulator implements Engine3DListener {
 	 * (non-Javadoc)
 	 * 
 	 * @see se2.e.engine3d.Engine3DListener#onAnimationFinished(se2.e.simulator.runtime.petrinet.RuntimeToken)
+	 * @author Ruxandra
 	 */
 	@Override
 	public void onAnimationFinished(RuntimeToken token) {
@@ -95,9 +103,7 @@ public class Simulator implements Engine3DListener {
 				engine.destroyRepresentation(tokenMovement.getToken());
 			else 
 				engine.startAnimation(tokenMovement.getToken(), tokenMovement.getAnimation(), tokenMovement.getGeoLabel());
-
 		}
-
 	}
 
 	
@@ -108,7 +114,6 @@ public class Simulator implements Engine3DListener {
 	 */
 	@Override
 	public void onStartSimulation() {
-		
 		for (TokenMovement tokenMovement : initialMovements) {
 			if(tokenMovement.isDestroyed())
 				engine.destroyRepresentation(tokenMovement.getToken());

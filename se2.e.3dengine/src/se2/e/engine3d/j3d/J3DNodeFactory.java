@@ -211,7 +211,7 @@ public class J3DNodeFactory {
 			Object3D type = ((appearance.Shape3D) shape).getType();
 			if (type == Object3D.CUBE) 
 			{
-				Box model = new Box(5f, 5f, 5f, new Appearance());
+				Box model = new Box(1f, 1f, 1f, new Appearance());
 				nodeTrans.addChild(model);
 			} else if (type == Object3D.SPHERE) 
 			{
@@ -265,15 +265,15 @@ public class J3DNodeFactory {
 			} 
 			catch (Exception e) 
 			{
-				e.printStackTrace();
+				//e.printStackTrace();
 				logger.info("Cannot load model. Loading default appearance.");
-				Box model = new Box(5f, 5f, 5f, new Appearance());
+				Box model = new Box(1f, 1f, 1f, new Appearance());
 				transformGroup.addChild(model);
 			}
 
 		} 
 		else {
-			Box model = new Box(5f, 5f, 5f, new Appearance());
+			Box model = new Box(1f, 1f, 1f, new Appearance());
 			transformGroup.addChild(model);
 		}
 		
@@ -589,7 +589,7 @@ public class J3DNodeFactory {
         if (appearanceInfo instanceof appearance.Shape) {
             tg = buildTransformGroupForShape((appearance.Shape) appearanceInfo, tg);
         } else {
-        	Box model = new Box(5f, 5f, 5f, new Appearance());
+        	Box model = new Box(1f, 1f, 1f, new Appearance());
             tg.addChild(model);
         }
 

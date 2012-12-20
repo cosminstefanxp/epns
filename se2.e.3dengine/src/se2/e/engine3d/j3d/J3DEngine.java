@@ -62,13 +62,10 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	private SimpleUniverse universe;
 
 	/** The start button. */
-	private JButton btnStart;
-
-	/** The stop button. */
-	private JButton btnStop;
+	private JButton btnStartStop;
 
 	/** The pause button. */
-	private JButton btnPause;
+	private JButton btnPauseResume;
 
 	/** The animation progress listener. */
 	private Engine3DListener engineListener = null;
@@ -103,8 +100,10 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	/** The canvas panel. */
 	private JPanel canvasPanel;
 
+	/** The simulation x center. */
 	private double simulationXCenter;
 
+	/** The simulation y center. */
 	private double simulationYCenter;
 
 	/**
@@ -124,19 +123,14 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 		canvasPanel = new JPanel();
 		getContentPane().add(canvasPanel, BorderLayout.NORTH);
 
-		btnStart = new JButton("Start");
-		btnStart.addActionListener(this);
-		canvasPanel.add(btnStart);
+		btnStartStop = new JButton("Start");
+		btnStartStop.addActionListener(this);
+		canvasPanel.add(btnStartStop);
 
-		btnStop = new JButton("Stop");
-		btnStop.addActionListener(this);
-		btnStop.setEnabled(false);
-		canvasPanel.add(btnStop);
-
-		btnPause = new JButton("Pause");
-		btnPause.addActionListener(this);
-		btnPause.setEnabled(false);
-		canvasPanel.add(btnPause);
+		btnPauseResume = new JButton("Pause");
+		btnPauseResume.addActionListener(this);
+		btnPauseResume.setEnabled(false);
+		canvasPanel.add(btnPauseResume);
 
 		// Configure this JFrame
 		this.setLocation(200, 200);
@@ -308,41 +302,41 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		// If the user clicked the Start Button
-		if (e.getSource() == btnStart) {
-			log.info("Starting engine 3D...");
-			paused = false;
-			running = true;
-			if (this.engineListener != null) {
+		// If the user clicked the Start/Stop Button
+		if (e.getSource() == btnStartStop) {
+			log.info("Starting/Stopping engine 3D...");
+			btnStartStop.setEnabled(false);
+			
+			//Change state
+			running=!running;
+			if(running)
+			{
+				paused = false;
 				engineListener.onStartSimulation();
-				btnStart.setEnabled(false);
-				btnPause.setEnabled(true);
-				btnStop.setEnabled(true);
+				btnStartStop.setText("Stop");
+				btnPauseResume.setEnabled(true);
 			}
+			else{
+				log.info("Stop button clicked...");
+				btnStartStop.setText("Start");
+				engineListener.onStopSimulation();
+				btnPauseResume.setEnabled(false);
+				btnPauseResume.setText("Pause");
+				cleanupOnStop();
+			}
+			btnStartStop.setEnabled(true);
 		}
 
 		// If the user clicked the Pause/Resume button
-		if (e.getSource() == btnPause) {
+		if (e.getSource() == btnPauseResume) {
 			log.info("Pause/Resume button clicked...");
 			paused = !paused;
-			running = !running;
 			if (paused)
-				btnPause.setText("Resume");
+				btnPauseResume.setText("Resume");
 			else
-				btnPause.setText("Pause");
+				btnPauseResume.setText("Pause");
 		}
 
-		// If the user clicked the Stop button
-		if (e.getSource() == btnStop) {
-			log.info("Stop button clicked...");
-			engineListener.onStopSimulation();
-			btnStop.setEnabled(false);
-			btnPause.setEnabled(false);
-			btnStart.setEnabled(true);
-			btnPause.setText("Pause");
-			running = false;
-			cleanupOnStop();
-		}
 	}
 
 	/**
@@ -455,10 +449,11 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 * Method called when an user has interacted with an Interactive Input place.
 	 * 
 	 * @param geomLabel the geom label
+	 * @author cosmin
 	 */
 	public void userInteraction(String geomLabel) {
 		// Notify the engine listener if not paused or stopped
-		if (running) {
+		if (running & !paused) {
 			log.info("User interaction on: " + geomLabel);
 			engineListener.onUserInteraction(geomLabel);
 		}
@@ -498,6 +493,8 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 * (non-Javadoc)
 	 * 
 	 * @see se2.e.engine3d.j3d.animations.RuntimeAnimationListener#attachToRoot(se2.e.engine3d.j3d.DynamicBranch)
+	 * 
+	 * @author cosmin
 	 */
 	@Override
 	public void attachToRoot(RuntimeAnimation<?> animation) {
@@ -523,6 +520,7 @@ public class J3DEngine extends JFrame implements Engine3D, ActionListener, Runti
 	 * 
 	 * @param label the label
 	 * @param branch the branch
+	 * @author cosmin
 	 */
 	public void attachPlaceRepresentation(String label, DynamicBranch branch) {
 		if (branch != null) {

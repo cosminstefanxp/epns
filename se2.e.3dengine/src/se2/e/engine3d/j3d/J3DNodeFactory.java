@@ -43,7 +43,7 @@ import appearance.SurfaceColor;
 import com.microcrowd.loader.java3d.max3ds.Loader3DS;
 import com.sun.j3d.loaders.Scene;
 import com.sun.j3d.loaders.objectfile.ObjectFile;
-import com.sun.j3d.utils.geometry.ColorCube;
+import com.sun.j3d.utils.geometry.Box;
 import com.sun.j3d.utils.geometry.Sphere;
 import com.sun.j3d.utils.image.TextureLoader;
 
@@ -137,6 +137,9 @@ public class J3DNodeFactory {
 			catch (Exception e)
 			{
 				logger.info("Cannot load texture");
+				ColoringAttributes ca2 = new ColoringAttributes();
+				ca2.setColor(0f, 0f, 0f);
+				app.setColoringAttributes(ca2);
 			}
 		}
 
@@ -210,7 +213,7 @@ public class J3DNodeFactory {
 			Object3D type = ((appearance.Shape3D) shape).getType();
 			if (type == Object3D.CUBE) 
 			{
-				ColorCube model = new ColorCube(1f);
+				Box model = new Box(5f, 5f, 5f, new Appearance());
 				nodeTrans.addChild(model);
 			} else if (type == Object3D.SPHERE) 
 			{
@@ -267,13 +270,13 @@ public class J3DNodeFactory {
 			catch (Exception e) 
 			{
 				logger.info("Cannot load model. Loadin default appearance.");
-				ColorCube model = new ColorCube(1f);
+				Box model = new Box(5f, 5f, 5f, new Appearance());
 				transformGroup.addChild(model);
 			}
 
 		} 
 		else {
-			ColorCube model = new ColorCube(1f);
+			Box model = new Box(5f, 5f, 5f, new Appearance());
 			transformGroup.addChild(model);
 		}
 		
@@ -657,7 +660,7 @@ public class J3DNodeFactory {
         if (appearanceInfo instanceof appearance.Shape) {
             tg = buildTransformGroupForShape((appearance.Shape) appearanceInfo, tg);
         } else {
-            ColorCube model = new ColorCube(0.5f);
+        	Box model = new Box(5f, 5f, 5f, new Appearance());
             tg.addChild(model);
         }
 

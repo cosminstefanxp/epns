@@ -6,6 +6,7 @@ package start.popup.actions;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -18,6 +19,7 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.pnml.tools.epnk.pnmlcoremodel.Object;
 
@@ -212,6 +214,26 @@ public class Start implements IObjectActionDelegate {
 			  assertEquals(tokensNum+1,rpn.getTokenMap().get(testedInputPlace).size());
 			 
 		}
+	}
+	
+	
+	
+	@Test
+	public void testGetInputPlaces(){
+		
+		
+		List<Place> interPlace = new ArrayList<Place>();
+		/*Find all the interactive places*/
+		Set<Place> places = rpn.getTokenMap().keySet(); 
+		for(Place place : places){
+			if(place.getInteractiveInput().isText())
+				interPlace.add(place);
+		}
+		
+		/*Assert that every interactive place found interactive indeed*/
+		for(Place place : interPlace)
+		  assertTrue("Some Place is not interactive", place.getInteractiveInput().isText());
+		
 	}
 	
 	

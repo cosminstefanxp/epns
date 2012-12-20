@@ -32,7 +32,9 @@ import tests.MyTestRunner;
 
 
 
-
+/*
+ * @author Georgios Liassas
+ */
 public class Start implements IObjectActionDelegate {
 
 	private static Tester selectedTester;
@@ -59,6 +61,9 @@ public class Start implements IObjectActionDelegate {
 	}
 
 	
+	/*
+	 * @author Georgios Liassas
+	 */
 	@Before
 	public void initTestEnvironment(){
 		
@@ -68,7 +73,9 @@ public class Start implements IObjectActionDelegate {
 	}
 	
 	
-	
+	/*
+	 * @author Georgios Liassas
+	 */
 	@Test
 	public void testInit() {
 		
@@ -96,7 +103,9 @@ public class Start implements IObjectActionDelegate {
 	}
 	
 	
-	
+	/*
+	 * @author Georgios Liassas
+	 */
 	@Test
 	public void testMarkToken(){
 		
@@ -127,7 +136,9 @@ public class Start implements IObjectActionDelegate {
 	
 	
 	
-	
+	/*
+	 * @author Georgios Liassas
+	 */
 	@Test
 	public void testFireTransition() {
 		
@@ -172,7 +183,9 @@ public class Start implements IObjectActionDelegate {
 	
 	
 	
-	
+	/*
+	 * @author Georgios Liassas
+	 */
 	@Test
 	public void testDropTokenOnPlace(){
 		

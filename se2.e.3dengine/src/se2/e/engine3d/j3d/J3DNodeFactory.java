@@ -12,8 +12,6 @@ import javax.media.j3d.BranchGroup;
 import javax.media.j3d.Canvas3D;
 import javax.media.j3d.ColoringAttributes;
 import javax.media.j3d.GeometryArray;
-import javax.media.j3d.LineArray;
-import javax.media.j3d.LineAttributes;
 import javax.media.j3d.Node;
 import javax.media.j3d.QuadArray;
 import javax.media.j3d.Shape3D;
@@ -293,75 +291,7 @@ public class J3DNodeFactory {
 		return transformGroup;
 	}
 
-	/**
-	 * Gets a Transform Group containing the representation for a specific
-	 * geometry label (e.g. 'track1'), corresponding to a {@link Track} object.
-	 * 
-	 * @param geometryLabel
-	 *            the geometry label
-	 * @return the node containing the representation for the geometry, or null,
-	 *         if there is no geometry with the given label or it's not a
-	 *         {@link Track}.
-	 * 
-	 * @author cosmin, marius
-	 */
-	public Node getGeometryTransformGroup_old(String geometryLabel) {
-
-		// Get the track points
-		Vector2D[] trackPoints = loader.getTrackPoints(geometryLabel);
-		if (trackPoints == null)
-			return null;
-
-		Track track = loader.getTrackFromLabel(geometryLabel);
-		Logger.getAnonymousLogger().info(
-				"Generating " + geometryLabel + " for: " + trackPoints);
-
-		// Prepare the points of the tracks
-		LineArray lineArr = new LineArray((trackPoints.length - 1) * 2,
-				LineArray.COORDINATES);
-		lineArr.setCoordinate(0, new Point3d(trackPoints[0].getX(),
-				trackPoints[0].getY(), DRAWING_PLANE_Z));
-		for (int i = 1; i < trackPoints.length - 1; i++) {
-			// Add each point twice, as it will be both an endpoint for a line
-			// and a startpoint for the next one
-			lineArr.setCoordinate(2 * i - 1, new Point3d(trackPoints[i].getX(),
-					trackPoints[i].getY(), DRAWING_PLANE_Z));
-			lineArr.setCoordinate(2 * i, new Point3d(trackPoints[i].getX(),
-					trackPoints[i].getY(), DRAWING_PLANE_Z));
-		}
-		lineArr.setCoordinate(2 * (trackPoints.length - 1) - 1, new Point3d(
-				trackPoints[trackPoints.length - 1].getX(),
-				trackPoints[trackPoints.length - 1].getY(), DRAWING_PLANE_Z));
-
-		// Add the line to the track group
-		TransformGroup g = new TransformGroup();
-
-		Appearance app = new Appearance();
-
-		boolean colorSet = false;
-		if (track.getAppearanceLabel() != null) {
-			AppearanceInfo color = loader.getAppearanceInfo(track
-					.getAppearanceLabel());
-			if (color != null && color instanceof Surface) {
-				app = buildSurfaceAppearance((appearance.Surface) color);
-				colorSet = true;
-			}
-		}
-		if (colorSet == false) {
-			ColoringAttributes ca = new ColoringAttributes();
-			ca.setColor(new Color3f(0.5f, 0.5f, 0.5f));
-			app.setColoringAttributes(ca);
-		}
-
-		// set line width
-		LineAttributes la = new LineAttributes();
-		la.setLineWidth(5.0f);
-		app.setLineAttributes(la);
-
-		g.addChild(new javax.media.j3d.Shape3D(lineArr, app));
-		return g;
-	}
-	
+		
 	/**
 	 * Gets a Transform Group containing the representation for a specific
 	 * geometry label (e.g. 'track1'), corresponding to a {@link Track} object.

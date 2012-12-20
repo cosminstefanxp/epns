@@ -26,9 +26,11 @@ public class Start implements IObjectActionDelegate {
 	/**
 	 * @see IActionDelegate#run(IAction)
 	 * if isEnabled returns true, it initializes the simulator
+	 * @author Ruxandra
 	 */
 	public void run(IAction action) {
 		if (isEnabled()) {
+			//initialize the simulator with the geometry, petrinet, appearance and trackWidth from the configurator
 			Simulator s = new Simulator(selectedConfig.getGeometry(), selectedConfig.getPetrinet(), selectedConfig.getAppearance(), selectedConfig.getDefaultTrackWidth());
 			s.startSimulation();
 		}
@@ -36,7 +38,7 @@ public class Start implements IObjectActionDelegate {
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction, org.eclipse.jface.viewers.ISelection)
-	 * 
+	 * @author Ruxandra
 	 */
 	@Override
 	public void selectionChanged(IAction action, ISelection selection) {

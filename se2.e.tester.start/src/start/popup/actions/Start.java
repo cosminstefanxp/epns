@@ -90,8 +90,8 @@ public class Start implements IObjectActionDelegate {
 			Object item = iter.next();
 			
 			if (item instanceof Place) {
-				/* create a place->tokens hashmap */
-				 place = (Place) item;
+				
+				place = (Place) item;
 				if("G1".equalsIgnoreCase(place.getGeometryLabel().getText()))					
 					rpn.getTokenMap().get(place).add(new RuntimeToken("some_random_label"));
 				break;
@@ -189,26 +189,18 @@ public class Start implements IObjectActionDelegate {
 	@Test
 	public void testDropTokenOnPlace(){
 		
-		/*Iterate over the Places and identify an interactive one 
-		String inPlaceID = null;
-		Set<String> inPlaces = rpn.getInputPlaces();
-		while(inPlaces.iterator().hasNext()){
-			inPlaceID = inPlaces.iterator().next();
-		}*/
-		
-		
 		Place testedInputPlace = null;
 		int tokensNum = 0;
-		/*If there are interactive Places*/
 		
+		/*If there are interactive Places*/
 		if(rpn.getInputPlaces().size() > 0){
 			
 			  /*Find the first interactive Place and count the associated tokens*/	
 			  Set<Place> places = rpn.getTokenMap().keySet();
 			  for(Place place : places){			  
-				  if(place.getInteractiveInput() != null && place.getInteractiveInput().isText()){
+				  if("G1".equalsIgnoreCase(place.getGeometryLabel().getText())){
 					  testedInputPlace = place;
-					  tokensNum = testedInputPlace.getTokens().size();
+					  tokensNum = rpn.getTokenMap().get(testedInputPlace).size();
 					  break;
 			      }			  
 			  }
@@ -217,9 +209,12 @@ public class Start implements IObjectActionDelegate {
 			  rpn.dropTokenOnPlace(testedInputPlace.getGeometryLabel().getText());
 			  
 			  /*Assert that the numbers of tokens in that interactive Place is increased by one after the dropping*/
-			  assertEquals(tokensNum+1, testedInputPlace.getTokens().size());
+			  assertEquals(tokensNum+1,rpn.getTokenMap().get(testedInputPlace).size());
+			 
 		}
 	}
+	
+	
 	
 	
 	/* (non-Javadoc)

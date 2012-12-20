@@ -51,7 +51,7 @@ import com.sun.j3d.utils.image.TextureLoader;
  * A factory for creating nodes containing the representation for various types
  * of objects in Java3D.
  * 
- * @author ruxy, marius, cosmin
+ * @author ruxandra, marius, cosmin
  */
 public class J3DNodeFactory {
 
@@ -360,11 +360,11 @@ public class J3DNodeFactory {
 	}
 	
 	/**
-	 * Gets the geometry transform group.
-	 *
+	 * Gets a Transform Group containing the representation for a specific
+	 * geometry label (e.g. 'track1'), corresponding to a {@link Track} object.
 	 * @param geometryLabel the geometry label
 	 * @return the geometry transform group
-	 * @author ruxandra
+	 * @author Ruxandra
 	 */
 	public Node getGeometryTransformGroup(String geometryLabel) {
 		TransformGroup g = new TransformGroup();
@@ -675,22 +675,28 @@ public class J3DNodeFactory {
 	 * @author Ruxandra
 	 */
 	public Node getGround(double x, double y, double size){
+		
 		logger.info("Creating ground of size "+size+" at "+x+","+y);
+		
 		Point3d[] myCoords = new Point3d[4];
+		
+		//computing the corners of the quad that will be used as ground
 		myCoords[0] = new Point3d(x - size, y - size, DRAWING_PLANE_Z-0.5);
 		myCoords[3] = new Point3d(x - size, y + size, DRAWING_PLANE_Z-0.5);
 		myCoords[2] = new Point3d(x + size, y + size, DRAWING_PLANE_Z-0.5);
 		myCoords[1] = new Point3d(x + size, y - size, DRAWING_PLANE_Z-0.5);
+		
+		//create the new quadarray
 		QuadArray myQuads = new QuadArray(
 			    myCoords.length,
 			    GeometryArray.COORDINATES);
 		myQuads.setCoordinates(0, myCoords);
-		
 		TransformGroup g = new TransformGroup();
 		Appearance myAppear = new Appearance();
+		
+		//color it green
 		ColoringAttributes ca = new ColoringAttributes(0.2f, 0.5f, 0.2f, ColoringAttributes.FASTEST);
 		myAppear.setColoringAttributes(ca);
-		
 		
 		Shape3D myShape = new Shape3D( myQuads, myAppear);
 		g.addChild(myShape);

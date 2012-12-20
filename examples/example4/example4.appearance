@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <appearance:AppearanceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:appearance="http://appearance/1.0">
-  <appearanceInfos xsi:type="appearance:Model3D" label="RedTrain" scale="10.0" xRotation="1.57" yRotation="3.14" elevation="8.7" file="\se2.e.examples\models\Train.obj">
+  <appearanceInfos xsi:type="appearance:Model3D" label="RedTrain" scale="10.0" xRotation="1.57" yRotation="3.14" elevation="8.7" file="\examples\models\Train.obj">
     <shapeSurface xsi:type="appearance:SurfaceColor" label="RT_color" color="Red"/>
   </appearanceInfos>
-  <appearanceInfos xsi:type="appearance:Model3D" label="BlueTrain" scale="10.0" xRotation="1.57" yRotation="3.14" elevation="8.7" file="\se2.e.examples\models\Train.obj">
+  <appearanceInfos xsi:type="appearance:Model3D" label="BlueTrain" scale="10.0" xRotation="1.57" yRotation="3.14" elevation="8.7" file="\examples\models\Train.obj">
     <shapeSurface xsi:type="appearance:SurfaceColor" label="BT_color" color="Blue"/>
   </appearanceInfos>
-  <appearanceInfos xsi:type="appearance:Model3D" label="YellowTrain" scale="10.0" xRotation="1.57" yRotation="3.14" elevation="8.7" file="\se2.e.examples\models\Train.obj">
+  <appearanceInfos xsi:type="appearance:Model3D" label="YellowTrain" scale="10.0" xRotation="1.57" yRotation="3.14" elevation="8.7" file="\examples\models\Train.obj">
     <shapeSurface xsi:type="appearance:SurfaceColor" label="YT_color" color="Yellow"/>
   </appearanceInfos>
-  <appearanceInfos xsi:type="appearance:Model3D" label="Car" scale="15.0" xRotation="1.57" yRotation="-1.57" elevation="4.0" file="\se2.e.examples\models\muscle.obj"/>
-  <appearanceInfos xsi:type="appearance:Texture" label="Track" file="\se2.e.examples\models\rail.png"/>
-  <appearanceInfos xsi:type="appearance:Texture" label="Road" file="\se2.e.examples\models\road.png"/>
-  <appearanceInfos xsi:type="appearance:Model3D" label="House" scale="10.0" xRotation="1.57" yRotation="3.14" file="\se2.e.examples\models\switch.obj">
+  <appearanceInfos xsi:type="appearance:Model3D" label="Car" scale="15.0" xRotation="1.57" yRotation="-1.57" elevation="4.0" file="\examples\models\muscle.obj"/>
+  <appearanceInfos xsi:type="appearance:Texture" label="Track" file="\examples\models\rail.png"/>
+  <appearanceInfos xsi:type="appearance:Texture" label="Road" file="\examples\models\road.png"/>
+  <appearanceInfos xsi:type="appearance:Model3D" label="House" scale="10.0" xRotation="1.57" yRotation="3.14" file="\examples\models\switch.obj">
     <shapeSurface xsi:type="appearance:SurfaceColor" label="a" color="Cyan"/>
   </appearanceInfos>
   <appearanceInfos xsi:type="appearance:Shape3D" label="BarrierUp" scale="10.0" type="Sphere">

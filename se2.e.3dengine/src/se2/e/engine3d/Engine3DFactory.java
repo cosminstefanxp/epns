@@ -4,6 +4,7 @@ import se2.e.engine3d.j3d.J3DEngine;
 
 /**
  * A factory for creating Engine3D objects.
+ * @author cosmin
  */
 public class Engine3DFactory {
 

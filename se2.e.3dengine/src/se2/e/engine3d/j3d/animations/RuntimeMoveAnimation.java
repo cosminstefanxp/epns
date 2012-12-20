@@ -89,6 +89,10 @@ public class RuntimeMoveAnimation extends RuntimeAnimation<Move> {
 		return criteria;
 	}
 
+	/* (non-Javadoc)
+	 * @see se2.e.engine3d.j3d.animations.RuntimeAnimation#onUpdateAnimation()
+	 * @author ruxandra
+	 */
 	@Override
 	public WakeupCondition onUpdateAnimation() {
 

@@ -20,7 +20,7 @@ import se2.e.geometry.impl.*;
 
 /**
  * @generated NOT
- * @author jerk
+ * @author Jerome
  */
 public class PositionListener extends EContentAdapter {
 	

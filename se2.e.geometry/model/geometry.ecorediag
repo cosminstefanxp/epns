@@ -120,7 +120,7 @@
     <element xmi:type="ecore:EClass" href="geometry.ecore#//TrackPosition"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u8g7IijwEeK4Uo8Z-f0XdA" x="40" y="375"/>
   </children>
-  <children xmi:type="notation:Shape" xmi:id="_WS5isC1yEeKSNOIY6xI3Tw" type="Note" fontName="Ubuntu" description="!!! appearance LABEL SHOULD be mandatory!" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+  <children xmi:type="notation:Shape" xmi:id="_WS5isC1yEeKSNOIY6xI3Tw" type="Note" fontName="Ubuntu" description="Authors : Georges Liassas  and Jerome Sivadier" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
     <children xmi:type="notation:BasicDecorationNode" xmi:id="_WS9NEC1yEeKSNOIY6xI3Tw" type="DiagramName">
       <element xsi:nil="true"/>
     </children>
@@ -130,7 +130,7 @@
     <styles xmi:type="notation:TextStyle" xmi:id="_WS5isS1yEeKSNOIY6xI3Tw"/>
     <styles xmi:type="notation:LineTypeStyle" xmi:id="_WS5isi1yEeKSNOIY6xI3Tw"/>
     <element xsi:nil="true"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WS5isy1yEeKSNOIY6xI3Tw" x="25" y="65"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WS5isy1yEeKSNOIY6xI3Tw" x="520" y="40" height="26"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_YRMrsSjuEeK4Uo8Z-f0XdA"/>
   <element xmi:type="ecore:EPackage" href="geometry.ecore#/"/>

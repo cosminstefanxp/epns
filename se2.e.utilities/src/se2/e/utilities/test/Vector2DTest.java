@@ -8,6 +8,7 @@ import org.junit.Test;
 import se2.e.utilities.Vector2D;
 
 
+
 public class Vector2DTest {
 
 	@Test

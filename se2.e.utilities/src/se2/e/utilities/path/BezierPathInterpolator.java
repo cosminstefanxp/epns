@@ -1,6 +1,5 @@
 package se2.e.utilities.path;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,8 +8,21 @@ import se2.e.utilities.PathInterpolator;
 import se2.e.utilities.Vector2D;
 import static se2.e.utilities.Vector2D.*;
 import static java.lang.Math.*;
+import static se2.e.utilities.ToolBox.*;
 import se2.e.utilities.Where;
 
+/**
+ * The Bezier path interpolator interpolates positions and orientations along a Bezier path.
+ * 
+ * The class calculates distinct steps at construction, and acts as
+ * a line path interpolator with one step per pixel, afterwards.
+ * The class assumes that a pixel has the size of, which is normally but not always true.
+ * 
+ * Use {@link de2.e.utilities.path.BezierCurvePathInterpolator} instead.
+ * 
+ * @author Anders Kalhauge
+ *
+ */
 public class BezierPathInterpolator implements PathInterpolator {
 	private List<Vector2D> positions;
 	private double length = 1.0;
@@ -31,7 +43,8 @@ public class BezierPathInterpolator implements PathInterpolator {
 		if (positions == null || positions.size() == 0)
 			throw new RuntimeException("Trying to find bezier point from nothing");
 		int n = positions.size() - 1; // The order is one less than the number of points.
-		Vector2D B = new Vector2D(positions.get(0)).multiply(bernsteinBasisPolynomial(0, n, t));
+		// Vector2D B = new Vector2D(positions.get(0)).multiply(bernsteinBasisPolynomial(0, n, t));
+		Vector2D B = Vector2D.clone(positions.get(0)).multiply(bernsteinBasisPolynomial(0, n, t));
 		for (int i = 1; i <= n; i++) B.factorAdd(bernsteinBasisPolynomial(i, n, t), positions.get(i));
 		return B;
 		}
@@ -46,13 +59,6 @@ public class BezierPathInterpolator implements PathInterpolator {
 			l2 = findBezierLength(m, Bm, s, Bs, l2, positions);
 			}
 		return l1 + l2;
-		}
-	
-	private static double findBezierLength(double t, double s, List<Vector2D> positions) {
-		Vector2D Bt = bezier(t, positions);
-		Vector2D Bs = bezier(s, positions);
-		double l = subtract(Bs, Bt).getLength();
-		return findBezierLength(t, Bt, s, Bs, l, positions);
 		}
 	
 	private static double findBezierLength(List<Vector2D> positions) {
@@ -89,37 +95,5 @@ public class BezierPathInterpolator implements PathInterpolator {
 	
 	@Override
 	public Where start() { return findPosition(0); }
-
-	public static double power(double t, int p) {
-		if (p == 0) return 1.0;
-		if (p == 1) return t;
-		return power(t*t, p/2)*power(t, p%2);
-		}	
-	
-	/**
-	 * Calculates the binominal coefficient of two numbers.
-	 * 
-	 * Works with n and k up to at least 40.
-	 * 
-	 * @param n n.
-	 * @param k k.
-	 * @return the binominal coefficient of n over k.
-	 */
-	public static long binomialCoefficient(int n, int k) {
-		if (k == 0) return 1;
-		if (n == 0) return 0;
-		long b = 1;
-		for (int i = 1; i <= k; i++) {
-			b *= (n - k + i);
-			b /= i;
-			}
-		return b;
-		}
-	
-	public static double bernsteinBasisPolynomial(int i, int n, double t) {
-		return binomialCoefficient(n, i)*power(t, i)*power(1 - t, n - i);
-		}
-
-
 
 	}

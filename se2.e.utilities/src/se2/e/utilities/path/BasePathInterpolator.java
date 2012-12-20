@@ -7,6 +7,15 @@ import se2.e.utilities.PathInterpolator;
 import se2.e.utilities.Vector2D;
 import se2.e.utilities.Where;
 
+/**
+ * Base class for creating Path interpolators based on distinct steps.
+ * The most obvious path interpolator using this class is
+ * {@link se2.e.utilities.path.LinePathInterpolator}, but also
+ * {@link se2.e.utilities.path.BezierPathInterpolatort} uses this class. 
+ * 
+ * @author Anders Kalhauge
+ *
+ */
 public abstract class BasePathInterpolator implements PathInterpolator {
 	protected List<Step> steps = new ArrayList<Step>();
 	protected double length = 0.0;

@@ -6,6 +6,11 @@ import javax.swing.JFrame;
 import java.awt.Canvas;
 import java.awt.BorderLayout;
 
+/**
+ * 
+ * @author Anders Kalhauge
+ *
+ */
 public class TheTester {
 
 	private JFrame frame;

@@ -11,7 +11,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import experiment.QuadraticBezier;
+//import experiment.QuadraticBezier;
 import experiment.QuadraticBezierFromPath;
 
 import se2.e.geometry.diagram.edit.policies.TrackItemSemanticEditPolicy;

@@ -56,17 +56,10 @@ public class DynamicInputBranch extends DynamicBranch implements MouseListener {
 		pickCanvas.setShapeLocation(e);
 
 		PickResult result = pickCanvas.pickClosest();
-		if (result == null) {
-			System.out.println("Nothing picked");
-		} else {
+		if (result != null) {
 			Shape3D s = (Shape3D) result.getNode(PickResult.SHAPE3D);
-
 			if (s != null) {
-				// TODO: add more interesting behaviour
 				engine.userInteraction(this.geomLabel);
-				System.out.println("Picked " + s.getClass().getName());
-			} else {
-				System.out.println("null");
 			}
 		}
 	}

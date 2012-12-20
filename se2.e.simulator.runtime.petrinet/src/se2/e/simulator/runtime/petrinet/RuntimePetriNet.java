@@ -12,6 +12,7 @@ import extendedpetrinet.Token;
 
 /**
  * The Class RuntimePetriNet.
+ * @author Ruxandra
  */
 public interface RuntimePetriNet {
 	/**
@@ -21,29 +22,29 @@ public interface RuntimePetriNet {
 
 
 	/**
-	 * Inits the.
+	 * Inits the RuntimePetriNet using the static PetriNet
 	 *
-	 * @param selectedPetri the selected PetriNet
-	 * @return the list
+	 * @param selectedPetri the static PetriNet
+	 * @return the list of tokens that need to be initially animated 
 	 */
 	public List<TokenMovement> init(PetriNetDoc selectedPetri);
 
 	/**
-	 * Fires all the transitions possible.
+	 * Fires all the transitions that can be executed.
 	 * 
 	 * @return the list of {@link Token}s that have been moved and their destination {@link Place}.
 	 */
 	public List<TokenMovement> fireTransitions();
 
 	/**
-	 * Marks a token.
+	 * Marks a token as being finished.
 	 * 
 	 * @param token the token
 	 */
 	public void markToken(RuntimeToken token);
 	
 	/**
-	 * Drop token on place.
+	 * Drop a token on a place.
 	 *
 	 * @param geometryLabel the place's GEOMETRY label
 	 * @return true, if successful
@@ -59,7 +60,8 @@ public interface RuntimePetriNet {
 	public Set<String> getInputPlaces();
 	
 	/**
-	 * Gets the token map.
+	 * Gets the token map containing each place from the PetriNet and the tokens
+	 * that are currently on it. 
 	 *
 	 * @return the token map
 	 */

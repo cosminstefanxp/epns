@@ -29,15 +29,16 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 	List<Transition> transitions;
 	/** The tokens map. */
 	HashMap<Place, List<RuntimeToken>> tokensMap;
-	/** The preset. */
+	/** The preset for each transition. */
 	HashMap<Transition, List<Place>> preset;
-	/** The postset. */
+	/** The postset for each transition */
 	HashMap<Transition, List<Place>> postset;
 
 	/**
 	 * Initialize tokens in place list.
 	 *
 	 * @param place the place
+	 * @return the list of tokens that have changed their position in the Petri net
 	 * @author Ruxandra, Marius
 	 */
 	private List<TokenMovement> initializeTokensInPlaceList(Place place) {
@@ -46,10 +47,15 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 		List<RuntimeToken> tempTokensExt = new ArrayList<RuntimeToken>();
 		for (Token token : tempTokens) {
 			RuntimeToken rt = new RuntimeToken(token.getText());
+			String geom = null;
+			//check if there is a geomLabel
+			if(place.getGeometryLabel().getText() != null)
+				geom = place.getGeometryLabel().getText();
+			//check if there is an animation label
 			if(place.getAnimations()!= null)
-				movements.add(new TokenMovement(rt, place.getGeometryLabel().getText(), place.getAnimations().getStructure(), false));
+				movements.add(new TokenMovement(rt, geom, place.getAnimations().getStructure(), false));
 			else
-				movements.add(new TokenMovement(rt, place.getGeometryLabel().getText(), null, false));
+				movements.add(new TokenMovement(rt, geom, null, false));
 			tempTokensExt.add(rt);
 		}
 		tokensMap.put(place, tempTokensExt);
@@ -57,7 +63,7 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 	}
 
 	/**
-	 * Initialize presets.
+	 * Initialize the list of presets.
 	 *
 	 * @param selectedTransition the selected transition
 	 * @author Ruxandra, Marius
@@ -72,7 +78,7 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 	}
 
 	/**
-	 * Initialize postsets.
+	 * Initialize the list of postsets.
 	 *
 	 * @param selectedTransition the selected transition
 	 * @author Ruxandra, Marius
@@ -107,7 +113,6 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 	/**
 	 * Instantiates a new runtime petri net.
 	 *
-	 * @param selectedPetri the selected petri
 	 * @author Ruxandra, Marius
 	 */
 	public RuntimePetriNetImpl() {
@@ -120,9 +125,11 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 	
 	public List<TokenMovement> init(PetriNetDoc selectedPetri){
 		List<TokenMovement> tokenMovementsList = new ArrayList<TokenMovement>();
-		Iterator<Object> iter = selectedPetri.getNet().get(0).getPage().get(0).getObject().iterator();
+		Iterator<Object> iter;
+		try {
+		 iter = selectedPetri.getNet().get(0).getPage().get(0).getObject().iterator();
 		
-		while (iter.hasNext()) {
+		 while (iter.hasNext()) {
 			Object item = iter.next();
 			if (item instanceof Transition) {
 				/* add transition to list */
@@ -135,11 +142,13 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 			if (item instanceof Place) {
 				/* create a place->tokens hashmap */
 				Place place = (Place) item;
-				System.out.println(place.getId());
 				tokenMovementsList.addAll(this.initializeTokensInPlaceList(place));
 			}
-		}
-		printPetri();
+		 }
+		 
+		} catch (Exception e) {
+			System.err.println("The PNML is not properly configured!");
+		} 
 		return tokenMovementsList;
 	}
 
@@ -162,7 +171,6 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 				if (token.isFinished()) {
 					tokensToBeRemoved.put(place, token);
 					atLeastOneMarked = true;
-					System.out.println("Marcat " + selectedTransition.getId());
 					break;
 				}
 			}
@@ -181,20 +189,23 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 				for(org.pnml.tools.epnk.pnmlcoremodel.Arc inArc : selectedTransition.getIn()){
 					Arc in = (Arc)inArc;
 					if(in.getIdentity() != null && in.getIdentity().getText() == out.getIdentity().getText()){
+						//remove token from preset and add token to postset
 						Place src = (Place) in.getSource();
 						RuntimeToken rt = tokensToBeRemoved.get(src);
 						String label = rt.getLabel();
-						
+						//if the token has been previously used, a new token is created
 						if(removedTokens.contains(rt)){
 							rt = new RuntimeToken(label);
 						} else {
 							tokensMap.get(src).remove(rt);
 							removedTokens.add(rt);
 						}
+						//mark the token as not being animated(as it has just moved to a new place)
 						rt.setFinished(false);
+						//add the token to the new place
 						tokensMap.get(dest).add(rt);
 						
-						
+						//add the movements to token movements
 						if(dest.getAnimations()!= null)
 							tokensMovement.add(new TokenMovement(rt, dest.getGeometryLabel().getText(), dest.getAnimations().getStructure(), false));
 						else
@@ -211,7 +222,7 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 			Arc out = (Arc) outArc;
 			Place dest = (Place)out.getTarget();
 			if(out.getIdentity() == null) {
-				System.out.println("fara identitate");
+				//set the appearances "circularilly"
 				count = count % listOfPlaces.size();
 				Place src = listOfPlaces.get(count);
 				count ++;
@@ -228,16 +239,15 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 				tokensMap.get(dest).add(rt);
 				
 				if(dest.getAnimations() != null) {
-					System.out.println("ANIMATION");
 					tokensMovement.add(new TokenMovement(rt, dest.getGeometryLabel().getText(), dest.getAnimations().getStructure(),false));
 				}
 				else {
 					tokensMovement.add(new TokenMovement(rt, dest.getGeometryLabel().getText(), null, false));
-					System.out.println("NO ANIMATION");
 				}
 			}
 		}
 		
+		//add to tokensMovement each token that was removed from a place
 		Iterator<Place> it = tokensToBeRemoved.keySet().iterator();
 		while(it.hasNext()){
 			Place place = it.next();
@@ -251,10 +261,6 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 		return tokensMovement;
 	}
 
-	
-	
-	
-	
 	/* (non-Javadoc)
 	 * @see se2.e.simulator.runtime.petrinet.RuntimePetriNet#fireTransitions()
 	 * 
@@ -264,10 +270,8 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 	 * @author Ruxandra, Marius
 	 */
 	public List<TokenMovement> fireTransitions() {
-		System.out.println("Should be firing transitions");
 		List<TokenMovement> tokensMovements = new ArrayList<TokenMovement>();
 		for (Transition transition : transitions) {
-			System.out.println("Selected transition: " + transition.getId());
 			while (true) {
 				/* tokenMovement = pair between the token and the place it's moving to */
 				List<TokenMovement> movements = fireTransition(transition);
@@ -282,7 +286,7 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 	}
 
 	/**
-	 * Marks a token.
+	 * Marks a token as finished.
 	 * 
 	 * @param token the token
 	 * @author Ruxandra
@@ -311,7 +315,12 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 		}
 		if(placeForLabel == null)
 			return null;
-		RuntimeToken droppedToken = new RuntimeToken(placeForLabel.getAppearance().getText());
+		
+		String appearance = null;
+		if(placeForLabel.getAppearance() != null)
+			appearance = placeForLabel.getAppearance().getText();
+		RuntimeToken droppedToken = new RuntimeToken(appearance);
+		
 		droppedToken.setFinished(true);
 		tokensMap.get(placeForLabel).add(droppedToken);
 		return placeForLabel;
@@ -325,14 +334,19 @@ public class RuntimePetriNetImpl implements RuntimePetriNet{
 	public Set<String> getInputPlaces() {
 		Set<String> inputPlacesLabels = new TreeSet<String>();
 		for(Place p : tokensMap.keySet()) {
-			System.out.println("PLACE " + p.getGeometryLabel().getText() + " " +p.getInteractiveInput());
 			if(p.getInteractiveInput() != null && p.getInteractiveInput().isText()){
-				inputPlacesLabels.add(p.getGeometryLabel().getText());
+				if(p.getGeometryLabel() != null) {
+					inputPlacesLabels.add(p.getGeometryLabel().getText());
+				}
 			}
 		}
 		return inputPlacesLabels;
 	}
 	
+	/* (non-Javadoc)
+	 * @see se2.e.simulator.runtime.petrinet.RuntimePetriNet#getTokenMap()
+	 * @author Ruxandra
+	 */
 	public HashMap<Place, List<RuntimeToken>>getTokenMap(){
 		return tokensMap;
 	}

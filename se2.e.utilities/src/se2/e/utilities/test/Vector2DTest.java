@@ -9,6 +9,12 @@ import se2.e.utilities.Vector2D;
 
 
 
+/**
+ * Class for testing creation and conversions in the <code>Vector2D</code> class
+ *  
+ * @author Anders Kalhauge
+ *
+ */
 public class Vector2DTest {
 
 	@Test

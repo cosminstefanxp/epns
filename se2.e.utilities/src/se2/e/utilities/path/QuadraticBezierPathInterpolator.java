@@ -5,6 +5,13 @@ import java.util.List;
 
 import se2.e.utilities.Vector2D;
 
+/**
+ * First, but still working, version of a Bezier interpolator.
+ * Only support quadratic Bezier Curves.
+ * 
+ * @author Anders Kalhauge
+ *
+ */
 public class QuadraticBezierPathInterpolator extends BasePathInterpolator {
 	private List<Vector2D> points = new ArrayList<Vector2D>();
 

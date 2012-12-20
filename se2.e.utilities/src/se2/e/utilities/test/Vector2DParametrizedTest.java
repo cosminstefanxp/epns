@@ -14,6 +14,12 @@ import org.junit.runners.Parameterized.Parameters;
 
 import se2.e.utilities.Vector2D;
 
+/**
+ * Class for testing various add, subtract, multiply, and divide methods on the <code>Vector2D</code> class
+ * 
+ * @author Anders Kalhauge
+ *
+ */
 @RunWith(Parameterized.class)
 public class Vector2DParametrizedTest {
 	private static final double DELTA = 0.00001;

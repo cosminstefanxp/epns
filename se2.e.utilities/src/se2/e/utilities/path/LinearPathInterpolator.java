@@ -10,7 +10,7 @@ import se2.e.utilities.Where;
 /**
  * A very simple implementation of an interpolatable path.
  * 
- * @author anders
+ * @author Anders Kalhauge
  *
  */
 public class LinearPathInterpolator extends BasePathInterpolator {

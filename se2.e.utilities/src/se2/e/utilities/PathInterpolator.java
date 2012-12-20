@@ -3,8 +3,9 @@ package se2.e.utilities;
 import java.util.List;
 
 /**
+ * Interface for path interpolators.
  * 
- * @author anders
+ * @author Anders Kalhauge
  *
  */
 public interface PathInterpolator {

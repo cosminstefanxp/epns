@@ -7,6 +7,12 @@ import static java.lang.Math.abs;
 import static se2.e.utilities.ToolBox.*;
 import static se2.e.utilities.Vector2D.subtract;
 
+/**
+ * Class implementing a Bezier Curve
+ * 
+ * @author Anders Kalhauge
+ *
+ */
 public class BezierCurve {
 	private List<Vector2D> points;
 	

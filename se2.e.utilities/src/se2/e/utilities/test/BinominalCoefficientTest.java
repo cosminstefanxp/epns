@@ -12,6 +12,12 @@ import org.junit.runners.Parameterized.Parameters;
 
 import se2.e.utilities.ToolBox;
 
+/**
+ * Class for testing the binomial coefficient method.
+ * 
+ * @author Anders Kalhauge
+ *
+ */
 @RunWith(Parameterized.class)
 public class BinominalCoefficientTest {
 	private int n, k;

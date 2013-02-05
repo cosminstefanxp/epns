@@ -7,15 +7,15 @@ The purpose of __ePNS__ is to facilitate track based simulations of Petri nets. 
 Authors
 -------
 __ePNS__ was developed by the following people:
- * Anders Kalhauge
- * Cosmin Stefan - Dobrin 
- * Georgios Liassas 
- * Juan De Dios Romero Palop
- * Jérôme Guy Sivadier
- * María Medina Pérez
- * Marius Constantinescu
- * Pablo Patricio Mascaraque Glenn
- * Ruxandra Nistor
+Anders Kalhauge s112674 
+Cosmin Stefan - Dobrin s121038 
+Georgios Liassas s114414 
+Juan De Dios Romero Palop s121878 
+Jérôme Guy Sivadier s120817 
+Marius Constantinescu s121039
+María Medina Pérez s121874
+Pablo Patricio Mascaraque Glenn s121872
+Ruxandra Nistor s121037
 
 Usage
 -----

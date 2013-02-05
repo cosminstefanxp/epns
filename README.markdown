@@ -19,4 +19,8 @@ __ePNS__ was developed by the following people:
 
 Usage
 -----
-For more usage, please see the __System Specification__ and __Handbook__ files in the root of the repository.
+The product is developed as a plugin for Eclipse. For development, the projects in the __src__ folder have to be imported in Eclipse and a new runtime Eclipse Workbench should be started. Other requirements for properly running the plugin are describe in the Installation section of the Handbook.
+
+The repository also contains five examples, present in the __examples__ folder. They can be all imported as a project in the Eclipse Workbench where the plugin has been loaded.
+
+For more details, please see the __System Specification__ and __Handbook__ files in the root of the repository.

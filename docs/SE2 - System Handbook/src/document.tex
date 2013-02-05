@@ -1,0 +1,39 @@
+\documentclass[11pt]{article}   % Mandatory
+\usepackage[T1]{fontenc}        % Support for fonts with æøå and other foreign characters.
+\usepackage[utf8]{inputenc}     % Support for UTF-8 encoded input documents
+\usepackage{fullpage}
+\usepackage{graphicx}           % Support for including graphics as png, gif, and jpeg
+\usepackage{amssymb}            % Support for alterantive symbols
+\usepackage{amsmath}            % Support for mathematical symbols
+\usepackage{listliketab}        % Support for tabulated lists
+\usepackage{enumitem}           % Support for indented description items and more
+\usepackage[parfill]{parskip}   % Support for American style paragraphs
+\usepackage{color}              % Support for colored text
+\usepackage{listings}           % Support for code listings
+\usepackage{nameref}            % Enables refernces to names.
+\usepackage{makeidx}            % For creating indexes
+\usepackage{wasysym}            % For symbols as \smiley
+\usepackage{hyperref}    		% For using URLs
+\usepackage{utilities/petri}    % For doing petrinet vector graphics
+\newcommand{\epns}{\textbf{ePNS}}
+\newcommand\writer[1]{\nobreak\begin{flushright}\small\textbf{Author: \large\textit{#1}}\end{flushright}}
+\makeindex
+
+\title{Handbook\\ \epns}
+\author{Group E}
+\date{Autumn 2012}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\include{section/introduction}
+\include{section/installation}
+\include{section/tutorial}
+\include{section/userguide}
+\include{section/glossary}
+\printindex
+
+\end{document}
+

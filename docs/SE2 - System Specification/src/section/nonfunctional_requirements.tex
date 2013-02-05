@@ -1,0 +1,82 @@
+\section{Non-functional requirements}
+\writer{María}
+
+The purpose of this section is to specify a number of requirements that are not
+related with the domain and analysis part. These requirements are divided in the three following subsections.
+
+\subsection{Implementation constraints}
+
+The system shall be implemented as a plug-in for the Eclipse framework version
+Juno 4.2. It is a requirement to build the system using the following technologies/tools:
+
+\begin{listliketab} 
+  \storestyleof{itemize} 
+  \begin{tabular}{Lll}
+  	\textbullet & EMF - (Eclipse Modeling Framework) & v. 2.3.0 \\
+  	\textbullet & GMF - (Graphical Modeling Framework) & v. 2.0.1 \\
+  	\textbullet & ePNK & v. 0.9.4 \\
+  	\textbullet & Java 3D & v. 1.5.1 
+  \end{tabular} 
+\end{listliketab}
+
+\subsection{Documentation}
+
+During the development process the following documents shall be delivered before
+the specified deadline:
+
+\begin{listliketab} 
+  \storestyleof{itemize} 
+  \begin{tabular}{Lll}
+  	\textbullet & Project definition        & - 05/10/2012 \\
+  	\textbullet & UML diagrams 		        & - 12/10/2012 \\
+  	\textbullet & System specification 		& - 02/11/2012 \\
+  	\textbullet & Draft version of handbook	& - 23/11/2012 \\
+  	\textbullet & Final documentation		& - 21/12/2012
+  \end{tabular} 
+\end{listliketab}
+
+\subsection{Code deliverables}
+
+Some intermediate prototypes and experiments are required to be delivered:
+
+\begin{listliketab} 
+  \storestyleof{itemize} 
+  \begin{tabular}{Lll}
+  	\textbullet & Technology experiment 	 & - 26/10/2012 \\
+  	\textbullet & First prototype 		     & - 16/11/2012 \\
+  	\textbullet & Feature complete prototype & - 30/11/2012 \\
+  	\textbullet & Final software 			 & - 21/12/2012
+  \end{tabular} 
+\end{listliketab}
+
+\subsection{Quality}
+
+In order to ensure the quality of the product, a set of procedures have been
+established. These procedures are different depending on whether a document or a piece of code is being developed.
+
+\subsubsection{Quality of documentation measures}
+
+\begin{enumerate}
+  \item Before starting to write a new document, some members of the group shall define the main structure and the 
+  number of people working on each part. Afterwards, a brief explanation shall be done to the rest of the group.
+  \item A first draft of the document should be ready at least a week before the deadline, so that all the members 
+  of the group can read it and propose improvements.
+  \item A final version of the document should be prepared at least two days before the deadline, so that all the 
+  members of the group can check writing and consistencies.
+  \item Once the document is approved, one member of the group shall be in charge of formatting it.
+  \item One member of the group shall be in charge of delivering it before the specified deadline.
+  \item The document shall be changed and checked as described above based on the feedback received by the professor.
+\end{enumerate}
+
+\subsubsection{Quality of implementation measures}
+
+\begin{enumerate}
+  \item All implementations should be reviewed by at least two members of the group, so that errors can be minimized.
+  \item Every version of the code shall be committed to the SVN repository, with a comment about the changes made.
+  \item Each component should be tested by a member of the group that has not taken part in the implementation, to ensure that every possible scenario is covered. Unit testing should be used for this purpose when possible and acceptance testing when not.
+  \item Integration tests shall be carried out in order to check the correct behaviour of each of the pieces connected.
+  \item System tests shall also be used to check the correct behaviour of the whole product. 
+  \item Every piece of code shall have comments explaining the steps, in order to allow the rest of the group to understand it. 
+  \item It would be nice to create a programming style document before starting the implementation process.
+  \item Javadoc shall be used to provided thorough documentation of the code.
+\end{enumerate}

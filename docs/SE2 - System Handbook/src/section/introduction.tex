@@ -1,0 +1,197 @@
+\section{Introduction}
+\label{sec:introduction}
+\writer{Anders}
+
+This is a handbook for the \index{ePNS}``group \textbf{e} \textbf{P}etri \textbf{N}et \textbf{S}imulator'': \epns.
+The purpose of \epns{} is to facilitate \index{track based simulation}track based simulations of Petri nets.
+A track based simulation is understood as a simulation of a world, where objects move along tracks,
+following a set of rules given by the Petri net. The objects can be simulated as trains on tracks, cars on roads,
+or any other object following a predefined route.
+
+\subsection{What can be simulated?}
+
+Petri nets are, with the addition of \index{inhibitor arc}inhibitor 
+arcs\footnote{Inhibitor arcs prevents transitions from fireing unless the associated place is empty.
+Inhibitor arcs are not implemented by \epns{} yet.},
+Turing complete,
+meaning that they can implement any computer program.
+We will not formally prove this property, as it is out of scope for this
+assignment.
+But it is not hard to understand why: the inhibitor arc makes it possible to
+implement a NAND gate (see figure \ref{fig:petri-nand}).
+All binary operations can be expressed using the NAND operation, some examples:
+\begin{align*}
+    \overline{A} &= \overline{A \cdot A}               
+	                & NAND(A, A) \\
+    A \cdot B    &= \overline{\overline{A \cdot B}}
+    				& NAND(NAND(A, B), NAND(A, B))\\
+    A + B        &= \overline{\overline{A + B}} = \overline{\overline{A} \cdot \overline{B}} 
+    				& NAND(NAND(A, A), NAND(B, B)) \\
+    A \otimes B  &= A \cdot \overline{B} + B \cdot \overline{A}
+    			  = \overline{\overline{A} \cdot \overline{B}} \cdot \overline{A \cdot B}
+    				& \text{use previous formulas \ldots}
+\end{align*}
+
+\begin{figure}[htp]
+\begin{center}
+\begin{petri}
+    \node at (0, 0) [inputplace] (inputA) {$A$};
+    \node at (0, 3) [inputplace] (inputB) {$B$};
+	\node at (2, 1.5) [transition] (andtransition) {$T_1$};
+	\node at (4, 1.5) [place] (andoutput) {$A B$};
+	\node at (6.5, 1.5) [inhibitor] (inhibitor) {};
+	\node at (5.6, 1.8) {inhibitor};
+	\node at (7, 1.5) [transition] (nandtransition) {$T_2$};
+	\node at (9, 1.5) [place] (nandoutput) {$\overline{A B}$};
+	\draw [->,arc] (inputA) to [out=60,in=200] (andtransition);
+	\draw [->,arc] (inputB) to [out=-60,in=160] (andtransition);
+	\draw [->,arc] (andtransition) to [out=0,in=180] (andoutput);
+	\draw [->,arc] (andoutput) to [out=0,in=180] (inhibitor);
+	\draw [->,arc] (nandtransition) to [out=0,in=180] (nandoutput);
+	%\draw [->,arc] (connection) to [out=210,in=330] (track);
+	%\draw [->,arc] (semaphore) -- (connection);
+\end{petri}
+\caption{Petri net for a NAND gate}
+\label{fig:petri-nand}
+\end{center}
+\end{figure}
+
+Consequently not all Petri nets are suited for track based simulations.
+The main concept of Petri nets are that transitions consume tokens from places connected with inbound arcs,
+and produces tokens in places connected with outbound arcs.
+
+Therefore don't expect any Petri net to produce a logical or useful 3D
+simulation. Not even if it doesn't include inhibitor arcs.
+
+In \epns{}, if a token is produced in a place associated with a track,
+the token itself will be associated with a moving object.
+Therefore, Petri nets that produce the same amount of tokens as it consume
+will be most suited for \epns{} simulations.
+This is not a mandatory property, but it ensures that the moving objects don't disappear or
+appear out of the blue\footnote{In a production line simulation it might be on purpose.
+For example, four wheels and a car body disappears and a car arises.}.
+
+Other places can be associated with objects that show the state of the underlying logic.
+In the train simulation world, they could be traffic lights or switches.
+
+However, other places should be designated to receive input from the user.
+Such places might not be part of the initial logic, but should be added where input is needed.
+
+\subsection{How to use the handbook?}
+
+In the \nameref{sec:installation} section, the necessary steps to have a running
+installation are reviewed. An installation includes the Eclipse IDE and additional modules. 
+
+For first time users, the section \ref{sec:tutorial} (\nameref{sec:tutorial}) will cover 
+the steps needed to create a simple Petri net simulation. These steps include:
+\begin{itemize}
+  \item Creating the Petri net.
+  \item Laying out the tracks and the positions of input and output objects in the associated geometry model.
+  \item Selecting the appearance of the elements.
+  \item Creating the configuration for the simulation.
+  \item Running the simulator.
+\end{itemize}
+
+For more experienced users, the section \ref{sec:userguide} (\nameref{sec:userguide}) will provide
+detailed information on the various steps in creating more complex simulations. 
+
+Please consult the index and glossary for information on specific subjects.
+
+\subsection{Basic functionality of ePNS}
+\writer{Cosmin}
+In order to use \epns, the application user starts by using the \textbf{Petri net Editor} to create
+and configure the Petri net and the \textbf{Animations} that are executed during the simulation.
+These will be later loaded by the \textbf{Graphical Simulator}, which, after being started, will
+simulate the movement of tokens through the Petri net and will execute the configured animations,
+resulting a visual representation of the Petri net's simulation on the screen.
+
+Then, using the \textbf{GeometryEditor}, the \textbf{Geometry} would be created. It would be later
+used by the \textbf{Graphical Simulator} in order to know how (on which paths) to move objects/token
+representations and where to place different objects in the 3D space\footnote{Even though the
+geometry is specified in a 2D space, during the simulation, all the object representations will be
+drawn as 3D objects moving on a plane.}.
+
+The \textbf{Graphical Simulator} also requires information about the \textbf{Appearance}, in order
+to know how to represent tokens, tracks and other objects during the simulation. It is a simple
+editor that connects labels (keys) with 3D Models(vrml, png, jpg \ldots), textures or just plain
+data (Colors, Shapes).
+  
+The last step is to create a \textbf{Configurator} that connects the previously created
+configurations and allows the user to start the graphical simulation. When started, the
+\textbf{Graphical Simulator} reads the state of the simulation from the \textit{Petri net}. This read
+state does not include exact positions of tokens in space, this information being loaded from the
+\textit{Geometry}, or appearance information, loaded from the \textit{Appearance}. After
+initialization, the Graphical Simulator displays the state of the simulation and handles all the
+users' interaction as specified in the rest of this document.
+
+For further details of what exactly each of the components allows the users to do please check the
+following section or, in order to get more details, regarding implementation of \epns, please read the
+\textit{System Specification}.
+
+\subsection{General concepts}
+\writer{Cosmin}
+\label{oa:generalconcepts}
+This subsection will introduce the general concepts used in the \epns system. More details are
+provided in the \textit{System Specification}, however the most important concepts are presented below.
+
+First of all, the classical concepts of \textbf{Petri nets} have been extended to accommodate the
+required information for the graphical visualization of the simulation:
+\index{Petri net} 
+\begin{description}
+\index{Petri net!Input Place}
+\item[Input Places] - in order to provide the users with more power and customizability, some of the
+Places in the Petri net can be configured to allow users, during the graphical simulation, to drop
+(create) tokens. These are called \textit{Input Places} and act as normal Places in all other
+respects, except for that they permit the possibility of a token being created there. For example,
+in a train track simmulation, it allows the creation of simulation features such as a Traffic lights
+or switches with which the users can interact during the graphical simulation.
+\index{animation}
+\item[Animations] - can be associated by the user to a particular Place and are run when a Token is
+added on that Place, either by result of executing a transition or by being dropped there (after a
+user interaction). Even though the token is removed from the source Places of the fired Transition,
+they are not available for firing a new Transition until the animations associated with a place are
+finished. More details will be specified later, but the supported animation types include: moving an
+object on a path, showing or hiding objects, wait a fixed amount of time.
+\item[Place Appearance] - each Place can have an associated appearance, describing how it must look
+like in the Graphical Simulator.
+\item[Token Appearance] - each Token can have an associated appearance, describing how it must look
+like in the Graphical Simulator. Thus, the appearance of a Token will not change based on a place.
+This will allow multiple tokens, with different representations, to be on the same place/track.
+\item[Arc Identities] - each arc can have attached an identity used to control the flow of tokens
+(or, more precisely, of token representations) in the simulation. For e.g., if we have a Transition
+with one input Arc and two output Arcs and we take the case of simulating a train running on a
+track, using the same identity on the input Arc and on one of the ouput Arcs will tell the Graphical
+Simulator to move the Token representation (a train), which came on the input Arc, on the
+corresponding output Arc. This allows a token representation to move continously in the direction
+the user wants, without being destroyed or unnecessarily recreated.
+\end{description}
+
+Regarding the \textbf{Geometry}, as defined, it allow the users to specify the positions of objects
+and the paths on which they move in the simulation space. The most important related concepts that
+need to be presented at this point are:
+\index{geometry}
+\begin{description}
+\index{Petri net!Track}
+\item[Track] - defines how a curve (or line), on which an animation can take place, looks like. It
+can also be connected with information about what the surface of this track looks like and usually
+are used as graphical representations of Places.
+\index{Petri net!Simple Position}
+\item[Simple Position] - defines just a position in the simulation space and can be connected to the
+an appearance it has. Can be used for completing the specification of some animations, for
+representing an Input Place or just for displaying simple objects during the simulation.
+\end{description}
+
+Referring to the \textbf{Appearance}, it allow the users to easily define how objects look like
+during the simulation. In \epns, there are mainly two big types of appearances that can be
+configured:
+\index{appearance}
+\begin{description}
+\item[Shape] - defines how a 3D Object displayed in the simulation should look like. For example, it
+can be a reference to a file storing a 3D Model, which can then be loaded in the application or it
+can simply be a 3D Object, such as a Cube or Sphere.
+\item[Surface] - defines how a surface displayed in the simulation should look like. It can be
+applied, for example, to a train track, and it could be either just a Color or a reference to a file
+containing a texture that can be applied on the surface.
+\end{description}
+
+

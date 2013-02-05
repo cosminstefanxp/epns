@@ -1,0 +1,18 @@
+\ProvidesPackage{petri}
+\usepackage{tikz}               % For doing vector graphics
+\newenvironment{petri}{
+    \begin{tikzpicture}
+    [
+	track arc/.style={>=stealth,line width=1.2,color=red},
+	arc/.style={>=stealth,line width=1.2},
+	inputplace/.style={circle,draw,minimum size=8mm,dashed,line width=1.1},
+	track place/.style={circle,draw,minimum size=10mm,line width=1.1,color=red},
+	place/.style={circle,draw,minimum size=10mm,line width=1.1},
+	transition/.style={rectangle,draw,minimum size=8mm,line width=1.1},
+	token/.style={circle,draw,fill=black,inner sep=0pt,minimum size=2mm},
+	train token/.style={circle,draw,fill=red,inner sep=0pt,minimum size=2mm}
+	]
+}{
+	\end{tikzpicture}
+	}
+
